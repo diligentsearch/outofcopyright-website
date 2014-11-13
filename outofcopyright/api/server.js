@@ -141,7 +141,7 @@ router.route('/:pays/:typeofwork')
 
 			   			commits('', '', function(data){
 			   				//console.log(data);
-							res.json({ 	calculator: 	'http://api.outofcopyright.eu/'+encodeURIComponent(req.params.pays)+'/'+req.params.typeofwork,
+							res.json({ 	URL: 	'http://api.outofcopyright.eu/'+encodeURIComponent(req.params.pays)+'/'+req.params.typeofwork,
 									version : data[0].sha,
 									parameters : 	responses,
 									result : 		result});

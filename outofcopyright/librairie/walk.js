@@ -25,7 +25,7 @@ function walk(idSubgraph, responses, server){
 
 			if(listResponses.error !== undefined){
 				var missingResponses = getMissingResponse(idSubgraph, idNode, Object.keys(responses));
-				listResponses.missing_responses = missingResponses;
+				listResponses.all_possible_responses = missingResponses;
 				return listResponses;
 			}
 
