@@ -8,6 +8,12 @@ function walk(idSubgraph, responses, server){
 	var idNode = getStartNode(idSubgraph);
 	idNode = idNode.id_node;
 	var result;
+	var testError = verificationResponses(responses);
+	if(testError != true){
+		return testError;
+	}
+
+
 	while(result === undefined){
 		console.log(idNode);
 		var node = file.subgraph[idSubgraph].nodes[idNode];
@@ -112,31 +118,4 @@ function getResponseList(node, listResponses){
 	return getResponse(node.responses, listResponses[variableList]);
 }
 
-/*
-	Récupération des réponse manquante dans les noeuds en dessous de celui donné
-*/
-function getMissingResponse(subgraph, idNode, responses){
-	var listNodes = getSubNode(subgraph, idNode);
-	console.log(listNodes);
-	console.log(responses);
-	var responsesObligatoire = [];
-	var missingResponses = [];
-	for(var i = 0; i < listNodes.length; i++){
-		var inputs = file.subgraph[subgraph].nodes[listNodes[i]].inputs
-		if(inputs !== undefined){
-			for(var j = 0; j < inputs.length; j++){
-				if(responsesObligatoire.indexOf(inputs[j]) == -1){
-					responsesObligatoire.push(inputs[j]);
-				}
-			}
-		}
-	}
-	for(var i = 0; i < responsesObligatoire.length; i++){
-		if(responses.indexOf(responsesObligatoire[i]) == -1){
-			missingResponses.push(responsesObligatoire[i]);
-		}
-	}
-	
-	return missingResponses;
 
-}

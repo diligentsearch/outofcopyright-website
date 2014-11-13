@@ -158,3 +158,62 @@ function controlStrongConnected(id_subgraph){
   
   return control;
 }
+
+/*
+  Récupération des réponse manquante dans les noeuds en dessous de celui donné
+*/
+function getMissingResponse(subgraph, idNode, responses){
+  var listNodes = getSubNode(subgraph, idNode);
+  console.log(listNodes);
+  console.log(responses);
+  var responsesObligatoire = [];
+  var missingResponses = [];
+  for(var i = 0; i < listNodes.length; i++){
+    var inputs = file.subgraph[subgraph].nodes[listNodes[i]].inputs
+    if(inputs !== undefined){
+      for(var j = 0; j < inputs.length; j++){
+        if(responsesObligatoire.indexOf(inputs[j]) == -1){
+          responsesObligatoire.push(inputs[j]);
+        }
+      }
+    }
+  }
+  for(var i = 0; i < responsesObligatoire.length; i++){
+    if(responses.indexOf(responsesObligatoire[i]) == -1){
+      missingResponses.push(responsesObligatoire[i]);
+    }
+  }
+  
+  return missingResponses;
+
+}
+
+/*
+  Vérification si les réponses sont bien formé
+*/
+function verificationResponses(listResponse){
+  console.log(listResponse);
+  var errors =[]
+  var listInputs = Object.keys(listResponse);
+  for(var i = 0; i < listInputs.length; i++){
+    var response = getResponseById(listInputs[i]);
+    var responseSubmit = eval("listResponse."+listInputs[i]);
+    if(response.type = 'numeric'){
+      if(isNaN(responseSubmit)){
+        errors.push(listInputs[i]);
+      }
+    }
+  }
+  if(errors.length > 0){
+    return {"error": 3, "response_not_a_number": errors};
+  }else{
+    console.log("test");
+    return true;
+  }
+  
+
+}
+
+
+
+
