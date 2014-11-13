@@ -68,12 +68,13 @@ router.patch('/', function(req, res) {
 router.route('/:pays')
 
 	.get(function(req, res) {
+		req.params.pays = capitaliseFirstLetter(req.params.pays);
 		readFile(req.params.pays, req.params.pays+'.json', function(data){
 			//Read file json
 			parseJSON(data);
 			var resultPays = new Object;
 			var resultPaysa = [];
-
+			
 			if(file !== null){
 				for (var i = 0 ; file.subgraph.length > i ; i ++) {
 					resultPaysa.push({ name: file.subgraph[i].graphName,
@@ -114,9 +115,12 @@ router.patch('/:pays', function(req, res) {
 router.route('/:pays/:typeofwork')
 
 	.post(function(req, res) {
+		req.params.pays = capitaliseFirstLetter(req.params.pays);
 		readFile(req.params.pays, req.params.pays+'.json', function(data){
 			//Read file json
 			parseJSON(data);
+			
+			req.params.typeofwork = capitaliseFirstLetter(req.params.typeofwork);
 			if(file !== null){
 				readFile(req.params.pays, file.default_language+'.json', function(dataTrad){
 					traductionData = dataTrad;
@@ -166,10 +170,12 @@ router.route('/:pays/:typeofwork')
 router.route('/:pays/:typeofwork')
 
 	.get(function(req, res) {
+		req.params.pays = capitaliseFirstLetter(req.params.pays);
 		readFile(req.params.pays, req.params.pays+'.json', function(data){
 			//Read file json
 			parseJSON(data);
 			if(file !== null){
+				req.params.typeofwork = capitaliseFirstLetter(req.params.typeofwork);
 				readFile(req.params.pays, file.default_language+'.json', function(dataTrad){
 					traductionData = dataTrad;
 					if(getListSubgraphByName(req.params.typeofwork) !== undefined){
