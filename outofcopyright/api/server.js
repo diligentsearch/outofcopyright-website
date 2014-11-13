@@ -190,8 +190,12 @@ router.route('/:pays/:typeofwork')
 							delete input.hint;
 							responses.push(getResponseById(inputs[i]));
 						}
-
-						res.json({ parameters : responses});
+						if(responses.length > 0){
+							res.json({ parameters : responses});
+						}else{
+							res.json({ error : 10, message : 'No possible result, the diagram is empty'});
+						}
+						
 					}
 					else{
 						res.status(400)        // HTTP status 404: NotFound
