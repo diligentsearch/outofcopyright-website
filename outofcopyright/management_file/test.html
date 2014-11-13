@@ -1,0 +1,17 @@
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		$.post( "/node", { country: "Belgium", name: "Belgium.json", action: 'read' } )
+		.done(function( data ) {
+    		console.log( data );
+    		$.post( "/node", { country: "Belgium", name: "Belgium.json", action: 'update', file: JSON.stringify(data), message: 'test github server update' } );
+  		});
+
+  		$.post( "/node", { country: "Belgium", name: "test.json", action: 'write', file: 'test du 10 novembre', message: 'test github server write' } );
+
+	</script>
+</head>
+<body>
+</body>
+<html>

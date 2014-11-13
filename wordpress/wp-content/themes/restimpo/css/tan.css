@@ -1,0 +1,91 @@
+/* Color scheme Tan
+----------------------------------------------- */
+body a,
+body .site-title a,
+body .header-description h1,
+body .menu-box a:hover,
+body .menu-box :hover > a,
+body #wrapper-header .menu-box .current-menu-item > a,
+body #wrapper-header .menu-box .current-menu-ancestor > a,
+body #wrapper-header .menu-box .current_page_item > a,
+body #wrapper-header .menu-box .current-page-ancestor > a,
+body .post-info .read-more,
+body .post-entry .post-entry-headline a,
+body .flexslider .slides li a,
+body .info-box-headline {
+  color: #a68d6e;         
+}
+body .menu-box ul ul,
+body #wrapper-header .menu-box .current-menu-item > a,
+body #wrapper-header .menu-box .current-menu-ancestor > a,
+body #wrapper-header .menu-box .current_page_item > a,
+body #wrapper-header .menu-box .current-page-ancestor > a {
+  border-color: #a68d6e;                     
+}
+body .info-box .info-box-icon {
+  background-color: #a68d6e;                                
+}
+body .header-image .header-image-text .header-image-headline,
+body .content-headline h1,
+body #wrapper-header .flexslider .slides li .header-slider-link {
+  color: #725126;                                                             
+}
+body input[type="submit"],
+body input[type="reset"],
+body .custom-button,
+body .info-box .info-box-more,
+#wrapper .container .panel-row-style-restimpo .origin-widget-button a,
+body .header-image .header-image-text .header-image-link,
+body #wrapper-header .flexslider .header-slider-text .header-slider-more {
+  border-color: #725126;                                                    
+}
+body .sidebar-widget a {
+  color: #ad9473;                       
+}
+body #wrapper-footer {
+  border-color: #d8c0a1;                     
+}
+body .social-icon,
+body .highlight-text,
+body #searchform .searchform-wrapper .send {
+  background-color: #d8c0a1;                  
+}
+body #searchform .send:hover {
+  background-color: #bda88c;                             
+}
+body #footer a,
+body .footer-signature .footer-signature-content a {
+  color: #e3d8cc;               
+}
+body input[type="submit"],
+body input[type="reset"],
+body .custom-button,
+body .info-box .info-box-more,
+#wrapper .container .panel-row-style-restimpo .origin-widget-button a,
+body .header-image .header-image-text .header-image-link,
+body #wrapper-header .flexslider .header-slider-text .header-slider-more {
+  background: #d8c0a1;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#d8c0a1), color-stop(1em, #d1ba9c), to(#bda88c));
+  background: -webkit-linear-gradient(#d8c0a1, #d1ba9c 1em, #bda88c);
+  background: -moz-linear-gradient(top, #d8c0a1, #d1ba9c 1em, #bda88c);
+  background: -ms-linear-gradient(#d8c0a1, #d1ba9c 1em, #bda88c);
+  background: -o-linear-gradient(#d8c0a1, #d1ba9c 1em, #bda88c);
+  background: linear-gradient(#d8c0a1, #d1ba9c 1em, #bda88c);
+  -pie-background: linear-gradient(#d8c0a1, #d1ba9c 1em, #bda88c);
+}
+body input[type="submit"]:hover,
+body input[type="reset"]:hover,
+body .custom-button:hover,
+body .info-box .info-box-more:hover,
+#wrapper .container .panel-row-style-restimpo .origin-widget-button a:hover,
+body .header-image .header-image-text .header-image-link:hover,
+body #wrapper-header .flexslider .header-slider-text .header-slider-more:hover {
+  background: #bda88c;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#bda88c), color-stop(1em, #d1ba9c), to(#d8c0a1));
+  background: -webkit-linear-gradient(#bda88c, #d1ba9c 1em, #d8c0a1);
+  background: -moz-linear-gradient(top, #bda88c, #d1ba9c 1em, #d8c0a1);
+  background: -ms-linear-gradient(#bda88c, #d1ba9c 1em, #d8c0a1);
+  background: -o-linear-gradient(#bda88c, #d1ba9c 1em, #d8c0a1);
+  background: linear-gradient(#bda88c, #d1ba9c 1em, #d8c0a1);
+  -pie-background: linear-gradient(#bda88c, #d1ba9c 1em, #d8c0a1);
+}

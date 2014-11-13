@@ -1,0 +1,5 @@
+/* Additional CSS for IE8 and older versions.
+----------------------------------------------- */
+.header-image .header-image-text .header-image-link {
+  position: relative;
+}

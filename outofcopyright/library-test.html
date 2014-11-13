@@ -1,0 +1,157 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+    <link href="css/design.css" rel="stylesheet">
+
+	<script src="librairie/node.js"></script>
+	<script src="librairie/control.js"></script>
+	<script src="librairie/library.js"></script>
+	<script src="librairie/walk.js"></script>
+	<script src="librairie/datapoints.js"></script>
+	<script src="librairie/credential_github.js"></script>
+	<script src="librairie/github/github.js"></script>
+	<script src="librairie/github.js"></script>
+	<script src="librairie/traduction.js"></script>
+
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<script>
+	var inputs;
+		function submit(){
+
+			$(".alert").hide();
+
+			var responses = new Object();
+			var errors = [];
+
+			for(var i = 0; i < inputs.length; i++){
+				if($("#"+inputs[i]).val() != ""){
+					var response = $("#"+inputs[i]).val();
+					eval("responses."+inputs[i]+" = response;");
+				}
+				var trad = getTraduction(file.default_language, inputs[i]);
+				errors[inputs[i]] = trad+' missing';
+			}
+
+			responses = JSON.stringify(responses);
+   			var result = walk($( "#typeOfWork" ).val(), responses);
+
+   			if(result.error == 1){
+   				$("#error").html(errors[result.waiting_response]);
+   				$(".alert-warning").show();
+   			}
+   			
+   			$("#result").html(result);
+   			$(".alert-success").show();
+
+   			console.log(result);
+		}
+		$(document).on('change','#typeOfWork',function(){
+			readFile('Belgium', file.default_language+'.json', function(dataTrad){
+				traductionData = dataTrad;
+				$( "#forms" ).html('');
+				if($( "#typeOfWork" ).val() != ''){
+					inputs = getInputs($( "#typeOfWork" ).val());
+	  				console.log(inputs);
+	  				for(var i = 0; i < inputs.length; i++){
+	  					var trad = getTraduction(file.default_language, 'question_'+inputs[i]);
+	  					var datapoint = getResponseById(inputs[i]);
+	  					var inputHTML= "";
+	  					switch(datapoint.type) {
+						    case 'numeric':
+						        inputHTML = '<input type="text" class="col-sm-12" name="'+inputs[i]+'" id="'+inputs[i]+'" placeholder="'+trad+'"/>';
+						        break;
+						    case 'list':
+						        inputHTML = '<select name="'+inputs[i]+'" id="'+inputs[i]+'" class="form-control">'
+						        inputHTML += '<option value="">Select a response</option>';
+						        for(var j = 0; j < datapoint.set.length; j++){
+						        	inputHTML += '<option value="'+datapoint.set[j]+'">'+datapoint.set[j]+'</option>';
+						        }
+						        inputHTML += '</select>';
+						        break;
+						    default:
+						        inputHTML = '';
+						} 
+
+	  					$("#forms").append('\
+	  						<div class="row margin-top">\
+								<div class="col-sm-2">\
+									<label for="'+inputs[i]+'" class="control-label">'+trad+'</label>\
+								</div>\
+								<div class="col-sm-10">\
+									'+inputHTML+'\
+								</div>\
+							</div>\
+	  						');
+	  				}
+				}
+			});
+          });	
+
+		$(function() {
+
+			readFile('Belgium', 'Belgium.json', function(data){
+				parseJSON(data);
+
+
+
+	   			//getInputs(id_subgraph);
+
+	   			var listSubgraph = getListSubgraph();
+
+		   		for(var i = 0; i < listSubgraph.length; i++){
+		   			$('#typeOfWork')
+				         .append($("<option></option>")
+				         .attr("value",i)
+				         .text(listSubgraph[i])); 
+		   		}
+	   		});
+		});
+	</script>
+</head>
+<body style="overflow:auto;">
+<h1>Decision diagramm test</h1>
+	<div class="row margin-left">
+		<div class="row">
+			<div class="col-sm-12">
+				<label class="control-label">Country : Belgium</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">
+				<label class="control-label">Type of work : </label>
+			</div>
+			<div class="col-sm-10">
+				<select name="typeOfWork" id="typeOfWork" class="form-control">
+					<option value="">Select type of work</option>
+				</select>
+			</div>
+		</div>
+		<div id="forms">
+		</div>
+		<div class="row">
+				<div class="col-sm-12">
+					<input type="button" name="submit" value="Submit" class="btn btn-primary" onclick="submit();" />
+				</div>
+			</div>
+			<div class="alert alert-dismissable alert-warning margin-top" style="display:none;">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<h4>Warning!</h4>
+				<p id="error"></p>
+			</div>
+			<div class="alert alert-dismissable alert-success margin-top" style="display:none;">
+		  		<button type="button" class="close" data-dismiss="alert">×</button>
+		  		<p id="result"></p>
+			</div>
+			<div class="alert alert-dismissable alert-danger margin-top" style="display:none;">
+		  		<button type="button" class="close" data-dismiss="alert">×</button>
+		  		<p id="resultdanger"></p>
+			</div>
+	</div>
+</body>
+
+</html>

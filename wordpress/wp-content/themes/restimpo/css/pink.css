@@ -1,0 +1,87 @@
+/* Color scheme Pink
+----------------------------------------------- */
+body a,
+body .site-title a,
+body .header-description h1,
+body .menu-box a:hover,
+body .menu-box :hover > a,
+body #wrapper-header .menu-box .current-menu-item > a,
+body #wrapper-header .menu-box .current-menu-ancestor > a,
+body #wrapper-header .menu-box .current_page_item > a,
+body #wrapper-header .menu-box .current-page-ancestor > a,
+body .post-info .read-more,
+body .post-entry .post-entry-headline a,
+body .flexslider .slides li a,
+body .info-box-headline {
+  color: #dc0966;         
+}
+body .menu-box ul ul,
+body #wrapper-header .menu-box .current-menu-item > a,
+body #wrapper-header .menu-box .current-menu-ancestor > a,
+body #wrapper-header .menu-box .current_page_item > a,
+body #wrapper-header .menu-box .current-page-ancestor > a {
+  border-color: #dc0966;                     
+}
+body .info-box .info-box-icon {
+  background-color: #dc0966;                                
+}
+body .header-image .header-image-text .header-image-headline,
+body .content-headline h1 {
+  color: #930342;                                                             
+}
+body input[type="submit"],
+body input[type="reset"],
+body .custom-button,
+body .info-box .info-box-more,
+#wrapper .container .panel-row-style-restimpo .origin-widget-button a,
+body .header-image .header-image-text .header-image-link {
+  border-color: #930342;                                                    
+}
+body .sidebar-widget a {
+  color: #e86ea3;                       
+}
+body #wrapper-footer {
+  border-color: #ed70a7;                     
+}
+body .social-icon,
+body .highlight-text,
+body #searchform .searchform-wrapper .send {
+  background-color: #ed70a7;                  
+}
+body #searchform .send:hover {
+  background-color: #dc0c67;                             
+}
+body #footer a,
+body .footer-signature .footer-signature-content a {
+  color: #f7b4d1;               
+}
+body input[type="submit"],
+body input[type="reset"],
+body .custom-button,
+body .info-box .info-box-more,
+#wrapper .container .panel-row-style-restimpo .origin-widget-button a,
+body .header-image .header-image-text .header-image-link {
+  background: #ed70a7;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#ed70a7), color-stop(1em, #e5448a), to(#dc0c67));
+  background: -webkit-linear-gradient(#ed70a7, #e5448a 1em, #dc0c67);
+  background: -moz-linear-gradient(top, #ed70a7, #e5448a 1em, #dc0c67);
+  background: -ms-linear-gradient(#ed70a7, #e5448a 1em, #dc0c67);
+  background: -o-linear-gradient(#ed70a7, #e5448a 1em, #dc0c67);
+  background: linear-gradient(#ed70a7, #e5448a 1em, #dc0c67);
+  -pie-background: linear-gradient(#ed70a7, #e5448a 1em, #dc0c67);
+}
+body input[type="submit"]:hover,
+body input[type="reset"]:hover,
+body .custom-button:hover,
+body .info-box .info-box-more:hover,
+#wrapper .container .panel-row-style-restimpo .origin-widget-button a:hover,
+body .header-image .header-image-text .header-image-link:hover {
+  background: #dc0c67;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#dc0c67), color-stop(1em, #e5448a), to(#ed70a7));
+  background: -webkit-linear-gradient(#dc0c67, #e5448a 1em, #ed70a7);
+  background: -moz-linear-gradient(top, #dc0c67, #e5448a 1em, #ed70a7);
+  background: -ms-linear-gradient(#dc0c67, #e5448a 1em, #ed70a7);
+  background: -o-linear-gradient(#dc0c67, #e5448a 1em, #ed70a7);
+  background: linear-gradient(#dc0c67, #e5448a 1em, #ed70a7);
+  -pie-background: linear-gradient(#dc0c67, #e5448a 1em, #ed70a7);
+}

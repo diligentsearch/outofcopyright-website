@@ -1,0 +1,9 @@
+<html>
+<script>
+	var request = new XMLHttpRequest();
+   	request.open("GET", "nd-phonogramme.json", false);
+   	request.send(null)
+   	var my_JSON_object = JSON.parse(request.responseText);
+   	console.log(my_JSON_object);
+</script>
+</html>

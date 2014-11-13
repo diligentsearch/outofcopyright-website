@@ -1,0 +1,4271 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: enigma\n"
+"POT-Creation-Date: 2014-07-25 17:11+0530\n"
+"PO-Revision-Date: 2014-07-25 17:11+0530\n"
+"Last-Translator: \n"
+"Language-Team: weblizar\n"
+"Language: en_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: ./\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: ../GL/404.php:9 ../WL/404.php:9 ../weblizar1.1.4/weblizar/404.php:9
+msgid "Error 404"
+msgstr ""
+
+#: ../GL/404.php:10 ../WL/404.php:10 ../weblizar-pro/404.php:10
+#: ../weblizar1.1.4/weblizar/404.php:10
+msgid "We're sorry, but the page you were looking for doesn't exist."
+msgstr ""
+
+#: ../GL/404.php:11 ../WL/404.php:11 ../weblizar1.1.4/weblizar/404.php:11
+msgid "Go to Homepage"
+msgstr ""
+
+#: ../GL/archive.php:9 ../WL/archive.php:9
+#: ../weblizar1.1.4/weblizar/archive.php:9
+msgid "Daily Archives:"
+msgstr ""
+
+#: ../GL/archive.php:11 ../WL/archive.php:11
+#: ../weblizar1.1.4/weblizar/archive.php:11
+msgid "Monthly Archives:"
+msgstr ""
+
+#: ../GL/archive.php:13 ../WL/archive.php:13
+#: ../weblizar1.1.4/weblizar/archive.php:13
+msgid "Yearly Archives:"
+msgstr ""
+
+#: ../GL/archive.php:15 ../WL/archive.php:15
+#: ../weblizar1.1.4/weblizar/archive.php:15
+msgid "Blog Archives"
+msgstr ""
+
+#: ../GL/archive.php:25 ../GL/author.php:15 ../GL/category.php:16
+#: ../GL/index.php:13 ../GL/tag.php:16 ../WL/archive.php:25
+#: ../WL/author.php:15 ../WL/category.php:16 ../WL/index.php:15
+#: ../WL/tag.php:16 ../weblizar1.1.4/weblizar/archive.php:25
+#: ../weblizar1.1.4/weblizar/author.php:15
+#: ../weblizar1.1.4/weblizar/category.php:16
+#: ../weblizar1.1.4/weblizar/index.php:15 ../weblizar1.1.4/weblizar/tag.php:16
+msgid "Older posts"
+msgstr ""
+
+#: ../GL/archive.php:28 ../GL/author.php:18 ../GL/category.php:19
+#: ../GL/index.php:16 ../GL/tag.php:19 ../WL/archive.php:28
+#: ../WL/author.php:18 ../WL/category.php:19 ../WL/index.php:18
+#: ../WL/tag.php:19 ../weblizar1.1.4/weblizar/archive.php:28
+#: ../weblizar1.1.4/weblizar/author.php:18
+#: ../weblizar1.1.4/weblizar/category.php:19
+#: ../weblizar1.1.4/weblizar/index.php:18 ../weblizar1.1.4/weblizar/tag.php:19
+msgid "Newer posts"
+msgstr ""
+
+#: ../GL/author.php:7 ../WL/author.php:7 ../enigma/author.php:7
+#: ../twentytwelve/author.php:32 ../weblizar-pro/author.php:7
+#: ../weblizar1.1.4/weblizar/author.php:7 author.php:7
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../GL/category.php:7 ../WL/category.php:7 ../enigma/category.php:7
+#: ../twentyfourteen/category.php:20 ../twentythirteen/category.php:19
+#: ../twentytwelve/category.php:21 ../weblizar-pro/category.php:7
+#: ../weblizar1.1.4/weblizar/category.php:7 category.php:7
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../GL/comments.php:2 ../WL/comments.php:2 ../enigma/comments.php:2
+#: ../weblizar-pro/comments.php:2 ../weblizar1.1.4/weblizar/comments.php:2
+#: comments.php:2
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: ../GL/comments.php:16 ../WL/comments.php:16
+#: ../skt-parallaxme/comments.php:36 ../skt-parallaxme/comments.php:56
+#: ../twentyfourteen/comments.php:34 ../twentyfourteen/comments.php:52
+#: ../twentythirteen/comments.php:45 ../twentytwelve/comments.php:42
+#: ../weblizar1.1.4/weblizar/comments.php:16
+msgid "Comment navigation"
+msgstr ""
+
+#: ../GL/comments.php:17 ../WL/comments.php:17
+#: ../skt-parallaxme/comments.php:37 ../skt-parallaxme/comments.php:57
+#: ../twentyfourteen/comments.php:35 ../twentyfourteen/comments.php:53
+#: ../twentythirteen/comments.php:46 ../twentytwelve/comments.php:43
+#: ../weblizar1.1.4/weblizar/comments.php:17
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../GL/comments.php:18 ../WL/comments.php:18
+#: ../skt-parallaxme/comments.php:38 ../skt-parallaxme/comments.php:58
+#: ../twentyfourteen/comments.php:36 ../twentyfourteen/comments.php:54
+#: ../twentythirteen/comments.php:47 ../twentytwelve/comments.php:44
+#: ../weblizar1.1.4/weblizar/comments.php:18
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../GL/comments.php:22 ../WL/comments.php:22
+#: ../weblizar1.1.4/weblizar/comments.php:22
+msgid "Comments Are Closed!!!"
+msgstr ""
+
+#: ../GL/comments.php:26 ../WL/comments.php:26
+#: ../weblizar1.1.4/weblizar/comments.php:26
+msgid "You must be"
+msgstr ""
+
+#: ../GL/comments.php:26 ../WL/comments.php:26
+#: ../weblizar1.1.4/weblizar/comments.php:26
+msgid "logged in"
+msgstr ""
+
+#: ../GL/comments.php:26 ../WL/comments.php:26
+#: ../weblizar1.1.4/weblizar/comments.php:26
+msgid "to post a comment"
+msgstr ""
+
+#: ../GL/comments.php:46 ../WL/comments.php:46 ../enigma/comments.php:28
+#: ../weblizar-pro/comments.php:36 ../weblizar1.1.4/weblizar/comments.php:46
+#: comments.php:28
+msgid "Logged in as "
+msgstr ""
+
+#: ../GL/comments.php:46 ../WL/comments.php:46 ../enigma/comments.php:28
+#: ../weblizar-pro/comments.php:36 ../weblizar1.1.4/weblizar/comments.php:46
+#: comments.php:28
+msgid " Log out?"
+msgstr ""
+
+#: ../GL/comments.php:49 ../WL/comments.php:49 ../weblizar-pro/comments.php:39
+#: ../weblizar1.1.4/weblizar/comments.php:49
+msgid "Send"
+msgstr ""
+
+#: ../GL/content.php:34 ../GL/page.php:27 ../GL/single.php:50
+#: ../WL/content.php:35 ../enigma/home-blog.php:41 ../enigma/home-blog.php:42
+#: ../enigma/home-blog.php:75 ../enigma/loop.php:37 ../enigma/loop.php:38
+#: ../enigma/loop.php:62 ../enigma/post-content.php:30
+#: ../enigma/post-page.php:13 ../weblizar-pro/contactpage-one.php:23
+#: ../weblizar-pro/contactpage-three.php:14 ../weblizar-pro/posts-loop.php:79
+#: ../weblizar1.1.4/weblizar/content.php:35 home-blog.php:41 home-blog.php:42
+#: home-blog.php:75 loop.php:37 loop.php:38 loop.php:62 post-content.php:30
+#: post-page.php:13
+msgid "Read More"
+msgstr ""
+
+#: ../GL/core/comment-box/comment-function.php:12
+#: ../WL/core/comment-box/comment-function.php:12
+#: ../enigma/core/comment-function.php:12 ../twentytwelve/functions.php:349
+#: ../weblizar-pro/functions/comment-list/comment-function.php:12
+#: ../weblizar1.1.4/weblizar/core/comment-box/comment-function.php:12
+#: core/comment-function.php:12
+msgid "Reply"
+msgstr ""
+
+#: ../GL/core/comment-box/comment-function.php:20
+#: ../WL/core/comment-box/comment-function.php:20
+#: ../enigma/core/comment-function.php:23
+#: ../weblizar-pro/functions/comment-list/comment-function.php:22
+#: ../weblizar1.1.4/weblizar/core/comment-box/comment-function.php:20
+#: core/comment-function.php:23
+msgid "at"
+msgstr ""
+
+#: ../GL/core/comment-box/comment-function.php:26
+#: ../WL/core/comment-box/comment-function.php:26
+#: ../enigma/core/comment-function.php:31
+#: ../skt-parallaxme/inc/template-tags.php:94
+#: ../twentytwelve/functions.php:340
+#: ../weblizar-pro/functions/comment-list/comment-function.php:31
+#: ../weblizar1.1.4/weblizar/core/comment-box/comment-function.php:26
+#: core/comment-function.php:31
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:32
+#: ../GL/core/theme-options/option-settings.php:559
+#: ../WL/core/theme-options/option-settings.php:555
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:555
+msgid "Green-Lantern Pro"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:35
+#: ../GL/core/theme-options/option-settings.php:560
+#: ../GL/core/theme-options/option-settings.php:581
+#: ../WL/core/theme-options/option-settings.php:556
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:556
+msgid "Get Our Premium Theme"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:38
+#: ../GL/core/theme-options/option-settings.php:571
+#: ../GL/core/theme-options/option-settings.php:592
+#: ../GL/core/theme-options/option-settings.php:617
+#: ../WL/core/theme-options/option-panel.php:37
+#: ../WL/core/theme-options/option-settings.php:567
+#: ../WL/core/theme-options/option-settings.php:588
+#: ../WL/core/theme-options/option-settings.php:613
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:37
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:567
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:588
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:613
+msgid "View Pro Demo"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:43
+#: ../GL/core/theme-options/option-settings.php:562
+#: ../GL/core/theme-options/option-settings.php:583
+#: ../GL/core/theme-options/option-settings.php:604
+#: ../WL/core/theme-options/option-panel.php:42
+#: ../WL/core/theme-options/option-settings.php:558
+#: ../WL/core/theme-options/option-settings.php:579
+#: ../WL/core/theme-options/option-settings.php:600
+#: ../enigma/core/theme-options/option-panel.php:49
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:42
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:558
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:579
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:600
+#: core/theme-options/option-panel.php:49
+msgid "Responsive Design"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:44
+#: ../enigma/core/theme-options/option-panel.php:50
+#: core/theme-options/option-panel.php:50
+msgid "More than 13 Templates"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:45
+#: ../GL/core/theme-options/option-settings.php:564
+#: ../GL/core/theme-options/option-settings.php:585
+#: ../WL/core/theme-options/option-settings.php:560
+#: ../WL/core/theme-options/option-settings.php:581
+#: ../enigma/core/theme-options/option-panel.php:51
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:560
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:581
+#: core/theme-options/option-panel.php:51
+msgid "12 types Themes Colors Scheme"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:46
+#: ../WL/core/theme-options/option-panel.php:45
+#: ../enigma/core/theme-options/option-panel.php:52
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:45
+#: core/theme-options/option-panel.php:52
+msgid "Patterns Background"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:47
+#: ../WL/core/theme-options/option-panel.php:46
+#: ../enigma/core/theme-options/option-panel.php:53
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:46
+#: core/theme-options/option-panel.php:53
+msgid "Image Background"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:48
+#: ../GL/core/theme-options/option-settings.php:565
+#: ../GL/core/theme-options/option-settings.php:586
+#: ../WL/core/theme-options/option-panel.php:47
+#: ../WL/core/theme-options/option-settings.php:561
+#: ../WL/core/theme-options/option-settings.php:582
+#: ../enigma/core/theme-options/option-panel.php:59
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:47
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:561
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:582
+#: core/theme-options/option-panel.php:59
+msgid "Ultimate Portfolio layout with Isotope effect"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:49
+#: ../GL/core/theme-options/option-settings.php:566
+#: ../GL/core/theme-options/option-settings.php:587
+#: ../WL/core/theme-options/option-panel.php:48
+#: ../WL/core/theme-options/option-settings.php:562
+#: ../WL/core/theme-options/option-settings.php:583
+#: ../enigma/core/theme-options/option-panel.php:60
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:48
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:562
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:583
+#: core/theme-options/option-panel.php:60
+msgid "Rich Short codes"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:50
+#: ../GL/core/theme-options/option-settings.php:567
+#: ../GL/core/theme-options/option-settings.php:588
+#: ../WL/core/theme-options/option-panel.php:49
+#: ../WL/core/theme-options/option-settings.php:563
+#: ../WL/core/theme-options/option-settings.php:584
+#: ../enigma/core/theme-options/option-panel.php:61
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:49
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:563
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:584
+#: core/theme-options/option-panel.php:61
+msgid "Translation Ready"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:51
+#: ../GL/core/theme-options/option-settings.php:568
+#: ../GL/core/theme-options/option-settings.php:589
+#: ../WL/core/theme-options/option-panel.php:50
+#: ../WL/core/theme-options/option-settings.php:564
+#: ../WL/core/theme-options/option-settings.php:585
+#: ../enigma/core/theme-options/option-panel.php:62
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:50
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:564
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:585
+#: core/theme-options/option-panel.php:62
+msgid "Coming Soon Mode"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:52
+#: ../WL/core/theme-options/option-panel.php:51
+#: ../enigma/core/theme-options/option-panel.php:63
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:51
+#: core/theme-options/option-panel.php:63
+msgid "Google Fonts"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:59
+#: ../WL/core/theme-options/option-panel.php:58
+#: ../enigma/core/theme-options/option-panel.php:70
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:58
+#: core/theme-options/option-panel.php:70
+msgid "Weblizar Theme Settings"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:62
+#: ../WL/core/theme-options/option-panel.php:62
+#: ../enigma/core/theme-options/option-panel.php:74
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:62
+#: core/theme-options/option-panel.php:74
+msgid "Support Forum"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:63
+#: ../WL/core/theme-options/option-panel.php:63
+#: ../enigma/core/theme-options/option-panel.php:75
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:63
+#: core/theme-options/option-panel.php:75
+msgid "View Changelog"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:71
+#: ../WL/core/theme-options/option-panel.php:71
+#: ../enigma/core/theme-options/option-panel.php:83
+#: ../weblizar-pro/theme-options/option-panel.php:40
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:71
+#: core/theme-options/option-panel.php:83
+msgid "Home Option"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:73
+#: ../WL/core/theme-options/option-panel.php:73
+#: ../enigma/core/theme-options/option-panel.php:85
+#: ../weblizar-pro/theme-options/option-panel.php:42
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:73
+#: core/theme-options/option-panel.php:85
+msgid "General Option"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:74
+#: ../WL/core/theme-options/option-panel.php:74
+#: ../enigma/core/theme-options/option-panel.php:86
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:74
+#: core/theme-options/option-panel.php:86
+msgid "Slide show Option"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:75
+#: ../WL/core/theme-options/option-panel.php:75
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:75
+msgid "Site Info Option"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:76
+#: ../WL/core/theme-options/option-panel.php:76
+#: ../enigma/core/theme-options/option-panel.php:87
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:76
+#: core/theme-options/option-panel.php:87
+msgid "Service Option"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:80
+#: ../WL/core/theme-options/option-panel.php:79
+#: ../weblizar-pro/theme-options/option-panel.php:50
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:79
+msgid "Social Media Links"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:81
+#: ../WL/core/theme-options/option-panel.php:80
+#: ../enigma/core/theme-options/option-panel.php:93
+#: ../weblizar-pro/theme-options/option-panel.php:51
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:80
+#: core/theme-options/option-panel.php:93
+msgid "Footer Option"
+msgstr ""
+
+#: ../GL/core/theme-options/option-panel.php:82
+msgid "Pro Features"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:8
+#: ../WL/core/theme-options/option-settings.php:6
+#: ../enigma/core/theme-options/option-settings.php:9
+#: ../weblizar-pro/theme-options/option-settings.php:6
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:6
+#: core/theme-options/option-settings.php:9
+msgid "General Settings"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:11
+#: ../GL/core/theme-options/option-settings.php:116
+#: ../GL/core/theme-options/option-settings.php:270
+#: ../GL/core/theme-options/option-settings.php:343
+#: ../GL/core/theme-options/option-settings.php:464
+#: ../GL/core/theme-options/option-settings.php:517
+#: ../WL/core/theme-options/option-settings.php:9
+#: ../WL/core/theme-options/option-settings.php:114
+#: ../WL/core/theme-options/option-settings.php:265
+#: ../WL/core/theme-options/option-settings.php:338
+#: ../WL/core/theme-options/option-settings.php:459
+#: ../WL/core/theme-options/option-settings.php:512
+#: ../enigma/core/theme-options/option-settings.php:12
+#: ../enigma/core/theme-options/option-settings.php:116
+#: ../enigma/core/theme-options/option-settings.php:289
+#: ../enigma/core/theme-options/option-settings.php:461
+#: ../enigma/core/theme-options/option-settings.php:602
+#: ../enigma/core/theme-options/option-settings.php:663
+#: ../enigma/core/theme-options/option-settings.php:709
+#: ../weblizar-pro/theme-options/option-settings.php:9
+#: ../weblizar-pro/theme-options/option-settings.php:77
+#: ../weblizar-pro/theme-options/option-settings.php:129
+#: ../weblizar-pro/theme-options/option-settings.php:184
+#: ../weblizar-pro/theme-options/option-settings.php:227
+#: ../weblizar-pro/theme-options/option-settings.php:344
+#: ../weblizar-pro/theme-options/option-settings.php:414
+#: ../weblizar-pro/theme-options/option-settings.php:472
+#: ../weblizar-pro/theme-options/option-settings.php:516
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:9
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:114
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:265
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:338
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:459
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:512
+#: core/theme-options/option-settings.php:12
+#: core/theme-options/option-settings.php:116
+#: core/theme-options/option-settings.php:289
+#: core/theme-options/option-settings.php:461
+#: core/theme-options/option-settings.php:602
+#: core/theme-options/option-settings.php:663
+#: core/theme-options/option-settings.php:709
+msgid "Options Data updated"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:12
+#: ../GL/core/theme-options/option-settings.php:117
+#: ../GL/core/theme-options/option-settings.php:271
+#: ../GL/core/theme-options/option-settings.php:344
+#: ../GL/core/theme-options/option-settings.php:465
+#: ../GL/core/theme-options/option-settings.php:518
+#: ../WL/core/theme-options/option-settings.php:10
+#: ../WL/core/theme-options/option-settings.php:115
+#: ../WL/core/theme-options/option-settings.php:266
+#: ../WL/core/theme-options/option-settings.php:339
+#: ../WL/core/theme-options/option-settings.php:460
+#: ../WL/core/theme-options/option-settings.php:513
+#: ../enigma/core/theme-options/option-settings.php:13
+#: ../enigma/core/theme-options/option-settings.php:117
+#: ../enigma/core/theme-options/option-settings.php:290
+#: ../enigma/core/theme-options/option-settings.php:462
+#: ../enigma/core/theme-options/option-settings.php:603
+#: ../enigma/core/theme-options/option-settings.php:664
+#: ../enigma/core/theme-options/option-settings.php:710
+#: ../weblizar-pro/theme-options/option-settings.php:10
+#: ../weblizar-pro/theme-options/option-settings.php:78
+#: ../weblizar-pro/theme-options/option-settings.php:130
+#: ../weblizar-pro/theme-options/option-settings.php:185
+#: ../weblizar-pro/theme-options/option-settings.php:228
+#: ../weblizar-pro/theme-options/option-settings.php:345
+#: ../weblizar-pro/theme-options/option-settings.php:415
+#: ../weblizar-pro/theme-options/option-settings.php:473
+#: ../weblizar-pro/theme-options/option-settings.php:517
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:10
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:115
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:266
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:339
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:460
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:513
+#: core/theme-options/option-settings.php:13
+#: core/theme-options/option-settings.php:117
+#: core/theme-options/option-settings.php:290
+#: core/theme-options/option-settings.php:462
+#: core/theme-options/option-settings.php:603
+#: core/theme-options/option-settings.php:664
+#: core/theme-options/option-settings.php:710
+msgid "Options data Reset"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:28
+#: ../WL/core/theme-options/option-settings.php:26
+#: ../enigma/core/theme-options/option-settings.php:29
+#: ../weblizar-pro/theme-options/option-settings.php:238
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:26
+#: core/theme-options/option-settings.php:29
+msgid "Theme Color Schemes"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:38
+#: ../WL/core/theme-options/option-settings.php:36
+#: ../enigma/core/theme-options/option-settings.php:39
+#: ../weblizar-pro/theme-options/option-settings.php:242
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:36
+#: core/theme-options/option-settings.php:39
+msgid "light-blue"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:39
+#: ../WL/core/theme-options/option-settings.php:37
+#: ../enigma/core/theme-options/option-settings.php:40
+#: ../weblizar-pro/theme-options/option-settings.php:243
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:37
+#: core/theme-options/option-settings.php:40
+msgid "green"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:40
+#: ../WL/core/theme-options/option-settings.php:38
+#: ../enigma/core/theme-options/option-settings.php:41
+#: ../weblizar-pro/theme-options/option-settings.php:244
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:38
+#: core/theme-options/option-settings.php:41
+msgid "red"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:41
+#: ../WL/core/theme-options/option-settings.php:39
+#: ../enigma/core/theme-options/option-settings.php:42
+#: ../weblizar-pro/theme-options/option-settings.php:245
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:39
+#: core/theme-options/option-settings.php:42
+msgid "pink"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:42
+#: ../WL/core/theme-options/option-settings.php:40
+#: ../enigma/core/theme-options/option-settings.php:43
+#: ../weblizar-pro/theme-options/option-settings.php:246
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:40
+#: core/theme-options/option-settings.php:43
+msgid "light-purple"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:43
+#: ../WL/core/theme-options/option-settings.php:41
+#: ../enigma/core/theme-options/option-settings.php:44
+#: ../weblizar-pro/theme-options/option-settings.php:247
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:41
+#: core/theme-options/option-settings.php:44
+msgid "orange"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:44
+#: ../WL/core/theme-options/option-settings.php:42
+#: ../enigma/core/theme-options/option-settings.php:45
+#: ../weblizar-pro/theme-options/option-settings.php:248
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:42
+#: core/theme-options/option-settings.php:45
+msgid "bright-green"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:45
+#: ../WL/core/theme-options/option-settings.php:43
+#: ../enigma/core/theme-options/option-settings.php:46
+#: ../weblizar-pro/theme-options/option-settings.php:249
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:43
+#: core/theme-options/option-settings.php:46
+msgid "dark-blue"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:46
+#: ../WL/core/theme-options/option-settings.php:44
+#: ../enigma/core/theme-options/option-settings.php:47
+#: ../weblizar-pro/theme-options/option-settings.php:250
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:44
+#: core/theme-options/option-settings.php:47
+msgid "oil"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:47
+#: ../WL/core/theme-options/option-settings.php:45
+#: ../enigma/core/theme-options/option-settings.php:48
+#: ../weblizar-pro/theme-options/option-settings.php:251
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:45
+#: core/theme-options/option-settings.php:48
+msgid "black"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:48
+#: ../WL/core/theme-options/option-settings.php:46
+#: ../enigma/core/theme-options/option-settings.php:49
+#: ../weblizar-pro/theme-options/option-settings.php:252
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:46
+#: core/theme-options/option-settings.php:49
+msgid "light-brown"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:49
+#: ../WL/core/theme-options/option-settings.php:47
+#: ../enigma/core/theme-options/option-settings.php:50
+#: ../weblizar-pro/theme-options/option-settings.php:253
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:47
+#: core/theme-options/option-settings.php:50
+msgid "coffee"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:50
+#: ../WL/core/theme-options/option-settings.php:48
+#: ../enigma/core/theme-options/option-settings.php:51
+#: ../weblizar-pro/theme-options/option-settings.php:254
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:48
+#: core/theme-options/option-settings.php:51
+msgid "flat-blue"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:52
+#: ../WL/core/theme-options/option-settings.php:50
+#: ../enigma/core/theme-options/option-settings.php:53
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:50
+#: core/theme-options/option-settings.php:53
+msgid "Select OUT of 10+ Color Schemes"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:59
+#: ../WL/core/theme-options/option-settings.php:57
+#: ../enigma/core/theme-options/option-settings.php:60
+#: ../weblizar-pro/theme-options/option-settings.php:24
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:57
+#: core/theme-options/option-settings.php:60
+msgid "Custom Logo"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:62
+#: ../WL/core/theme-options/option-settings.php:60
+#: ../enigma/core/theme-options/option-settings.php:63
+#: ../weblizar-pro/theme-options/option-settings.php:27
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:60
+#: core/theme-options/option-settings.php:63
+msgid "Add custom logo from here suggested size is 150X50"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:68
+#: ../WL/core/theme-options/option-settings.php:66
+#: ../enigma/core/theme-options/option-settings.php:69
+#: ../weblizar-pro/theme-options/option-settings.php:33
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:66
+#: core/theme-options/option-settings.php:69
+msgid "Logo Height"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:70
+#: ../WL/core/theme-options/option-settings.php:68
+#: ../enigma/core/theme-options/option-settings.php:71
+#: ../weblizar-pro/theme-options/option-settings.php:35
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:68
+#: core/theme-options/option-settings.php:71
+msgid ""
+"Default Logo Height : 55px, if you want to increase than specify your value"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:73
+#: ../WL/core/theme-options/option-settings.php:71
+#: ../enigma/core/theme-options/option-settings.php:74
+#: ../weblizar-pro/theme-options/option-settings.php:38
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:71
+#: core/theme-options/option-settings.php:74
+msgid "Logo Width"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:75
+#: ../WL/core/theme-options/option-settings.php:73
+#: ../enigma/core/theme-options/option-settings.php:76
+#: ../weblizar-pro/theme-options/option-settings.php:40
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:73
+#: core/theme-options/option-settings.php:76
+msgid ""
+"Default Logo Width : 150px, if you want to increase than specify your value"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:78
+#: ../WL/core/theme-options/option-settings.php:76
+#: ../enigma/core/theme-options/option-settings.php:79
+#: ../weblizar-pro/theme-options/option-settings.php:20
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:76
+#: core/theme-options/option-settings.php:79
+msgid "Text Title"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:79
+#: ../WL/core/theme-options/option-settings.php:77
+#: ../enigma/core/theme-options/option-settings.php:80
+#: ../weblizar-pro/theme-options/option-settings.php:21
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:77
+#: core/theme-options/option-settings.php:80
+msgid "Enable text-based Site Title.   Setup title"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:79
+#: ../WL/core/theme-options/option-settings.php:77
+#: ../enigma/core/theme-options/option-settings.php:80
+#: ../weblizar-pro/theme-options/option-settings.php:21
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:77
+#: core/theme-options/option-settings.php:80
+msgid "Click Here"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:82
+#: ../WL/core/theme-options/option-settings.php:80
+#: ../enigma/core/theme-options/option-settings.php:83
+#: ../weblizar-pro/theme-options/option-settings.php:43
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:80
+#: core/theme-options/option-settings.php:83
+msgid "Custom Favicon"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:85
+#: ../WL/core/theme-options/option-settings.php:83
+#: ../enigma/core/theme-options/option-settings.php:86
+#: ../weblizar-pro/theme-options/option-settings.php:46
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:83
+#: core/theme-options/option-settings.php:86
+msgid "Make sure you upload .icon image type which is not more then 25X25 px."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:91
+#: ../WL/core/theme-options/option-settings.php:89
+#: ../weblizar-pro/theme-options/option-settings.php:52
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:89
+msgid "Google Tracking Code"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:93
+#: ../WL/core/theme-options/option-settings.php:91
+#: ../weblizar-pro/theme-options/option-settings.php:54
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:91
+msgid ""
+"Paste your Google Analytics tracking code here. This will be added into "
+"themes footer. Copy only scripting code i.e no need to use script tag "
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:96
+#: ../WL/core/theme-options/option-settings.php:94
+#: ../enigma/core/theme-options/option-settings.php:92
+#: ../weblizar-pro/theme-options/option-settings.php:57
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:94
+#: core/theme-options/option-settings.php:92
+msgid "Custom css"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:98
+#: ../WL/core/theme-options/option-settings.php:96
+#: ../enigma/core/theme-options/option-settings.php:94
+#: ../weblizar-pro/theme-options/option-settings.php:59
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:96
+#: core/theme-options/option-settings.php:94
+msgid ""
+"This is a powerful feature provided here. No need to use custom css plugin, "
+"just paste your css code and see the magic."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:113
+#: ../GL/core/theme-options/option-settings.php:267
+#: ../GL/core/theme-options/option-settings.php:340
+#: ../WL/core/theme-options/option-settings.php:111
+#: ../WL/core/theme-options/option-settings.php:262
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:111
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:262
+msgid "Site Info Settings"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:128
+#: ../WL/core/theme-options/option-settings.php:126
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:126
+msgid "Home Feature Image One"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:131
+#: ../GL/core/theme-options/option-settings.php:166
+#: ../GL/core/theme-options/option-settings.php:199
+#: ../WL/core/theme-options/option-settings.php:129
+#: ../WL/core/theme-options/option-settings.php:164
+#: ../WL/core/theme-options/option-settings.php:196
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:129
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:164
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:196
+msgid "Add Home Feature image here, size suggestion is 1900X525."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:138
+#: ../WL/core/theme-options/option-settings.php:136
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:136
+msgid "Home Feature Image Title One"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:140
+#: ../GL/core/theme-options/option-settings.php:174
+#: ../GL/core/theme-options/option-settings.php:208
+#: ../WL/core/theme-options/option-settings.php:138
+#: ../WL/core/theme-options/option-settings.php:172
+#: ../WL/core/theme-options/option-settings.php:204
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:138
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:172
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:204
+msgid "Type Home Feature Image Title Here"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:144
+#: ../WL/core/theme-options/option-settings.php:142
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:142
+msgid "Home Feature Image Description One"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:146
+#: ../GL/core/theme-options/option-settings.php:179
+#: ../GL/core/theme-options/option-settings.php:214
+#: ../WL/core/theme-options/option-settings.php:144
+#: ../WL/core/theme-options/option-settings.php:177
+#: ../WL/core/theme-options/option-settings.php:209
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:144
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:177
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:209
+msgid "Type Home Feature Image Description Here"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:150
+#: ../WL/core/theme-options/option-settings.php:148
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:148
+msgid "Home Feature Image Button Text One"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:152
+#: ../GL/core/theme-options/option-settings.php:185
+#: ../GL/core/theme-options/option-settings.php:220
+#: ../WL/core/theme-options/option-settings.php:150
+#: ../WL/core/theme-options/option-settings.php:183
+#: ../WL/core/theme-options/option-settings.php:215
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:150
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:183
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:215
+msgid "Type Home Feature Image Button Text Here"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:156
+#: ../WL/core/theme-options/option-settings.php:154
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:154
+msgid "Home Feature Image Button Link One"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:158
+#: ../GL/core/theme-options/option-settings.php:191
+#: ../GL/core/theme-options/option-settings.php:226
+#: ../WL/core/theme-options/option-settings.php:156
+#: ../WL/core/theme-options/option-settings.php:189
+#: ../WL/core/theme-options/option-settings.php:221
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:156
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:189
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:221
+msgid "Type Home Feature Image Button Link Here"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:163
+#: ../WL/core/theme-options/option-settings.php:161
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:161
+msgid "Home Feature Image Two"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:172
+#: ../WL/core/theme-options/option-settings.php:170
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:170
+msgid "Home Feature Image Title Two"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:177
+#: ../WL/core/theme-options/option-settings.php:175
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:175
+msgid "Home Feature Image Description Two"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:183
+#: ../WL/core/theme-options/option-settings.php:181
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:181
+msgid "Home Feature Image Button Text Two"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:189
+#: ../WL/core/theme-options/option-settings.php:187
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:187
+msgid "Home Feature Image Button Link Two"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:196
+#: ../WL/core/theme-options/option-settings.php:193
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:193
+msgid "Home Feature Image Three"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:206
+#: ../WL/core/theme-options/option-settings.php:202
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:202
+msgid "Home Feature Image Title Three"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:212
+#: ../WL/core/theme-options/option-settings.php:207
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:207
+msgid "Home Feature Image Description Three"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:218
+#: ../WL/core/theme-options/option-settings.php:213
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:213
+msgid "Home Feature Image Button Text Three"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:224
+#: ../WL/core/theme-options/option-settings.php:219
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:219
+msgid "Home Feature Image Button Link Three"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:236
+#: ../WL/core/theme-options/option-settings.php:231
+#: ../enigma/core/theme-options/option-settings.php:256
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:231
+#: core/theme-options/option-settings.php:256
+msgid "More Slides"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:246
+#: ../WL/core/theme-options/option-settings.php:241
+#: ../enigma/core/theme-options/option-settings.php:265
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:241
+#: core/theme-options/option-settings.php:265
+msgid "Add Unlimited slides for your sideshow "
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:281
+#: ../WL/core/theme-options/option-settings.php:276
+#: ../weblizar-pro/theme-options/option-settings.php:88
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:276
+msgid "Site Intro Title"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:283
+#: ../WL/core/theme-options/option-settings.php:278
+#: ../weblizar-pro/theme-options/option-settings.php:90
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:278
+msgid "Type here your site information text"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:287
+#: ../WL/core/theme-options/option-settings.php:282
+#: ../weblizar-pro/theme-options/option-settings.php:92
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:282
+msgid "Site Description"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:289
+#: ../WL/core/theme-options/option-settings.php:284
+#: ../weblizar-pro/theme-options/option-settings.php:94
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:284
+msgid "Type here your site description."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:293
+#: ../WL/core/theme-options/option-settings.php:288
+#: ../weblizar-pro/theme-options/option-settings.php:97
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:288
+msgid "Blog Title"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:295
+#: ../WL/core/theme-options/option-settings.php:290
+#: ../weblizar-pro/theme-options/option-settings.php:99
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:290
+msgid "Type here your blog title"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:299
+#: ../WL/core/theme-options/option-settings.php:294
+#: ../weblizar-pro/theme-options/option-settings.php:101
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:294
+msgid "Blog Description"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:301
+#: ../WL/core/theme-options/option-settings.php:296
+#: ../weblizar-pro/theme-options/option-settings.php:103
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:296
+msgid "Type here your Blog description."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:311
+#: ../WL/core/theme-options/option-settings.php:306
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:306
+msgid "More Sections"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:320
+#: ../WL/core/theme-options/option-settings.php:315
+#: ../enigma/core/theme-options/option-settings.php:438
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:315
+#: core/theme-options/option-settings.php:438
+msgid "Add More Sections and More Features on your website."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:354
+#: ../GL/core/theme-options/option-settings.php:372
+#: ../GL/core/theme-options/option-settings.php:390
+#: ../GL/core/theme-options/option-settings.php:408
+#: ../enigma/core/theme-options/option-settings.php:481
+#: core/theme-options/option-settings.php:481
+msgid "Service one"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:356
+#: ../GL/core/theme-options/option-settings.php:374
+#: ../GL/core/theme-options/option-settings.php:392
+#: ../GL/core/theme-options/option-settings.php:410
+#: ../WL/core/theme-options/option-settings.php:351
+#: ../WL/core/theme-options/option-settings.php:369
+#: ../WL/core/theme-options/option-settings.php:387
+#: ../WL/core/theme-options/option-settings.php:405
+#: ../enigma/core/theme-options/option-settings.php:488
+#: ../enigma/core/theme-options/option-settings.php:518
+#: ../enigma/core/theme-options/option-settings.php:547
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:351
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:369
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:387
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:405
+#: core/theme-options/option-settings.php:488
+#: core/theme-options/option-settings.php:518
+#: core/theme-options/option-settings.php:547
+msgid "Service Title"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:358
+#: ../GL/core/theme-options/option-settings.php:376
+#: ../GL/core/theme-options/option-settings.php:394
+#: ../GL/core/theme-options/option-settings.php:412
+#: ../WL/core/theme-options/option-settings.php:353
+#: ../WL/core/theme-options/option-settings.php:371
+#: ../WL/core/theme-options/option-settings.php:389
+#: ../WL/core/theme-options/option-settings.php:407
+#: ../enigma/core/theme-options/option-settings.php:490
+#: ../enigma/core/theme-options/option-settings.php:520
+#: ../enigma/core/theme-options/option-settings.php:549
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:353
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:371
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:389
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:407
+#: core/theme-options/option-settings.php:490
+#: core/theme-options/option-settings.php:520
+#: core/theme-options/option-settings.php:549
+msgid "Type here your service title"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:359
+#: ../GL/core/theme-options/option-settings.php:377
+#: ../GL/core/theme-options/option-settings.php:395
+#: ../GL/core/theme-options/option-settings.php:413
+#: ../WL/core/theme-options/option-settings.php:354
+#: ../WL/core/theme-options/option-settings.php:372
+#: ../WL/core/theme-options/option-settings.php:390
+#: ../WL/core/theme-options/option-settings.php:408
+#: ../enigma/core/theme-options/option-settings.php:491
+#: ../enigma/core/theme-options/option-settings.php:521
+#: ../enigma/core/theme-options/option-settings.php:550
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:354
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:372
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:390
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:408
+#: core/theme-options/option-settings.php:491
+#: core/theme-options/option-settings.php:521
+#: core/theme-options/option-settings.php:550
+msgid "Service  Icons"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:362
+#: ../GL/core/theme-options/option-settings.php:380
+#: ../GL/core/theme-options/option-settings.php:398
+#: ../GL/core/theme-options/option-settings.php:416
+#: ../WL/core/theme-options/option-settings.php:357
+#: ../WL/core/theme-options/option-settings.php:375
+#: ../WL/core/theme-options/option-settings.php:393
+#: ../WL/core/theme-options/option-settings.php:411
+#: ../enigma/core/theme-options/option-settings.php:494
+#: ../enigma/core/theme-options/option-settings.php:524
+#: ../enigma/core/theme-options/option-settings.php:553
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:357
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:375
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:393
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:411
+#: core/theme-options/option-settings.php:494
+#: core/theme-options/option-settings.php:524
+#: core/theme-options/option-settings.php:553
+msgid "Service Icon (Using Bootstrap icons name) like: icon-tablet"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:362
+#: ../GL/core/theme-options/option-settings.php:380
+#: ../GL/core/theme-options/option-settings.php:398
+#: ../GL/core/theme-options/option-settings.php:416
+#: ../enigma/core/theme-options/option-settings.php:494
+#: ../enigma/core/theme-options/option-settings.php:524
+#: ../enigma/core/theme-options/option-settings.php:553
+#: core/theme-options/option-settings.php:494
+#: core/theme-options/option-settings.php:524
+#: core/theme-options/option-settings.php:553
+msgid "Get your Font Awesome icons"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:363
+#: ../GL/core/theme-options/option-settings.php:381
+#: ../GL/core/theme-options/option-settings.php:399
+#: ../GL/core/theme-options/option-settings.php:417
+#: ../WL/core/theme-options/option-settings.php:358
+#: ../WL/core/theme-options/option-settings.php:376
+#: ../WL/core/theme-options/option-settings.php:394
+#: ../WL/core/theme-options/option-settings.php:412
+#: ../enigma/core/theme-options/option-settings.php:495
+#: ../enigma/core/theme-options/option-settings.php:525
+#: ../enigma/core/theme-options/option-settings.php:554
+#: ../weblizar-pro/functions/custom/metabox.php:70
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:358
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:376
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:394
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:412
+#: core/theme-options/option-settings.php:495
+#: core/theme-options/option-settings.php:525
+#: core/theme-options/option-settings.php:554
+msgid "Service Description"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:365
+#: ../GL/core/theme-options/option-settings.php:383
+#: ../GL/core/theme-options/option-settings.php:401
+#: ../GL/core/theme-options/option-settings.php:419
+#: ../WL/core/theme-options/option-settings.php:360
+#: ../WL/core/theme-options/option-settings.php:378
+#: ../WL/core/theme-options/option-settings.php:396
+#: ../WL/core/theme-options/option-settings.php:414
+#: ../enigma/core/theme-options/option-settings.php:497
+#: ../enigma/core/theme-options/option-settings.php:527
+#: ../enigma/core/theme-options/option-settings.php:556
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:360
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:378
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:396
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:414
+#: core/theme-options/option-settings.php:497
+#: core/theme-options/option-settings.php:527
+#: core/theme-options/option-settings.php:556
+msgid "Type here your service description."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:366
+#: ../GL/core/theme-options/option-settings.php:384
+#: ../GL/core/theme-options/option-settings.php:402
+#: ../GL/core/theme-options/option-settings.php:420
+#: ../WL/core/theme-options/option-settings.php:361
+#: ../WL/core/theme-options/option-settings.php:379
+#: ../WL/core/theme-options/option-settings.php:397
+#: ../WL/core/theme-options/option-settings.php:415
+#: ../enigma/core/theme-options/option-settings.php:498
+#: ../enigma/core/theme-options/option-settings.php:528
+#: ../enigma/core/theme-options/option-settings.php:557
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:361
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:379
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:397
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:415
+#: core/theme-options/option-settings.php:498
+#: core/theme-options/option-settings.php:528
+#: core/theme-options/option-settings.php:557
+msgid "Service  Link"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:368
+#: ../GL/core/theme-options/option-settings.php:386
+#: ../GL/core/theme-options/option-settings.php:404
+#: ../GL/core/theme-options/option-settings.php:422
+#: ../WL/core/theme-options/option-settings.php:363
+#: ../WL/core/theme-options/option-settings.php:381
+#: ../WL/core/theme-options/option-settings.php:399
+#: ../WL/core/theme-options/option-settings.php:417
+#: ../enigma/core/theme-options/option-settings.php:500
+#: ../enigma/core/theme-options/option-settings.php:530
+#: ../enigma/core/theme-options/option-settings.php:559
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:363
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:381
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:399
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:417
+#: core/theme-options/option-settings.php:500
+#: core/theme-options/option-settings.php:530
+#: core/theme-options/option-settings.php:559
+msgid "Type here your service link"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:432
+#: ../WL/core/theme-options/option-settings.php:427
+#: ../enigma/core/theme-options/option-settings.php:571
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:427
+#: core/theme-options/option-settings.php:571
+msgid "More Services"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:441
+#: ../WL/core/theme-options/option-settings.php:436
+#: ../enigma/core/theme-options/option-settings.php:579
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:436
+#: core/theme-options/option-settings.php:579
+msgid "Add More Services on your Home Page."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:461
+#: ../WL/core/theme-options/option-settings.php:456
+#: ../enigma/core/theme-options/option-settings.php:599
+#: ../weblizar-pro/theme-options/option-settings.php:411
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:456
+#: core/theme-options/option-settings.php:599
+msgid "Social media"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:475
+#: ../WL/core/theme-options/option-settings.php:470
+#: ../enigma/core/theme-options/option-settings.php:613
+#: ../weblizar-pro/theme-options/option-settings.php:425
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:470
+#: core/theme-options/option-settings.php:613
+msgid "Enable Social media:"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:476
+#: ../WL/core/theme-options/option-settings.php:471
+#: ../weblizar-pro/theme-options/option-settings.php:426
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:471
+msgid "Enable social media in contact page."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:477
+#: ../WL/core/theme-options/option-settings.php:472
+#: ../weblizar-pro/theme-options/option-settings.php:427
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:472
+msgid "Enable Social media in footer section."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:480
+#: ../WL/core/theme-options/option-settings.php:475
+#: ../enigma/core/theme-options/option-settings.php:626
+#: ../weblizar-pro/theme-options/option-settings.php:435
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:475
+#: core/theme-options/option-settings.php:626
+msgid "Twitter Link:"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:482
+#: ../WL/core/theme-options/option-settings.php:477
+#: ../enigma/core/theme-options/option-settings.php:628
+#: ../weblizar-pro/theme-options/option-settings.php:437
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:477
+#: core/theme-options/option-settings.php:628
+msgid "Enter twitter link."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:485
+#: ../WL/core/theme-options/option-settings.php:480
+#: ../enigma/core/theme-options/option-settings.php:631
+#: ../weblizar-pro/theme-options/option-settings.php:440
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:480
+#: core/theme-options/option-settings.php:631
+msgid "Linkedin Links:"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:487
+#: ../WL/core/theme-options/option-settings.php:482
+#: ../enigma/core/theme-options/option-settings.php:633
+#: ../weblizar-pro/theme-options/option-settings.php:442
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:482
+#: core/theme-options/option-settings.php:633
+msgid "Enter linkedin link."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:491
+#: ../WL/core/theme-options/option-settings.php:486
+#: ../enigma/core/theme-options/option-settings.php:637
+#: ../weblizar-pro/theme-options/option-settings.php:446
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:486
+#: core/theme-options/option-settings.php:637
+msgid "Facebook Links:"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:493
+#: ../WL/core/theme-options/option-settings.php:488
+#: ../enigma/core/theme-options/option-settings.php:639
+#: ../weblizar-pro/theme-options/option-settings.php:448
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:488
+#: core/theme-options/option-settings.php:639
+msgid "Enter facebook link."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:497
+#: ../WL/core/theme-options/option-settings.php:492
+#: ../weblizar-pro/theme-options/option-settings.php:452
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:492
+msgid "Google Plus Links:"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:499
+#: ../WL/core/theme-options/option-settings.php:494
+#: ../enigma/core/theme-options/option-settings.php:645
+#: ../weblizar-pro/theme-options/option-settings.php:454
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:494
+#: core/theme-options/option-settings.php:645
+msgid "Enter google plus link."
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:514
+#: ../WL/core/theme-options/option-settings.php:509
+#: ../enigma/core/theme-options/option-settings.php:660
+#: ../weblizar-pro/theme-options/option-settings.php:469
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:509
+#: core/theme-options/option-settings.php:660
+msgid "Footer Customization"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:528
+#: ../WL/core/theme-options/option-settings.php:523
+#: ../enigma/core/theme-options/option-settings.php:674
+#: ../weblizar-pro/theme-options/option-settings.php:483
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:523
+#: core/theme-options/option-settings.php:674
+msgid "Footer customization"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:530
+#: ../WL/core/theme-options/option-settings.php:525
+#: ../enigma/core/theme-options/option-settings.php:676
+#: ../weblizar-pro/theme-options/option-settings.php:485
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:525
+#: core/theme-options/option-settings.php:676
+msgid "Enter your footer customization text "
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:533
+#: ../WL/core/theme-options/option-settings.php:528
+#: ../enigma/core/theme-options/option-settings.php:679
+#: ../weblizar-pro/theme-options/option-settings.php:488
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:528
+#: core/theme-options/option-settings.php:679
+msgid "Developed by text"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:535
+#: ../WL/core/theme-options/option-settings.php:530
+#: ../enigma/core/theme-options/option-settings.php:681
+#: ../weblizar-pro/theme-options/option-settings.php:490
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:530
+#: core/theme-options/option-settings.php:681
+msgid "Enter developed by text"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:538
+#: ../WL/core/theme-options/option-settings.php:533
+#: ../enigma/core/theme-options/option-settings.php:684
+#: ../weblizar-pro/theme-options/option-settings.php:493
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:533
+#: core/theme-options/option-settings.php:684
+msgid "Developed by link text"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:540
+#: ../WL/core/theme-options/option-settings.php:535
+#: ../enigma/core/theme-options/option-settings.php:686
+#: ../weblizar-pro/theme-options/option-settings.php:495
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:535
+#: core/theme-options/option-settings.php:686
+msgid "Enter developed by link text  "
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:543
+#: ../WL/core/theme-options/option-settings.php:538
+#: ../enigma/core/theme-options/option-settings.php:689
+#: ../weblizar-pro/theme-options/option-settings.php:498
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:538
+#: core/theme-options/option-settings.php:689
+msgid "Developed by link"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:545
+#: ../WL/core/theme-options/option-settings.php:540
+#: ../enigma/core/theme-options/option-settings.php:691
+#: ../weblizar-pro/theme-options/option-settings.php:500
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:540
+#: core/theme-options/option-settings.php:691
+msgid "Enter developed by link"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:563
+#: ../GL/core/theme-options/option-settings.php:584
+#: ../WL/core/theme-options/option-settings.php:559
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:559
+msgid "More than 15 Templates"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:580
+msgid "Weblizar Premium"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:601
+#: ../WL/core/theme-options/option-settings.php:597
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:597
+msgid "Responsive Photo Gallery"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:605
+#: ../WL/core/theme-options/option-settings.php:601
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:601
+msgid "8 Animation Effect"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:606
+#: ../WL/core/theme-options/option-settings.php:602
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:602
+msgid "5 Gallery Layout"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:607
+#: ../WL/core/theme-options/option-settings.php:603
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:603
+msgid "Unlimited Hover Color"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:608
+#: ../WL/core/theme-options/option-settings.php:604
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:604
+msgid "10 Color Opacity"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:609
+#: ../WL/core/theme-options/option-settings.php:605
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:605
+msgid "200+ Font Style"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:610
+#: ../WL/core/theme-options/option-settings.php:606
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:606
+msgid "2 Light Box"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:611
+#: ../WL/core/theme-options/option-settings.php:607
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:607
+msgid "All Gallery Shortcode"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:612
+#: ../WL/core/theme-options/option-settings.php:608
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:608
+msgid "Single Gallery Shortcode"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:613
+#: ../WL/core/theme-options/option-settings.php:609
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:609
+msgid "Browser Compatibility"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:614
+#: ../WL/core/theme-options/option-settings.php:610
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:610
+msgid "Retina Ready"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:615
+#: ../WL/core/theme-options/option-settings.php:611
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:611
+msgid "Fast & Friendly Support"
+msgstr ""
+
+#: ../GL/core/theme-options/option-settings.php:618
+msgid "Buy $10"
+msgstr ""
+
+#: ../GL/functions.php:26 ../WL/functions.php:29 ../enigma/functions.php:29
+#: ../weblizar-pro/functions.php:29 ../weblizar-pro/functions.php:180
+#: ../weblizar1.1.4/weblizar/functions.php:29 functions.php:29
+msgid "Page"
+msgstr ""
+
+#: ../GL/functions.php:42 ../WL/functions.php:45 ../enigma/functions.php:46
+#: ../skt-parallaxme/functions.php:31 ../twentyfourteen/header.php:52
+#: ../twentytwelve/functions.php:64 ../weblizar-pro/functions.php:41
+#: ../weblizar1.1.4/weblizar/functions.php:45 functions.php:46
+msgid "Primary Menu"
+msgstr ""
+
+#: ../GL/functions.php:107 ../WL/functions.php:98 ../enigma/functions.php:88
+#: ../weblizar-pro/functions.php:83 ../weblizar1.1.4/weblizar/functions.php:98
+#: functions.php:88
+msgid "Sidebar"
+msgstr ""
+
+#: ../GL/functions.php:109 ../WL/functions.php:100 ../enigma/functions.php:90
+#: ../weblizar-pro/functions.php:85
+#: ../weblizar1.1.4/weblizar/functions.php:100 functions.php:90
+msgid "The primary widget area"
+msgstr ""
+
+#: ../GL/functions.php:117 ../WL/functions.php:108 ../enigma/functions.php:98
+#: ../twentyfourteen/functions.php:189 ../weblizar-pro/functions.php:93
+#: ../weblizar1.1.4/weblizar/functions.php:108 functions.php:98
+msgid "Footer Widget Area"
+msgstr ""
+
+#: ../GL/functions.php:119 ../WL/functions.php:110 ../enigma/functions.php:100
+#: ../weblizar-pro/functions.php:95
+#: ../weblizar1.1.4/weblizar/functions.php:110 functions.php:100
+msgid "footer widget area"
+msgstr ""
+
+#: ../GL/page.php:29 ../GL/single.php:52 ../WL/content.php:37
+#: ../enigma/functions.php:261 ../enigma/post-content.php:32
+#: ../skt-parallaxme/content-page.php:18
+#: ../skt-parallaxme/content-single.php:28 ../skt-parallaxme/content.php:32
+#: ../skt-parallaxme/image.php:59 ../twentyfourteen/content-aside.php:48
+#: ../twentyfourteen/content-audio.php:48
+#: ../twentyfourteen/content-gallery.php:48
+#: ../twentyfourteen/content-image.php:48
+#: ../twentyfourteen/content-link.php:48 ../twentyfourteen/content-page.php:22
+#: ../twentyfourteen/content-quote.php:48
+#: ../twentyfourteen/content-video.php:48 ../twentyfourteen/content.php:56
+#: ../twentyfourteen/image.php:54 ../twentythirteen/content-aside.php:14
+#: ../twentythirteen/content-audio.php:25
+#: ../twentythirteen/content-chat.php:24
+#: ../twentythirteen/content-gallery.php:25
+#: ../twentythirteen/content-image.php:24
+#: ../twentythirteen/content-link.php:25
+#: ../twentythirteen/content-quote.php:14
+#: ../twentythirteen/content-status.php:14
+#: ../twentythirteen/content-video.php:24 ../twentythirteen/content.php:42
+#: ../twentythirteen/image.php:70 ../twentythirteen/page.php:35
+#: ../twentytwelve/content-page.php:21 ../twentytwelve/content.php:45
+#: ../twentytwelve/image.php:102 ../weblizar1.1.4/weblizar/content.php:37
+#: functions.php:261 post-content.php:32
+msgid "Pages:"
+msgstr ""
+
+#: ../GL/page.php:35 ../GL/single.php:58 ../WL/content.php:43
+#: ../enigma/functions.php:263 ../enigma/post-content.php:38
+#: ../weblizar1.1.4/weblizar/content.php:43 functions.php:263
+#: post-content.php:38
+msgid "Next page"
+msgstr ""
+
+#: ../GL/page.php:36 ../GL/single.php:59 ../WL/content.php:44
+#: ../enigma/functions.php:264 ../enigma/post-content.php:39
+#: ../weblizar1.1.4/weblizar/content.php:44 functions.php:264
+#: post-content.php:39
+msgid "Previous page"
+msgstr ""
+
+#: ../GL/search.php:15 ../WL/search.php:15 ../enigma/search.php:7
+#: ../skt-parallaxme/search.php:16 ../twentyfourteen/search.php:18
+#: ../twentythirteen/search.php:18 ../twentytwelve/search.php:18
+#: ../weblizar-pro/search.php:15 ../weblizar1.1.4/weblizar/search.php:15
+#: search.php:7
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../GL/search.php:25 ../WL/search.php:25 ../skt-parallaxme/no-results.php:14
+#: ../twentyfourteen/content-none.php:12 ../twentythirteen/content-none.php:12
+#: ../twentytwelve/content-none.php:13 ../twentytwelve/index.php:49
+#: ../twentytwelve/search.php:34 ../weblizar-pro/content-none.php:3
+#: ../weblizar-pro/search.php:25 ../weblizar1.1.4/weblizar/search.php:25
+msgid "Nothing Found"
+msgstr ""
+
+#: ../GL/search.php:29 ../WL/search.php:29 ../twentytwelve/search.php:38
+#: ../weblizar-pro/content-none.php:7 ../weblizar-pro/search.php:29
+#: ../weblizar1.1.4/weblizar/search.php:29
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../GL/tag.php:9 ../WL/tag.php:9 ../twentyfourteen/tag.php:22
+#: ../twentythirteen/tag.php:21 ../twentytwelve/tag.php:21
+#: ../weblizar-pro/tag.php:7 ../weblizar1.1.4/weblizar/tag.php:9
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:161
+#: ../WL/core/plugin-activation.php:78
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:161
+#: ../weblizar1.1.4/weblizar/core/plugin-activation.php:78
+msgid "Install Required Plugins"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:162
+#: ../WL/core/plugin-activation.php:79
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:162
+#: ../weblizar1.1.4/weblizar/core/plugin-activation.php:79
+msgid "Install Plugins"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:163
+#: ../WL/core/plugin-activation.php:80
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:163
+#: ../weblizar1.1.4/weblizar/core/plugin-activation.php:80
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:164
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:164
+msgid "Something went wrong."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:175
+#: ../WL/core/plugin-activation.php:92
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:175
+#: ../weblizar1.1.4/weblizar/core/plugin-activation.php:92
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:176
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:176
+msgid "Return to the dashboard"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:177
+#: ../WL/core/class-tgm-plugin-activation.php:1945
+#: ../WL/core/plugin-activation.php:93
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:177
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1945
+#: ../weblizar1.1.4/weblizar/core/plugin-activation.php:93
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:178
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:178
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:179
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:179
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:180
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:180
+msgid "Dismiss this notice"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:534
+#: ../WL/core/class-tgm-plugin-activation.php:2162
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:534
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2162
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1169
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1169
+msgid "Private Repository"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1172
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1172
+msgid "Pre-Packaged"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1177
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1177
+msgid "WordPress Repository"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1180
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1180
+msgid "Required"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1180
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1180
+msgid "Recommended"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1183
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1183
+msgid "Not Installed"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1185
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1185
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1290
+#: ../WL/core/class-tgm-plugin-activation.php:1398
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1290
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1398
+msgid "Install"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1312
+#: ../WL/core/class-tgm-plugin-activation.php:1399
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1312
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1399
+msgid "Activate"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1361
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1361
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1377
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1377
+msgid "Plugin"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1378
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1378
+msgid "Source"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1379
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1379
+msgid "Type"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1380
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1380
+msgid "Status"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1928
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1928
+msgid "Install package not available."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1929
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1929
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1930
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1930
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1931
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1931
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1932
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1932
+msgid "Plugin install failed."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1933
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1933
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:1944
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:1944
+msgid "Plugin activation failed."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2058
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2058
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2059
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2059
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2059
+#: ../WL/core/class-tgm-plugin-activation.php:2068
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2059
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2068
+msgid "Show Details"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2059
+#: ../WL/core/class-tgm-plugin-activation.php:2068
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2059
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2068
+msgid "Hide Details"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2060
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2060
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2061
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2061
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2065
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2065
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2066
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2066
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2067
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2067
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2068
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2068
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2069
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2069
+msgid "All installations have been completed."
+msgstr ""
+
+#: ../WL/core/class-tgm-plugin-activation.php:2070
+#: ../weblizar1.1.4/weblizar/core/class-tgm-plugin-activation.php:2070
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../WL/core/plugin-activation.php:81
+#: ../weblizar1.1.4/weblizar/core/plugin-activation.php:81
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: ../WL/core/plugin-activation.php:94
+#: ../weblizar1.1.4/weblizar/core/plugin-activation.php:94
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: ../WL/core/theme-options/option-panel.php:31
+#: ../WL/core/theme-options/option-settings.php:576
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:31
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:576
+msgid "Weblizar Pro"
+msgstr ""
+
+#: ../WL/core/theme-options/option-panel.php:34
+#: ../WL/core/theme-options/option-settings.php:577
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:34
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:577
+msgid "Get Premium Theme"
+msgstr ""
+
+#: ../WL/core/theme-options/option-panel.php:43
+#: ../WL/core/theme-options/option-settings.php:580
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:43
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:580
+msgid "More than 10 Templates"
+msgstr ""
+
+#: ../WL/core/theme-options/option-panel.php:44
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:44
+msgid "13 types Themes Colors Scheme"
+msgstr ""
+
+#: ../WL/core/theme-options/option-panel.php:60
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:60
+msgid "Theme Home Page"
+msgstr ""
+
+#: ../WL/core/theme-options/option-panel.php:61
+#: ../enigma/core/theme-options/option-panel.php:73
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:61
+#: core/theme-options/option-panel.php:73
+msgid "Documentation"
+msgstr ""
+
+#: ../WL/core/theme-options/option-panel.php:81
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-panel.php:81
+msgid "Pro Feature List"
+msgstr ""
+
+#: ../WL/core/theme-options/option-settings.php:335
+#: ../enigma/core/theme-options/option-settings.php:458
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:335
+#: core/theme-options/option-settings.php:458
+msgid "Service Settings"
+msgstr ""
+
+#: ../WL/core/theme-options/option-settings.php:349
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:349
+msgid "Service One"
+msgstr ""
+
+#: ../WL/core/theme-options/option-settings.php:357
+#: ../WL/core/theme-options/option-settings.php:375
+#: ../WL/core/theme-options/option-settings.php:393
+#: ../WL/core/theme-options/option-settings.php:411
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:357
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:375
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:393
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:411
+msgid "Get your Bootstrap icons"
+msgstr ""
+
+#: ../WL/core/theme-options/option-settings.php:367
+#: ../enigma/core/theme-options/option-settings.php:510
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:367
+#: core/theme-options/option-settings.php:510
+msgid "Service Two"
+msgstr ""
+
+#: ../WL/core/theme-options/option-settings.php:385
+#: ../enigma/core/theme-options/option-settings.php:541
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:385
+#: core/theme-options/option-settings.php:541
+msgid "Service Three"
+msgstr ""
+
+#: ../WL/core/theme-options/option-settings.php:403
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:403
+msgid "Service Four"
+msgstr ""
+
+#: ../WL/core/theme-options/option-settings.php:614
+#: ../weblizar1.1.4/weblizar/core/theme-options/option-settings.php:614
+msgid "Upgrade to Pro $10"
+msgstr ""
+
+#: ../WL/front-page.php:109 ../WL/front-page.php:120 ../WL/front-page.php:131
+#: ../WL/front-page.php:142 ../weblizar1.1.4/weblizar/front-page.php:109
+#: ../weblizar1.1.4/weblizar/front-page.php:120
+#: ../weblizar1.1.4/weblizar/front-page.php:131
+#: ../weblizar1.1.4/weblizar/front-page.php:142
+msgid "read more"
+msgstr ""
+
+#: ../enigma/404.php:6 ../enigma/404.php:9 404.php:6 404.php:9
+msgid "404 Error"
+msgstr ""
+
+#: ../enigma/404.php:8 404.php:8
+msgid "Home"
+msgstr ""
+
+#: ../enigma/404.php:20 ../enigma/nocontent.php:3 ../weblizar-pro/404.php:9
+#: 404.php:20 nocontent.php:3
+msgid "404"
+msgstr ""
+
+#: ../enigma/404.php:21 404.php:21
+msgid "Whoops... Page Not Found !!!"
+msgstr ""
+
+#: ../enigma/404.php:22 ../enigma/nocontent.php:5 404.php:22 nocontent.php:5
+msgid "We`re sorry, but the page you are looking for doesn`t exist."
+msgstr ""
+
+#: ../enigma/404.php:23 ../enigma/nocontent.php:6 404.php:23 nocontent.php:6
+msgid "Go To Homepage"
+msgstr ""
+
+#: ../enigma/archive.php:8 ../twentyfourteen/archive.php:31
+#: ../twentythirteen/archive.php:29 ../twentytwelve/archive.php:29
+#: ../weblizar-pro/archive.php:9 archive.php:8
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../enigma/archive.php:10 ../twentyfourteen/archive.php:34
+#: ../twentythirteen/archive.php:31 ../twentytwelve/archive.php:31
+#: ../weblizar-pro/archive.php:11 archive.php:10
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../enigma/archive.php:12 ../twentyfourteen/archive.php:37
+#: ../twentythirteen/archive.php:33 ../twentytwelve/archive.php:33
+#: ../weblizar-pro/archive.php:13 archive.php:12
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../enigma/archive.php:14 ../skt-parallaxme/archive.php:63
+#: ../skt-parallaxme/sidebar.php:12 ../twentyfourteen/archive.php:40
+#: ../twentyfourteen/taxonomy-post_format.php:51
+#: ../twentythirteen/archive.php:35 ../twentytwelve/archive.php:35
+#: ../weblizar-pro/archive.php:15 archive.php:14
+msgid "Archives"
+msgstr ""
+
+#: ../enigma/author-intro.php:4 author-intro.php:4
+msgid "About Author"
+msgstr ""
+
+#: ../enigma/comments.php:29 comments.php:29
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../enigma/comments.php:31 comments.php:31
+msgid "Post Comment"
+msgstr ""
+
+#: ../enigma/comments.php:34 comments.php:34
+msgid "Leave a Reply"
+msgstr ""
+
+#: ../enigma/core/flickr-widget.php:8 core/flickr-widget.php:8
+msgid "Displays your latest Flickr photos."
+msgstr ""
+
+#: ../enigma/core/flickr-widget.php:36 core/flickr-widget.php:36
+msgid "More on Flickr"
+msgstr ""
+
+#: ../enigma/core/flickr-widget.php:57 core/flickr-widget.php:57
+msgid "Flikr PhotoStream"
+msgstr ""
+
+#: ../enigma/core/flickr-widget.php:64 core/flickr-widget.php:64
+msgid "Title"
+msgstr ""
+
+#: ../enigma/core/flickr-widget.php:70 core/flickr-widget.php:70
+msgid ""
+"Flickr ID (use <a target=\"_blank\" href=\"http://www.idgettr.com\">idGettr</"
+"a>):"
+msgstr ""
+
+#: ../enigma/core/flickr-widget.php:76 core/flickr-widget.php:76
+msgid "Number of images to display:"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-panel.php:43
+#: core/theme-options/option-panel.php:43
+msgid "View Enigma Pro Demo"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-panel.php:44
+#: core/theme-options/option-panel.php:44
+msgid "Upgrade to Enigma Pro"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-panel.php:88
+#: ../enigma/core/theme-options/option-settings.php:286
+#: ../weblizar-pro/theme-options/option-panel.php:44
+#: core/theme-options/option-panel.php:88
+#: core/theme-options/option-settings.php:286
+msgid "Portfolio Option"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-panel.php:89
+#: core/theme-options/option-panel.php:89
+msgid "Footer Callout Option"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-panel.php:92
+#: core/theme-options/option-panel.php:92
+msgid "Social Media"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-panel.php:94
+#: core/theme-options/option-panel.php:94
+msgid "Get Premium"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-panel.php:95
+#: core/theme-options/option-panel.php:95
+msgid "More Products"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:97
+#: core/theme-options/option-settings.php:97
+msgid "Home-Blog Heading"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:99
+#: core/theme-options/option-settings.php:99
+msgid "Home Blog Heading "
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:113
+#: core/theme-options/option-settings.php:113
+msgid "Slidshow Settings"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:131
+#: core/theme-options/option-settings.php:131
+msgid "Home Slide 1"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:139
+#: core/theme-options/option-settings.php:139
+msgid "Home Slide Image One"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:142
+#: ../enigma/core/theme-options/option-settings.php:181
+#: ../enigma/core/theme-options/option-settings.php:223
+#: core/theme-options/option-settings.php:142
+#: core/theme-options/option-settings.php:181
+#: core/theme-options/option-settings.php:223
+msgid "Add Home Slide image here, size suggestion is 1400X570."
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:146
+#: core/theme-options/option-settings.php:146
+msgid "Home Slide Image Title One"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:148
+#: ../enigma/core/theme-options/option-settings.php:188
+#: ../enigma/core/theme-options/option-settings.php:230
+#: core/theme-options/option-settings.php:148
+#: core/theme-options/option-settings.php:188
+#: core/theme-options/option-settings.php:230
+msgid "Type Home Slide Image Title Here"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:149
+#: core/theme-options/option-settings.php:149
+msgid "Home Slide Image Description One"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:151
+#: ../enigma/core/theme-options/option-settings.php:192
+#: ../enigma/core/theme-options/option-settings.php:234
+#: core/theme-options/option-settings.php:151
+#: core/theme-options/option-settings.php:192
+#: core/theme-options/option-settings.php:234
+msgid "Type Home Slide Image Description Here"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:152
+#: core/theme-options/option-settings.php:152
+msgid "Home Slide Image Button Text One"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:154
+#: ../enigma/core/theme-options/option-settings.php:196
+#: ../enigma/core/theme-options/option-settings.php:238
+#: core/theme-options/option-settings.php:154
+#: core/theme-options/option-settings.php:196
+#: core/theme-options/option-settings.php:238
+msgid "Type Home Slide Image Button Text Here"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:155
+#: core/theme-options/option-settings.php:155
+msgid "Home Slide Image Button Link One"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:157
+#: ../enigma/core/theme-options/option-settings.php:200
+#: ../enigma/core/theme-options/option-settings.php:242
+#: core/theme-options/option-settings.php:157
+#: core/theme-options/option-settings.php:200
+#: core/theme-options/option-settings.php:242
+msgid "Type Home Slide Image Button Link Here"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:170
+#: core/theme-options/option-settings.php:170
+msgid "Home Slide 2"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:178
+#: core/theme-options/option-settings.php:178
+msgid "Home Slide Image Two"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:186
+#: core/theme-options/option-settings.php:186
+msgid "Home Slide Image Title Two"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:190
+#: core/theme-options/option-settings.php:190
+msgid "Home Slide Image Description Two"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:194
+#: core/theme-options/option-settings.php:194
+msgid "Home Slide Image Button Text Two"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:198
+#: core/theme-options/option-settings.php:198
+msgid "Home Slide Image Button Link Two"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:212
+#: core/theme-options/option-settings.php:212
+msgid "Home Slide 3"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:220
+#: core/theme-options/option-settings.php:220
+msgid "Home Slide Image Three"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:228
+#: core/theme-options/option-settings.php:228
+msgid "Home Slide Image Title Three"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:232
+#: core/theme-options/option-settings.php:232
+msgid "Home Slide Image Description Three"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:236
+#: core/theme-options/option-settings.php:236
+msgid "Home Slide Image Button Text Three"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:240
+#: core/theme-options/option-settings.php:240
+msgid "Home Slide Image Button Link Three"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:301
+#: core/theme-options/option-settings.php:301
+msgid "Portfolio Section Heading"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:303
+#: core/theme-options/option-settings.php:303
+msgid "Type here your Portfolio heading"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:309
+#: core/theme-options/option-settings.php:309
+msgid "Portfolio One"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:316
+#: core/theme-options/option-settings.php:316
+msgid "Portfolio One Image"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:319
+#: ../enigma/core/theme-options/option-settings.php:349
+#: ../enigma/core/theme-options/option-settings.php:379
+#: ../enigma/core/theme-options/option-settings.php:409
+#: core/theme-options/option-settings.php:319
+#: core/theme-options/option-settings.php:349
+#: core/theme-options/option-settings.php:379
+#: core/theme-options/option-settings.php:409
+msgid "Add Portfolio image here, size suggestion is 570 X 350 px."
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:323
+#: core/theme-options/option-settings.php:323
+msgid "Portfolio One Title"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:325
+#: core/theme-options/option-settings.php:325
+msgid "Type title fro home portfolio one"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:326
+#: core/theme-options/option-settings.php:326
+msgid "Portfolio One Link"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:328
+#: ../enigma/core/theme-options/option-settings.php:358
+#: ../enigma/core/theme-options/option-settings.php:388
+#: ../enigma/core/theme-options/option-settings.php:418
+#: core/theme-options/option-settings.php:328
+#: core/theme-options/option-settings.php:358
+#: core/theme-options/option-settings.php:388
+#: core/theme-options/option-settings.php:418
+msgid "Put link URL here"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:339
+#: core/theme-options/option-settings.php:339
+msgid "Portfolio Two"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:346
+#: core/theme-options/option-settings.php:346
+msgid "Portfolio Two Image"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:353
+#: core/theme-options/option-settings.php:353
+msgid "Portfolio Two Title"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:355
+#: ../enigma/core/theme-options/option-settings.php:385
+#: ../enigma/core/theme-options/option-settings.php:415
+#: core/theme-options/option-settings.php:355
+#: core/theme-options/option-settings.php:385
+#: core/theme-options/option-settings.php:415
+msgid "Type title from home portfolio"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:356
+#: core/theme-options/option-settings.php:356
+msgid "Portfolio Two Link"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:369
+#: core/theme-options/option-settings.php:369
+msgid "Portfolio Three"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:376
+#: core/theme-options/option-settings.php:376
+msgid "Portfolio Three Image"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:383
+#: core/theme-options/option-settings.php:383
+msgid "Portfolio Three Title"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:386
+#: core/theme-options/option-settings.php:386
+msgid "Portfolio Three Link"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:399
+#: core/theme-options/option-settings.php:399
+msgid "Portfolio Four"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:406
+#: core/theme-options/option-settings.php:406
+msgid "Portfolio Four Image"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:413
+#: core/theme-options/option-settings.php:413
+msgid "Portfolio Four Title"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:416
+#: core/theme-options/option-settings.php:416
+msgid "Portfolio Four Link"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:431
+#: core/theme-options/option-settings.php:431
+msgid "Create Unlimited Portfolio"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:472
+#: core/theme-options/option-settings.php:472
+msgid "Service Section Heading"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:474
+#: core/theme-options/option-settings.php:474
+msgid "Type here your service heading"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:614
+#: core/theme-options/option-settings.php:614
+msgid "Enable social media Header Section."
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:615
+#: core/theme-options/option-settings.php:615
+msgid "Enable Social media in Footer section."
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:618
+#: core/theme-options/option-settings.php:618
+msgid "E-mail:"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:620
+#: core/theme-options/option-settings.php:620
+msgid "Enter Email Id."
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:621
+#: core/theme-options/option-settings.php:621
+msgid "Contact Number:"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:623
+#: core/theme-options/option-settings.php:623
+msgid "Enter Contact Number."
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:643
+#: core/theme-options/option-settings.php:643
+msgid "Youtube Links:"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:706
+#: core/theme-options/option-settings.php:706
+msgid "Footer Call Out"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:720
+#: ../enigma/core/theme-options/option-settings.php:722
+#: core/theme-options/option-settings.php:720
+#: core/theme-options/option-settings.php:722
+msgid "Footer Call Out Tagline"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:725
+#: ../weblizar-pro/theme-options/option-settings.php:199
+#: core/theme-options/option-settings.php:725
+msgid "Button Text"
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:727
+#: core/theme-options/option-settings.php:727
+msgid "Enter Button text  "
+msgstr ""
+
+#: ../enigma/core/theme-options/option-settings.php:730
+#: ../enigma/core/theme-options/option-settings.php:732
+#: core/theme-options/option-settings.php:730
+#: core/theme-options/option-settings.php:732
+msgid "Button link"
+msgstr ""
+
+#: ../enigma/home-blog.php:66 home-blog.php:66
+msgid "NO Post"
+msgstr ""
+
+#: ../enigma/home-blog.php:69 home-blog.php:69
+msgid "Tags :&nbsp;"
+msgstr ""
+
+#: ../enigma/home-blog.php:70 home-blog.php:70
+msgid "Bootstrap"
+msgstr ""
+
+#: ../enigma/home-blog.php:71 home-blog.php:71
+msgid "HTML5"
+msgstr ""
+
+#: ../enigma/home-blog.php:74 home-blog.php:74
+msgid "Add You Post To show post here.."
+msgstr ""
+
+#: ../enigma/home-blog.php:78 ../enigma/loop.php:65 home-blog.php:78
+#: loop.php:65
+msgid "By Admin"
+msgstr ""
+
+#: ../enigma/home-blog.php:79 home-blog.php:79
+msgid " November 9 2013"
+msgstr ""
+
+#: ../enigma/home-blog.php:80 ../enigma/loop.php:67 home-blog.php:80
+#: loop.php:67
+msgid "10"
+msgstr ""
+
+#: ../enigma/loop.php:53 loop.php:53
+msgid "No Post"
+msgstr ""
+
+#: ../enigma/loop.php:61 loop.php:61
+msgid "Add you own post. Thos post will be shown here."
+msgstr ""
+
+#: ../enigma/loop.php:66 loop.php:66
+msgid "November 9. 2013"
+msgstr ""
+
+#: ../enigma/nocontent.php:4 nocontent.php:4
+msgid "Whoops... Post Not Found !!!"
+msgstr ""
+
+#: ../skt-parallaxme/404.php:14
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: ../skt-parallaxme/404.php:17
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: ../skt-parallaxme/404.php:22
+msgid "Most Used Categories"
+msgstr ""
+
+#: ../skt-parallaxme/404.php:37
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:31
+#, php-format
+msgid "Author: %s"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:39
+#, php-format
+msgid "Day: %s"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:42
+#, php-format
+msgid "Month: %s"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:45
+#, php-format
+msgid "Year: %s"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:48 ../twentyfourteen/inc/widgets.php:79
+#: ../twentyfourteen/taxonomy-post_format.php:30
+msgid "Asides"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:51 ../twentyfourteen/inc/widgets.php:54
+#: ../twentyfourteen/taxonomy-post_format.php:33
+msgid "Images"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:54 ../twentyfourteen/inc/widgets.php:58
+#: ../twentyfourteen/taxonomy-post_format.php:36
+msgid "Videos"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:57 ../twentyfourteen/inc/widgets.php:66
+#: ../twentyfourteen/taxonomy-post_format.php:42
+msgid "Quotes"
+msgstr ""
+
+#: ../skt-parallaxme/archive.php:60 ../twentyfourteen/inc/widgets.php:70
+#: ../twentyfourteen/taxonomy-post_format.php:45
+msgid "Links"
+msgstr ""
+
+#: ../skt-parallaxme/comments.php:68 ../twentyfourteen/comments.php:59
+#: ../twentythirteen/comments.php:52 ../twentytwelve/comments.php:53
+msgid "Comments are closed."
+msgstr ""
+
+#: ../skt-parallaxme/content-page.php:23
+#: ../skt-parallaxme/content-single.php:40 ../skt-parallaxme/content.php:66
+#: ../skt-parallaxme/image.php:33 ../skt-parallaxme/image.php:65
+#: ../skt-parallaxme/inc/template-tags.php:71
+#: ../skt-parallaxme/inc/template-tags.php:90
+#: ../twentyfourteen/content-aside.php:40
+#: ../twentyfourteen/content-audio.php:40
+#: ../twentyfourteen/content-gallery.php:40
+#: ../twentyfourteen/content-image.php:40
+#: ../twentyfourteen/content-link.php:40 ../twentyfourteen/content-page.php:28
+#: ../twentyfourteen/content-quote.php:40
+#: ../twentyfourteen/content-video.php:40 ../twentyfourteen/content.php:42
+#: ../twentyfourteen/image.php:34
+#: ../twentyfourteen/page-templates/contributors.php:35
+#: ../twentythirteen/content-aside.php:20
+#: ../twentythirteen/content-aside.php:28
+#: ../twentythirteen/content-audio.php:31
+#: ../twentythirteen/content-chat.php:29
+#: ../twentythirteen/content-gallery.php:39
+#: ../twentythirteen/content-image.php:35
+#: ../twentythirteen/content-link.php:19
+#: ../twentythirteen/content-quote.php:25
+#: ../twentythirteen/content-status.php:19
+#: ../twentythirteen/content-video.php:35 ../twentythirteen/content.php:31
+#: ../twentythirteen/image.php:44 ../twentythirteen/page.php:39
+#: ../twentytwelve/content-aside.php:26 ../twentytwelve/content-image.php:26
+#: ../twentytwelve/content-link.php:24 ../twentytwelve/content-page.php:24
+#: ../twentytwelve/content-quote.php:23 ../twentytwelve/content-status.php:40
+#: ../twentytwelve/content.php:51 ../twentytwelve/functions.php:345
+#: ../twentytwelve/image.php:37
+msgid "Edit"
+msgstr ""
+
+#: ../skt-parallaxme/content.php:29 ../twentyfourteen/content-aside.php:46
+#: ../twentyfourteen/content-audio.php:46
+#: ../twentyfourteen/content-gallery.php:46
+#: ../twentyfourteen/content-image.php:46
+#: ../twentyfourteen/content-link.php:46
+#: ../twentyfourteen/content-quote.php:46
+#: ../twentyfourteen/content-video.php:46 ../twentyfourteen/content.php:54
+#: ../twentyfourteen/inc/widgets.php:127 ../twentyfourteen/inc/widgets.php:172
+#: ../twentythirteen/content-aside.php:13
+#: ../twentythirteen/content-audio.php:24
+#: ../twentythirteen/content-gallery.php:24
+#: ../twentythirteen/content-image.php:23
+#: ../twentythirteen/content-link.php:24
+#: ../twentythirteen/content-quote.php:13
+#: ../twentythirteen/content-status.php:13
+#: ../twentythirteen/content-video.php:23 ../twentythirteen/content.php:41
+#: ../twentytwelve/content-aside.php:15 ../twentytwelve/content-image.php:13
+#: ../twentytwelve/content-link.php:14 ../twentytwelve/content-quote.php:13
+#: ../twentytwelve/content-status.php:31 ../twentytwelve/content.php:44
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: ../skt-parallaxme/content.php:43 ../skt-parallaxme/content.php:53
+#: ../twentythirteen/functions.php:328 ../twentythirteen/functions.php:334
+#: ../twentytwelve/functions.php:370 ../twentytwelve/functions.php:373
+msgid ", "
+msgstr ""
+
+#: ../skt-parallaxme/content.php:47
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: ../skt-parallaxme/content.php:57
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: ../skt-parallaxme/content.php:63 ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:194
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:49
+msgid "Leave a comment"
+msgstr ""
+
+#: ../skt-parallaxme/content.php:63 ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:194
+msgid "1 Comment"
+msgstr ""
+
+#: ../skt-parallaxme/content.php:63 ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:194
+msgid "% Comments"
+msgstr ""
+
+#: ../skt-parallaxme/functions.php:46
+msgid "Blog Sidebar"
+msgstr ""
+
+#: ../skt-parallaxme/functions.php:47
+msgid "Appears on blog page sidebar"
+msgstr ""
+
+#: ../skt-parallaxme/image.php:23
+#, php-format
+msgid ""
+"Published <span class=\"entry-date\"><time class=\"entry-date\" datetime="
+"\"%1$s\">%2$s</time></span> at <a href=\"%3$s\">%4$s &times; %5$s</a> in <a "
+"href=\"%6$s\" rel=\"gallery\">%7$s</a>"
+msgstr ""
+
+#: ../skt-parallaxme/image.php:38 ../twentythirteen/image.php:51
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
+
+#: ../skt-parallaxme/image.php:39 ../twentythirteen/image.php:52
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../skt-parallaxme/inc/custom-functions.php:161
+#, php-format
+msgid "View all posts in %s"
+msgstr ""
+
+#: ../skt-parallaxme/inc/extras.php:66 ../twentyfourteen/functions.php:488
+#: ../twentythirteen/functions.php:218 ../twentytwelve/functions.php:213
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:147
+msgid "Parallax Me Theme Options"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:148
+msgid "Theme Options"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:193
+msgid "Clear"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:194
+msgid "Default"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:195
+msgid "Select Color"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:242
+msgid "Click OK to reset. Any theme settings will be lost!"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:295
+msgid "Default options restored."
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:349
+msgid "Options saved."
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-framework.php:399
+msgid "SKT Parallax Me Settings"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-media-uploader.php:51
+msgid "No file chosen"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-media-uploader.php:54
+#: ../skt-parallaxme/inc/options-media-uploader.php:113
+msgid "Upload"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-media-uploader.php:56
+#: ../skt-parallaxme/inc/options-media-uploader.php:114
+msgid "Remove"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-media-uploader.php:59
+msgid "Upgrade your version of WordPress for full media support."
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-media-uploader.php:83
+msgid "View File"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:237
+msgid "No Repeat"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:238
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:239
+msgid "Repeat Vertically"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:240
+msgid "Repeat All"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:253
+msgid "Top Left"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:254
+msgid "Top Center"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:255
+msgid "Top Right"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:256
+msgid "Middle Left"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:257
+msgid "Middle Center"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:258
+msgid "Middle Right"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:259
+msgid "Bottom Left"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:260
+msgid "Bottom Center"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:261
+msgid "Bottom Right"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:274
+msgid "Scroll Normally"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:275
+msgid "Fixed in Place"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:349
+msgid "Normal"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:350
+msgid "Italic"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:351
+msgid "Bold"
+msgstr ""
+
+#: ../skt-parallaxme/inc/options-sanitize.php:352
+msgid "Bold Italic"
+msgstr ""
+
+#: ../skt-parallaxme/inc/template-tags.php:34
+#: ../twentyfourteen/inc/template-tags.php:80
+#: ../twentythirteen/functions.php:300 ../twentytwelve/functions.php:286
+#: ../twentytwelve/single.php:20
+msgid "Post navigation"
+msgstr ""
+
+#: ../skt-parallaxme/inc/template-tags.php:44
+#: ../twentythirteen/functions.php:270 ../twentytwelve/functions.php:287
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: ../skt-parallaxme/inc/template-tags.php:48
+#: ../twentythirteen/functions.php:274 ../twentytwelve/functions.php:288
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../skt-parallaxme/inc/template-tags.php:71
+#: ../twentytwelve/functions.php:313
+msgid "Pingback:"
+msgstr ""
+
+#: ../skt-parallaxme/inc/template-tags.php:185
+#, php-format
+msgid ""
+"<span class=\"posted-on\">Published %1$s</span><span class=\"byline\"> by "
+"%2$s</span>"
+msgstr ""
+
+#: ../skt-parallaxme/no-results.php:20 ../twentyfourteen/content-none.php:18
+#: ../twentythirteen/content-none.php:18
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../skt-parallaxme/no-results.php:24 ../twentyfourteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../skt-parallaxme/no-results.php:29 ../twentyfourteen/content-none.php:27
+#: ../twentythirteen/content-none.php:27 ../twentytwelve/404.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ../skt-parallaxme/options.php:116
+msgid "Basic Settings"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:120
+msgid "Logo"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:121
+msgid "Upload your main logo here"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:128
+msgid "Favicon"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:129
+msgid "Upload favicon for website"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:136
+msgid "Footer Logo"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:137
+msgid "Upload footer logo here"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:144
+msgid "Footer Right (Designed by) Text"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:145
+msgid ""
+"Some text for footer of your site, you would like to display in the footer."
+msgstr ""
+
+#: ../skt-parallaxme/options.php:151
+msgid "Custom CSS"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:152
+msgid ""
+"Some Custom Styling for your site. Place any css codes here instead of the "
+"style.css file."
+msgstr ""
+
+#: ../skt-parallaxme/options.php:160
+msgid "Sections"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:164
+msgid "Number of Sections"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:165
+msgid "Select number of sections"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:175
+msgid "<h3>Section</h3>"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:180
+msgid "Section Title"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:186
+msgid "Menu Title"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:187
+msgid "This title will display in the header menu. Leave blank to hide in menu"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:193
+msgid "Section CSS Class"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:194
+msgid "Set class for this section."
+msgstr ""
+
+#: ../skt-parallaxme/options.php:200
+msgid "Section Content"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:209
+msgid "Homepage Slider"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:213
+msgid "Inner Page Slider"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:214
+msgid "Show / Hide inner page slider"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:221
+msgid "Slider Image 1"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:222
+msgid "Upload / select image for slide 1"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:229
+msgid "Title 1"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:235
+msgid "Slider Image 2"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:236
+msgid "Upload / select image for slide 2"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:243
+msgid "Title 2"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:249
+msgid "Slider Image 3"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:250
+msgid "Upload / select image for slide 3"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:257
+msgid "Title 3"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:263
+msgid "Slider Image 4"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:264
+msgid "Upload / select image for slide 4"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:271
+msgid "Title 4"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:277
+msgid "Slider Image 5"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:278
+msgid "Upload / select image for slide 5"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:285
+msgid "Title 5"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:293
+msgid "Social Settings"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:297
+msgid ""
+"Please set the value of following fields, as per the instructions given "
+"along. If you do not want to use an icon, just leave it blank. If some icons "
+"are showing up, even when no value is set then make sure they are completely "
+"blank, and just save the options once. They will not be shown anymore."
+msgstr ""
+
+#: ../skt-parallaxme/options.php:301
+#: ../weblizar-pro/functions/custom/metabox.php:26
+msgid "Facebook"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:302
+msgid "Facebook Profile or Page URL i.e. http://facebook.com/username/ "
+msgstr ""
+
+#: ../skt-parallaxme/options.php:309
+msgid "Twitter"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:310
+msgid "Twitter Username"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:317
+msgid "Google Plus"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:318
+msgid "Google Plus profile url, including \"http://\""
+msgstr ""
+
+#: ../skt-parallaxme/options.php:325
+msgid "Linkedin"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:326
+msgid "Linkedin URL"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:333
+msgid "YouTube"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:334
+msgid "YouTube URL"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:342
+msgid "Our Themes"
+msgstr ""
+
+#: ../skt-parallaxme/options.php:346
+msgid ""
+"SKT Parallax Me WordPress theme has been Designed and Created by SKT Themes."
+msgstr ""
+
+#: ../skt-parallaxme/options.php:350
+msgid "<a href=\""
+msgstr ""
+
+#: ../skt-parallaxme/sidebar.php:18
+msgid "Meta"
+msgstr ""
+
+#: ../twentyfourteen/404.php:17 ../twentythirteen/404.php:16
+msgid "Not Found"
+msgstr ""
+
+#: ../twentyfourteen/404.php:21 ../twentythirteen/404.php:22
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: ../twentyfourteen/author.php:31 ../twentythirteen/author.php:31
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: ../twentyfourteen/footer.php:21 ../twentythirteen/footer.php:19
+#: ../twentytwelve/footer.php:16
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../twentyfourteen/footer.php:21 ../twentythirteen/footer.php:19
+#: ../twentytwelve/footer.php:16
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:83
+msgid "Top primary menu"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:84
+msgid "Secondary menu in left sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:171
+msgid "Primary Sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:173
+msgid "Main sidebar that appears on the left."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:180
+msgid "Content Sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:182
+msgid "Additional sidebar that appears on the right."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:191 ../twentythirteen/functions.php:233
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:254
+msgid "Previous"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:255
+msgid "Next"
+msgstr ""
+
+#: ../twentyfourteen/header.php:48
+msgid "Search"
+msgstr ""
+
+#: ../twentyfourteen/header.php:53 ../twentythirteen/header.php:44
+#: ../twentytwelve/header.php:44
+msgid "Skip to content"
+msgstr ""
+
+#: ../twentyfourteen/image.php:65
+msgid "Previous Image"
+msgstr ""
+
+#: ../twentyfourteen/image.php:66
+msgid "Next Image"
+msgstr ""
+
+#: ../twentyfourteen/inc/back-compat.php:37
+#: ../twentyfourteen/inc/back-compat.php:47
+#: ../twentyfourteen/inc/back-compat.php:60
+#, php-format
+msgid ""
+"Twenty Fourteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:19
+#: ../twentyfourteen/inc/customizer.php:20
+msgid "Background may only be visible on wide screens."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:28
+msgid "Site Title Color"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:31
+msgid "Display Site Title &amp; Tagline"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:35
+#: ../twentyfourteen/inc/featured-content.php:408
+msgid "Featured Content"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:36
+#: ../twentyfourteen/inc/featured-content.php:409
+#, php-format
+msgid ""
+"Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the "
+"tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:50
+msgid "Layout"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:54
+msgid "Grid"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:55
+msgid "Slider"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:99
+msgid "Twenty Fourteen"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:102
+#, php-format
+msgid ""
+"The home page features your choice of up to 6 posts prominently displayed in "
+"a grid or slider, controlled by a <a href=\"%1$s\">tag</a>; you can change "
+"the tag and layout in <a href=\"%2$s\">Appearance &rarr; Customize</a>. If "
+"no posts match the tag, <a href=\"%3$s\">sticky posts</a> will be displayed "
+"instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:103
+#, php-format
+msgid ""
+"Enhance your site design by using <a href=\"%s\">Featured Images</a> for "
+"posts you&rsquo;d like to stand out (also known as post thumbnails). This "
+"allows you to associate an image with your post without inserting it. Twenty "
+"Fourteen uses featured images for posts and pages&mdash;above the "
+"title&mdash;and in the Featured Content area on the home page."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:104
+#, php-format
+msgid ""
+"For an in-depth tutorial, and more tips and tricks, visit the <a href=\"%s"
+"\">Twenty Fourteen documentation</a>."
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:431
+msgid "Tag Name"
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:436
+msgid "Don&rsquo;t display tag on front end."
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:45 ../twentytwelve/image.php:41
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:46 ../twentytwelve/image.php:42
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:53
+#: ../twentythirteen/functions.php:266
+msgid "Posts navigation"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:84
+msgid "<span class=\"meta-nav\">Published In</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:86
+msgid "<span class=\"meta-nav\">Previous Post</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:87
+msgid "<span class=\"meta-nav\">Next Post</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:104
+#: ../twentythirteen/functions.php:322
+msgid "Sticky"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:34
+msgid "Twenty Fourteen Ephemera"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:36
+msgid ""
+"Use this widget to list your recent Aside, Quote, Video, Audio, Image, "
+"Gallery, and Link posts."
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:55
+msgid "More images"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:59
+msgid "More videos"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:62
+#: ../twentyfourteen/taxonomy-post_format.php:39
+msgid "Audio"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:63
+msgid "More audio"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:67
+msgid "More quotes"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:71
+msgid "More links"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:74
+#: ../twentyfourteen/taxonomy-post_format.php:48
+msgid "Galleries"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:75
+msgid "More galleries"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:80
+msgid "More asides"
+msgstr ""
+
+#. translators: used with More archives link
+#: ../twentyfourteen/inc/widgets.php:206
+#, php-format
+msgid "%s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:255
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:76
+#: ../weblizar-pro/functions/custom/wl-footer-recent-posts.php:76
+msgid "Title:"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:258
+msgid "Number of posts to show:"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:261
+msgid "Post format to show:"
+msgstr ""
+
+#: ../twentythirteen/404.php:21 ../twentytwelve/404.php:17
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:26 ../twentytwelve/author.php:63
+#: ../twentytwelve/content.php:62
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:30 ../twentytwelve/content.php:66
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:49
+msgid "One comment so far"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:49
+#, php-format
+msgid "View all % comments"
+msgstr ""
+
+#: ../twentythirteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+
+#: ../twentythirteen/functions.php:97
+msgid "Navigation Menu"
+msgstr ""
+
+#: ../twentythirteen/functions.php:231
+msgid "Main Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:241
+msgid "Secondary Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:243
+msgid "Appears on posts and pages in the sidebar."
+msgstr ""
+
+#: ../twentythirteen/functions.php:343 ../twentytwelve/functions.php:384
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:369 ../twentytwelve/content-aside.php:20
+#: ../twentytwelve/content-link.php:18 ../twentytwelve/content-quote.php:17
+#: ../twentytwelve/content-status.php:15
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../twentythirteen/header.php:43 ../twentytwelve/header.php:43
+msgid "Menu"
+msgstr ""
+
+#: ../twentythirteen/image.php:22
+#, php-format
+msgid ""
+"<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" "
+"rel=\"gallery\">%5$s</a></span>"
+msgstr ""
+
+#: ../twentythirteen/image.php:39
+msgid "Full resolution"
+msgstr ""
+
+#: ../twentythirteen/inc/back-compat.php:37
+#: ../twentythirteen/inc/back-compat.php:47
+#: ../twentythirteen/inc/back-compat.php:60
+#, php-format
+msgid ""
+"Twenty Thirteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentythirteen/taxonomy-post_format.php:23
+#, php-format
+msgid "%s Archives"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:37 ../twentytwelve/content.php:33
+msgid "Leave a reply"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:37 ../twentytwelve/content.php:33
+msgid "1 Reply"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:37 ../twentytwelve/content.php:33
+msgid "% Replies"
+msgstr ""
+
+#: ../twentytwelve/content-link.php:12
+msgid "Link"
+msgstr ""
+
+#: ../twentytwelve/content-none.php:17 ../twentytwelve/index.php:53
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: ../twentytwelve/content.php:16
+msgid "Featured post"
+msgstr ""
+
+#: ../twentytwelve/functions.php:242
+msgid "Main Sidebar"
+msgstr ""
+
+#: ../twentytwelve/functions.php:244
+msgid ""
+"Appears on posts and pages except the optional Front Page template, which "
+"has its own widgets"
+msgstr ""
+
+#: ../twentytwelve/functions.php:252
+msgid "First Front Page Widget Area"
+msgstr ""
+
+#: ../twentytwelve/functions.php:254 ../twentytwelve/functions.php:264
+msgid ""
+"Appears when using the optional Front Page template with a page set as "
+"Static Front Page"
+msgstr ""
+
+#: ../twentytwelve/functions.php:262
+msgid "Second Front Page Widget Area"
+msgstr ""
+
+#: ../twentytwelve/functions.php:313
+msgid "(Edit)"
+msgstr ""
+
+#: ../twentytwelve/functions.php:328
+msgid "Post author"
+msgstr ""
+
+#. translators: 1: date, 2: time
+#: ../twentytwelve/functions.php:334
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../twentytwelve/functions.php:390
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: ../twentytwelve/functions.php:392
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: ../twentytwelve/functions.php:394
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: ../twentytwelve/image.php:26
+#, php-format
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+
+#: ../twentytwelve/index.php:38
+msgid "No posts to display"
+msgstr ""
+
+#: ../twentytwelve/index.php:42
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: ../weblizar-pro/about.php:111
+msgid "Fred Nerk"
+msgstr ""
+
+#: ../weblizar-pro/about.php:112
+msgid "Business analysts"
+msgstr ""
+
+#: ../weblizar-pro/archive.php:54 ../weblizar-pro/author.php:46
+#: ../weblizar-pro/category.php:48 ../weblizar-pro/tag.php:45
+msgid "<span>&larr;</span> Older posts"
+msgstr ""
+
+#: ../weblizar-pro/archive.php:55 ../weblizar-pro/author.php:47
+#: ../weblizar-pro/category.php:49 ../weblizar-pro/tag.php:46
+msgid "Newer posts <span>&rarr;</span>"
+msgstr ""
+
+#: ../weblizar-pro/author-bio.php:5
+msgid "About The Author"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:28
+#: ../weblizar-pro/contactpage-three.php:19
+msgid "Name"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:32
+#: ../weblizar-pro/contactpage-three.php:23
+msgid "Fill your name"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:35
+#: ../weblizar-pro/contactpage-three.php:26
+msgid "E-mail"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:39
+#: ../weblizar-pro/contactpage-three.php:30
+msgid "Fill your Email"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:42
+#: ../weblizar-pro/contactpage-three.php:33
+msgid "Message"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:46
+#: ../weblizar-pro/contactpage-three.php:37
+msgid "Fill your Text massage"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:59
+#: ../weblizar-pro/contactpage-three.php:50
+#: ../weblizar-pro/contactpage-two.php:71
+msgid "Contact Query successfully submit"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:123
+msgid "Address:"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:127
+msgid "Phone:"
+msgstr ""
+
+#: ../weblizar-pro/contactpage-one.php:131
+msgid "Email:"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:7
+msgid "Add New Team Member"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:8
+#: ../weblizar-pro/functions/custom/custom-post-type.php:9
+msgid "Add New Member"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:10
+#: ../weblizar-pro/functions/custom/custom-post-type.php:38
+#: ../weblizar-pro/functions/custom/custom-post-type.php:66
+#: ../weblizar-pro/functions/custom/custom-post-type.php:96
+msgid "New Link"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:11
+msgid "All Team Member"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:12
+#: ../weblizar-pro/functions/custom/custom-post-type.php:40
+#: ../weblizar-pro/functions/custom/custom-post-type.php:68
+#: ../weblizar-pro/functions/custom/custom-post-type.php:98
+msgid "View Link"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:13
+#: ../weblizar-pro/functions/custom/custom-post-type.php:41
+#: ../weblizar-pro/functions/custom/custom-post-type.php:69
+#: ../weblizar-pro/functions/custom/custom-post-type.php:99
+msgid "Search Links"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:14
+#: ../weblizar-pro/functions/custom/custom-post-type.php:42
+#: ../weblizar-pro/functions/custom/custom-post-type.php:70
+#: ../weblizar-pro/functions/custom/custom-post-type.php:100
+msgid "No Links found"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:15
+#: ../weblizar-pro/functions/custom/custom-post-type.php:43
+#: ../weblizar-pro/functions/custom/custom-post-type.php:71
+#: ../weblizar-pro/functions/custom/custom-post-type.php:101
+msgid "No Links found in Trash"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:35
+#: ../weblizar-pro/functions/custom/custom-post-type.php:37
+msgid "Add New Slide"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:36
+msgid "Add New Slider"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:39
+msgid "All Featured Sliders"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:63
+#: ../weblizar-pro/functions/custom/custom-post-type.php:65
+msgid "Add New service"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:64
+msgid "Add New Service"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:67
+msgid "All Services"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:93
+msgid "Add New Item"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:94
+msgid "Add New Portfolio"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:95
+msgid "Add New Portfolio "
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/custom-post-type.php:97
+msgid "All Portfolio"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:23
+msgid "Members Designation"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:25
+msgid "Social Media Setting"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:28
+msgid "Twitter Url"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:30
+msgid "LinkedIn Url"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:32
+msgid "Google Url"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:46
+msgid "Slider Description"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:48
+msgid "Slider Button Text"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:50
+msgid "Slider Button Link"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:51
+#: ../weblizar-pro/functions/custom/metabox.php:75
+#: ../weblizar-pro/functions/custom/metabox.php:94
+#: ../weblizar-pro/functions/custom/metabox.php:101
+msgid "Open link in a new window/tab"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:66
+msgid "Service font-awesome Icons"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:72
+msgid "Service Button Text"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:74
+msgid "Service Button Link"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:93
+msgid "Portfolio Link"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:96
+msgid "Clients"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:98
+msgid "Skills"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:100
+msgid "Website"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/metabox.php:108
+#: ../weblizar-pro/functions/custom/metabox.php:116
+msgid "Tagline"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:15
+msgid "Footer Contact"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:16
+msgid "Your contact details display"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:42
+msgid "ADDRESS"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:42
+msgid "25, Lorem Lis Street"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:43
+msgid "PHONE"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:43
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:63
+msgid "987-654-321"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:44
+msgid "EMAIL"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:44
+msgid "mail@me.com"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:44
+msgid "info@weblizar.com"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:45
+msgid "WEBSITE"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:45
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:69
+msgid "weblizar.com"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:60
+msgid "Contact Info"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:66
+msgid "help@me.com "
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:72
+msgid "Auckland, NZ "
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:79
+msgid "Contact phone number:"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:83
+msgid "E-mail address:"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:86
+msgid "Website :"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-contact-widgets.php:90
+msgid "Contact address:"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-recent-posts.php:16
+msgid "Recent Posts"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-recent-posts.php:17
+msgid "The Recent post display on your sites footer"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-recent-posts.php:71
+msgid "Latest News"
+msgstr ""
+
+#: ../weblizar-pro/functions/custom/wl-footer-recent-posts.php:80
+msgid "Number of pages to show:"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:31
+msgid "Insert Shortcode"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:65
+msgid "Shortcode Selector"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:73
+msgid "Shortcodes"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:74
+msgid "Accordion"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:75
+msgid "Alert"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:76
+msgid "Button"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:77
+msgid "Drop-Caps"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:78
+msgid "Grid System Layout"
+msgstr ""
+
+#: ../weblizar-pro/functions/shortcodes/shortcodes_iframe.php:79
+msgid "Heading"
+msgstr ""
+
+#: ../weblizar-pro/single-weblizar_portfolio.php:12
+msgid "previous project"
+msgstr ""
+
+#: ../weblizar-pro/single-weblizar_portfolio.php:20
+msgid "next project"
+msgstr ""
+
+#: ../weblizar-pro/single-weblizar_portfolio.php:57
+msgid "client"
+msgstr ""
+
+#: ../weblizar-pro/single-weblizar_portfolio.php:60
+msgid "skills"
+msgstr ""
+
+#: ../weblizar-pro/single-weblizar_portfolio.php:62
+msgid "Date"
+msgstr ""
+
+#: ../weblizar-pro/single-weblizar_portfolio.php:64
+msgid "Project website"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-panel.php:27
+msgid "Weblizar "
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-panel.php:43
+msgid "Site Info & Heading"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-panel.php:45
+msgid "Call Out Area"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-panel.php:48
+msgid "Skin Layout"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-panel.php:49
+#: ../weblizar-pro/theme-options/option-settings.php:341
+msgid "Contact Details"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-panel.php:52
+msgid "Maintenance Mode "
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:74
+msgid "Site Info & Heading Settings"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:106
+msgid "Meet Our Team Title"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:108
+msgid "Type here your meet our team title"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:110
+msgid "Meet Our Team Description"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:112
+msgid "Type here your meet our team description."
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:126
+msgid "Portfolio Settings"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:140
+msgid "Portfolio Title"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:142
+#: ../weblizar-pro/theme-options/option-settings.php:197
+msgid "Type here your portfolio title"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:144
+msgid "Portfolio Description"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:146
+#: ../weblizar-pro/theme-options/option-settings.php:201
+msgid "Type here your portfolio Description "
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:148
+msgid "Home Portfolio Button Text"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:150
+msgid "Type here your Home Portfolio Button Text"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:152
+msgid "Home Portfolio Button Link"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:153
+#: ../weblizar-pro/theme-options/option-settings.php:204
+msgid "Open link in a new window/tab."
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:155
+msgid "Type here your Home Portfolio Button Link"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:159
+msgid "Portfolio Related Works Text"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:161
+msgid "Type here your portfolio related works text"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:163
+msgid "Portfolio Project Details"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:165
+msgid "Type here your portfolio project details text"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:181
+msgid "Call Out Settings"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:195
+msgid "Call Out Area Description"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:203
+msgid "Button Link"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:206
+msgid "Type here your call out area button link"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:224
+msgid "Skin Layout Settings"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:255
+msgid "Select color for you theme."
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:258
+msgid "Theme Layout"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:261
+msgid "wide"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:262
+msgid "boxed"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:263
+msgid "With the Help of box layout you can show sites background"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:266
+msgid "Custom background "
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:311
+msgid "Images background "
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:323
+msgid "Set own Background Image using given link"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:323
+msgid "Click here"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:355
+msgid "Contact Us text"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:357
+#: ../weblizar-pro/theme-options/option-settings.php:376
+msgid "Type here your contact us text"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:359
+msgid "Phone Number"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:361
+#: ../weblizar-pro/theme-options/option-settings.php:380
+msgid "Type here your contact Phone number"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:363
+msgid "Email Address"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:365
+#: ../weblizar-pro/theme-options/option-settings.php:384
+msgid "Type here your contact Email address"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:367
+msgid "Contact Address"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:369
+#: ../weblizar-pro/theme-options/option-settings.php:388
+msgid "Type here your contact address"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:374
+msgid "Marketing Department text"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:378
+msgid "Marketing Department Phone Number"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:382
+msgid "Marketing Department Email Address"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:386
+msgid "Marketing Department Contact Address"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:392
+msgid "Google Maps Url"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:393
+msgid "Enable Google map in contact section."
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:396
+msgid "Type here your Google map url"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:430
+msgid "Social Text:"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:432
+msgid "Enter Social text."
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:513
+msgid "Maintenance Mode"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:527
+msgid "Enable Maintenance Mode"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:528
+msgid "Enable Maintainence Mode on Site."
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:531
+msgid "Title of the Page"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:533
+msgid "Add your Heading for this Page"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:536
+msgid "Add Text Description"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:538
+msgid "Add description for the Maintenance Mode Ready Page "
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:541
+msgid "Coming Soon Image"
+msgstr ""
+
+#: ../weblizar-pro/theme-options/option-settings.php:544
+msgid "Add Image for Maintenance Mode Ready Page"
+msgstr ""

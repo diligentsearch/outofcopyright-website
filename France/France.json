@@ -1,0 +1,131 @@
+{
+    "country":"France",
+    "contributors":["Jesse Jérôme", "Nathan Heu"],
+    "language":["fr","nl"],
+    "default-language": "nl",
+    "subgraph": 
+    [
+        {
+            "typeOfWork":"phonogram",
+            "nodes":
+            [
+                {
+                    "id": 1, 
+                    "type":"question", 
+                    "text":"LBL_PHONOGRAM_DATE", 
+                    "formula":"VAR_PUBLI_DATE - VAR_CREATED_DATE > 50", 
+                    "idResponse":["VAR_PUBLI_DATE", "VAR_CREATED_DATE"], 
+                    "start":true, 
+                    "response":[
+                        {
+                            "response":true, 
+                            "children":2 
+                        }, 
+                        {
+                            "response":false, 
+                            "children":5 
+                        }
+                    ]
+                }, 
+                {   
+                    "id": 2, 
+                    "type":"question", 
+                    "text":"LBL_PHONOGRAM_DATE_PUBLI", 
+                    "formula":"NOW - PUBLI_DATE > 50", 
+                    "idResponse":["PUBLI_DATE"], 
+                    "response":[
+                        {
+                            "response":true, 
+                            "children":3
+                        }, 
+                        {
+                            "response":false, 
+                            "children":4 
+                        }
+                    ]
+                },
+                {   
+                    "id": 3, 
+                    "type":"final", 
+                    "text":"PHONOGRAM_OUTOFCOPYRIGHT", 
+                    "outofcopyright":true
+                },
+                {
+                    "id": 4, 
+                    "type":"final", 
+                    "text":"PHONOGRAM_COPYRIGHT", 
+                    "outofcopyright":false
+                },
+                {
+                    "id": 5, 
+                    "type":"question", 
+                    "text":"PHONOGRAM_COMM_PUBLI", 
+                    "formula":"COMMUNICATED_DATE - CREATED_DATE > 50", 
+                    "idResponse":["COMMUNICATED_DATE", "CREATED_DATE"], 
+                    "response":[
+                        {
+                            "response":true, 
+                            "children":7
+                        }, 
+                        {
+                            "response":false, 
+                            "children":6, 
+                            "alias": true
+                        }
+                    ]
+                },
+                {   
+                    "id": 6, 
+                    "type":"question", 
+                    "text":"CREATED_DATE", 
+                    "formula":"NOW - CREATED_DATE > 50", 
+                    "idResponse":["CREATED_DATE"], 
+                    "response":[
+                        {
+                            "response":true, 
+                            "children":3
+                        }, 
+                        {
+                            "response":false, 
+                            "children":4 
+                        }
+                    ]
+                },
+                {   
+                    "id": 7, 
+                    "type":"question", 
+                    "text":"COMMUNICATED_DATE", 
+                    "formula":"NOW - COMMUNICATED_DATE > 50", 
+                    "idResponse":["COMMUNICATED_DATE"], 
+                    "response":[
+                        {
+                            "response":true, 
+                            "children":3
+                        }, 
+                        {
+                            "response":false, 
+                            "children":4 
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "variable_list":
+    [
+        {
+            "id": "PUBLI_DATE",
+            "type": "numeric"
+        },
+        {
+            "id": "CREATED_DATE", 
+            "type": "numeric"
+        },
+        {
+            "id": "COMMUNICATED_DATE", 
+            "type": "numeric"
+        }
+    ]
+}
+
+

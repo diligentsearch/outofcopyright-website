@@ -1,0 +1,197 @@
+Changelog Legend:
+
+[+] = Added
+[*] = Changed
+[^] = Moved
+[=] = No Changes
+[x] = Deleted
+[!] = Bugs
+
+----
+
+(31/10/2014) - Update - Version 1.3.4
+
+[+] Added Danish translation.
+[*] Updated the "viewport" meta tag.
+
+----
+
+(03/10/2014) - Update - Version 1.3.3
+
+[+] Added Dutch translation.
+
+----
+
+(19/09/2014) - Update - Version 1.3.2
+
+[*] Updated displaying of widgets in the Right Sidebar.
+[*] Updated displaying of sticky posts (uppercase titles).
+
+----
+
+(08/09/2014) - Update - Version 1.3.1
+
+[*] Updated displaying of the footer widget areas.
+[*] Changed position of the scroll-top button.
+
+----
+
+(29/08/2014) - Update - Version 1.3.0
+
+[*] Changed displaying of the header images.
+[*] Updated editor-style.css.
+
+----
+
+(20/08/2014) - Update - Version 1.2.5
+
+[+] Added Italian translation.
+
+----
+
+(11/08/2014) - Update - Version 1.2.4
+
+[+] Added custom Page Template for displaying Full-width pages without Title.
+
+----
+
+(30/07/2014) - Update - Version 1.2.3
+
+[*] Changed function for displaying featured images on archive pages.
+[*] Changed function for displaying the post excerpts.
+
+----
+
+(19/07/2014) - Update - Version 1.2.2
+
+[!] Fixed possible "Undefined index" debug notices in widget-posts-default.php.
+
+----
+
+(09/07/2014) - Update - Version 1.2.1
+
+[*] Moved $content_width definition inside the Theme setup function.
+[!] Fixed displaying of the drop-down submenus when the text takes up more than 1 line.
+
+----
+
+(26/06/2014) - Update - Version 1.2.0
+
+[+] Added support for WooCommerce plugin.
+
+----
+
+(15/06/2014) - Update - Version 1.1.11
+
+[*] Edited URL address for the Google fonts call (removed http to avoid errors when https is used).
+[*] Edited CSS for "iframe" and "embed" elements.
+[x] Removed definition of unused checkboxes in fw-options.php.
+
+----
+
+(02/06/2014) - Update - Version 1.1.10
+
+[+] Added Greek translation.
+[*] Changed styling of the <pre> tag.
+
+----
+
+(20/05/2014) - Update - Version 1.1.9
+
+[+] Added "edit post" links.
+[+] Added theme-slug prefixes to the enqueued scripts and styles.
+[*] Changed styling of the Comments area if comments are closed.
+
+----
+
+(08/05/2014) - Update - Version 1.1.8.1
+
+[!] Fixed function for marking selected options in Theme Options panel.
+
+----
+
+(08/05/2014) - Update - Version 1.1.8
+
+[+] Added 1 new pre-defined color scheme (Forest).
+
+----
+
+(29/04/2014) - Update - Version 1.1.7.1
+
+[!] Fixed function for displaying the Header Image. 
+
+----
+
+(29/04/2014) - Update - Version 1.1.7
+
+[*] Changed the navigation to next/previous pages (added page links).
+[*] Changed the navigation to next/previous posts on single posts (added post titles).
+[*] Updated language localizations.
+
+----
+
+(22/04/2014) - Update - Version 1.1.6
+
+[+] Added custom Page Template for displaying the Landing Page.
+
+----
+
+(15/04/2014) - Update - Version 1.1.5
+
+[+] Added custom Page Template for displaying pages without the Comments area.
+[+] Added custom Page Template for displaying pages without the Page Title.
+[*] Changed the functions for Theme Options output (esc_attr_e strings replaced by esc_attr).
+
+----
+
+(08/04/2014) - Update - Version 1.1.4
+
+[+] Added custom Page Template for displaying the page content only for logged in users.
+[*] Updated language localizations.
+[*] Changed the look of the Scroll-top button.
+
+----
+
+(01/04/2014) - Update - Version 1.1.3
+
+[*] Edited the offer of Google Fonts in Theme Options.
+
+----
+
+(21/03/2014) - Update - Version 1.1.2
+
+[+] Added 1 new pre-defined color scheme (Tan).
+[*] Edited the query function for RestImpo Default-Posts widget.
+[!] Edited font-settings for RestImpo Posts Widgets headlines.
+
+----
+
+(16/03/2014) - Update - Version 1.1.1
+
+[+] Added Russian language localization.
+[+] Added option for displaying the Header Image on all pages.
+
+----
+
+(12/03/2014) - Update - Version 1.1.0
+
+[+] Added option for selecting between Content/Excerpt displaying on Archive pages.
+[+] Added new "Lime" pre-defined color scheme.
+
+----
+
+(25/02/2014) - The initial public release - Version 1.0.1
+
+[+] Added copyright notices for all used images and JavaScript files.
+[*] Changed the icons.
+[*] Changed Theme URL.
+[*] Edited the main query function in index.php and all archive templates.
+[x] Removed custom shortcodes from functions.php.
+[x] Removed Theme Options link from the Admin Bar.
+[x] Removed Color settings tab from Theme Options.
+[!] Added escaping for output of restimpo_get_own_css() function.
+[!] Added escaping for output of home_url function in searchform.php.
+
+----
+
+(21/02/2014) - The initial testing release - Version 1.0.0
