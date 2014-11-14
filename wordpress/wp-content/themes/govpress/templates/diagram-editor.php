@@ -20,17 +20,17 @@ get_header(); ?>
             <div class="row" id="typeOfWorkRow" style="margin-top: 10px; margin-left: 5px; margin-right: 5px;">
                 <div class="panel panel-primary">
                     <div class="panel-heading" style=" height: 42px; ">
-                        <div class="col-sm-9">
+                        <div class="col-sm-11" style=" padding-left: 0px; padding-right: 0px; ">
                             <h6 class="panel-title" style=" padding-top: 2px; ">Type of work</h6>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-1" style=" padding-right: 0px; padding-left: 0px; margin-right: 0px; margin-left: 0px; ">
                             <a href="#" id="addTypeOfWorkButton" style=" margin-top: 10px;">
                                 <i class="fa fa-plus-square-o bg-primary fa-lg"></i>
                             </a>
                         </div>
                     </div>
-                    <div class="panel-body" style="overflow-y: auto; overflow-x: hidden;" id="listTypeOfWorkRow">
-                        <ul id="listTypeOfWork" class="nav nav-pills nav-stacked">
+                    <div class="panel-body" style="overflow-y: auto; overflow-x: hidden;width: 157px;" id="listTypeOfWorkRow">
+                        <ul id="listTypeOfWork" class="nav nav-pills nav-stacked" style="margin-left: 0px;">
                         </ul>
                     </div>
                 </div>
@@ -47,8 +47,8 @@ get_header(); ?>
                             </a>
                         </div>
                     </div>
-                    <div class="panel-body" style="overflow-y: auto; overflow-x: hidden;" id="listDatapointsRow">
-                        <ul id="listDatapoints" class="nav nav-pills nav-stacked">
+                    <div class="panel-body" style="overflow-y: auto; overflow-x: hidden;width: 157px;" id="listDatapointsRow">
+                        <ul id="listDatapoints" class="nav nav-pills nav-stacked" style="margin-left: 0px;">
                         </ul>
                     </div>
                 </div>
@@ -111,20 +111,20 @@ font-weight: bold;">
 
         <div class="row">
             <div class="col-sm-3 buttonProperties text-center" onclick="clickPropertiesButton('formulaButton')" id="formulaButton">
-                <i class="fa fa-superscript fa-3x"></i>
-                <span>Formula</span>
+                <i class="fa fa-superscript fa-2x"></i>
+                <span style=" margin-left: -15px;" >Formula</span>
             </div>
             <div class="col-sm-3 buttonProperties text-center" onclick="clickPropertiesButton('listButton')" id="listButton">
-                <i class="fa fa-list-ul fa-3x"></i>
+                <i class="fa fa-list-ul fa-2x"></i>
                 <span>List</span>
             </div> 
             <div class="col-sm-3 buttonProperties text-center" onclick="clickPropertiesButton('aliasButton')"  id="aliasButton">
-                <i class="fa fa-link fa-3x"></i>
+                <i class="fa fa-link fa-2x"></i>
                 <span>Alias</span>
             </div>
             <div class="col-sm-3 buttonProperties text-center" onclick="clickPropertiesButton('resultButton')" id="resultButton">
-                <i class="fa fa-gavel fa-3x"></i>
-                <span>Result</span>
+                <i class="fa fa-gavel fa-2x"></i>
+                <span style=" margin-left: -6px;">Result</span>
             </div>
         </div>
         <div class="row buttonPropertyActive questionPart">
@@ -132,7 +132,7 @@ font-weight: bold;">
         </div>
         
         <div class="row buttonPropertyActive questionPart">
-            <textarea id="question" class="col-sm-12 buttonPropertyActive form-control" style="padding-left: 10px;"></textarea>
+            <textarea id="question" class="col-sm-12 buttonPropertyActive form-control" style="padding-left: 10px;background-color: #22abd4;"></textarea>
         </div>
         <div class="panelProperty" id="formulaPanel" style="display:none;">
             <div class="row buttonPropertyActive" style="padding-top: 10px;">
@@ -209,7 +209,7 @@ font-weight: bold;">
                 <span class="margin-left">Text :</span>
             </div>
             <div class="row buttonPropertyActive">
-                <textarea id="resultText" class="col-sm-12 buttonPropertyActive form-control" style="padding-left: 10px;"></textarea>
+                <textarea id="resultText" class="col-sm-12 buttonPropertyActive form-control" style="padding-left: 10px;background-color: #22abd4;"></textarea>
             </div>
         </div>
         <div class="row buttonPropertyActive" id="blueMargin" >
@@ -398,8 +398,8 @@ font-weight: bold;">
     </div>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/www/outofcopyright-website/outofcopyright/js/bootstrap.min.js"></script>
-    <script src="/www/outofcopyright-website/outofcopyright/js/diagram-editor.js"></script>
+    <script src="/outofcopyright/js/bootstrap.min.js"></script>
+    <script src="/outofcopyright/js/diagram-editor.js"></script>
 
     <script>
     var current_user = new Object();

@@ -9,10 +9,11 @@ var readOnly = false;
 var languageChoosen = "";
 
 $(function(){
-
+	$("html").css("height","1500px");
+	$("#secondary").hide();
 	//Ajuste la taille du SVG pour le graphe à la taille disponible.
 	$('#drawSvg').attr('width', $('#drawZone').width());
-	$('#drawSvg').attr('height', $('#drawZone').height());
+	$('#drawSvg').attr('height', $('#drawZone').height()+500);
 
 	country = getUrlVars()["country"];
 
@@ -207,22 +208,24 @@ function listTypeDatapoint(activeTypeOfWork){
 	$.each( file.subgraph, function( key, value ) {
 		var classactive = '';
 		if(key == activeTypeOfWork){
-			classactive = classactive = ' active';
+			classactive = ' active';
 			loadTypeOfWork(key);
 		}
 		else{
 			classactive = '';
 		}
 			$('#listTypeOfWork').append('<li class="typeOfWork'+classactive+'" id="typeOfWork-'+key+'" onclick="loadTypeOfWork(\''+key+'\');"><a href="#">'+value.graphName+'</a></li>');
-	});
+
+			$('.active > a').css("color", "#fff");
+		});
 	
 	$.each( file.datapoints, function( key, value ) {
 			var etc = '';
-			if(value.id.length > 15){
+			if(value.id.length > 8){
 				etc = '...';
 			}
 
-			$('#listDatapoints').append('<li class="datapoints" id="datapoints-'+value.id+'" onclick="loadDatapoints(\''+key+'\');"><a href="#" title="'+value.id+'">'+value.id.substring(0, 15)+etc+'</a></li>');
+			$('#listDatapoints').append('<li class="datapoints" id="datapoints-'+value.id+'" onclick="loadDatapoints(\''+key+'\');"><a href="#" title="'+value.id+'">'+value.id.substring(0, 8)+etc+'</a></li>');
 	});
 
 	resizeVerticaly();
@@ -250,8 +253,9 @@ function loadTypeOfWork(id){
 	nodeSelected = null;
 	idNodeSelected = null;
 	$( ".typeOfWork" ).removeClass('active');
+	$(".typeOfWork > a").css('color', "#22abd4");
 	$("#typeOfWork-"+id).addClass('active');
-	
+	$("#typeOfWork-"+id+" > a").css('color', "#fff");
 
 	
 
@@ -784,7 +788,7 @@ function readOnlyDiagram(){
 }
 
 function resizeVerticaly(){
-	var height = $( document ).height();
+	var height = $( document ).height() - 700;
 	var heightTypeOfWorkRow = $( "#typeOfWorkRow").height();
 	var heightDatapointsRow = $( "#datapointsRow").height();
 	var heightPanelProperties = $( "#panelProperties").height();

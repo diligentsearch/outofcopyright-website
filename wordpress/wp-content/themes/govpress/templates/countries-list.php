@@ -215,8 +215,8 @@ font-weight: bold;">
     </div>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/www/outofcopyright-website/outofcopyright/js/bootstrap.min.js"></script>
-    <script src="/www/outofcopyright-website/outofcopyright/js/countries-list.js"></script>
+    <script src="/outofcopyright/js/bootstrap.min.js"></script>
+    <script src="/outofcopyright/js/countries-list.js"></script>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 

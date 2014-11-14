@@ -3,6 +3,8 @@ var country;
 var contentFile
 
 $(function() {
+	$("#secondary").hide();
+	$("html").css("height","1100px");
 	displayCountries();
 
 	$screenHeight = $(document).height();
@@ -121,7 +123,7 @@ function loadCountry(country){
 
 		file = data;
 
-		$("#edit-diagram").attr("href", "/www/outofcopyright-website/wordpress/?page_id=26&country="+country+"&language="+file.default_language);
+		$("#edit-diagram").attr("href", "?page_id=4350&country="+country+"&language="+file.default_language);
 
 		//Display languages available
 		var listLanguages = "<span id='listLanguagesSpan'>";
@@ -158,7 +160,6 @@ function loadCountry(country){
 	//Display changelog
 	$.post( "/node", { country: country, name: country+".json", action: 'commits' } )
 		.done(function( data ) {
-
 		var tf = new TimeFormatter();
 		var listCommits = "";
 		for( var i = 0; i < data.length; i++){
