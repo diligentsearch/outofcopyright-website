@@ -109,7 +109,53 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 });
             });
         </script>
+        <h2>Introduction</h2>
+        <p>After choosing a type of work the term of protection of which you want to calculate, followed by a form that contains all the information required to complete the calculation. This version illustrates the possibilities of an API-based calculator by identifying all the data required to complete a full calculation.</p>
+        <p>It should be noted that multiple layers of rights (whether of copyright, neighbouring or related rights or sui generis rights) might apply to the same information product. Please make sure that you correctly identify and apply the Public Domain Calculators to all subject matter that qualifies for protection.</p>
+        <p>Where an event is mentioned in the calculator as the starting point for the calculation of a set number of years, for the purposes of the calculator, the event should be taken as occurring on the first day of January of the year following that in which it actually took place.</p>
+        <p>Click here for a visual representation of this decision proces.</p>
+        <h2>Calculate</h2>
+        <div class="row margin-left">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label">Type of work : </label>
+                </div>
+                <div class="col-sm-10">
+                    <select name="typeOfWork" id="typeOfWork" class="form-control">
+                        <option value="">Select type of work</option>
+                    </select>
+                </div>
+            </div>
+            <div id="forms">
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="button" name="submit" value="Submit" class="btn btn-primary" onclick="submit();" />
+                </div>
+            </div>
+            <div class="alert alert-dismissable alert-warning margin-top" style="display:none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h4>Warning!</h4>
+                <p id="error"></p>
+            </div>
+            <div class="alert alert-dismissable alert-success margin-top" style="display:none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p id="result"></p>
+            </div>
+            <div class="alert alert-dismissable alert-danger margin-top" style="display:none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p id="resultdanger"></p>
+            </div>
+        </div>
 
+        <h2>Note</h2>
+        <p>Please note that a single item might be protected by multiple layers of rights. For example, a CD will often comprise four layers of rights: if it contains music, that may be covered by copyright; any lyrics accompanying the music may also qualify for copyright protection, while the performers (musicians and singers or any other performer) as well as the phonogram producer may be protected by related rights. Similarly, a book may consist of text and illustrations, both of which may be protected by copyright. If an illustration is a photograph of a painting, a third layer of protection may be added. The term of protection of all relevant rights should be examined in order to determine whether the item as a whole is in the Public Domain or not. Please make sure you correctly identify and apply the Public Domain Helper Tool to all subject matter that qualifies for protection.</p>
+        <p>To this end, please also keep in mind that in accordance with Belgian law and for the purposes of this Public Domain Calculator:</p>
+        <ul>
+            <li>A volume, part, instalment, issue or episode of a work shall be treated as if they are whole independent works. Individual parts or issues of magazines, newspapers and other periodical works should also be considered to be independent works. The Public Domain Helper Tool should accordingly be applied to each of these individually.</li>
+            <li>If a work has been created by two or more persons in collaboration, it is a work of joint authorship. The Public Domain Helper Tool should accordingly be applied to the work as a whole, but not to the individual contributions.</li>
+            <li>Individual items included in an (original or unoriginal) database may be independently protected. In this case, the Public Domain Helper Tool should also be applied to each of these individually.</li>
+        </ul>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
