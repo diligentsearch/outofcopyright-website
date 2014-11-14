@@ -78,7 +78,7 @@ $(function() {
 	});
 
 	$("#readOnlyLanguage").click(function() {
-		window.location.href = "./diagram-editor.html?country="+country+"&language="+$("#chooseLanguageReadOnly").val()+"&readonly=true";
+		window.location.href = "/www/outofcopyright-website/wordpress/?page_id=26&country="+country+"&language="+$("#chooseLanguageReadOnly").val()+"&readonly=true";
 	});
 
 });
@@ -121,7 +121,7 @@ function loadCountry(country){
 
 		file = data;
 
-		$("#edit-diagram").attr("href", "./diagram-editor.html?country="+country+"&language="+file.default_language);
+		$("#edit-diagram").attr("href", "/www/outofcopyright-website/wordpress/?page_id=26&country="+country+"&language="+file.default_language);
 
 		//Display languages available
 		var listLanguages = "<span id='listLanguagesSpan'>";

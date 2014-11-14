@@ -22,6 +22,29 @@
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<!-- Bootstrap -->
+<link href="/www/outofcopyright-website/outofcopyright/css/bootstrap.css" rel="stylesheet">
+
+<link href="/www/outofcopyright-website/outofcopyright/css/design.css" rel="stylesheet">
+<link rel="stylesheet" href="/www/outofcopyright-website/outofcopyright/css/font-awesome.min.css">
+
+<!-- Javascript library -->
+<script src="/www/outofcopyright-website/outofcopyright/librairie/node.js"></script>
+<script src="/www/outofcopyright-website/outofcopyright/librairie/control.js"></script>
+<script src="/www/outofcopyright-website/outofcopyright/librairie/library.js"></script>
+<script src="/www/outofcopyright-website/outofcopyright/librairie/walk.js"></script>
+<script src="/www/outofcopyright-website/outofcopyright/librairie/datapoints.js"></script>
+<script src="/www/outofcopyright-website/outofcopyright/librairie/traduction.js"></script>
+
+<!-- Draw graph  -->
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="/www/outofcopyright-website/outofcopyright/js/dagre-d3.js"></script>
+
+<!-- Javascript -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/www/outofcopyright-website/outofcopyright/js/timeformater.js"></script>
+<script src="/www/outofcopyright-website/outofcopyright/js/formula.js"></script>
+<script src="/www/outofcopyright-website/outofcopyright/js/save.js"></script>
 <!--[if lt IE 9]>
 <script src="<?php echo esc_url( get_template_directory_uri() . '/js/html5.js' ); ?>"></script>
 <![endif]-->
