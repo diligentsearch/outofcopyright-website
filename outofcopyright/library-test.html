@@ -12,9 +12,6 @@
 	<script src="librairie/library.js"></script>
 	<script src="librairie/walk.js"></script>
 	<script src="librairie/datapoints.js"></script>
-	<script src="librairie/credential_github.js"></script>
-	<script src="librairie/github/github.js"></script>
-	<script src="librairie/github.js"></script>
 	<script src="librairie/traduction.js"></script>
 
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -51,7 +48,8 @@
    			console.log(result);
 		}
 		$(document).on('change','#typeOfWork',function(){
-			readFile('Belgium', file.default_language+'.json', function(dataTrad){
+			$.post( "/node", { country: 'Belgium', name: file.default_language+'.json', action: 'read' } )
+			.done(function( dataTrad ) {
 				traductionData = dataTrad;
 				$( "#forms" ).html('');
 				if($( "#typeOfWork" ).val() != ''){
@@ -94,8 +92,9 @@
 
 		$(function() {
 
-			readFile('Belgium', 'Belgium.json', function(data){
-				parseJSON(data);
+			$.post( "/node", { country: 'Belgium', name: 'Belgium.json', action: 'read' } )
+			.done(function( data ) {
+				file = data;
 
 
 
@@ -114,13 +113,7 @@
 	</script>
 </head>
 <body style="overflow:auto;">
-<h1>Decision diagramm test</h1>
 	<div class="row margin-left">
-		<div class="row">
-			<div class="col-sm-12">
-				<label class="control-label">Country : Belgium</label>
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-sm-2">
 				<label class="control-label">Type of work : </label>
