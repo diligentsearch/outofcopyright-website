@@ -89,6 +89,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             });   
 
             $(function() {
+                $("#secondary").hide();
                 
                 $.post( "/node", { country: '<?php echo $key_country; ?>', name: '<?php echo $key_country; ?>.json', action: 'read' } )
                 .done(function( data ) {
