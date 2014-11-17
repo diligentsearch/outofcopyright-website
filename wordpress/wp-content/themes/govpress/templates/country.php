@@ -166,6 +166,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             <li>Individual items included in an (original or unoriginal) database may be independently protected. In this case, the Public Domain Helper Tool should also be applied to each of these individually.</li>
         </ul>
 		</div><!-- #content -->
+        <?php query_posts( 'p='.the_ID() ); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <header class="entry-header">
                 <h1 class="entry-title"><?php the_title(); ?></h1>
