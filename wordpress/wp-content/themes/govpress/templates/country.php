@@ -167,6 +167,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
         </ul>
 		</div><!-- #content -->
         <div class="entry-content">
+        <?php the_content(); ?> 
         </div>
 	</div><!-- #primary -->
 
