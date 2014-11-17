@@ -167,8 +167,14 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
         </ul>
 		</div><!-- #content -->
         <div class="entry-content">
-        <?php the_content(); ?> 
-        </div>
+            <?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'govpress' ) ); ?>
+            <?php
+                wp_link_pages( array(
+                    'before' => '<div class="page-links">' . __( 'Pages:', 'govpress' ),
+                    'after'  => '</div>',
+                ) );
+            ?>
+        </div><!-- .entry-content -->
 	</div><!-- #primary -->
 
 <?php
