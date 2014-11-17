@@ -113,7 +113,8 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 });
             });
         </script>
-        <h1><?php echo $key_country; ?></h1>
+        <h1 style="font-size: 25px;"><?php echo $key_country; ?></h1>
+        <br/>
         <h2>Introduction</h2>
         <br/>
         <p>After choosing a type of work the term of protection of which you want to calculate, followed by a form that contains all the information required to complete the calculation. This version illustrates the possibilities of an API-based calculator by identifying all the data required to complete a full calculation.</p>
