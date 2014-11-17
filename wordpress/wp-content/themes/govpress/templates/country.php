@@ -165,6 +165,14 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             <li>If a work has been created by two or more persons in collaboration, it is a work of joint authorship. The Public Domain Helper Tool should accordingly be applied to the work as a whole, but not to the individual contributions.</li>
             <li>Individual items included in an (original or unoriginal) database may be independently protected. In this case, the Public Domain Helper Tool should also be applied to each of these individually.</li>
         </ul>
+        <?php
+        if (have_posts()) :
+           while (have_posts()) :
+              the_post();
+                 the_content();
+           endwhile;
+        endif;
+        ?>
 		</div><!-- #content -->
        
 	</div><!-- #primary -->
