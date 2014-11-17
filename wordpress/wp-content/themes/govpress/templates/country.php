@@ -38,10 +38,10 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 if(result.error == 1){
                     $("#error").html(errors[result.waiting_response]);
                     $(".alert-warning").show();
+                }else{
+                    $("#result").html(result);
+                    $(".alert-success").show();
                 }
-                
-                $("#result").html(result);
-                $(".alert-success").show();
 
                 console.log(result);
             }
@@ -107,6 +107,9 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                              .attr("value",i)
                              .text(listSubgraph[i])); 
                     }
+                });
+                $('.close').click(function(){
+                    $(".alert").hide();
                 });
             });
         </script>

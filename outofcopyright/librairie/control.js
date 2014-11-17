@@ -198,12 +198,16 @@ function verificationResponses(listResponse){
   for(var i = 0; i < listInputs.length; i++){
     var response = getResponseById(listInputs[i]);
     var responseSubmit = eval("listResponse."+listInputs[i]);
-    if(response.type = 'numeric'){
+    console.log(response.type);
+    console.log(responseSubmit);
+    if(response.type == 'numeric'){
       if(isNaN(responseSubmit)){
         errors.push(listInputs[i]);
+        console.log('push');
       }
     }
   }
+  console.log(errors);
   if(errors.length > 0){
     return {"error": 3, "response_not_a_number": errors};
   }else{

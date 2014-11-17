@@ -28,7 +28,7 @@ function walk(idSubgraph, responses, server){
 				listResponses.all_possible_responses = missingResponses;
 				return listResponses;
 			}
-
+			console.log(node.formula);
 			if(node.formula !== undefined && node.formula !== "" && node.formula !== null){
 				idNode = getResponseFormula(node, listResponses);
 

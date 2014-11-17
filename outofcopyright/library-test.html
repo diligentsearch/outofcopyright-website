@@ -40,13 +40,16 @@
    			if(result.error == 1){
    				$("#error").html(errors[result.waiting_response]);
    				$(".alert-warning").show();
+   			}else{
+   				$("#result").html(result);
+   				$(".alert-success").show();
    			}
    			
-   			$("#result").html(result);
-   			$(".alert-success").show();
+   			
 
    			console.log(result);
 		}
+		
 		$(document).on('change','#typeOfWork',function(){
 			$.post( "/node", { country: 'Belgium', name: file.default_language+'.json', action: 'read' } )
 			.done(function( dataTrad ) {
@@ -109,10 +112,14 @@
 				         .text(listSubgraph[i])); 
 		   		}
 	   		});
+
+	   		$('.close').click(function(){
+				$(".alert").hide();
+			});
 		});
 	</script>
 </head>
-<body style="overflow:auto;">
+<body style="overflow:auto;height: 100%;">
 	<div class="row margin-left">
 		<div class="row">
 			<div class="col-sm-2">
