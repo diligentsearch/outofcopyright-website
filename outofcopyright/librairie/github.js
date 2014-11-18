@@ -2,10 +2,17 @@ if (typeof require !== 'undefined') {
     var Github = module.exports;
 }
 
+/*
 var github = new Github({
     username: USERNAME,
     password: PASSWORD,
     auth: "basic"
+});
+*/
+
+var github = new Github({
+  token: TOKEN,
+  auth: AUTH
 });
 
 var content = '';
