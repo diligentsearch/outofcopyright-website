@@ -44,19 +44,28 @@
 
     function _request(method, path, data, cb, raw) {
       console.log(data);
-      function getURL() {
+      function getURL(data) {
         var url = API_URL + path;
-        return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime();
+        if(data.ref !== undefined){
+          return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime() + '&ref='+data.ref;
+        }else{
+          return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime();
+        }
       }
       function getURLPath(data) {
         var url = API_URL + path;
-        return url + ((/\?/).test(url) ? "&" : "?")+ 'path=' + data.path;
+        if(data.ref !== undefined){
+          return url + ((/\?/).test(url) ? "&" : "?")+ 'path=' + data.path + '&ref='+data.ref;
+        }else{
+          return url + ((/\?/).test(url) ? "&" : "?")+ 'path=' + data.path;
+        }
+        
       }
 
       var xhr = new XMLHttpRequest();
       if (!raw) {xhr.dataType = "json";}
       if(path != '/repos/jeromejesse/outofcopyright-test/commits'){
-        xhr.open(method, getURL());
+        xhr.open(method, getURL(data));
       }
       else{
         xhr.open(method, getURLPath(data));
