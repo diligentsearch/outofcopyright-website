@@ -43,6 +43,7 @@
     // I'm not proud of this and neither should you be if you were responsible for the XMLHttpRequest spec.
 
     function _request(method, path, data, cb, raw) {
+      console.log(data);
       function getURL() {
         var url = API_URL + path;
         return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime();

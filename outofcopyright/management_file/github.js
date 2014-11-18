@@ -19,15 +19,12 @@ app.get('/', function (req, res) {
 })
 
 router.route('/').post(function (req, res) {
-	console.log(req.param('country'));
-	console.log(req.param('name'));
 	BRANCH = req.param('country');
 
 	switch(req.param('action')){
 		case 'read': 
 					readFile(req.param('country'), req.param('name'), function(data){
 						parseJSON(data);
-						console.log(file);
 						res.json(file);
 					});
 					break;
