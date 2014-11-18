@@ -291,7 +291,7 @@
       // -------
 
       this.getTree = function(tree, cb) {
-        _request("GET", repoPath + "/git/trees/"+tree, null, function(err, res) {
+        _request("GET", repoPath + "/git/trees/"+tree, {ref: tree}, function(err, res) {
           if (err) return cb(err);
           cb(null, res.tree);
         });
