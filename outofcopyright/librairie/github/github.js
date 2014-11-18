@@ -522,6 +522,19 @@
         });
       };
 
+      // Write file contents to a given branch and path
+      // -------
+
+      this.merge = function(branch, child_branch, message) {
+          _request("POST", repoPath + "/merges", {
+            base : branch,
+            head : child_branch,
+            commit_message : message,
+          }, function(err,res) {
+            console.log(err);
+          });
+      };
+
     };
 
     // Gists API

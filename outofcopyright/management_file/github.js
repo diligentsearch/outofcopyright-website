@@ -46,6 +46,9 @@ router.route('/').post(function (req, res) {
 						res.json(data);
 					});
 					break;
+		case 'merge':
+					merge(req.param('branch'),req.param('child_branch'),req.param('message'));
+					break;
 		default : 	res.send('action : read, write, update');
 					break;
 	}

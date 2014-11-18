@@ -74,7 +74,11 @@ font-weight: bold;">
             </div>
         </div>
         <div class="col-sm-12">
-            <div class="col-sm-9"></div>
+            <div class="col-sm-9">
+                <div class="col-sm-2">
+                    <a href="#" class="btn btn-primary" id="mergeInProduction">Merge in production</a>
+                </div>
+            </div>
             <div class="col-sm-3">
                 <div class="btn-group pull-right">
                     <a href="#" class="btn btn-primary" id="edit-diagram">Edit</a>

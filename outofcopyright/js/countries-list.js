@@ -82,6 +82,11 @@ $(function() {
 	$("#readOnlyLanguage").click(function() {
 		window.location.href = "/www/outofcopyright-website/wordpress/?page_id=26&country="+country+"&language="+$("#chooseLanguageReadOnly").val()+"&readonly=true";
 	});
+	
+
+	$("#mergeInProduction").click(function() {
+		$.post( "/node", { branch: 'master', child_branch: country, message: 'Merge '+country+' in master', action: 'merge' } )
+	});
 
 });
 

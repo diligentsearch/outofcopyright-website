@@ -90,3 +90,8 @@ function commits(pays, fileName, callback){
     });
 }
 
+//Merge une branche dans l'autre
+function merge(branch, child_branch, message){
+    repo.merge(branch, child_branch, message);
+}
+
