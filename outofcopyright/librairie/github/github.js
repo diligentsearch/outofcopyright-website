@@ -43,7 +43,6 @@
     // I'm not proud of this and neither should you be if you were responsible for the XMLHttpRequest spec.
 
     function _request(method, path, data, cb, raw) {
-      console.log(data);
       function getURL(data) {
         var url = API_URL + path;
         if(data.ref !== undefined){
@@ -454,10 +453,7 @@
       // -------
 
       this.read = function(branch, path, cb) {
-        console.log(branch);
-        console.log(repoPath + "/contents/"+path);
         _request("GET", repoPath + "/contents/"+path, {ref: branch}, function(err, obj) {
-          console.log(obj.sha);
           if (err && err.error === 404) return cb("not found", null, null);
 
           if (err) return cb(err);
@@ -515,10 +511,7 @@
       // -------
 
       this.write = function(branch, path, content, message, cb) {
-        console.log(branch);
-        console.log(path);
         that.getSha(branch, path, function(err, sha) {
-          console.log(sha);
           if (err && err.error!=404) return cb(err);
           _request("PUT", repoPath + "/contents/" + path, {
             message: message,
