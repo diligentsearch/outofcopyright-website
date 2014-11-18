@@ -60,7 +60,7 @@
         }
         
       }
-
+      console.log(data);
       var xhr = new XMLHttpRequest();
       if (!raw) {xhr.dataType = "json";}
       if(path != '/repos/jeromejesse/outofcopyright-test/commits'){
@@ -291,6 +291,7 @@
       // -------
 
       this.getTree = function(tree, cb) {
+        console.log(tree);
         _request("GET", repoPath + "/git/trees/"+tree, {ref: tree}, function(err, res) {
           if (err) return cb(err);
           cb(null, res.tree);

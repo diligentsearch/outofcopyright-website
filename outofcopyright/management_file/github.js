@@ -48,6 +48,7 @@ router.route('/').post(function (req, res) {
 					break;
 		case 'merge':
 					merge(req.param('branch'),req.param('child_branch'),req.param('message'));
+					res.send('Merge successful');
 					break;
 		default : 	res.send('action : read, write, update');
 					break;
