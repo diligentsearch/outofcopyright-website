@@ -57,7 +57,7 @@ function repoShow(){
 
 //Récupération de l'abre des dossiers présent sur le GIT
 function getTree(){
-    repo.getTree('master', function(err, tree) {console.log(tree);});
+    repo.getTree(BRANCH, function(err, tree) {console.log(tree);});
 }
 
 //Récupération de la liste des pays 

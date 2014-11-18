@@ -445,7 +445,10 @@
       // -------
 
       this.read = function(branch, path, cb) {
+        console.log(branch);
+        console.log(repoPath + "/contents/"+path);
         _request("GET", repoPath + "/contents/"+path, {ref: branch}, function(err, obj) {
+          console.log(obj.sha);
           if (err && err.error === 404) return cb("not found", null, null);
 
           if (err) return cb(err);
@@ -503,7 +506,10 @@
       // -------
 
       this.write = function(branch, path, content, message, cb) {
+        console.log(branch);
+        console.log(path);
         that.getSha(branch, path, function(err, sha) {
+          console.log(sha);
           if (err && err.error!=404) return cb(err);
           _request("PUT", repoPath + "/contents/" + path, {
             message: message,
