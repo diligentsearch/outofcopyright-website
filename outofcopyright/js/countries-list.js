@@ -4,7 +4,7 @@ var contentFile
 
 $(function() {
 	$("#secondary").hide();
-	$("html").css("height","500px");
+	$("html").css("height","1100px");
 	displayCountries();
 
 	$screenHeight = $(document).height();

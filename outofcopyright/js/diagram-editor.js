@@ -9,7 +9,7 @@ var readOnly = false;
 var languageChoosen = "";
 
 $(function(){
-	$("html").css("height","1500px");
+	$("html").css("height","800px");
 	$("#secondary").hide();
 	//Ajuste la taille du SVG pour le graphe à la taille disponible.
 	$('#drawSvg').attr('width', $('#drawZone').width());
