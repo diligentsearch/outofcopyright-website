@@ -105,7 +105,7 @@ function displayCountries(){
 				classactive = '';
 				style = '';
 			}
-			$('#listCountries').append('<li class="country'+classactive+'" id="country-'+countries[i]+'" onclick="loadCountry(\''+countries[i]+'\');" '+style+' ><a href="#'+countries[i]+'">'+countries[i]+'</a></li>');
+			$('#listCountries').append('<li class="country'+classactive+'" id="country-'+countries[i]+'" onclick="loadCountry(\''+countries[i]+'\');" ><a href="#'+countries[i]+'" '+style+'>'+countries[i]+'</a></li>');
 		}
     }
 
