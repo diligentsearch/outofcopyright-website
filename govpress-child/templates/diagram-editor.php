@@ -13,7 +13,7 @@ get_header(); ?>
             <div class="col-sm-2" style="max-height: 100%;">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
             <div class="col-sm-12 margin-bottom height-40 padding-top-8" style="font-size: 20px;font-weight: bold;">
-                <a href="countries-list.html" id="countryTitle"></a>
+                <a href="?page_id=4348" id="countryTitle"></a>
             </div>
         </div>
         <div class="row" id="leftPart" style="border-right: solid 3px #CFCFCF;">
