@@ -94,15 +94,18 @@ function displayCountries(){
 
 	var callback = function(countries){
 		var classactive = '';
+		var style = '';
 		for(var i = 0; i < countries.length; i++){
 			if(i == 0){
 				classactive = ' active';
 				loadCountry(countries[i]);
+				style = ' style="color:#fff;" ';
 			}
 			else{
 				classactive = '';
+				style = '';
 			}
-			$('#listCountries').append('<li class="country'+classactive+'" id="country-'+countries[i]+'" onclick="loadCountry(\''+countries[i]+'\');"><a href="#'+countries[i]+'">'+countries[i]+'</a></li>');
+			$('#listCountries').append('<li class="country'+classactive+'" id="country-'+countries[i]+'" onclick="loadCountry(\''+countries[i]+'\');" '+style+' ><a href="#'+countries[i]+'">'+countries[i]+'</a></li>');
 		}
     }
 

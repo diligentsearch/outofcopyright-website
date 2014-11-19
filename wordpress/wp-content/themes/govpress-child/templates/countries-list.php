@@ -19,7 +19,7 @@ font-weight: bold;" >
         </div>
         <div class="row" style="border-right: solid 3px #CFCFCF;padding-top: 15px;height: 100%;">
             <div class="col-sm-12" >
-                <ul id="listCountries" class="nav nav-pills nav-stacked" >
+                <ul id="listCountries" class="nav nav-pills nav-stacked" style="margin-left: 0px;" >
                 </ul>
             </div>
         </div>
