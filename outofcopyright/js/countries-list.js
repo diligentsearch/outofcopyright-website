@@ -27,7 +27,7 @@ $(function() {
 	$( "#downloadLanguage" ).click(function() {
 		$.post( "/node", { country: country, name: $("#languageToDownload").val()+".json", action: 'read' } )
 		.done(function( dataTrad ) {
-			download($("#languageToDownload").val()+'.json', dataTrad);
+			download($("#languageToDownload").val()+'.json', JSON.stringify(dataTrad));
 			$("#downloadPOFileModal").hide();
 		});
 	});
