@@ -23,28 +23,28 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <!-- Bootstrap -->
-<link href="/outofcopyright/css/bootstrap.css" rel="stylesheet">
+<link href="/wp-content/themes/govpress-child/css/bootstrap.css" rel="stylesheet">
 
-<link href="/outofcopyright/css/design.css" rel="stylesheet">
-<link rel="stylesheet" href="/outofcopyright/css/font-awesome.min.css">
+<link href="/wp-content/themes/govpress-child/css/design.css" rel="stylesheet">
+<link rel="stylesheet" href="/wp-content/themes/govpress-child/css/font-awesome.min.css">
 
 <!-- Javascript library -->
-<script src="/outofcopyright/librairie/node.js"></script>
-<script src="/outofcopyright/librairie/control.js"></script>
-<script src="/outofcopyright/librairie/library.js"></script>
-<script src="/outofcopyright/librairie/walk.js"></script>
-<script src="/outofcopyright/librairie/datapoints.js"></script>
-<script src="/outofcopyright/librairie/traduction.js"></script>
+<script src="/wp-content/themes/govpress-child/librairie/node.js"></script>
+<script src="/wp-content/themes/govpress-child/librairie/control.js"></script>
+<script src="/wp-content/themes/govpress-child/librairie/library.js"></script>
+<script src="/wp-content/themes/govpress-child/librairie/walk.js"></script>
+<script src="/wp-content/themes/govpress-child/librairie/datapoints.js"></script>
+<script src="/wp-content/themes/govpress-child/librairie/traduction.js"></script>
 
 <!-- Draw graph  -->
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="/outofcopyright/js/dagre-d3.js"></script>
+<script src="/wp-content/themes/govpress-child/js/dagre-d3.js"></script>
 
 <!-- Javascript -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="/outofcopyright/js/timeformater.js"></script>
-<script src="/outofcopyright/js/formula.js"></script>
-<script src="/outofcopyright/js/save.js"></script>
+<script src="/wp-content/themes/govpress-child/js/timeformater.js"></script>
+<script src="/wp-content/themes/govpress-child/js/formula.js"></script>
+<script src="/wp-content/themes/govpress-child/js/save.js"></script>
 <!--[if lt IE 9]>
 <script src="<?php echo esc_url( get_template_directory_uri() . '/js/html5.js' ); ?>"></script>
 <![endif]-->

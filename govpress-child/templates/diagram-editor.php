@@ -398,8 +398,8 @@ font-weight: bold;">
     </div>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/outofcopyright/js/bootstrap.min.js"></script>
-    <script src="/outofcopyright/js/diagram-editor.js"></script>
+    <script src="/wp-content/themes/govpress-child/js/bootstrap.min.js"></script>
+    <script src="/wp-content/themes/govpress-child/js/diagram-editor.js"></script>
 
     <script>
     var current_user = new Object();

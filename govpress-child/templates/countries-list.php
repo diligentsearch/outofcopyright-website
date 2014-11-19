@@ -226,8 +226,8 @@ font-weight: bold;">
     </div>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/outofcopyright/js/bootstrap.min.js"></script>
-    <script src="/outofcopyright/js/countries-list.js"></script>
+    <script src="/wp-content/themes/govpress-child/js/bootstrap.min.js"></script>
+    <script src="/wp-content/themes/govpress-child/js/countries-list.js"></script>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
