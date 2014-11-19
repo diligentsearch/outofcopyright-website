@@ -226,7 +226,7 @@ font-weight: bold;">
 
 <?php
 $current_user = wp_get_current_user();
-print_r($current_user->roles[0]);
+print_r($current_user->roles);
 get_sidebar( 'content' );
 get_sidebar();
 get_footer();
