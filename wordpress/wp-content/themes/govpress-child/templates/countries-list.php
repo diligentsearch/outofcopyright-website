@@ -6,7 +6,12 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
-get_header(); ?>
+get_header(); 
+
+$current_user = wp_get_current_user();
+$admin = $current_user->roles[0] == 'administrator';
+
+?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
@@ -75,9 +80,11 @@ font-weight: bold;">
         </div>
         <div class="col-sm-12">
             <div class="col-sm-9">
+            <?php if($admin){ ?>
                 <div class="col-sm-2">
                     <a href="#" class="btn btn-primary" id="mergeInProduction" style="color:#fff">Merge in production</a>
                 </div>
+            <?php } ?>
             </div>
             <div class="col-sm-3">
                 <div class="btn-group pull-right">
@@ -225,8 +232,6 @@ font-weight: bold;">
 	</div><!-- #primary -->
 
 <?php
-$current_user = wp_get_current_user();
-print_r($current_user->roles);
 get_sidebar( 'content' );
 get_sidebar();
 get_footer();
