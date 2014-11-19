@@ -788,7 +788,7 @@ function readOnlyDiagram(){
 }
 
 function resizeVerticaly(){
-	var height = $( document ).height() - 700;
+	var height = $( document ).height() - 1000;
 	var heightTypeOfWorkRow = $( "#typeOfWorkRow").height();
 	var heightDatapointsRow = $( "#datapointsRow").height();
 	var heightPanelProperties = $( "#panelProperties").height();
