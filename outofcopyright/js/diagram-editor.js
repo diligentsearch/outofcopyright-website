@@ -788,7 +788,7 @@ function readOnlyDiagram(){
 }
 
 function resizeVerticaly(){
-	var height = $( document ).height() - 1000;
+	var height = $( "#drawSvg" ).height() ;
 	var heightTypeOfWorkRow = $( "#typeOfWorkRow").height();
 	var heightDatapointsRow = $( "#datapointsRow").height();
 	var heightPanelProperties = $( "#panelProperties").height();
@@ -797,8 +797,8 @@ function resizeVerticaly(){
 	var heightDatapoints;
 	var heightTypeOfWork;
 	var heightBlueMargin;
-	heightTypeOfWork = (height - 250) / 2;
-	heightDatapoints = (height - 250) / 2;
+	heightTypeOfWork = (height - 50) / 2;
+	heightDatapoints = (height - 50) / 2;
 
 	heightBlueMargin = (height + heightBlueMarginActual - heightPanelProperties - heightButtonSave);
 
