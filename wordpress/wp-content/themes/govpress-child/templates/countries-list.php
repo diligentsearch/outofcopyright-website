@@ -76,12 +76,12 @@ font-weight: bold;">
         <div class="col-sm-12">
             <div class="col-sm-9">
                 <div class="col-sm-2">
-                    <a href="#" class="btn btn-primary" id="mergeInProduction">Merge in production</a>
+                    <a href="#" class="btn btn-primary" id="mergeInProduction" style="color:#fff">Merge in production</a>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="btn-group pull-right">
-                    <a href="#" class="btn btn-primary" id="edit-diagram">Edit</a>
+                    <a href="#" class="btn btn-primary" id="edit-diagram" style="color:#fff">Edit</a>
                     <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" id="readonly-modal">Read only</a></li>
