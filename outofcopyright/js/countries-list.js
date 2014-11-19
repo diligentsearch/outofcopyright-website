@@ -121,8 +121,10 @@ function loadCountry(country){
 	
 	console.log("./diagram-editor.html?country="+country);
 
+	$(".active > a").css('color', '#22abd4');
 	$( ".country" ).removeClass('active');
 	$( "#country-"+country ).addClass('active');
+	$(".active > a").css('color', '#fff');
 
 	$( "#flowchart-title").html("FLOWCHART / "+country);
 
