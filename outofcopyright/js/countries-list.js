@@ -39,14 +39,13 @@ $(function() {
 	$( "#uploadLanguage" ).click(function() {
 		if(contentFile != undefined && $("#languageToUpload").val() != ''){
 			if( jQuery.inArray( $("#languageToUpload").val(), file.language ) == -1){
-				writeFile(country, $("#languageToUpload").val()+'.json', contentFile, 'New file PO ');
+				$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'write', file: JSON.stringify(contentFile), message: 'New file PO' } );
 				file.language.push($("#languageToUpload").val());
 				$("#listLanguagesSpan").append(" - "+$("#languageToUpload").val());
 			}else{
-				updateFile(country, $("#languageToUpload").val()+'.json', contentFile, 'Update file PO ');
+				$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'update', file: JSON.stringify(contentFile), message: 'Update file PO' } );
 			}
-			updateFile(country, country+'.json', JSON.stringify(file), 'New language');
-			
+			$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: 'New language' } );
 		}
 		$("#uploadPOFileModal").hide();
 	});
