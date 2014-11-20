@@ -11,7 +11,12 @@ function add_login_logout_link($items, $args) {
 }
 
 add_filter( 'wp_nav_menu_items', 'qtrans_generateLanguageSelectCode_items', 10, 2);
+var $count = 0;
 function qtrans_generateLanguageSelectCode_items($items, $args) {
-	$items .= qtrans_generateLanguageSelectCode('image');
-	return $items;
+	if($count == 0){
+		$items .= qtrans_generateLanguageSelectCode('image');
+		$count++;
+		return $items;
+	}
+	
 }
