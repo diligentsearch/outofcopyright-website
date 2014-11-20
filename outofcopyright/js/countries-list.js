@@ -82,7 +82,7 @@ $(function() {
 	});
 
 	$("#readOnlyLanguage").click(function() {
-		window.location.href = "/www/outofcopyright-website/wordpress/?page_id=26&country="+country+"&language="+$("#chooseLanguageReadOnly").val()+"&readonly=true";
+		window.location.href = "?page_id=4350&country="+country+"&language="+$("#chooseLanguageReadOnly").val()+"&readonly=true";
 	});
 	
 
