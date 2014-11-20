@@ -11,7 +11,7 @@ function add_login_logout_link($items, $args) {
 }
 
 function qtrans_generateLanguageSelectCode_items($items) {
-	$homelink = '<li class="home">' . qtrans_generateLanguageSelectCode('dropdown') . '</a></li>';
+	$homelink = '<li>' . qtrans_generateLanguageSelectCode('dropdown') . '</li>';
 	$items .= $homelink;
 	return $items;
 }
