@@ -10,11 +10,9 @@ function add_login_logout_link($items, $args) {
     return $items;
 }
 
-function qtrans_generateLanguageSelectCode_items($items) {
+function qtrans_generateLanguageSelectCode_items($items, $args) {
 	$homelink = '<li>' . qtrans_generateLanguageSelectCode('dropdown') . '</li>';
-	echo "test 1";
-	echo qtrans_generateLanguageSelectCode('dropdown');
 	$items .= $homelink;
 	return $items;
 }
-add_filter( 'wp_nav_menu_items', 'qtrans_generateLanguageSelectCode_items' );
+add_filter( 'wp_nav_menu_items', 'qtrans_generateLanguageSelectCode_items', 10, 2);
