@@ -47,6 +47,9 @@ $(function() {
 			}
 			$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: 'New language' } );
 		}
+
+		$("#fileToUpload").val("");
+		$("#languageToUpload").val("");
 		$("#uploadPOFileModal").hide();
 	});
 
