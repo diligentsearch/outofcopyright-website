@@ -138,10 +138,10 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
         <br/>
         <div class="row margin-left margin-top margin-bottom margin-right">
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <label class="control-label">Type of work : </label>
                 </div>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <select name="typeOfWork" id="typeOfWork" class="form-control">
                         <option value="">Select type of work</option>
                     </select>
@@ -150,7 +150,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             <div id="forms">
             </div>
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <input type="button" id="reset" name="submit" value="Reset" class="btn btn-primary" onclick="reset();" style="display:none;" />
                 </div>
                 <div class="col-sm-2">
