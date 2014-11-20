@@ -18,34 +18,48 @@
 
 	<script>
 		var inputs;
+		var actualInput;
 		function submit(){
 
 			$(".alert").hide();
+			if($("#"+actualInput).val() != ""){
+				var responses = new Object();
+				var errors = [];
 
-			var responses = new Object();
-			var errors = [];
-			$(".questionPart").hide();
-			for(var i = 0; i < inputs.length; i++){
-				$("#"+inputs[i]).hide
-				if($("#"+inputs[i]).val() != ""){
-					var response = $("#"+inputs[i]).val();
-					eval("responses."+inputs[i]+" = response;");
+				
+				for(var i = 0; i < inputs.length; i++){
+					$("#"+inputs[i]).hide;
+					if($("#"+inputs[i]).val() != ""){
+						var response = $("#"+inputs[i]).val();
+						eval("responses."+inputs[i]+" = response;");
+					}
+					var trad = getTraduction(file.default_language, inputs[i]);
+					errors[inputs[i]] = trad+' missing';
 				}
-				var trad = getTraduction(file.default_language, inputs[i]);
-				errors[inputs[i]] = trad+' missing';
+
+				responses = JSON.stringify(responses);
+	   			var result = walk($( "#typeOfWork" ).val(), responses);
+
+	   			if(result.error == 3){
+	   				$("#error").html("Response is not a number.");
+   					$(".alert-warning").show();
+	   			}
+	   			else{
+	   				if(result.error == 1){
+		   				console.log(result);
+		   				$(".questionPart").hide();
+		   				newQuestion(result.waiting_response);
+		   				
+		   			}else{
+		   				$("#result").html(result);
+		   				$(".alert-success").show();
+		   				$(".questionPart").hide();
+		   			}
+	   			}
+	   			
+	   			$("#next").hide();
 			}
-
-			responses = JSON.stringify(responses);
-   			var result = walk($( "#typeOfWork" ).val(), responses);
-
-   			if(result.error == 1){
-   				console.log(result);
-   				newQuestion(result.waiting_response);
-   			}else{
-   				$("#next").hide();
-   				$("#result").html(result);
-   				$(".alert-success").show();
-   			}
+			
 		}
 
 		function reset(){
@@ -54,6 +68,20 @@
 			$(".alert-success").hide();
 			$("#forms").html("");
 			$("#typeOfWork").val("");
+		}
+
+		$(document).on('change','.questionInput',function(){
+			changeInput();
+		});
+
+		
+
+		function changeInput(){
+			if($("#"+actualInput).val() != ""){
+				$("#next").show();
+			}else{
+				$("#next").hide();
+			}
 		}
 		
 		$(document).on('change','#typeOfWork',function(){
@@ -66,7 +94,6 @@
 					if(inputs.length > 0){
 						newQuestion(inputs[0]);
 					}
-					$("#next").show();
 					$("#reset").show();
 				});
 			}else{
@@ -104,12 +131,13 @@
 			var trad = getTraduction(file.default_language, 'question_'+input);
 			var datapoint = getResponseById(input);
 			var inputHTML= "";
+			actualInput = input;
 			switch(datapoint.type) {
 			    case 'numeric':
-			        inputHTML = '<input type="text" class="col-sm-12" name="'+input+'" id="'+input+'" placeholder="'+trad+'"/>';
+			        inputHTML = '<input type="text" class="col-sm-12 questionInput" name="'+input+'" id="'+input+'" placeholder="'+trad+'" onkeypress="changeInput()"/>';
 			        break;
 			    case 'list':
-			        inputHTML = '<select name="'+input+'" id="'+input+'" class="form-control" style=" margin-bottom: 15px; ">'
+			        inputHTML = '<select name="'+input+'" id="'+input+'" class="form-control questionInput" style=" margin-bottom: 15px; ">'
 			        inputHTML += '<option value="">Select a response</option>';
 			        for(var j = 0; j < datapoint.set.length; j++){
 			        	inputHTML += '<option value="'+datapoint.set[j]+'">'+datapoint.set[j]+'</option>';
@@ -122,14 +150,15 @@
 
 			$("#forms").append('\
 				<div class="row margin-top questionPart">\
-					<div class="col-sm-2">\
+					<div class="col-sm-4">\
 						<label for="'+input+'" class="control-label">'+trad+'</label>\
 					</div>\
-					<div class="col-sm-10">\
+					<div class="col-sm-8">\
 						'+inputHTML+'\
 					</div>\
 				</div>\
 				');
+			$("#next").hide();
 		}
 
 	</script>
@@ -137,10 +166,10 @@
 <body style="overflow:auto;height: 100%;">
 	<div class="row margin-left">
 		<div class="row">
-			<div class="col-sm-2">
+			<div class="col-sm-4">
 				<label class="control-label">Type of work : </label>
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-8">
 				<select name="typeOfWork" id="typeOfWork" class="form-control">
 					<option value="">Select type of work</option>
 				</select>
@@ -149,7 +178,7 @@
 		<div id="forms">
 		</div>
 		<div class="row">
-			<div class="col-sm-2">
+			<div class="col-sm-4">
 				<input type="button" id="reset" name="submit" value="Reset" class="btn btn-primary" onclick="reset();" style="display:none;" />
 			</div>
 			<div class="col-sm-2">
@@ -163,6 +192,11 @@
 		<div class="alert alert-dismissable alert-danger margin-top" style="display:none;">
 	  		<button type="button" class="close" data-dismiss="alert">×</button>
 	  		<p id="resultdanger"></p>
+		</div>
+		<div class="alert alert-dismissable alert-warning margin-top" style="display:none;">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<h4>Warning!</h4>
+			<p id="error"></p>
 		</div>
 	</div>
 </body>
