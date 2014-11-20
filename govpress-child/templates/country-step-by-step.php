@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Country
+ * Template Name: Country step
  *
  * @package WordPress
  * @subpackage Twenty_Fourteen
