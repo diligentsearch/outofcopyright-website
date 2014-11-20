@@ -109,7 +109,7 @@
 			        inputHTML = '<input type="text" class="col-sm-12" name="'+input+'" id="'+input+'" placeholder="'+trad+'"/>';
 			        break;
 			    case 'list':
-			        inputHTML = '<select name="'+input+'" id="'+input+'" class="form-control">'
+			        inputHTML = '<select name="'+input+'" id="'+input+'" class="form-control" style=" margin-bottom: 15px; ">'
 			        inputHTML += '<option value="">Select a response</option>';
 			        for(var j = 0; j < datapoint.set.length; j++){
 			        	inputHTML += '<option value="'+datapoint.set[j]+'">'+datapoint.set[j]+'</option>';
