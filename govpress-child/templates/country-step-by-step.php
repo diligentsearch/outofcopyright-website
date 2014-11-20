@@ -122,10 +122,10 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
 
             $("#forms").append('\
                 <div class="row margin-top questionPart">\
-                    <div class="col-sm-2">\
+                    <div class="col-sm-4">\
                         <label for="'+input+'" class="control-label">'+trad+'</label>\
                     </div>\
-                    <div class="col-sm-10">\
+                    <div class="col-sm-8">\
                         '+inputHTML+'\
                     </div>\
                 </div>\
