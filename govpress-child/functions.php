@@ -10,4 +10,5 @@ function add_login_logout_link($items, $args) {
     return $items;
 }
 
-qtrans_generateLanguageSelectCode('dropdown');
+//qtrans_generateLanguageSelectCode('dropdown');
+qts_language_menu('dropdown');
