@@ -9,3 +9,5 @@ function add_login_logout_link($items, $args) {
         $items .= '<li>'. $loginoutlink .'</li>';
     return $items;
 }
+
+qtrans_generateLanguageSelectCode('image');
