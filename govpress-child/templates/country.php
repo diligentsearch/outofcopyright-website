@@ -46,7 +46,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 console.log(result);
             }
             $(document).on('change','#typeOfWork',function(){
-                $.post( "/node", { country: '<?php echo $key_country; ?>', name: file.default_language+'.json', action: 'read' } )
+                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+file.default_language+".json")
                 .done(function( dataTrad ) {
                     traductionData = dataTrad;
                     $( "#forms" ).html('');
@@ -90,12 +90,9 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
 
             $(function() {
                 $("#secondary").hide();
-                
-                $.post( "/node", { country: '<?php echo $key_country; ?>', name: '<?php echo $key_country; ?>.json', action: 'read' } )
+                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/<?php echo $key_country; ?>.json")
                 .done(function( data ) {
                     file = data;
-
-
 
                     //getInputs(id_subgraph);
 
