@@ -1,10 +1,12 @@
 sudo cp -R outofcopyright/* /var/www/html/outofcopyright/;
 
-sudo cp wordpress/wp-content/themes/govpress/header.php /var/www/html/wordpress/wp-content/themes/govpress/header.php;
+sudo cp -R outofcopyright/js /var/www/html/wordpress/wp-content/themes/govpress-child/;
 
-sudo cp wordpress/wp-content/themes/govpress/templates/countries-list.php /var/www/html/wordpress/wp-content/themes/govpress/templates/countries-list.php;
+sudo cp -R outofcopyright/css /var/www/html/wordpress/wp-content/themes/govpress-child/;
 
-sudo cp wordpress/wp-content/themes/govpress/templates/diagram-editor.php /var/www/html/wordpress/wp-content/themes/govpress/templates/diagram-editor.php;
+sudo cp -R outofcopyright/librairie /var/www/html/wordpress/wp-content/themes/govpress-child/;
+
+sudo cp -R govpress-child/* /var/www/html/wordpress/wp-content/themes/govpress-child/;
 
 cd /var/www/html/outofcopyright/api/;
 forever stop server.js;
