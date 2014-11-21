@@ -71,10 +71,10 @@ get_header(); ?>
                 
             </div>-->
             <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);margin-left: 0px;">
-                <div class="col-sm-11 margin-bottom height-40 padding-top-8" id="subchart-title" style="font-size: 20px;
+                <div class="col-sm-10 margin-bottom height-40 padding-top-8" id="subchart-title" style="font-size: 20px;
 font-weight: bold;"></div>
-                <div class="col-sm-1">
-                    <i class="fa fa-print fa-2x" style="margin-top: 15px;cursor:pointer;" onclick="printDiagram();"></i>
+                <div class="col-sm-2">
+                    <i class="fa fa-print fa-2x" style="margin-top: 15px;cursor:pointer;float: right;" onclick="printDiagram();"></i>
                 </div>
             </div>
             <div class="alert alert-dismissable alert-success" id="alertSuccess" style="display: none;">
