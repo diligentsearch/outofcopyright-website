@@ -85,7 +85,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             $(document).on('change','#typeOfWork',function(){
                 $("#forms").html("");
                 if($( "#typeOfWork" ).val() != ""){
-                    $.post( "/node", { country: 'Belgium', name: file.default_language+'.json', action: 'read' } )
+                    $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+file.default_language+".json")
                     .done(function( dataTrad ) {
                         traductionData = dataTrad;
                         inputs = getInputs($( "#typeOfWork" ).val());
@@ -104,7 +104,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
 
                 $("#secondary").hide();
 
-                $.post( "/node", { country: 'Belgium', name: 'Belgium.json', action: 'read' } )
+                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/<?php echo $key_country; ?>.json")
                 .done(function( data ) {
                     file = data;
 
