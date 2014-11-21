@@ -14,7 +14,7 @@ add_filter( 'wp_nav_menu_items', 'qtrans_generateLanguageSelectCode_items', 10, 
 $_SESSION['countMenu'] = 0;
 function qtrans_generateLanguageSelectCode_items($items, $args) {
 	if($_SESSION['countMenu'] == 0){
-		$items .= qtrans_generateLanguageSelectCode('image');
+		$items .= "<li>".qtrans_generateLanguageSelectCode('image')."</li>";
 		$_SESSION['countMenu']++;
 	}
 
