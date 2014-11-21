@@ -35,7 +35,7 @@ $key_map = get_post_meta( get_the_ID(), 'map', true );
 
 				  var europePopMap = SimpleMapD3({
 					  container: '#map',
-					  datasource: '<?php echo $location?>/lib/data/europe.json',
+					  datasource: 'https://rawgit.com/outofcopyright/outofcopyright-maps/master/<?php echo $key_map; ?>.json',
 					  colorSet: ['rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,128,0)'],
 					  colorProperty: 'scale',
 					  colorScale: 'ordinal',
