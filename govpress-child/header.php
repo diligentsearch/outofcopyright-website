@@ -49,6 +49,12 @@
 <script src="<?php echo esc_url( get_template_directory_uri() . '/js/html5.js' ); ?>"></script>
 <![endif]-->
 
+<script>
+$(function() {
+	$("#qtranslate-chooser").css("float", "right");
+});
+</script>
+
 <style id="css">
         .node rect {
             stroke: #22abd4;
