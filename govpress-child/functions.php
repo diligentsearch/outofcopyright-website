@@ -11,11 +11,11 @@ function add_login_logout_link($items, $args) {
 }
 
 add_filter( 'wp_nav_menu_items', 'qtrans_generateLanguageSelectCode_items', 10, 2);
-$count = 0;
+$_SESSION['countMenu'] = 0;
 function qtrans_generateLanguageSelectCode_items($items, $args) {
-	if($count == 0){
+	if($_SESSION['countMenu'] == 0){
 		$items .= qtrans_generateLanguageSelectCode('image');
-		$count++;
+		$_SESSION['countMenu']++;
 		return $items;
 	}
 	
