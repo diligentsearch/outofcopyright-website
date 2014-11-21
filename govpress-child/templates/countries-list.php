@@ -228,6 +228,9 @@ font-weight: bold;">
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/wp-content/themes/govpress-child/js/bootstrap.min.js"></script>
     <script src="/wp-content/themes/govpress-child/js/countries-list.js"></script>
+    <script>
+        $(".site-content").css("padding","0px");
+    </script>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 

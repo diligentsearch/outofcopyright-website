@@ -412,6 +412,9 @@ font-weight: bold;">
         echo "current_user.id = ".$current_user->ID.";\n\r";
      ?>
      console.log(current_user);
+
+     $(".site-content").css("padding","0px");
+
     </script>
 </div><!-- #content -->
 </div><!-- #primary -->
