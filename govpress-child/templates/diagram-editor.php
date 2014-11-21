@@ -414,6 +414,7 @@ font-weight: bold;">
      console.log(current_user);
 
      $(".site-content").css("padding","0px");
+     $(".site-branding").hide();
 
     </script>
 </div><!-- #content -->

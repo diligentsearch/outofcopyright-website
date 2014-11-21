@@ -230,6 +230,7 @@ font-weight: bold;">
     <script src="/wp-content/themes/govpress-child/js/countries-list.js"></script>
     <script>
         $(".site-content").css("padding","0px");
+        $(".site-branding").hide();
     </script>
 		</div><!-- #content -->
 	</div><!-- #primary -->
