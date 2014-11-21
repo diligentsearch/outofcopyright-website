@@ -16,7 +16,6 @@ function qtrans_generateLanguageSelectCode_items($items, $args) {
 	if($_SESSION['countMenu'] == 0){
 		$items .= qtrans_generateLanguageSelectCode('image');
 		$_SESSION['countMenu']++;
-		return $items;
 	}
-	
+	return $items;
 }
