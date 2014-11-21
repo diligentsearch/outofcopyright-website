@@ -17,5 +17,6 @@ function qtrans_generateLanguageSelectCode_items($items, $args) {
 		$items .= qtrans_generateLanguageSelectCode('image');
 		$_SESSION['countMenu']++;
 	}
+	print_r($items);
 	return $items;
 }
