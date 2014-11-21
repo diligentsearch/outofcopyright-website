@@ -806,3 +806,7 @@ function resizeVerticaly(){
 	$( "#listDatapoints").css("height", heightDatapoints+"px");
 	$( "#blueMargin").css("height", heightBlueMargin+"px");
 }
+
+function printDiagram(){
+	window.open("print-diagram.html?country="+country+"&language="+languageChoosen+"&typeOfWork="+typeOfWork);
+}
