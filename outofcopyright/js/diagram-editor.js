@@ -182,15 +182,18 @@ $(function(){
 	};
 
 	window.onbeforeunload = function (e) {
-	  	var message = "Any progress will be lost if you have not saved.",
-	  	e = e || window.event;
-	  	// For IE and Firefox
-	  	if (e) {
-	    	e.returnValue = message;
-	  	}
+		if(current_user.id != 0){
+			var message = "Any progress will be lost if you have not saved.",
+		  	e = e || window.event;
+		  	// For IE and Firefox
+		  	if (e) {
+		    	e.returnValue = message;
+		  	}
 
-	  	// For Safari
-	  	return message;
+		  	// For Safari
+		  	return message;
+		}
+	  	
 	};
 
 	
