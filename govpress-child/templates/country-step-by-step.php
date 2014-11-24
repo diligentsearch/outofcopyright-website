@@ -195,12 +195,31 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 $("#next").hide();
             }
 
+            //Récupération des éléments get de l'URL
+            function getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                    vars[key] = value.replace("#", "");;
+                });
+                return vars;
+            }
+
         </script>
         <h1 style="font-size: 25px;"><?php echo $key_country; ?></h1>
         <br/>
         <h2>Calculate</h2>
         <br/>
         <div class="row margin-left margin-top margin-bottom margin-right">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="control-label" id="labelLangue">Langue : </label>
+                </div>
+                <div class="col-sm-10">
+                    <select name="langues" id="langues" class="form-control">
+                        <option value="">Select a langue</option>
+                    </select>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-sm-4">
                     <label class="control-label">Type of work : </label>
