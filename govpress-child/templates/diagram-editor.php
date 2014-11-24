@@ -11,7 +11,11 @@ $current_user = wp_get_current_user();
 if($current_user->ID == 0){
     header('Location: /wp-admin/'); 
 }
-
+$admin = $current_user->roles[0] == 'administrator';
+$contributor = $current_user->roles[0] == 'contributor';
+if(!$admin && !$contributor){
+    header('Location: /wp-admin/'); 
+}
 get_header(); ?>
 
 	<div id="primary" class="content-area">
