@@ -132,6 +132,8 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                     var lang = getUrlVars()["lang"];
                     if(lang !== undefined){
                         lang = lang.toUpperCase();
+                    }else{
+                        lang = 'EN';
                     }
 
                     for(var i = 0; i < file.language.length; i++){
