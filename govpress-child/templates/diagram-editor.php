@@ -6,6 +6,12 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
+
+$current_user = wp_get_current_user();
+if($current_user->ID == 0){
+    header('Location: /wp-admin/'); 
+}
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -405,10 +411,6 @@ font-weight: bold;">
     <script>
     var current_user = new Object();
     <?php 
-        $current_user = wp_get_current_user();
-        if($current_user->ID == 0){
-            header('Location: /wp-admin/'); 
-        }
         echo "current_user.login = '".$current_user->user_login."';\n\r";
         echo "current_user.firstname = '".$current_user->user_firstname."';\n\r";
         echo "current_user.lastname = '".$current_user->user_lastname."';\n\r";
