@@ -145,26 +145,26 @@ font-weight: bold;">
                 </select>
             </div>
             <div class="row buttonPropertyActive">
-                <div class="col-sm-6 text-center height-50">
+                <div class="col-xs-6 text-center height-50">
                     <span class="btn btn-primary-formula col-sm-12" id="plusFormula">Plus</span>
                 </div>
-                <div class="col-sm-6 text-center height-50">
+                <div class="col-xs-6 text-center height-50">
                     <span class="btn btn-primary-formula col-sm-12" id="minusFormula">Minus</span>
                 </div>
                 
             </div>
             <div class="row buttonPropertyActive" style=" height: 70px; ">
-                <div class="col-sm-6 text-center height-50">
+                <div class="col-xs-6 text-center height-50">
                     <span class="btn btn-primary-formula col-sm-12" id="superiorFormula">is larger<br/>than</span>
                 </div>
-                <div class="col-sm-6 text-center height-50">
+                <div class="col-xs-6 text-center height-50">
                     <span class="btn btn-primary-formula col-sm-12" id="inferiorFormula">is smaller<br/>than</span>
                 </div>
             </div>
             <div class="row buttonPropertyActive" id="formula" style="height:100px;overflow:auto;">
             </div>
             <div class="row buttonPropertyActive" id="formulaResetDiv">
-                <span class="btn btn-primary-formula col-sm-12" id="formulaReset">Reset Formula</span>
+                <span class="btn btn-primary-formula col-xs-12" id="formulaReset">Reset Formula</span>
             </div>
             <div class="row buttonPropertyActive text-center formulaResult" id="formula-success" style="background-color:rgb(2, 111, 2);display:none;" >
                 <i class="fa fa-check text-success fa-2x"></i>
@@ -221,15 +221,15 @@ font-weight: bold;">
             </div>
         </div>
         <div class="row buttonPropertyActive text-center" style="font-size:28px;">
-            <span class="btn btn-danger col-sm-12 margin-top" id="deleteNode">Delete node</span>
+            <span class="btn btn-danger col-xs-12 margin-top" id="deleteNode">Delete node</span>
         </div>
         <div class="row buttonPropertyActive text-center" style="font-size:28px;">
-            <span class="btn btn-success col-sm-12" id="saveok">OK</span>
+            <span class="btn btn-success col-xs-12" id="saveok">OK</span>
         </div>
     </div>
-    <div id="buttonSave" class="col-sm-3">
+    <div id="buttonSave" class="col-xs-3">
         <div class="row buttonPropertyActive text-center" style="font-size:28px;">
-            <span class="btn btn-primary col-sm-12" id="save">Save</span>
+            <span class="btn btn-primary col-xs-12" id="save">Save</span>
         </div>
     </div>
 
