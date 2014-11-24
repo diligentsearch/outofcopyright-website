@@ -66,6 +66,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 $(".alert-success").hide();
                 $("#forms").html("");
                 $("#typeOfWork").val("");
+                $( "#langues" ).removeAttr("disabled","");
             }
 
             $(document).on('change','.questionInput',function(){
@@ -84,6 +85,13 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             
             $(document).on('change','#typeOfWork',function(){
                 $("#forms").html("");
+
+                if($("#typeOfWork").val() != ""){
+                    $("#langues").prop("disabled", "disabled");
+                }else{
+                    $( "#langues" ).removeAttr("disabled","");
+                }
+
                 if($( "#typeOfWork" ).val() != ""){
                     $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
                     .done(function( dataTrad ) {
