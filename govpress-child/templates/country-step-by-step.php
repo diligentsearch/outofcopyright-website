@@ -230,7 +230,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <label class="control-label">Type of work : </label>
+                    <label class="control-label" id="labelTypeOfWork">Type of work : </label>
                 </div>
                 <div class="col-sm-8">
                     <select name="typeOfWork" id="typeOfWork" class="form-control">
