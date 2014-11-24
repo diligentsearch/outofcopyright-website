@@ -19,7 +19,12 @@ app.get('/', function (req, res) {
 })
 
 router.route('/').post(function (req, res) {
-	BRANCH = req.param('country');
+	if(req.param('branch') == 'master'){
+		BRANCH = 'master';
+	}else{
+		BRANCH = req.param('country');
+	}
+	
 
 	switch(req.param('action')){
 		case 'read': 

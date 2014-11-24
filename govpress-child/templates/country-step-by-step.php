@@ -31,7 +31,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                             var response = $("#"+inputs[i]).val();
                             eval("responses."+inputs[i]+" = response;");
                         }
-                        var trad = getTraduction(file.default_language, inputs[i]);
+                        var trad = getTraduction($("#langues").val(), inputs[i]);
                         errors[inputs[i]] = trad+' missing';
                     }
 
@@ -85,7 +85,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             $(document).on('change','#typeOfWork',function(){
                 $("#forms").html("");
                 if($( "#typeOfWork" ).val() != ""){
-                    $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+file.default_language+".json")
+                    $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
                     .done(function( dataTrad ) {
                         traductionData = dataTrad;
                         inputs = getInputs($( "#typeOfWork" ).val());
@@ -120,6 +120,25 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                              .attr("value",i)
                              .text(listSubgraph[i])); 
                     }
+
+                    var lang = getUrlVars()["lang"];
+                    if(lang !== undefined){
+                        lang = lang.toUpperCase();
+                    }
+
+                    for(var i = 0; i < file.language.length; i++){
+                        $('#langues')
+                             .append($("<option></option>")
+                             .attr("value",file.language[i].toUpperCase())
+                             .text(file.language[i].toUpperCase())); 
+                    }
+                    if($('#langues').find('option[value="'+lang+'"]').length > 0){
+                        $('#langues').find('option[value="'+lang+'"]').prop('selected', true); 
+                    }else{
+                        $('#langues').find('option[value="'+file.default_language.toUpperCase()+'"]').prop('selected', true); 
+                    }
+                    
+                    changeLangue();
                 });
 
                 $('.close').click(function(){
@@ -127,8 +146,23 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 });
             });
 
+            $(document).on('change','#langues',function(){
+                changeLangue();
+
+            });
+
+            function changeLangue(){
+                $.post( "/node", { country: 'Belgium', name: $("#langues").val()+'.json', action: 'read', branch: 'master' } )
+                .done(function( dataTrad ) {
+                    traductionData = dataTrad;
+                    console.log("change");
+                    $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
+                    $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
+                });
+            }
+
             function newQuestion(input){
-                var trad = getTraduction(file.default_language, 'question_'+input);
+                var trad = getTraduction($("#langues").val(), 'question_'+input);
                 var datapoint = getResponseById(input);
                 var inputHTML= "";
                 actualInput = input;
