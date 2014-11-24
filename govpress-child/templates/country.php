@@ -49,44 +49,48 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
                 .done(function( dataTrad ) {
                     traductionData = dataTrad;
-                    $( "#forms" ).html('');
-                    if($( "#typeOfWork" ).val() != ''){
-                        inputs = getInputs($( "#typeOfWork" ).val());
-                        console.log(inputs);
-                        for(var i = 0; i < inputs.length; i++){
-                            var trad = getTraduction($("#langues").val(), 'question_'+inputs[i]);
-                            var datapoint = getResponseById(inputs[i]);
-                            var inputHTML= "";
-                            switch(datapoint.type) {
-                                case 'numeric':
-                                    inputHTML = '<input type="text" class="col-sm-12" name="'+inputs[i]+'" id="'+inputs[i]+'" placeholder="'+trad+'"/>';
-                                    break;
-                                case 'list':
-                                    inputHTML = '<select name="'+inputs[i]+'" id="'+inputs[i]+'" class="form-control">'
-                                    inputHTML += '<option value="">Select a response</option>';
-                                    for(var j = 0; j < datapoint.set.length; j++){
-                                        inputHTML += '<option value="'+datapoint.set[j]+'">'+datapoint.set[j]+'</option>';
-                                    }
-                                    inputHTML += '</select>';
-                                    break;
-                                default:
-                                    inputHTML = '';
-                            } 
-
-                            $("#forms").append('\
-                                <div class="row margin-top">\
-                                    <div class="col-sm-2">\
-                                        <label for="'+inputs[i]+'" class="control-label">'+trad+'</label>\
-                                    </div>\
-                                    <div class="col-sm-10">\
-                                        '+inputHTML+'\
-                                    </div>\
-                                </div>\
-                                ');
-                        }
-                    }
+                    chargeForms();
                 });
-            });   
+            }); 
+
+            function chargeForms(){
+                $( "#forms" ).html('');
+                if($( "#typeOfWork" ).val() != ''){
+                    inputs = getInputs($( "#typeOfWork" ).val());
+                    console.log(inputs);
+                    for(var i = 0; i < inputs.length; i++){
+                        var trad = getTraduction($("#langues").val(), 'question_'+inputs[i]);
+                        var datapoint = getResponseById(inputs[i]);
+                        var inputHTML= "";
+                        switch(datapoint.type) {
+                            case 'numeric':
+                                inputHTML = '<input type="text" class="col-sm-12" name="'+inputs[i]+'" id="'+inputs[i]+'" placeholder="'+trad+'"/>';
+                                break;
+                            case 'list':
+                                inputHTML = '<select name="'+inputs[i]+'" id="'+inputs[i]+'" class="form-control">'
+                                inputHTML += '<option value="">Select a response</option>';
+                                for(var j = 0; j < datapoint.set.length; j++){
+                                    inputHTML += '<option value="'+datapoint.set[j]+'">'+datapoint.set[j]+'</option>';
+                                }
+                                inputHTML += '</select>';
+                                break;
+                            default:
+                                inputHTML = '';
+                        } 
+
+                        $("#forms").append('\
+                            <div class="row margin-top">\
+                                <div class="col-sm-4">\
+                                    <label for="'+inputs[i]+'" class="control-label">'+trad+'</label>\
+                                </div>\
+                                <div class="col-sm-8">\
+                                    '+inputHTML+'\
+                                </div>\
+                            </div>\
+                            ');
+                    }
+                }
+            }
 
             $(function() {
                 $("#secondary").hide();
@@ -131,6 +135,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             });
             $(document).on('change','#langues',function(){
                 changeLangue();
+                chargeForms();
 
             });
 
@@ -169,10 +174,10 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <label class="control-label" id="labelTypeOfWork">Type of work : </label>
                 </div>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <select name="typeOfWork" id="typeOfWork" class="form-control">
                         <option value="">Select type of work</option>
                     </select>
