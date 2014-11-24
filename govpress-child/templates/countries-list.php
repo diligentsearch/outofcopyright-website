@@ -78,7 +78,7 @@ font-weight: bold;">
                 </div>
             </div>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-12" style=" height: 70px; ">
             <div class="col-sm-9">
             <?php if($admin){ ?>
                 <div class="col-sm-2">
