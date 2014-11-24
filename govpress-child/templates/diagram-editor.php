@@ -412,6 +412,9 @@ font-weight: bold;">
         echo "current_user.id = ".$current_user->ID.";\n\r";
      ?>
      console.log(current_user);
+     if(current_user.id == 0){
+        window.location = "/wp-admin/";
+     }
 
      $(".site-content").css("padding","0px");
      $(".site-branding").hide();
