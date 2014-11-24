@@ -211,10 +211,10 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
         <br/>
         <div class="row margin-left margin-top margin-bottom margin-right">
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <label class="control-label" id="labelLangue">Langue : </label>
                 </div>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <select name="langues" id="langues" class="form-control">
                         <option value="">Select a langue</option>
                     </select>
