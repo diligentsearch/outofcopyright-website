@@ -29,7 +29,7 @@ get_header(); ?>
                             </a>
                         </div>
                     </div>
-                    <div class="panel-body" style="overflow-y: auto; overflow-x: hidden;width: 157px;" id="listTypeOfWorkRow">
+                    <div class="panel-body" style="overflow-y: auto; overflow-x: hidden;" id="listTypeOfWorkRow">
                         <ul id="listTypeOfWork" class="nav nav-pills nav-stacked" style="margin-left: 0px;">
                         </ul>
                     </div>
@@ -47,7 +47,7 @@ get_header(); ?>
                             </a>
                         </div>
                     </div>
-                    <div class="panel-body" style="overflow-y: auto; overflow-x: hidden;width: 157px;" id="listDatapointsRow">
+                    <div class="panel-body" style="overflow-y: auto; overflow-x: hidden;" id="listDatapointsRow">
                         <ul id="listDatapoints" class="nav nav-pills nav-stacked" style="margin-left: 0px;">
                         </ul>
                     </div>
