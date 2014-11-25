@@ -54,24 +54,30 @@ $(function() {
 						$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'update', file: contentFile, message: 'Update file PO' } );
 					}
 					$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: 'New language' } );
+				
+					$("#fileToUpload").val("");
+					$("#languageToUpload").val("");
+					$("#uploadPOFileModal").hide();
+					$("#alertTranslate").hide();
 				}else{
 					console.log("error file missing translation");
+					$("#alertTranslate").show();
 				}
 				
 			});
 		}
 
-		$("#fileToUpload").val("");
-		$("#languageToUpload").val("");
-		$("#uploadPOFileModal").hide();
+		
 	});
 
 	$( ".close" ).click(function() {
 		$(".modal").hide();
+		$("#alertTranslate").hide();
 	});
 
 	$( ".closeButton" ).click(function() {
 		$(".modal").hide();
+		$("#alertTranslate").hide();
 	});
 
 	$( "#addContributorButton" ).click(function() {

@@ -172,6 +172,11 @@ font-weight: bold;">
                             </div>
                         </fieldset>
                     </form>
+                    <div class="alert alert-dismissable alert-warning" id="alertTranslate" style="display:none;">
+                      <button type="button" class="close" data-dismiss="alert">×</button>
+                        <h4>Warning!</h4>
+                        <p>Missing translation</p>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default closeButton"  data-dismiss="modal">Close</button>
