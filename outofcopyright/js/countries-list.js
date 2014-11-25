@@ -45,14 +45,19 @@ $(function() {
 			$.post( "/node", { country: country, name: file.default_language+".json", action: 'read' } )
 			.done(function( dataTrad ) {
 				console.log(Object.keys(dataTrad).length);
-				if( jQuery.inArray( $("#languageToUpload").val(), file.language ) == -1){
-					$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'write', file: contentFile, message: 'New file PO' } );
-					file.language.push($("#languageToUpload").val());
-					$("#listLanguagesSpan").append(" - "+$("#languageToUpload").val());
+				if(Object.keys(fileTranslate).length == Object.keys(dataTrad).length){
+					if( jQuery.inArray( $("#languageToUpload").val(), file.language ) == -1){
+						$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'write', file: contentFile, message: 'New file PO' } );
+						file.language.push($("#languageToUpload").val());
+						$("#listLanguagesSpan").append(" - "+$("#languageToUpload").val());
+					}else{
+						$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'update', file: contentFile, message: 'Update file PO' } );
+					}
+					$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: 'New language' } );
 				}else{
-					$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'update', file: contentFile, message: 'Update file PO' } );
+					console.log("error file missing translation");
 				}
-				$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: 'New language' } );
+				
 			});
 		}
 
