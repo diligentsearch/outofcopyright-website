@@ -53,7 +53,7 @@ $(function() {
 					$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'update', file: contentFile, message: 'Update file PO' } );
 				}
 				$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: 'New language' } );
-			}
+			});
 		}
 
 		$("#fileToUpload").val("");
