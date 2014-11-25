@@ -41,7 +41,7 @@ $(function() {
 		console.log()
 		if(contentFile != undefined && $("#languageToUpload").val() != ''){
 			var fileTranslate = JSON.parse(contentFile);
-			console.log(fileTranslate.length);
+			console.log(Object.keys(fileTranslate).length);
 			if( jQuery.inArray( $("#languageToUpload").val(), file.language ) == -1){
 				$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'write', file: contentFile, message: 'New file PO' } );
 				file.language.push($("#languageToUpload").val());
