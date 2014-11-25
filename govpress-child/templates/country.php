@@ -213,7 +213,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             </div>
         </div>
         <div id="waitingPart">
-            <img src="/outofcopyright/css/ajax-loader.gif">
+            <img src="/wp-content/themes/govpress-child/lib/pictures/ajax-loader.gif">
         </div>
         <?php
         if (have_posts()) :
