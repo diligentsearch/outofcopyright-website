@@ -212,7 +212,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 <p id="resultdanger"></p>
             </div>
         </div>
-        <div id="waitingPart">
+        <div id="waitingPart" style=" margin-left: auto; margin-right: auto; width: 32px; ">
             <img src="/wp-content/themes/govpress-child/lib/pictures/ajax-loader.gif">
         </div>
         <?php
