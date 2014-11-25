@@ -136,6 +136,8 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 });
             });
             $(document).on('change','#langues',function(){
+                $("#waitingPart").show();
+                $("#calculatorPart").hide();
                 changeLangue();
                 chargeForms();
 
@@ -149,6 +151,9 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                     $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
                     $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
                 });
+                $("#waitingPart").hide();
+                $("#calculatorPart").show();
+
             }
 
              //Récupération des éléments get de l'URL
@@ -164,7 +169,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
         <br/>
         <h2>Calculate</h2>
         <br/>
-        <div class="row margin-left margin-top margin-bottom margin-right">
+        <div class="row margin-left margin-top margin-bottom margin-right" id="calculatorPart" style="display:none;">
             <div class="row">
                 <div class="col-sm-4">
                     <label class="control-label" id="labelLangue">Langue : </label>
@@ -205,6 +210,9 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <p id="resultdanger"></p>
             </div>
+        </div>
+        <div id="waitingPart">
+            <img src="/outofcopyright/css/ajax-loader.gif">
         </div>
         <?php
         if (have_posts()) :
