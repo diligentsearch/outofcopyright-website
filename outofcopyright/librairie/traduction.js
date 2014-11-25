@@ -26,7 +26,7 @@ function getTraduction(langue, key, server){
     }
 
     if(result === undefined){
-            result = 'No traduction found';
+            result = 'No translation found';
     }
 
     return result;
