@@ -150,9 +150,10 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                     console.log("change");
                     $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
                     $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
+                    $("#waitingPart").hide();
+                    $("#calculatorPart").show();
                 });
-                $("#waitingPart").hide();
-                $("#calculatorPart").show();
+                
 
             }
 
