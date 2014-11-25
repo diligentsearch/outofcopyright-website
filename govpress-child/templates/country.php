@@ -171,7 +171,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
         <h2>Calculate</h2>
         <br/>
         <div class="row margin-left margin-top margin-bottom margin-right" id="calculatorPart" style="display:none;">
-            <div class="row">
+            <div class="row margin-bottom">
                 <div class="col-sm-4">
                     <label class="control-label" id="labelLangue">Langue : </label>
                 </div>
