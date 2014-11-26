@@ -36,7 +36,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                     }
 
                     responses = JSON.stringify(responses);
-                    var result = walk($( "#typeOfWork" ).val(), responses);
+                    var result = walk($( "#typeOfWork" ).val(), responses, 'master');
 
                     if(result.error == 3){
                         $("#error").html("Response is not a number.");
