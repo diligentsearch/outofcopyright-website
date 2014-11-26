@@ -73,6 +73,7 @@ $(function(){
 			writeDatapoint();
 			$("#datapoint-modal-title").html("Add datapoint");
 			$("#addModifyDatapoint").html("Add new datapoint");
+			$("#question_datapoint").show();
 			$("#addModifyDatapointModal").show();
 		});
 
