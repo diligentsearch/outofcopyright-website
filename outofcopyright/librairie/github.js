@@ -43,7 +43,18 @@ function readFile(pays, fileName, callback){
 
 //Fonction permettant d'écrire un nouveau fichier 
 function writeFile(pays, fileName, content, commitText){
-    repo.write(BRANCH, pays+'/'+fileName, content, commitText, function(err) {console.log(err);});
+    repo.write(BRANCH, pays+'/'+fileName, content, commitText, function(err) {
+        console.log(err.status);
+        if(err.status == '409'){
+            console.log('Try second');
+            console.log(pays+'/'+fileName);
+            console.log(content);
+            console.log(commitText);
+            repo.write(BRANCH, pays+'/'+fileName, content, commitText, function(err) {
+                console.log(err);
+            });
+        }
+    });
 }
 
 //Fonction permetant la suppression d'un fichier sur github
