@@ -17,6 +17,7 @@ $(function(){
 	$('.site-header').css("padding","0");
 	$('.col-width').css("max-width","100%");
 	$('.col-width').css("padding","0");
+	$('#content').css("margin","0");
 
 	country = getUrlVars()["country"];
 
