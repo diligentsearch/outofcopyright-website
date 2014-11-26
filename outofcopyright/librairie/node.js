@@ -421,10 +421,15 @@ function reconstructLink(subgraph, idLinkTable, reconstructChild){
 */
 function resultNode(subgraph, idNode, text){
 	var newID = newNodeId();
+	var start = false;
+	if(file.subgraph[subgraph].nodes[idNode].start == true){
+		start = true;
+	}
 	file.subgraph[subgraph].nodes[idNode] = {   
                     "id": newID,
                     "type":"final", 
-                    "text":"LBL_"+newID
+                    "text":"LBL_"+newID,
+                    "start": start
                 }
     var stringToEvaluate = 'bibliotheque["'+languageChoosen+'"].LBL_'+newID+' = "'+text+'";';
 	eval(stringToEvaluate);
