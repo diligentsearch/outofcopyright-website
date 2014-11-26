@@ -294,7 +294,7 @@ font-weight: bold;">
                                     <input type="text" id="hintDatapoint" class="form-control inputLine" placeholder="Additionnal information">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="question_datapoint">
                                 <label for="hintDatapoint" class="col-lg-3 control-label" >Question</label>
                                 <div class="col-lg-9">
                                     <input type="text" id="questionDatapoint" class="form-control inputLine" placeholder="Question">

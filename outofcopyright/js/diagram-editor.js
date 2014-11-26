@@ -50,15 +50,18 @@ $(function(){
 				case 'static':
 							$(".valueDatapoint").show();
 							$(".listValueDatapoint").hide();
+							$("#question_datapoint").hide();
 						break;
 				case 'list':
 							$(".valueDatapoint").hide();
 							$(".listValueDatapoint").show();
+							$("#question_datapoint").show();
 						break;
 				case 'numeric':
 				default:
 							$(".valueDatapoint").hide();
 							$(".listValueDatapoint").hide();
+							$("#question_datapoint").show();
 						break;
 			}
 		});
