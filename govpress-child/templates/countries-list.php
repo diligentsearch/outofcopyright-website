@@ -52,10 +52,10 @@ font-weight: bold;">
                     <h3 class="panel-title">General informations</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="col-sm-2">
-                        Langues :
+                    <div class="col-sm-4">
+                        Languages :
                     </div>
-                    <div class="col-sm-8" id='listLanguages'>
+                    <div class="col-sm-6" id='listLanguages'>
                     </div>
                     <div class="col-sm-1">
                         <a href="#" id="uploadPOFileButton">
