@@ -600,7 +600,7 @@ function aliasNodes(){
 
 	for(var i = 0; i < listNodes.length; i++){
 		var libelle = getTraduction(languageChoosen, listNodes[i].text);
-		if( jQuery.inArray( i, parents ) == -1  && i != idNodeSelected && libelle != undefined){
+		if( jQuery.inArray( i, parents ) == -1  && i != idNodeSelected && libelle != undefined && libelle != ''){
 			$("#aliasNode").append('<option value="'+i+'">'+libelle+'</option>');
 			parents.push(i);
 		}
