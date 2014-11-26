@@ -15,7 +15,7 @@ $(function(){
 	$('#drawSvg').attr('width', $('#drawZone').width());
 	$('#drawSvg').attr('height', $('#drawZone').height()+500);
 	$('.site-header').css("padding","0");
-	$('.col-width').css("max-width","");
+	$('.col-width').css("max-width","100%");
 	$('.col-width').css("padding","0");
 
 	country = getUrlVars()["country"];
