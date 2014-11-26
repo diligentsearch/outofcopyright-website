@@ -371,7 +371,7 @@ function formatD3Nodes(g){
 
 		var strADecoupe = "";
 		var traduction = getTraduction(languageChoosen,node.text);
-		if(traduction != "No traduction found"){
+		if(traduction != ""){
 			strADecoupe = traduction;
 		}
 		
@@ -533,7 +533,7 @@ function setQuestionInput(){
 
 	var traduction = getTraduction(languageChoosen, nodeSelected.text);
 
-	if(traduction != 'No traduction found'){
+	if(traduction != ''){
 		$('#question').val(traduction);
 	}
 
@@ -643,6 +643,7 @@ function reinititialisationDatapoint(){
 	$("#hintDatapoint").val("");
 	$("#valueDatapoint").val("");
 	$("#typeDatapoint").val("");
+	$("#questionDatapoint").val("");
 	$(".listValueDatapoint").hide();
 	$(".valueDatapoint").hide();
 
@@ -665,7 +666,7 @@ function loadDatapoints(id){
 	}
 	$("#hintDatapoint").val(datapoint.hint);
 	var traduction = getTraduction(languageChoosen,'question_'+datapoint.id);
-	if(traduction != "No traduction found"){
+	if(traduction != ""){
 		$("#questionDatapoint").val(traduction);
 	}
 	
