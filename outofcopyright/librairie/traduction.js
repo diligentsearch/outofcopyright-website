@@ -13,9 +13,7 @@ function getTraduction(langue, key, server){
             if(server == true){
                     trad = JSON.parse(trad);
             }
-	console.log(server);
-	console.log('trad');
-	console.log(trad);
+            
             bibliotheque[langue] = trad;
     }else
     {
@@ -26,7 +24,7 @@ function getTraduction(langue, key, server){
     }
 
     if(result === undefined){
-            result = 'No translation found';
+            result = '';
     }
 
     return result;
