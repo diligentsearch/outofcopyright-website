@@ -19,7 +19,7 @@ if(!$admin && !$contributor){
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main" style="margin-bottom: 0px;">
+		<div id="content" class="site-content" role="main" style="margin-bottom: 0px;position: relative;">
             <div class="col-sm-2" style="max-height: 100%;">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
             <div class="col-sm-12 margin-bottom height-40 padding-top-8" style="font-size: 20px;font-weight: bold;">
@@ -237,7 +237,7 @@ font-weight: bold;">
             <span class="btn btn-success col-xs-12" id="saveok">OK</span>
         </div>
     </div>
-    <div id="buttonSave" class="col-xs-3">
+    <div id="buttonSave" class="col-xs-3" style="position: absolute; bottom: 0px; right: 0px; margin-right: 0px;">
         <div class="row buttonPropertyActive text-center" style="font-size:28px;">
             <span class="btn btn-primary col-xs-12" id="save">Save</span>
         </div>
