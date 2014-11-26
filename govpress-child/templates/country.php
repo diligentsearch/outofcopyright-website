@@ -144,7 +144,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             });
 
             function changeLangue(){
-                $.post( "/node", { country: 'Belgium', name: $("#langues").val()+'.json', action: 'read', branch: 'master' } )
+                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
                 .done(function( dataTrad ) {
                     traductionData = dataTrad;
                     console.log("change");
