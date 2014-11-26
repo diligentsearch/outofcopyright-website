@@ -14,6 +14,9 @@ $(function(){
 	//Ajuste la taille du SVG pour le graphe à la taille disponible.
 	$('#drawSvg').attr('width', $('#drawZone').width());
 	$('#drawSvg').attr('height', $('#drawZone').height()+500);
+	$('.site-header').css("padding","");
+	$('.col-width').css("max-width","");
+	$('.col-width').css("padding","");
 
 	country = getUrlVars()["country"];
 
