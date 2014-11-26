@@ -97,8 +97,6 @@ html, body
 }
 
 #buttonSave {
-    position: fixed;
-    bottom: 0;
-    right: 0;
+	margin-top: 76px;
   }
 
