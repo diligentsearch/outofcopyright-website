@@ -119,9 +119,17 @@ $(function() {
 	
 
 	$("#mergeInProduction").click(function() {
-		$.post( "/node", { branch: 'master', child_branch: country, message: 'Merge '+country+' in master', action: 'merge' } )
+		var verif = true;
+		for(var i = 0; i < file.subgraph.length ; i++){
+			if(control(i) != "ok"){
+				verif = false;
+			}
+		}
+		if(verif){
+			$.post( "/node", { branch: 'master', child_branch: country, message: 'Merge '+country+' in master', action: 'merge' } );
+			console.log("All is clear");
+		}
 	});
-
 });
 
 function displayCountries(){
