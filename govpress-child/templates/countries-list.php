@@ -46,6 +46,14 @@ font-weight: bold;">
                 FLOWCHART
             </div>
         </div>
+        <div class="alert alert-dismissable alert-success" id="alertSuccess" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <p id="messageAlert"></p>
+        </div>
+        <div class="alert alert-dismissable alert-warning" id="alertWarning" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <p id="messageAlertWarning"></p>
+        </div>
         <div class="col-sm-12" style="padding-top:15px;">
             <div class="panel panel-primary">
                 <div class="panel-heading">
