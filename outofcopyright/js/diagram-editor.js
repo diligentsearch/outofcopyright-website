@@ -34,6 +34,15 @@ $(function(){
 		.done(function( dataTrad ) {
 			traductionData = dataTrad;
 			listTypeDatapoint();
+			var missingTrad = missingTranslation(traductionData);
+			if(missingTrad.length > 0){
+				var strMissingTrad = "";
+				for(var i = 0; i < missingTrad.length ; i++){
+					strMissingTrad += missingTrad[i]+", ";
+				}
+				$("#messageAlertWarning").text("Missing translation "+strMissingTrad);
+				$("#alertWarning").show();
+			}
 		});
 
 		$( "#question" ).change(function() {

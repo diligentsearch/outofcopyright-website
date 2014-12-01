@@ -62,6 +62,8 @@
 				console.log("change");
 				$("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
 				$("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
+				console.log(cleaningTranslation(traductionData));
+				console.log(missingTranslation(traductionData));
 			});
 		}
 		

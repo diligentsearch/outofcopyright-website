@@ -91,6 +91,10 @@ font-weight: bold;"></div>
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <p id="messageAlert"></p>
             </div>
+            <div class="alert alert-dismissable alert-warning" id="alertWarning" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p id="messageAlertWarning"></p>
+            </div>
             <div class="row" style=" margin-left: 0px; ">
                 <svg id='drawSvg' ></svg>
             </div>
