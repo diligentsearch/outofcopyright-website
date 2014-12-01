@@ -70,7 +70,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                                 inputHTML = '<select name="'+inputs[i]+'" id="'+inputs[i]+'" class="form-control">'
                                 inputHTML += '<option value="">Select a response</option>';
                                 for(var j = 0; j < datapoint.set.length; j++){
-                                    inputHTML += '<option value="'+getTraduction($("#langues").val(),datapoint.set[j])+'">'+getTraduction($("#langues").val(), datapoint.set[j])+'</option>';
+                                    inputHTML += '<option value="'+datapoint.set[j]+'">'+getTraduction($("#langues").val(), datapoint.set[j])+'</option>';
                                 }
                                 inputHTML += '</select>';
                                 break;
