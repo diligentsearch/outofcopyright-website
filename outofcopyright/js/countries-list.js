@@ -48,7 +48,7 @@ $(function() {
 			console.log(Object.keys(fileTranslate).length);
 			$.post( "/node", { country: country, name: file.default_language+".json", action: 'read' } )
 			.done(function( dataTrad ) {
-				var missingTrad = missingTranslation(dataTrad);
+				var missingTrad = missingTranslation(fileTranslate);
 				if(missingTrad.length > 0){
 					var strMissingTrad = "";
 					for(var i = 0; i < missingTrad.length ; i++){
