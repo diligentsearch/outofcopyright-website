@@ -175,7 +175,7 @@ font-weight: bold;">
                     <div class="alert alert-dismissable alert-warning" id="alertTranslate" style="display:none;">
                       <button type="button" class="close" data-dismiss="alert">×</button>
                         <h4>Warning!</h4>
-                        <p>Missing translation</p>
+                        <p id="missingTranslationMessage"></p>
                     </div>
                 </div>
                 <div class="modal-footer">
