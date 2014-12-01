@@ -38,7 +38,11 @@ $(function(){
 			if(missingTrad.length > 0){
 				var strMissingTrad = "";
 				for(var i = 0; i < missingTrad.length ; i++){
-					strMissingTrad += missingTrad[i]+", ";
+					var endStr = ", ";
+					if(i + 1 == missingTrad.length){
+						endStr = ".";
+					}
+					strMissingTrad += missingTrad[i]+endStr;
 				}
 				$("#messageAlertWarning").text("Missing translation "+strMissingTrad);
 				$("#alertWarning").show();
