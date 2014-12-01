@@ -49,7 +49,7 @@ $(function() {
 			$.post( "/node", { country: country, name: file.default_language+".json", action: 'read' } )
 			.done(function( dataTrad ) {
 				console.log(Object.keys(dataTrad).length);
-				if(Object.keys(fileTranslate).length == Object.keys(dataTrad).length){
+				if(Object.keys(fileTranslate).length >= Object.keys(dataTrad).length){
 					if( jQuery.inArray( $("#languageToUpload").val(), file.language ) == -1){
 						$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'write', file: contentFile, message: 'New file PO' } );
 						file.language.push($("#languageToUpload").val());

@@ -87,16 +87,19 @@ function translationNecessary(){
 
     for(var i = 0; i < file.datapoints.length; i++) {
         var datapoint = file.datapoints[i];
-        listTraduction.push("question_"+datapoint.id);
-        if(file.datapoints[i].set !== undefined && file.datapoints[i].set !== null && file.datapoints[i].type == "list"){
-            for(var j = 0; j < file.datapoints[i].set.length; j++) {
-                var set = file.datapoints[i].set[j];
-                var formatStr = formatString(set);
-                if(jQuery.inArray( formatStr, listTraduction ) == -1){
-                    listTraduction.push(formatStr);
+        if(file.datapoints[i].type != "static"){
+            if(file.datapoints[i].set !== undefined && file.datapoints[i].set !== null && file.datapoints[i].type == "list"){
+                for(var j = 0; j < file.datapoints[i].set.length; j++) {
+                    var set = file.datapoints[i].set[j];
+                    var formatStr = formatString(set);
+                    if(jQuery.inArray( formatStr, listTraduction ) == -1){
+                        listTraduction.push(formatStr);
+                    }
                 }
             }
         }
+        listTraduction.push("question_"+datapoint.id);
+        
     }
     return listTraduction;
 }
