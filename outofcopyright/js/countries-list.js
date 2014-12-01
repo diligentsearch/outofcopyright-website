@@ -48,8 +48,19 @@ $(function() {
 			console.log(Object.keys(fileTranslate).length);
 			$.post( "/node", { country: country, name: file.default_language+".json", action: 'read' } )
 			.done(function( dataTrad ) {
-				console.log(Object.keys(dataTrad).length);
-				if(Object.keys(fileTranslate).length >= Object.keys(dataTrad).length){
+				var missingTrad = missingTranslation(dataTrad);
+				if(missingTrad.length > 0){
+					var strMissingTrad = "";
+					for(var i = 0; i < missingTrad.length ; i++){
+						var endStr = ", ";
+						if(i + 1 == missingTrad.length){
+							endStr = ".";
+						}
+						strMissingTrad += missingTrad[i]+endStr;
+					}
+					$("#missingTranslationMessage").text("Missing translation "+strMissingTrad);
+					$("#alertTranslate").show();
+				}else{
 					if( jQuery.inArray( $("#languageToUpload").val(), file.language ) == -1){
 						$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'write', file: contentFile, message: 'New file PO' } );
 						file.language.push($("#languageToUpload").val());
@@ -63,15 +74,9 @@ $(function() {
 					$("#languageToUpload").val("");
 					$("#uploadPOFileModal").hide();
 					$("#alertTranslate").hide();
-				}else{
-					console.log("error file missing translation");
-					$("#alertTranslate").show();
 				}
-				
 			});
 		}
-
-		
 	});
 
 	$( ".close" ).click(function() {
