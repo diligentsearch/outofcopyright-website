@@ -82,11 +82,15 @@ $(function() {
 	$( ".close" ).click(function() {
 		$(".modal").hide();
 		$("#alertTranslate").hide();
+		$("#fileToUpload").val("");
+		$("#languageToUpload").val("");
 	});
 
 	$( ".closeButton" ).click(function() {
 		$(".modal").hide();
 		$("#alertTranslate").hide();
+		$("#fileToUpload").val("");
+		$("#languageToUpload").val("");
 	});
 
 	$( "#addContributorButton" ).click(function() {
