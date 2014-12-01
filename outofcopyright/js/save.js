@@ -117,5 +117,6 @@ function saveFile(message){
 }
 
 function saveTraduction(langue, message){
+	bibliotheque[langue] = cleaningTranslation(bibliotheque[langue]);
 	$.post( "/node", { country: country, name: langue+".json", action: 'update', file: JSON.stringify(bibliotheque[langue]), message: message } );
 }
