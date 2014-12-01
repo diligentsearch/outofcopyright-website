@@ -81,6 +81,7 @@ $(function() {
 
 	$( ".close" ).click(function() {
 		$(".modal").hide();
+		$(".alert").hide();
 		$("#alertTranslate").hide();
 		$("#fileToUpload").val("");
 		$("#languageToUpload").val("");
