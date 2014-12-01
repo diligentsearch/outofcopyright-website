@@ -146,7 +146,9 @@ $(function(){
 							set = [];
 							for(var i = 0; i < $(".listValueDatapoint").length - 2; i++){
 								if($("#listValueDatapoint"+(i + 1)).val() != ""){
-									set.push($("#listValueDatapoint"+(i + 1)).val());
+									set.push(id+i);
+
+									eval("bibliotheque['"+languageChoosen+"']."+id+i+" = '"+$("#listValueDatapoint"+(i + 1)).val()+"'");
 								}
 							}
 						break;
@@ -436,7 +438,13 @@ function formatD3Edges(g){
 								edge.value.label = 'False';
 							}
 						}else{
-							edge.value.label = node.responses[j].value;
+							console.log(getType(typeOfWork, i));
+							if(getType(typeOfWork, i) == 'list'){
+								edge.value.label = getTraduction( languageChoosen , node.responses[j].value);
+							}else{
+								edge.value.label = node.responses[j].value;
+							}
+							
 						}
 						g.setEdge(edge.u, edge.v, {label: edge.value.label});
 					}
@@ -592,7 +600,7 @@ function displayResponses(){
 	if(datapoint !== undefined && datapoint.set !== undefined){
 		for(var i = 0; i < datapoint.set.length; i++){
 			$('#responsesList').append('<div class="row buttonPropertyActive">\
-                <span style="padding-left: 15px;font-size: 16px;">'+ datapoint.set[i] +'</span>\
+                <span style="padding-left: 15px;font-size: 16px;">'+ getTraduction( languageChoosen, datapoint.set[i]) +'</span>\
             </div>');
 		}
 	}
@@ -688,7 +696,7 @@ function loadDatapoints(id){
 						$(".valueDatapoint").hide();
 						if(datapoint.set !== null){
 							for(var i = 0; i < $(".listValueDatapoint").length; i++){
-								$("#listValueDatapoint"+(i + 1)).val(datapoint.set[i]);
+								$("#listValueDatapoint"+(i + 1)).val(getTraduction(languageChoosen, datapoint.set[i]));
 							}
 							$(".listValueDatapoint").show();
 						}else{

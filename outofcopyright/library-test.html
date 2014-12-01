@@ -84,8 +84,9 @@
 						    case 'list':
 						        inputHTML = '<select name="'+inputs[i]+'" id="'+inputs[i]+'" class="form-control">'
 						        inputHTML += '<option value="">Select a response</option>';
+						        console.log(datapoint);
 						        for(var j = 0; j < datapoint.set.length; j++){
-						        	inputHTML += '<option value="'+datapoint.set[j]+'">'+datapoint.set[j]+'</option>';
+						        	inputHTML += '<option value="'+getTraduction($("#langues").val(), datapoint.set[j])+'">'+getTraduction($("#langues").val(), datapoint.set[j])+'</option>';
 						        }
 						        inputHTML += '</select>';
 						        break;

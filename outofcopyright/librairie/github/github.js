@@ -60,7 +60,7 @@
         }
         
       }
-      console.log(data);
+
       var xhr = new XMLHttpRequest();
       if (!raw) {xhr.dataType = "json";}
       if(path != '/repos/jeromejesse/outofcopyright-test/commits'){

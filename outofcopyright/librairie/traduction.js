@@ -1,7 +1,7 @@
 var bibliotheque = [];
 var traductionData;
 /*
-        Récupération d'une traduction ?|  partir de la langue et de l'id de la tracduction que l'on souhaite
+    Récupération d'une traduction à  partir de la langue et de l'id de la tracduction que l'on souhaite
 */
 function getTraduction(langue, key, server){
     var trad;
@@ -20,7 +20,13 @@ function getTraduction(langue, key, server){
             trad = bibliotheque[langue];
     }
     if(key != ""){
-            result = eval("trad."+key);
+        try{
+            console.log("trad."+formatString(key));
+            result = eval("trad."+formatString(key));
+        }catch(err){
+            result = key;
+            console.log('error trad');
+        }
     }
 
     if(result === undefined){
@@ -28,4 +34,18 @@ function getTraduction(langue, key, server){
     }
 
     return result;
+}
+
+/*
+    Vérification de la cohérence des fichiers de traduction et ménage
+*/
+function cleaningTraduction(){
+    for(var i = 0; i < file.subgraph.length; i++) {
+        for(var j = 0; j < file.subgraph[i].nodes.length; j++) {
+            var node = file.subgraph[i].nodes[j]
+            if(node.type == "final"){
+
+            }
+        }
+    }
 }
