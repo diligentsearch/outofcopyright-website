@@ -42,7 +42,7 @@
     // 
     // I'm not proud of this and neither should you be if you were responsible for the XMLHttpRequest spec.
 
-    function _request(method, path, data, cb, raw) {
+    function _request(method, path, data, cb, raw, commits) {
       function getURL(data) {
         var url = API_URL + path;
         if(data.ref !== undefined){
@@ -51,25 +51,22 @@
           return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime();
         }
       }
-      function getURLPath(data) {
+      function getURLCommits(data) {
         var url = API_URL + path;
-        if(data.ref !== undefined){
-          return url + ((/\?/).test(url) ? "&" : "?")+ 'path=' + data.path + '&ref='+data.ref;
-        }else{
-          return url + ((/\?/).test(url) ? "&" : "?")+ 'path=' + data.path;
-        }
+        return url + "/" +BRANCH;
+        
         
       }
 
       var xhr = new XMLHttpRequest();
       if (!raw) {xhr.dataType = "json";}
-      console.log(getURL(data))
-      if(path != '/repos/jeromejesse/outofcopyright-test/commits'){
+      if(commits){
+        console.log(getURLCommits(data));
+        xhr.open(method, getURLCommits(data));
+      }else{
         xhr.open(method, getURL(data));
       }
-      else{
-        xhr.open(method, getURLPath(data));
-      }
+      
       
       xhr.onreadystatechange = function () {
         if (this.readyState == 4) {
@@ -376,7 +373,7 @@
 
       this.commits = function(path, cb) {
 
-        _request("GET", repoPath + "/commits/"+BRANCH, {"path": path}, cb);
+        _request("GET", repoPath + "/commits", {"path": path, "sha": BRANCH}, cb, null, true);
       };
 
       // Update the reference of your head to point to the new commit SHA
