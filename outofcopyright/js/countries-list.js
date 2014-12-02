@@ -126,6 +126,11 @@ $(function() {
 			if(control(i) != "ok"){
 				verif = false;
 			}
+			for(var j = 0; j < file.subgraph[i].nodes.length ; j++){
+				if(getType(i,j) == 'formula' && (file.subgraph[i].nodes[j].formula == null || file.subgraph[i].nodes[j].formula == "")){
+					verif = false;
+				}
+			}
 		}
 		if(verif){
 			$.post( "/node", { branch: 'master', child_branch: country, message: 'Merge '+country+' in master', action: 'merge' } );
