@@ -219,10 +219,16 @@ if(isset($_GET['country'])){
             function getData(country, file, cb){
                 if("<?php echo $branch; ?>"== "master"){
                     $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/"+country+"/"+file+".json")
-                    .done(cb(data));
+                    .done(function(data)
+                        {
+                            cb(data);
+                        });
                 }else{
                     $.post( "/node", { country: country, name: file+".json", action: 'read' } )
-                    .done(cb(data));
+                    .done(function(data)
+                        {
+                            cb(data);
+                        });
                 }
             }
 
