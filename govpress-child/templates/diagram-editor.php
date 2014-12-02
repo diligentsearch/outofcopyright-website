@@ -84,6 +84,9 @@ get_header(); ?>
                 <div class="col-sm-10 margin-bottom height-40 padding-top-8" id="subchart-title" style="font-size: 20px;
 font-weight: bold;"></div>
                 <div class="col-sm-2">
+                    <i class="fa fa-flask fa-2x" style="margin-top: 15px;cursor:pointer;float: right;" onclick="testCountry();"></i>
+                </div>
+                <div class="col-sm-2">
                     <i class="fa fa-print fa-2x" style="margin-top: 15px;cursor:pointer;float: right;" onclick="printDiagram();"></i>
                 </div>
             </div>

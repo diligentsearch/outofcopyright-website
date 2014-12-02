@@ -4,6 +4,7 @@
 <script src="library.js"></script>
 <script src="walk.js"></script>
 <script src="datapoints.js"></script>
+<script src="credential_github.js"></script>
 <script src="github/github.js"></script>
 <script src="github.js"></script>
 <script src="traduction.js"></script>
@@ -14,11 +15,17 @@
 <script type="text/javascript" src="jasmine/lib/jasmine-2.0.3/boot.js"></script>
 
 <script>
+  var languageChoosen = "EN";
 	var request = new XMLHttpRequest();
    	request.open("GET", "flowchart.json", false);
    	request.send(null)
 
    	parseJSON(request.responseText);
+
+    var request = new XMLHttpRequest();
+    request.open("GET", "languages/EN.json", false);
+    request.send(null)
+    traductionData = request.responseText;
 
    	describe("Vérification librairie", function() {
   		var result;
@@ -56,9 +63,9 @@
 
   		it("Vérification du passage pas à pas dans le graphe de décision avec des réponses données permettant de traverser tout le graphe", function() {
     		var responses = '{"CREATION_DATE":1825, "COMMUNICATION_DATE":1930, "PUBLICATION_DATE": 1930}';
-   			result = walk(0, responses);
+   			result = walk(0, responses, true);
         console.log(result);
-    		expect(result).toBe(true);
+    		expect(result).toBe('Out of copyright');
   		});
 
   		it("Vérification du traitement des formule par l'interpréteur", function() {
@@ -87,7 +94,7 @@
 
     		result = file.subgraph[0].nodes.length;
 
-    		expect(result).toBe(0);
+    		expect(result).toBe(1);
   		});
 
   		it("Vérification de la suppression des réponse lié à un noeud", function() {
@@ -111,7 +118,8 @@
           request.open("GET", "languages/EN.json", false);
           request.send(null)
           traductionData = request.responseText;
-          getTraduction('EN', "");
+          getTraduction('EN', "", true);
+          
           addDatapoint('TEST', 'test hint','Question test ?', 'numeric', null);
           console.log(file.datapoints[12]);
           result = file.datapoints[12].id == 'TEST';
@@ -157,7 +165,7 @@
       });
 
       it("Vérification de la récupération des traductions", function() {
-        result = getTraduction('EN', 'CREATION_DATE');
+        result = getTraduction('EN', 'CREATION_DATE', true);
         expect(result).toEqual('Creation date');
       });
 

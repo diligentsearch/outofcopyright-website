@@ -63,7 +63,7 @@ function deleteFile(pays, fileName){
 }
 //Permet d'obtenir des informations sur le repository
 function repoShow(){
-    repo.show(function(err, repo) {console.log(repo);});
+    repo.show(BRANCH, function(err, repo) {console.log(repo);});
 }
 
 //Récupération de l'abre des dossiers présent sur le GIT

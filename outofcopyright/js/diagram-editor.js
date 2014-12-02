@@ -844,3 +844,7 @@ function resizeVerticaly(){
 function printDiagram(){
 	window.open("print-diagram.html?country="+country+"&language="+languageChoosen+"&typeOfWork="+typeOfWork);
 }
+
+function testCountry(){
+	window.open("?page_id=4433&country="+country);
+}

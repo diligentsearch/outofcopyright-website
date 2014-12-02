@@ -7,8 +7,14 @@
  * @since Twenty Fourteen 1.0
  */
 get_header(); 
+$branch = 'master';
+if(isset($_GET['country'])){
+    $branch = $_GET['country'];
+    $key_country = $_GET['country'];
+}else{
+    $key_country = get_post_meta( get_the_ID(), 'country', true );
+}
 
-$key_country = get_post_meta( get_the_ID(), 'country', true );
                 
 ?>
 
@@ -93,7 +99,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 }
 
                 if($( "#typeOfWork" ).val() != ""){
-                    $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
+                    $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/<?php echo $branch; ?>/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
                     .done(function( dataTrad ) {
                         traductionData = dataTrad;
                         inputs = getInputs($( "#typeOfWork" ).val());
@@ -112,7 +118,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
 
                 $("#secondary").hide();
 
-                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/<?php echo $key_country; ?>.json")
+                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/<?php echo $branch; ?>/<?php echo $key_country; ?>/<?php echo $key_country; ?>.json")
                 .done(function( data ) {
                     file = data;
 
@@ -162,7 +168,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             });
 
             function changeLangue(){
-                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
+                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/<?php echo $branch; ?>/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
                 .done(function( dataTrad ) {
                     traductionData = dataTrad;
                     console.log("change");

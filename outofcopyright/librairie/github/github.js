@@ -390,8 +390,8 @@
       // Show repository information
       // -------
 
-      this.show = function(cb) {
-        _request("GET", repoPath, null, cb);
+      this.show = function(ref, cb) {
+        _request("GET", repoPath, { ref: ref }, cb);
       };
 
       // Get contents
