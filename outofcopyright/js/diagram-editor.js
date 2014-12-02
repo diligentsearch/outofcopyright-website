@@ -656,7 +656,7 @@ function aliasResponses(){
 						break;
 		}
 
-		$("#aliasResponse").append('<option value='+i+'>'+labelReponse+'</option>');
+		$("#aliasResponse").append('<option value='+i+'>'+getTraduction(languageChoosen,labelReponse)+'</option>');
 	}
 }
 
