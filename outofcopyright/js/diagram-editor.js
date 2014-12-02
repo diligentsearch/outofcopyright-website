@@ -11,13 +11,14 @@ var languageChoosen = "";
 $(function(){
 	$("html").css("height","800px");
 	$("#secondary").hide();
-	//Ajuste la taille du SVG pour le graphe à la taille disponible.
-	$('#drawSvg').attr('width', $('#drawZone').width());
-	$('#drawSvg').attr('height', $('#drawZone').height()+500);
 	$('.site-header').css("padding","0");
 	$('.col-width').css("max-width","100%");
 	$('.col-width').css("padding","0");
 	$('#content').css("margin","0");
+	//Ajuste la taille du SVG pour le graphe à la taille disponible.
+	$('#drawSvg').attr('width', $('#drawZone').width());
+	$('#drawSvg').attr('height', $('#drawZone').height()+500);
+	
 
 	country = getUrlVars()["country"];
 
