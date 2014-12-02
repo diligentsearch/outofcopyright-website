@@ -32,7 +32,7 @@ var router = express.Router(); 				// get an instance of the express Router
 
 // Retourne la liste des pays disponible
 router.get('/', function(req, res) {
-
+	changeBranch(req);
 	var callback = function(countries){
 		var resultCountries = [];
 		for (var i = 0 ; countries.length > i ; i ++) {
@@ -68,6 +68,7 @@ router.patch('/', function(req, res) {
 router.route('/:pays')
 
 	.get(function(req, res) {
+		changeBranch(req);
 		req.params.pays = capitaliseFirstLetter(req.params.pays);
 		readFile(req.params.pays, req.params.pays+'.json', function(data){
 			//Read file json
@@ -115,6 +116,7 @@ router.patch('/:pays', function(req, res) {
 router.route('/:pays/:typeofwork')
 
 	.post(function(req, res) {
+		changeBranch(req);
 		req.params.pays = capitaliseFirstLetter(req.params.pays);
 		readFile(req.params.pays, req.params.pays+'.json', function(data){
 			//Read file json
@@ -170,6 +172,7 @@ router.route('/:pays/:typeofwork')
 router.route('/:pays/:typeofwork')
 
 	.get(function(req, res) {
+		changeBranch(req);
 		req.params.pays = capitaliseFirstLetter(req.params.pays);
 		readFile(req.params.pays, req.params.pays+'.json', function(data){
 			//Read file json
@@ -226,6 +229,14 @@ router.patch('/:pays/:typeofwork', function(req, res) {
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/', router);
+
+function changeBranch(req){
+	if(req.query.ref !== undefined){
+		BRANCH = req.query.ref;
+	}else{
+		BRANCH = "master";
+	}
+}
 
 // START THE SERVER
 // =============================================================================
