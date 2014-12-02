@@ -217,7 +217,7 @@ if(isset($_GET['country'])){
             }
 
             function getData(country, file, cb){
-                if(<?php echo $branch; ?>== "master"){
+                if("<?php echo $branch; ?>"== "master"){
                     $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/"+country+"/"+file+".json")
                     .done(cb(data));
                 }else{
