@@ -63,6 +63,7 @@
 
       var xhr = new XMLHttpRequest();
       if (!raw) {xhr.dataType = "json";}
+      console.log(getURL(data))
       if(path != '/repos/jeromejesse/outofcopyright-test/commits'){
         xhr.open(method, getURL(data));
       }
@@ -375,7 +376,7 @@
 
       this.commits = function(path, cb) {
 
-        _request("GET", repoPath + "/commits", {"path": path}, cb);
+        _request("GET", repoPath + "/commits/"+BRANCH, {"path": path}, cb);
       };
 
       // Update the reference of your head to point to the new commit SHA
