@@ -99,8 +99,7 @@ if(isset($_GET['country'])){
                 }
 
                 if($( "#typeOfWork" ).val() != ""){
-                    $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/<?php echo $branch; ?>/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
-                    .done(function( dataTrad ) {
+                    getData(<?php echo $key_country; ?>, $("#langues").val(), function( dataTrad ) {
                         traductionData = dataTrad;
                         inputs = getInputs($( "#typeOfWork" ).val());
                         if(inputs.length > 0){
@@ -117,9 +116,7 @@ if(isset($_GET['country'])){
             $(function() {
 
                 $("#secondary").hide();
-
-                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/<?php echo $branch; ?>/<?php echo $key_country; ?>/<?php echo $key_country; ?>.json")
-                .done(function( data ) {
+                getData(<?php echo $key_country; ?>, <?php echo $key_country; ?>, function( data ) {
                     file = data;
 
 
@@ -168,8 +165,7 @@ if(isset($_GET['country'])){
             });
 
             function changeLangue(){
-                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/<?php echo $branch; ?>/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
-                .done(function( dataTrad ) {
+                getData(<?php echo $key_country; ?>, $("#langues").val(), function( dataTrad ) {
                     traductionData = dataTrad;
                     console.log("change");
                     $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
@@ -218,6 +214,16 @@ if(isset($_GET['country'])){
                     vars[key] = value.replace("#", "");;
                 });
                 return vars;
+            }
+
+            function getData(country, file, cb){
+                if(<?php echo $branch; ?>== "master"){
+                    $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/"+country+"/"+file+".json")
+                    .done(cb(data));
+                }else{
+                    $.post( "/node", { country: country, name: file+".json", action: 'read' } )
+                    .done(cb(data));
+                }
             }
 
         </script>
