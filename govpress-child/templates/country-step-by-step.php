@@ -99,7 +99,7 @@ if(isset($_GET['country'])){
                 }
 
                 if($( "#typeOfWork" ).val() != ""){
-                    getData(<?php echo $key_country; ?>, $("#langues").val(), function( dataTrad ) {
+                    getData("<?php echo $key_country; ?>", $("#langues").val(), function( dataTrad ) {
                         traductionData = dataTrad;
                         inputs = getInputs($( "#typeOfWork" ).val());
                         if(inputs.length > 0){
@@ -116,7 +116,7 @@ if(isset($_GET['country'])){
             $(function() {
 
                 $("#secondary").hide();
-                getData(<?php echo $key_country; ?>, <?php echo $key_country; ?>, function( data ) {
+                getData("<?php echo $key_country; ?>", "<?php echo $key_country; ?>", function( data ) {
                     file = data;
 
 
@@ -165,7 +165,7 @@ if(isset($_GET['country'])){
             });
 
             function changeLangue(){
-                getData(<?php echo $key_country; ?>, $("#langues").val(), function( dataTrad ) {
+                getData("<?php echo $key_country; ?>", $("#langues").val(), function( dataTrad ) {
                     traductionData = dataTrad;
                     console.log("change");
                     $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
