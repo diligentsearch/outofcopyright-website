@@ -278,3 +278,6 @@ function readSingleFile(evt) {
       	alert("Failed to load file");
     }
   }
+function testCountry(){
+	window.open("?page_id=4433&country="+country);
+}

@@ -97,12 +97,17 @@ font-weight: bold;">
             </div>
         </div>
         <div class="col-sm-12" style=" height: 70px; ">
-            <div class="col-sm-9">
+            <div class="col-sm-7">
             <?php if($admin){ ?>
                 <div class="col-sm-2">
                     <a href="#" class="btn btn-primary" id="mergeInProduction" style="color:#fff">Merge in production</a>
                 </div>
             <?php } ?>
+            </div>
+            <div class="col-sm-2">
+                <a href="#" class="btn btn-primary" id="testForm" style="color:#fff;float: right;">
+                    <i class="fa fa-flask fa-lg" title="Test form" style="cursor:pointer;" onclick="testCountry();"></i>
+                </a>
             </div>
             <div class="col-sm-3">
                 <div class="btn-group pull-right">
