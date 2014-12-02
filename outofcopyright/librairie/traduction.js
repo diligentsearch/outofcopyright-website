@@ -76,6 +76,10 @@ function missingTranslation(tradData){
 */
 function translationNecessary(){
     var listTraduction = [];
+    listTraduction.push("True");
+    listTraduction.push("False");
+    listTraduction.push("labelLangue");
+    listTraduction.push("labelTypeOfWork");
     for(var i = 0; i < file.subgraph.length; i++) {
         for(var j = 0; j < file.subgraph[i].nodes.length; j++) {
             var node = file.subgraph[i].nodes[j]
