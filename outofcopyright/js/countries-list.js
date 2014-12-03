@@ -230,10 +230,17 @@ function loadCountry(country){
 				var tf = new TimeFormatter();
 				var listCommits = "";
 				for( var i = 0; i < data.length; i++){
+
+					var boldProd = "";
 					var message = data[i].commit.message;
+
+					if(shaLink == data[i].sha){
+						boldProd = " bold";
+						message += "( Production Version )";
+					}
 					var date = tf.format(data[i].commit.author.date,'dd/LL/yyyy HH:mm:ss');
 					listCommits += '\
-					<div class="col-sm-12">\
+					<div class="col-sm-12'+boldProd+'">\
 						<div class="row">\
 			                <div class="row">\
 			                    <div class="col-sm-2" >\
