@@ -53,7 +53,7 @@
       }
       function getURLCommits(data) {
         var url = API_URL + path;
-        return url + "/" +BRANCH;
+        return url + "?sha=" +BRANCH;
         
         
       }
