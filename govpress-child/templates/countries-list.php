@@ -107,10 +107,17 @@ font-weight: bold;">
                         <li><a href="#" id="readonly-modal">Read only</a></li>
                     </ul>
                 </div>
-                <a href="#" class="btn btn-primary" id="testForm" style="color:#fff;float: right; margin-left: 10px; ">
-                    <i class="fa fa-flask fa-lg" title="Test form" style="cursor:pointer;" onclick="testCountry();" style="margin-right: 10px;"></i>
-                    Test
-                </a>
+                <div class="btn-group pull-right" style=" float: right; margin-left: 10px; ">
+                    <a href="#" class="btn btn-primary" id="testForm" style="color:#fff" onclick="testCountry();">
+                        <i class="fa fa-flask fa-lg" style="margin-right: 10px;"></i>
+                        Test
+                    </a>
+                    <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" id="readonly-modal" onclick="testCountry();">UI Test Form</a></li>
+                        <li>API Test : <input type="text" id="apiURL" class="form-control"><i class="fa fa-files-o fa-lg"></i></li>
+                    </ul>
+                </div>
             
             <?php if($admin){ ?>
                 <a href="#" class="btn btn-primary" id="mergeInProduction" style="color:#fff;float: right; margin-left: 10px; ">
