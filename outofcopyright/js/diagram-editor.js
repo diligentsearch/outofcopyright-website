@@ -248,11 +248,12 @@ function listTypeDatapoint(activeTypeOfWork){
 	
 	$.each( file.datapoints, function( key, value ) {
 			var etc = '';
-			if(value.id.length > 8){
+			var tradDatapoint = getTraduction(languageChoosen,'question_'+datapoint.id);
+			if(tradDatapoint.length > 8){
 				etc = '...';
 			}
 
-			$('#listDatapoints').append('<li class="datapoints" id="datapoints-'+value.id+'" onclick="loadDatapoints(\''+key+'\');"><a href="#" title="'+value.id+'">'+value.id.substring(0, 8)+etc+'</a></li>');
+			$('#listDatapoints').append('<li class="datapoints" id="datapoints-'+value.id+'" onclick="loadDatapoints(\''+key+'\');"><a href="#" title="'+tradDatapoint+'">'+tradDatapoint.substring(0, 8)+etc+'</a></li>');
 	});
 
 	resizeVerticaly();
