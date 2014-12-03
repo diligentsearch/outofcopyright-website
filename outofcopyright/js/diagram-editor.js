@@ -586,7 +586,7 @@ function setFormulaDatapoints(){
 	$("#datapointsFormula").append('<option value="">Select datapoint</option>');
 	$("#datapointsFormula").append('<option value="NOW">Current year</option>');
 	for(var i = 0; i < datapoints.length; i++){
-		$("#datapointsFormula").append('<option value="'+datapoints[i].id+'">'+datapoints[i].id+'</option>');
+		$("#datapointsFormula").append('<option value="'+datapoints[i].id+'">'+getTraduction( languageChoosen, 'question_'+datapoints[i].id )+'</option>');
 	}
 }
 
