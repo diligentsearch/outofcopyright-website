@@ -65,17 +65,20 @@ $(function(){
 							$(".valueDatapoint").show();
 							$(".listValueDatapoint").hide();
 							$("#question_datapoint > label").text("Name");
+							$("#question_datapoint > label").attr("placeholder", "Name");
 						break;
 				case 'list':
 							$(".valueDatapoint").hide();
 							$(".listValueDatapoint").show();
 							$("#question_datapoint > label").text("Question");
+							$("#question_datapoint > label").attr("placeholder", "Question");
 						break;
 				case 'numeric':
 				default:
 							$(".valueDatapoint").hide();
 							$(".listValueDatapoint").hide();
 							$("#question_datapoint > label").text("Question");
+							$("#question_datapoint > label").attr("placeholder", "Question");
 						break;
 			}
 		});
