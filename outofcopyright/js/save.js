@@ -113,10 +113,12 @@ function saveResult(){
 }
 
 function saveFile(message){
+	message += "<br/>Edit by "+current_user.firstname+" "+current_user.lastname;
 	$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: message } );
 }
 
 function saveTraduction(langue, message){
+	message += "<br/>Edit by "+current_user.firstname+" "+current_user.lastname;
 	bibliotheque[langue] = cleaningTranslation(bibliotheque[langue]);
 	$.post( "/node", { country: country, name: langue+".json", action: 'update', file: JSON.stringify(bibliotheque[langue]), message: message } );
 }
