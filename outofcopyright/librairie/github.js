@@ -106,3 +106,16 @@ function merge(branch, child_branch, message){
     repo.merge(branch, child_branch, message);
 }
 
+//--------------------------------------------
+
+//Retourne le sha du premier commit commun entre deux branches
+function linkCommits(commitsMaster, commitsChild){
+    for(var i = 0; i < commitsMaster.length; i++){
+        for(var j = 0; j < commitsChild.length; j++){
+            if(commitsChild[i].sha == commitsMaster[j].sha){
+                return commitsChild[i].sha;
+            }
+        }
+    }
+}
+

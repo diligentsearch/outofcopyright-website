@@ -223,38 +223,42 @@ function loadCountry(country){
 	//Display changelog
 	$.post( "/node", { country: country, name: country+".json", action: 'commits' } )
 		.done(function( data ) {
-		var tf = new TimeFormatter();
-		var listCommits = "";
-		for( var i = 0; i < data.length; i++){
-			var message = data[i].commit.message;
-			var date = tf.format(data[i].commit.author.date,
-        'dd/LL/yyyy HH:mm:ss');
-			listCommits += '\
-			<div class="col-sm-12">\
-				<div class="row">\
-	                <div class="row">\
-	                    <div class="col-sm-2" >\
-	                        <i class="fa fa-clock-o fa-lg"></i>\
-	                    </div>\
-	                    <div class="col-sm-10 text-left">\
-	                        '+date+'\
-	                    </div>\
-	                </div>\
-	                <div class="row">\
-	                    <div class="col-sm-2" style="height: 50px;">\
-	                    <div class="lineChangelog" style="height: 100%; width: 3px; background: rgb(216, 216, 216); margin-left: 6px;"></div>\
-	                    </div>\
-	                    <div class="col-sm-10">\
-	                        <p>'+message+'</p>\
-	                    </div>\
-	                </div>\
-	            </div>\
-            </div>';
-		}
+			$.post( "/node", { country: country, name: country+".json", action: 'commits', branch: 'master' } )
+			.done(function( dataMaster ) {
+				var shaLink = linkCommits(dataMaster, data);
+				console.log(shaLink);
+				var tf = new TimeFormatter();
+				var listCommits = "";
+				for( var i = 0; i < data.length; i++){
+					var message = data[i].commit.message;
+					var date = tf.format(data[i].commit.author.date,'dd/LL/yyyy HH:mm:ss');
+					listCommits += '\
+					<div class="col-sm-12">\
+						<div class="row">\
+			                <div class="row">\
+			                    <div class="col-sm-2" >\
+			                        <i class="fa fa-clock-o fa-lg"></i>\
+			                    </div>\
+			                    <div class="col-sm-10 text-left">\
+			                        '+date+'\
+			                    </div>\
+			                </div>\
+			                <div class="row">\
+			                    <div class="col-sm-2" style="height: 50px;">\
+			                    <div class="lineChangelog" style="height: 100%; width: 3px; background: rgb(216, 216, 216); margin-left: 6px;"></div>\
+			                    </div>\
+			                    <div class="col-sm-10">\
+			                        <p>'+message+'</p>\
+			                    </div>\
+			                </div>\
+			            </div>\
+		            </div>';
+				}
 
-		$("#changeLog").html(listCommits);
-	});
-}
+				$("#changeLog").html(listCommits);
+			});
+		});
+	}
 
 function download(filename, text) {
   var pom = document.createElement('a');
