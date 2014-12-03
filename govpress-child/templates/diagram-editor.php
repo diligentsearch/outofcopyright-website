@@ -287,6 +287,12 @@ font-weight: bold;">
                 <div class="modal-body">
                     <form class="form-horizontal">
                         <fieldset>
+                            <div class="form-group" id="question_datapoint">
+                                <label for="hintDatapoint" class="col-lg-3 control-label" >Question</label>
+                                <div class="col-lg-9">
+                                    <input type="text" id="questionDatapoint" class="form-control inputLine" placeholder="Question">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="idDatapoint" class="col-lg-3 control-label" >ID</label>
                                 <div class="col-lg-9">
@@ -297,12 +303,6 @@ font-weight: bold;">
                                 <label for="hintDatapoint" class="col-lg-3 control-label" >Additionnal information</label>
                                 <div class="col-lg-9">
                                     <input type="text" id="hintDatapoint" class="form-control inputLine" placeholder="Additionnal information">
-                                </div>
-                            </div>
-                            <div class="form-group" id="question_datapoint">
-                                <label for="hintDatapoint" class="col-lg-3 control-label" >Question</label>
-                                <div class="col-lg-9">
-                                    <input type="text" id="questionDatapoint" class="form-control inputLine" placeholder="Question">
                                 </div>
                             </div>
                             <div class="form-group">
