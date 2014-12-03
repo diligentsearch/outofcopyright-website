@@ -617,11 +617,13 @@ function setResultText(){
 //Réponse disponible dans la liste sélectionné
 function displayResponses(){
 	$('#responsesList').html('');
-	$('#question').val('');
+	
 	var idDatapoint = $("#datapointsList").val();
 	var datapoint = getResponseById(idDatapoint);
-	$('#question').val(getTraduction(languageChoosen, 'question_'+datapoint.id));
+	
 	if(datapoint !== undefined && datapoint.set !== undefined){
+		$('#question').val('');
+		$('#question').val(getTraduction(languageChoosen, 'question_'+datapoint.id));
 		for(var i = 0; i < datapoint.set.length; i++){
 			$('#responsesList').append('<div class="row buttonPropertyActive">\
                 <span style="padding-left: 15px;font-size: 16px;">'+ getTraduction( languageChoosen, datapoint.set[i]) +'</span>\
