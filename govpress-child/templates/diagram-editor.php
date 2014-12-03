@@ -150,7 +150,7 @@ font-weight: bold;">
         </div>
         
         <div class="row buttonPropertyActive questionPart">
-            <textarea id="question" class="col-sm-12 buttonPropertyActive form-control" style="padding-left: 10px;background-color: #22abd4;"></textarea>
+            <textarea id="question" class="col-sm-12 buttonPropertyActive form-control" style="padding-left: 10px;background-color: #2496B8;"></textarea>
         </div>
         <div class="panelProperty" id="formulaPanel" style="display:none;">
             <div class="row buttonPropertyActive" style="padding-top: 10px;">
