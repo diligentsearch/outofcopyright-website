@@ -605,7 +605,7 @@ function setListDatapoints(selected){
 		if(selectedList == datapoints[i].id){
 			selectedInOption = 'selected';
 		}
-		$("#datapointsList").append('<option value="'+datapoints[i].id+'" '+selectedInOption+'>'+datapoints[i].id+'</option>');
+		$("#datapointsList").append('<option value="'+datapoints[i].id+'" '+selectedInOption+'>'+getTraduction(languageChoosen, "question_"+datapoints[i].id)+'</option>');
 	}
 }
 
