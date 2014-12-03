@@ -157,7 +157,7 @@ font-weight: bold;">
                 <span class="margin-left">Datapoints :</span>
             </div>
             <div class="row buttonPropertyActive">
-                <select class="form-control buttonPropertyActive" id="datapointsFormula" style="border:none;background-color:#22abd4;">
+                <select class="form-control buttonPropertyActive" id="datapointsFormula" style="border:none;background-color:#2496B8;margin-bottom: 5px;">
                     <option>Select datapoint</option>
                 </select>
             </div>
@@ -195,7 +195,7 @@ font-weight: bold;">
                 <span class="margin-left">Datapoints :</span>
             </div>
             <div class="row buttonPropertyActive">
-                <select class="form-control buttonPropertyActive" id="datapointsList" style="border:none;background-color:#22abd4;">
+                <select class="form-control buttonPropertyActive" id="datapointsList" style="border:none;background-color:#2496B8;">
                     <option>Select datapoint</option>
                 </select>
             </div>
@@ -209,7 +209,7 @@ font-weight: bold;">
                 <span class="margin-left">Response to change :</span>
             </div>
             <div class="row buttonPropertyActive responseToChangePart">
-                <select class="form-control buttonPropertyActive" id="aliasResponse" style="border:none;background-color:#22abd4;">
+                <select class="form-control buttonPropertyActive" id="aliasResponse" style="border:none;background-color:#2496B8;">
                     <option>Select a response</option>
                 </select>
             </div>
@@ -217,7 +217,7 @@ font-weight: bold;">
                 <span class="margin-left">New node :</span>
             </div>
             <div class="row buttonPropertyActive">
-                <select class="form-control buttonPropertyActive" id="aliasNode" style="border:none;background-color:#22abd4;">
+                <select class="form-control buttonPropertyActive" id="aliasNode" style="border:none;background-color:#2496B8;">
                     <option>Select a node</option>
                 </select>
             </div>
