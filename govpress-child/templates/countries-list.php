@@ -276,12 +276,9 @@ font-weight: bold;">
         $(".site-content").css("padding","0px");
         $(".site-branding").hide();
         $(".site-header").css("padding-bottom", "0px");
-
-        function ClipBoard() 
-        {
-            var Copied = $("#apiURL").createTextRange();
-            Copied.execCommand("Copy");
-        }
+        $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
+            e.stopPropagation();
+        });
     </script>
 		</div><!-- #content -->
 	</div><!-- #primary -->
