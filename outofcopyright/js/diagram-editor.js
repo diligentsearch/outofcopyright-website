@@ -147,9 +147,9 @@ $(function(){
 		});
 
 		$( "#addModifyDatapoint" ).click(function() {
-			if($("#idDatapoint").val() !== ""){
+			if($("#questionDatapoint").val() !== ""){
 				
-				var id = $("#idDatapoint").val();
+				var id = formatString($("#questionDatapoint").val());
 				var hint = $("#hintDatapoint").val();
 				var question = $("#questionDatapoint").val();
 				var type = $("#typeDatapoint").val();

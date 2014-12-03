@@ -293,7 +293,7 @@ font-weight: bold;">
                                     <input type="text" id="questionDatapoint" class="form-control inputLine" placeholder="Question">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="idDatapoint" class="col-lg-3 control-label" >ID</label>
                                 <div class="col-lg-9">
                                     <input type="text" id="idDatapoint" class="form-control inputLine" placeholder="ID">
