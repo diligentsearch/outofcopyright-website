@@ -6,24 +6,26 @@ var formulaInputs= [];
 $(function(){
 
 	$( "#datapointsFormula" ).change(function() {
-		if(formulaActualForTest[formulaActualForTest.length - 1] != 'v'){
-			var datapoint = new Object();
-			if($( "#datapointsFormula" ).val() == 'NOW'){
-				datapoint.id = 'NOW';
-			}else{
-				datapoint = getResponseById($( "#datapointsFormula" ).val());
-				if(datapoint.type != 'static'){
-					formulaInputs.push(datapoint.id);
+		if($( "#datapointsFormula" ).val() != ""){
+			if(formulaActualForTest[formulaActualForTest.length - 1] != 'v'){
+				var datapoint = new Object();
+				if($( "#datapointsFormula" ).val() == 'NOW'){
+					datapoint.id = 'NOW';
+				}else{
+					datapoint = getResponseById($( "#datapointsFormula" ).val());
+					if(datapoint.type != 'static'){
+						formulaInputs.push(datapoint.id);
+					}
 				}
+				
+		  		$( "#formula" ).append("<div class='spanFormulaDatapoints' style='float:left;'>"+datapoint.id+"</div>");
+				formulaActualForTest += 'v';
+				formulaActual += datapoint.id + " ";
+				testFormula();
+				
+				$('#datapointsFormula option[value=""]').attr('selected','selected');
+				resizeVerticaly();
 			}
-			
-	  		$( "#formula" ).append("<div class='spanFormulaDatapoints' style='float:left;'>"+datapoint.id+"</div>");
-			formulaActualForTest += 'v';
-			formulaActual += datapoint.id + " ";
-			testFormula();
-			
-			$('#datapointsFormula option[value=""]').attr('selected','selected');
-			resizeVerticaly();
 		}
 	});
 
@@ -73,6 +75,7 @@ $(function(){
 	});
 	$( "#formulaReset" ).click(function() {
   		$( "#formula" ).html('');
+  		$('#datapointsFormula option[value=""]').attr('selected','selected');
   		formulaActualForTest = '';
   		formulaActual = '';
   		$(".formulaResult").hide();
