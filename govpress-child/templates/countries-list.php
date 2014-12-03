@@ -115,7 +115,21 @@ font-weight: bold;">
                     <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" id="readonly-modal" onclick="testCountry();">UI Test Form</a></li>
-                        <li>API Test : <input type="text" id="apiURL" class="form-control"><i class="fa fa-files-o fa-lg"></i></li>
+                        <li>
+                            <div class="row" style="padding-top: 10px;">
+                                <div class="col-sm-3" style="padding-right: 0px;padding-top: 10px;padding-left: 30px;">
+                                    API Test
+                                </div>
+                                <div class="col-sm-7" style="padding-left: 0px;">
+                                    <input type="text" id="apiURL">
+                                </div>
+                                <div class="col-sm-2" style="padding-left: 0px;padding-top: 10px;">
+                                    <a href="#" onclick="ClipBoard();">
+                                        <i class="fa fa-files-o fa-lg" style="cursor: pointer;"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             
@@ -267,6 +281,12 @@ font-weight: bold;">
         $(".site-content").css("padding","0px");
         $(".site-branding").hide();
         $(".site-header").css("padding-bottom", "0px");
+
+        function ClipBoard() 
+        {
+            var Copied = $("#apiURL").createTextRange();
+            Copied.execCommand("Copy");
+        }
     </script>
 		</div><!-- #content -->
 	</div><!-- #primary -->
