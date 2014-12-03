@@ -100,18 +100,25 @@ font-weight: bold;">
             <div class="col-sm-7">
             <?php if($admin){ ?>
                 <div class="col-sm-2">
-                    <a href="#" class="btn btn-primary" id="mergeInProduction" style="color:#fff">Merge in production</a>
+                    <a href="#" class="btn btn-primary" id="mergeInProduction" style="color:#fff">
+                        <i class="fa fa-code-fork fa-lg" style="margin-right: 10px;"></i>
+                        Merge in production
+                    </a>
                 </div>
             <?php } ?>
             </div>
             <div class="col-sm-2">
                 <a href="#" class="btn btn-primary" id="testForm" style="color:#fff;float: right;">
-                    <i class="fa fa-flask fa-lg" title="Test form" style="cursor:pointer;" onclick="testCountry();"></i>
+                    <i class="fa fa-flask fa-lg" title="Test form" style="cursor:pointer;" onclick="testCountry();" style="margin-right: 10px;"></i>
+                    Test
                 </a>
             </div>
             <div class="col-sm-3">
                 <div class="btn-group pull-right">
-                    <a href="#" class="btn btn-primary" id="edit-diagram" style="color:#fff">Edit</a>
+                    <a href="#" class="btn btn-primary" id="edit-diagram" style="color:#fff">
+                        <i class="fa fa-pencil fa-lg" style="margin-right: 10px;"></i>
+                        Edit
+                    </a>
                     <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" id="readonly-modal">Read only</a></li>
