@@ -248,7 +248,7 @@ function listTypeDatapoint(activeTypeOfWork){
 	
 	$.each( file.datapoints, function( key, value ) {
 			var etc = '';
-			var tradDatapoint = getTraduction(languageChoosen,'question_'+datapoint.id);
+			var tradDatapoint = getTraduction(languageChoosen,'question_'+value.id);
 			if(tradDatapoint.length > 8){
 				etc = '...';
 			}
