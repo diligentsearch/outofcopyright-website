@@ -120,13 +120,8 @@ font-weight: bold;">
                                 <div class="col-sm-3" style="padding-right: 0px;padding-top: 10px;padding-left: 30px;">
                                     API Test
                                 </div>
-                                <div class="col-sm-7" style="padding-left: 0px;">
+                                <div class="col-sm-9" style="padding-left: 0px;">
                                     <input type="text" id="apiURL">
-                                </div>
-                                <div class="col-sm-2" style="padding-left: 0px;padding-top: 10px;">
-                                    <a href="#" onclick="ClipBoard();">
-                                        <i class="fa fa-files-o fa-lg" style="cursor: pointer;"></i>
-                                    </a>
                                 </div>
                             </div>
                         </li>
