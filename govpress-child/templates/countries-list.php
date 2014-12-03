@@ -96,25 +96,8 @@ font-weight: bold;">
                 </div>
             </div>
         </div>
-        <div class="col-sm-12" style=" height: 70px; ">
-            <div class="col-sm-7">
-            <?php if($admin){ ?>
-                <div class="col-sm-2">
-                    <a href="#" class="btn btn-primary" id="mergeInProduction" style="color:#fff">
-                        <i class="fa fa-code-fork fa-lg" style="margin-right: 10px;"></i>
-                        Merge in production
-                    </a>
-                </div>
-            <?php } ?>
-            </div>
-            <div class="col-sm-2">
-                <a href="#" class="btn btn-primary" id="testForm" style="color:#fff;float: right;">
-                    <i class="fa fa-flask fa-lg" title="Test form" style="cursor:pointer;" onclick="testCountry();" style="margin-right: 10px;"></i>
-                    Test
-                </a>
-            </div>
-            <div class="col-sm-3">
-                <div class="btn-group pull-right">
+        <div class="col-sm-12" style=" height: 70px;  float: right;">
+                <div class="btn-group pull-right" style=" float: right; margin-left: 10px; ">
                     <a href="#" class="btn btn-primary" id="edit-diagram" style="color:#fff">
                         <i class="fa fa-pencil fa-lg" style="margin-right: 10px;"></i>
                         Edit
@@ -124,7 +107,17 @@ font-weight: bold;">
                         <li><a href="#" id="readonly-modal">Read only</a></li>
                     </ul>
                 </div>
-            </div>
+                <a href="#" class="btn btn-primary" id="testForm" style="color:#fff;float: right; margin-left: 10px; ">
+                    <i class="fa fa-flask fa-lg" title="Test form" style="cursor:pointer;" onclick="testCountry();" style="margin-right: 10px;"></i>
+                    Test
+                </a>
+            
+            <?php if($admin){ ?>
+                <a href="#" class="btn btn-primary" id="mergeInProduction" style="color:#fff;float: right; margin-left: 10px; ">
+                    <i class="fa fa-code-fork fa-lg" style="margin-right: 10px;"></i>
+                    Merge in production
+                </a>
+            <?php } ?>
         </div>
     </div>
     <div class="col-sm-3" style="height: 100%;">
