@@ -80,6 +80,8 @@ $(function(){
   		formulaActual = '';
   		$(".formulaResult").hide();
   		formulaInputs= [];
+  		$( "#inferiorFormula" ).removeAttr("disabled","");
+	  	$( "#superiorFormula" ).removeAttr("disabled","");
   		resizeVerticaly();
 	});
 });
