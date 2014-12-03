@@ -495,6 +495,7 @@ function clickPropertiesButton(idButton){
 							$(".panelProperty").hide();
 							$("#formulaPanel").show();
 							$(".questionPart").show();
+							$("#question").prop("disabled","");
 							resizeVerticaly();
 							setFormulaDatapoints();
 							break;
@@ -502,6 +503,7 @@ function clickPropertiesButton(idButton){
 							$(".panelProperty").hide();
 							$("#listPanel").show();
 							$(".questionPart").show();
+							$("#question").prop("disabled", "disabled");
 							setListDatapoints(nodeSelected.inputs);
 							displayResponses();
 							resizeVerticaly();
@@ -510,6 +512,7 @@ function clickPropertiesButton(idButton){
 							$(".panelProperty").hide();
 							$("#aliasPanel").show();
 							$(".questionPart").hide();
+							$("#question").prop("disabled", "");
 							aliasNodes();
 							aliasResponses();
 							resizeVerticaly();
@@ -518,6 +521,7 @@ function clickPropertiesButton(idButton){
 							$(".panelProperty").hide();
 							$("#resultPanel").show();
 							$(".questionPart").hide();
+							$("#question").prop("disabled", "");
 							resizeVerticaly();
 							setResultText();
 							break;
@@ -613,8 +617,10 @@ function setResultText(){
 //Réponse disponible dans la liste sélectionné
 function displayResponses(){
 	$('#responsesList').html('');
+	$('#question').val('');
 	var idDatapoint = $("#datapointsList").val();
 	var datapoint = getResponseById(idDatapoint);
+	$('#question').val(getTraduction(languageChoosen, 'question_'+datapoint.id));
 	if(datapoint !== undefined && datapoint.set !== undefined){
 		for(var i = 0; i < datapoint.set.length; i++){
 			$('#responsesList').append('<div class="row buttonPropertyActive">\
