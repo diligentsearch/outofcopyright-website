@@ -737,7 +737,6 @@ function loadDatapoints(id){
 
 	$("#addModifyDatapointModal").show();
 
-	$("#apiURL").val("http://api.outofcopyright.eu/"+country+"?ref="+country);
 }
 
 function readonlyDatapoint(){

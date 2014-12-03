@@ -218,6 +218,7 @@ function loadCountry(country){
 		$('#contributors').html(listContributors);
 
 		
+		$("#apiURL").val("http://api.outofcopyright.eu/"+country+"?ref="+country);
 	});
 
 	//Display changelog
