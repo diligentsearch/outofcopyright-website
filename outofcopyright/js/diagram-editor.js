@@ -580,7 +580,7 @@ function setFormulaDatapoints(){
 	datapoints = datapoints.concat(datapointsByType('static'));
 	$("#datapointsFormula").html('');
 	$("#datapointsFormula").append('<option value="">Select datapoint</option>');
-	$("#datapointsFormula").append('<option value="NOW">NOW</option>');
+	$("#datapointsFormula").append('<option value="NOW">Current year</option>');
 	for(var i = 0; i < datapoints.length; i++){
 		$("#datapointsFormula").append('<option value="'+datapoints[i].id+'">'+datapoints[i].id+'</option>');
 	}

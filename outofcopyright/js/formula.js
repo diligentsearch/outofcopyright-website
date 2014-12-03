@@ -11,14 +11,16 @@ $(function(){
 				var datapoint = new Object();
 				if($( "#datapointsFormula" ).val() == 'NOW'){
 					datapoint.id = 'NOW';
+					$( "#formula" ).append("<div class='spanFormulaDatapoints' style='float:left;'>Current year</div>");
 				}else{
 					datapoint = getResponseById($( "#datapointsFormula" ).val());
 					if(datapoint.type != 'static'){
 						formulaInputs.push(datapoint.id);
 					}
+					$( "#formula" ).append("<div class='spanFormulaDatapoints' style='float:left;'>"+datapoint.id+"</div>");
 				}
 				
-		  		$( "#formula" ).append("<div class='spanFormulaDatapoints' style='float:left;'>"+datapoint.id+"</div>");
+		  		
 				formulaActualForTest += 'v';
 				formulaActual += datapoint.id + " ";
 				testFormula();
