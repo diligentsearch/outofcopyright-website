@@ -233,7 +233,7 @@ function loadCountry(country){
 				for( var i = 0; i < data.length; i++){
 
 					var boldProd = "";
-					var message = data[i].commit.message;
+					var message = data[i].commit.message.replace(/\n/g, "<br />");
 
 					if(shaLink == data[i].sha){
 						boldProd = " bold";
