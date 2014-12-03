@@ -113,14 +113,14 @@ font-weight: bold;">
                         Test
                     </a>
                     <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style=" width: 300px; ">
                         <li><a href="#" id="readonly-modal" onclick="testCountry();">UI Test Form</a></li>
                         <li>
                             <div class="row" style="padding-top: 10px;">
                                 <div class="col-sm-3" style="padding-right: 0px;padding-top: 10px;padding-left: 30px;">
                                     API Test
                                 </div>
-                                <div class="col-sm-9" style="padding-left: 0px;">
+                                <div class="col-sm-8" style="padding-left: 0px;">
                                     <input type="text" id="apiURL">
                                 </div>
                             </div>
