@@ -87,10 +87,10 @@ font-weight: bold;"></div>
                     <i class="fa fa-flask fa-2x" title="Test form" style="margin-top: 15px;cursor:pointer;float: right;" onclick="testCountry();"></i>
                 </div>
                 <div class="col-sm-1">
-                    <i class="fa fa-print fa-2x" title="Print" style="margin-top: 15px;cursor:pointer;float: right;" onclick="printDiagram();"></i>
+                    <i class="fa fa-print fa-2x" title="Print" style="margin-top: 15px;cursor:pointer;float: right;padding-right: 5px;" onclick="printDiagram();"></i>
                 </div>
                 <div class="col-sm-1">
-                    <i class="fa fa-floppy-o fa-2x" id="buttonSave" title="Save" style="margin-top: 15px;cursor:pointer;float: right;"></i>
+                    <i class="fa fa-floppy-o fa-2x" id="buttonSave" title="Save" style="margin-top: 15px;cursor:pointer;float: right;padding-right: 10px;"></i>
                 </div>
             </div>
             <div class="alert alert-dismissable alert-success" id="alertSuccess" style="display: none;">
