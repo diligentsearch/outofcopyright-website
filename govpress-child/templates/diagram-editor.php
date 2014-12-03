@@ -89,6 +89,9 @@ font-weight: bold;"></div>
                 <div class="col-sm-1">
                     <i class="fa fa-print fa-2x" title="Print" style="margin-top: 15px;cursor:pointer;float: right;" onclick="printDiagram();"></i>
                 </div>
+                <div class="col-sm-1">
+                    <i class="fa fa-floppy-o fa-2x" id="buttonSave" title="Save" style="margin-top: 15px;cursor:pointer;float: right;"></i>
+                </div>
             </div>
             <div class="alert alert-dismissable alert-success" id="alertSuccess" style="display: none;">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -242,11 +245,6 @@ font-weight: bold;">
         </div>
         <div class="row buttonPropertyActive text-center" style="font-size:28px;">
             <span class="btn btn-success col-xs-12" id="saveok">OK</span>
-        </div>
-    </div>
-    <div id="buttonSave" class="col-xs-3" style="position: absolute; bottom: 0px; right: 0px; margin-right: 0px;">
-        <div class="row buttonPropertyActive text-center" style="font-size:28px;">
-            <span class="btn btn-primary col-xs-12" id="save">Save</span>
         </div>
     </div>
 
