@@ -65,20 +65,20 @@ $(function(){
 							$(".valueDatapoint").show();
 							$(".listValueDatapoint").hide();
 							$("#question_datapoint > label").text("Name");
-							$("#question_datapoint > input").attr("placeholder", "Name");
+							$("#questionDatapoint").attr("placeholder", "Name");
 						break;
 				case 'list':
 							$(".valueDatapoint").hide();
 							$(".listValueDatapoint").show();
 							$("#question_datapoint > label").text("Question");
-							$("#question_datapoint > input").attr("placeholder", "Question");
+							$("#questionDatapoint").attr("placeholder", "Question");
 						break;
 				case 'numeric':
 				default:
 							$(".valueDatapoint").hide();
 							$(".listValueDatapoint").hide();
 							$("#question_datapoint > label").text("Question");
-							$("#question_datapoint > input").attr("placeholder", "Question");
+							$("#qquestionDatapoint").attr("placeholder", "Question");
 						break;
 			}
 		});
