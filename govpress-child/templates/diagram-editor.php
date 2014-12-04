@@ -132,20 +132,36 @@ font-weight: bold;">
 
         <div class="row">
             <div class="col-sm-3 buttonProperties text-center" onclick="clickPropertiesButton('formulaButton')" id="formulaButton">
-                <i class="fa fa-superscript fa-2x"></i>
-                <span style=" margin-left: -15px;" >Formula</span>
+                <div class="col-sm-12">
+                    <i class="fa fa-superscript fa-2x"></i>
+                </div>
+                <div class="col-sm-12">
+                    <span style=" margin-left: -15px;" >Formula</span>
+                </div>
             </div>
             <div class="col-sm-3 buttonProperties text-center" onclick="clickPropertiesButton('listButton')" id="listButton">
-                <i class="fa fa-list-ul fa-2x"></i>
-                <span>List</span>
+                <div class="col-sm-12">
+                    <i class="fa fa-list-ul fa-2x"></i>
+                </div>
+                <div class="col-sm-12">
+                    <span>List</span>
+                </div>
             </div> 
             <div class="col-sm-3 buttonProperties text-center" onclick="clickPropertiesButton('aliasButton')"  id="aliasButton">
-                <i class="fa fa-link fa-2x"></i>
-                <span>Alias</span>
+                <div class="col-sm-12">    
+                    <i class="fa fa-link fa-2x"></i>
+                </div>
+                <div class="col-sm-12">
+                    <span>Alias</span>
+                </div>
             </div>
             <div class="col-sm-3 buttonProperties text-center" onclick="clickPropertiesButton('resultButton')" id="resultButton">
-                <i class="fa fa-gavel fa-2x"></i>
-                <span style=" margin-left: -6px;">Result</span>
+                <div class="col-sm-12">
+                    <i class="fa fa-gavel fa-2x"></i>
+                </div>
+                <div class="col-sm-12">
+                    <span style=" margin-left: -6px;">Result</span>
+                </div>
             </div>
         </div>
         <div class="row buttonPropertyActive questionPart">
