@@ -52,8 +52,7 @@ if(isset($_GET['country'])){
                         if(result.error == 1){
                             console.log(result);
                             //$(".questionPart").hide();
-                            $(".questionPart > input").prop("disabled","disabled");
-                            $(".questionPart > select").prop("disabled","disabled");
+                            $(".questionInput").prop("disabled","disabled");
                             newQuestion(result.waiting_response);
                             
                         }else{
