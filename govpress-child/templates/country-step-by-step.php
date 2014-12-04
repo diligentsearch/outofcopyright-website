@@ -214,6 +214,7 @@ if(isset($_GET['country'])){
                         </div>\
                     </div>\
                     ');
+                $('*[data-toggle="popover"]').popover();
                 $("#next").hide();
             }
 
