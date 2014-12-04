@@ -96,6 +96,11 @@ function saveAlias(){
 
 			if(node.type == null){
 				deleteNode(typeOfWork, idNodeToRemove, false);
+			}else{
+				var parentNodes = getParentNodes(typeOfWork);
+				if(parentNodes[idNodeSelected].length == 1){
+					deleteNode(typeOfWork, idNodeToRemove, true);
+				}
 			}
 
 			file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].child = getNodeId(idNodeAlias).id_node;
