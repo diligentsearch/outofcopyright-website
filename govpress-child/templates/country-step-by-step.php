@@ -215,7 +215,7 @@ if(isset($_GET['country'])){
                     </div>\
                     ');
                 $('.popoverInfo').popover({placement:'bottom'});
-                $('.popoverInfo').css("width","250px");
+
                 $("#next").hide();
             }
 
