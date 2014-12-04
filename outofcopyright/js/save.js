@@ -98,7 +98,7 @@ function saveAlias(){
 				deleteNode(typeOfWork, idNodeToRemove, false);
 			}else{
 				var parentNodes = getParentNodes(typeOfWork);
-				if(parentNodes[idNodeSelected].length == 1){
+				if(parentNodes[idNodeToRemove].length == 1){
 					deleteNode(typeOfWork, idNodeToRemove, true);
 				}
 			}
