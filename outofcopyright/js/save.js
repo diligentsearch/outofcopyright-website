@@ -95,11 +95,11 @@ function saveAlias(){
 			var node = file.subgraph[typeOfWork].nodes[idNodeToRemove];
 
 			if(node.type == null){
-				deleteNode(typeOfWork, idNodeToRemove, false);
+				deleteNode(typeOfWork, idNodeToRemove, false, $("#aliasResponse").val());
 			}else{
 				var parentNodes = getParentNodes(typeOfWork);
 				if(parentNodes[idNodeToRemove].length == 1){
-					deleteNode(typeOfWork, idNodeToRemove, false);
+					deleteNode(typeOfWork, idNodeToRemove, false, $("#aliasResponse").val());
 				}
 			}
 

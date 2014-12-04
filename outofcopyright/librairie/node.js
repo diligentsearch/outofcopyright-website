@@ -36,7 +36,7 @@ function modifyNode(idSubgraph, id_node, type, text, formula, inputs, start, res
 /*
 	Suppression d'un noeud et de tout ceux ayant un lien unique avec celui-ci.
 */
-function deleteNode(id_subgraph, id_node, reconstructChild){
+function deleteNode(id_subgraph, id_node, reconstructChild, idResponseAlias){
 	id_node = parseInt(id_node);
 	var listToDelete = deleteNodeRec(id_subgraph, id_node, []);
 	var nodes = file.subgraph[id_subgraph].nodes
@@ -51,7 +51,7 @@ function deleteNode(id_subgraph, id_node, reconstructChild){
 			for(var k = 0; k < responses.length; k++){
 				for (var i = 0; i < listToDelete.length; i++) {
 					if(responses[k].child == getNodeId(listToDelete[i]).id_node){
-						if(responses[k].alias == true){
+						if(responses[k].alias == true && responses[k].child != idResponseAlias){
 							file.subgraph[id_subgraph].nodes[j].responses.splice(k, 1);
 						}else{
 							if(file.subgraph[id_subgraph].nodes[j].responses[k] !== undefined){
