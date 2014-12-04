@@ -183,7 +183,7 @@ if(isset($_GET['country'])){
                 var inputHTML= "";
                 actualInput = input;
                 if(datapoint.hint != ""){
-                    helpText = '<a href="#" data-toggle="popover" title="Additional information" data-content="'+datapoint.hint+'"><i class="fa fa-question-circle fa-lg" style=" padding-top: 10px; "></i></a>';
+                    helpText = '<a href="#" class="popoverInfo" data-toggle="popover" title="Additional information" data-content="'+datapoint.hint+'"><i class="fa fa-question-circle fa-lg" style=" padding-top: 10px; "></i></a>';
                 }
                 switch(datapoint.type) {
                     case 'numeric':
@@ -214,7 +214,7 @@ if(isset($_GET['country'])){
                         </div>\
                     </div>\
                     ');
-                $('*[data-toggle="popover"]').popover();
+                $('.popoverInfo').popover();
                 $("#next").hide();
             }
 
