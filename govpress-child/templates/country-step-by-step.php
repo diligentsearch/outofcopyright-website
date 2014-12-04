@@ -114,7 +114,7 @@ if(isset($_GET['country'])){
               });   
 
             $(function() {
-
+                $('[data-toggle="popover"]').popover();
                 $("#secondary").hide();
                 getData("<?php echo $key_country; ?>", "<?php echo $key_country; ?>", function( data ) {
                     file = data;
