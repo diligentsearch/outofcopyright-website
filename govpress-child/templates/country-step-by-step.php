@@ -183,7 +183,7 @@ if(isset($_GET['country'])){
                 var inputHTML= "";
                 actualInput = input;
                 if(datapoint.hint != ""){
-                    helpText = '<i class="fa fa-question-circle fa-lg" data-toggle="popover" title="Additional information" data-content="'+datapoint.hint+'" style=" padding-top: 10px; "></i>';
+                    helpText = '<a href="#" data-toggle="popover" title="Additional information" data-content="'+datapoint.hint+'"><i class="fa fa-question-circle fa-lg" style=" padding-top: 10px; "></i></a>';
                 }
                 switch(datapoint.type) {
                     case 'numeric':
