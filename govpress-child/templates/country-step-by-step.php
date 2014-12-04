@@ -178,6 +178,7 @@ if(isset($_GET['country'])){
                 var datapoint = getResponseById(input);
                 var inputHTML= "";
                 actualInput = input;
+                helpText = '<i class="fa fa-question-circle" title='+datapoint.hint+'></i>';
                 switch(datapoint.type) {
                     case 'numeric':
                         inputHTML = '<input type="text" class="col-sm-12 questionInput" name="'+input+'" id="'+input+'" placeholder="'+trad+'" onkeypress="changeInput()"/>';
@@ -199,8 +200,11 @@ if(isset($_GET['country'])){
                         <div class="col-sm-4">\
                             <label for="'+input+'" class="control-label">'+trad+'</label>\
                         </div>\
-                        <div class="col-sm-8">\
+                        <div class="col-sm-7">\
                             '+inputHTML+'\
+                        </div>\
+                        <div class="col-sm-1">\
+                            '+helpText+'\
                         </div>\
                     </div>\
                     ');
