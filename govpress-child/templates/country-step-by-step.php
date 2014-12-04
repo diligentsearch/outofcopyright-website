@@ -214,9 +214,6 @@ if(isset($_GET['country'])){
                         </div>\
                     </div>\
                     ');
-                if(helpText !=  ""){
-                    $('[data-toggle="popover"]').popover();
-                }
                 $("#next").hide();
             }
 
