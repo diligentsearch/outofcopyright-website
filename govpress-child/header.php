@@ -47,6 +47,7 @@
 
 <!-- Javascript -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/wp-content/themes/govpress-child/js/bootstrap.min.js"></script>
 <script src="/wp-content/themes/govpress-child/js/timeformater.js"></script>
 <script src="/wp-content/themes/govpress-child/js/formula.js"></script>
 <script src="/wp-content/themes/govpress-child/js/save.js"></script>

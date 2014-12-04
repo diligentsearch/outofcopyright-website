@@ -314,7 +314,7 @@ if(isset($_GET['country'])){
 		</div><!-- #content -->
        
 	</div><!-- #primary -->
-    <script src="/wp-content/themes/govpress-child/js/bootstrap.min.js"></script>
+    
 <?php
 get_sidebar( 'content' );
 get_sidebar();
