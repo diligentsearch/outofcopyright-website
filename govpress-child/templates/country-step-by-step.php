@@ -160,6 +160,8 @@ if(isset($_GET['country'])){
             });
 
             $(document).on('change','#langues',function(){
+                $("#waitingPart").show();
+                $("#calculatorPart").hide();
                 changeLangue();
 
             });
@@ -170,6 +172,8 @@ if(isset($_GET['country'])){
                     console.log("change");
                     $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
                     $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
+                    $("#waitingPart").hide();
+                    $("#calculatorPart").show();
                 });
             }
 
@@ -243,7 +247,7 @@ if(isset($_GET['country'])){
         <br/>
         <h2>Calculate</h2>
         <br/>
-        <div class="row margin-left margin-top margin-bottom margin-right">
+        <div class="row margin-left margin-top margin-bottom margin-right" id="calculatorPart" style="display:none;">
             <div class="row">
                 <div class="col-sm-4">
                     <label class="control-label" id="labelLangue">Langue : </label>
@@ -287,6 +291,9 @@ if(isset($_GET['country'])){
                 <h4>Warning!</h4>
                 <p id="error"></p>
             </div>
+        </div>
+        <div id="waitingPart" style=" margin-left: auto; margin-right: auto; width: 32px; ">
+            <img src="/wp-content/themes/govpress-child/lib/pictures/ajax-loader.gif">
         </div>
         <?php
         if (have_posts()) :
