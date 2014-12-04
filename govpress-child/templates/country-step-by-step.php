@@ -296,6 +296,7 @@ if(isset($_GET['country'])){
         <div id="waitingPart" style=" margin-left: auto; margin-right: auto; width: 32px; ">
             <img src="/wp-content/themes/govpress-child/lib/pictures/ajax-loader.gif">
         </div>
+        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
         <?php
         if (have_posts()) :
            while (have_posts()) :
