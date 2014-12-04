@@ -177,7 +177,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 </div>
                 <div class="col-sm-8">
                     <select name="langues" id="langues" class="form-control">
-                        <option value="">Select a langue</option>
+                        <option value="">Select a language</option>
                     </select>
                 </div>
             </div>
