@@ -8,6 +8,8 @@ sudo cp -R outofcopyright/librairie /var/www/html/wordpress/wp-content/themes/go
 
 sudo cp -R govpress-child/* /var/www/html/wordpress/wp-content/themes/govpress-child/;
 
+sudo cp print-diagram.html /var/www/html/wordpress/
+
 cd /var/www/html/outofcopyright/api/;
 forever stop server.js;
 forever start server.js;
