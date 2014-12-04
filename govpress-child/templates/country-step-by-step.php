@@ -58,7 +58,6 @@ if(isset($_GET['country'])){
                             $("#result").html(result);
                             $(".alert-success").show();
                             $(".questionInput").prop("disabled","disabled");
-                            $(".questionPart").hide();
                         }
                     }
                     
