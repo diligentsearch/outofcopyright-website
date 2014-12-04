@@ -99,7 +99,7 @@ function saveAlias(){
 			}else{
 				var parentNodes = getParentNodes(typeOfWork);
 				if(parentNodes[idNodeToRemove].length == 1){
-					deleteNode(typeOfWork, idNodeToRemove, true);
+					deleteNode(typeOfWork, idNodeToRemove, false);
 				}
 			}
 
