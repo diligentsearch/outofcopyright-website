@@ -226,7 +226,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
 		</div><!-- #content -->
        
 	</div><!-- #primary -->
-
+    <script src="/wp-content/themes/govpress-child/js/bootstrap.min.js"></script>
 <?php
 get_sidebar( 'content' );
 get_sidebar();
