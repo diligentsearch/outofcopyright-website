@@ -250,7 +250,7 @@ if(isset($_GET['country'])){
                 </div>
                 <div class="col-sm-8">
                     <select name="langues" id="langues" class="form-control">
-                        <option value="">Select a langue</option>
+                        <option value="">Select a language</option>
                     </select>
                 </div>
             </div>

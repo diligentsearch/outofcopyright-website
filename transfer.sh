@@ -18,5 +18,5 @@ cd /var/www/html/outofcopyright/management_file/;
 forever stop github.js;
 forever start github.js;
 
-cd /home/jj/outofcopyright-website/;
+cd ~/outofcopyright-website/;
 
