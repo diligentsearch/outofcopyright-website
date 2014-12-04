@@ -114,6 +114,12 @@ if(isset($_GET['country'])){
               });   
 
             $(function() {
+                $('#disclaimer').popover({
+                  trigger: 'hover',
+                  html: true,
+                  placement: 'right',
+                  content: 'hello world'
+                });
                 
                 $("#secondary").hide();
                 getData("<?php echo $key_country; ?>", "<?php echo $key_country; ?>", function( data ) {
@@ -296,7 +302,7 @@ if(isset($_GET['country'])){
         <div id="waitingPart" style=" margin-left: auto; margin-right: auto; width: 32px; ">
             <img src="/wp-content/themes/govpress-child/lib/pictures/ajax-loader.gif">
         </div>
-        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+        <div id="disclaimer" >After 30 Days you'll have the option to keep your account for $15 per month -no contract required-or revert to a single page free account.*</div>
         <?php
         if (have_posts()) :
            while (have_posts()) :
