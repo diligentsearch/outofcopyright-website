@@ -81,8 +81,7 @@ get_header(); ?>
                 
             </div>-->
             <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);margin-left: 0px;">
-                <div class="col-sm-9 margin-bottom height-40 padding-top-8" id="subchart-title" style="font-size: 20px;
-font-weight: bold;"></div>
+                <div class="col-sm-9 margin-bottom height-40 padding-top-15 grey-color" id="subchart-title" style="font-weight: bold;"></div>
                 <div class="col-sm-1">
                     <i class="fa fa-flask fa-2x" title="Test form" style="margin-top: 15px;cursor:pointer;float: right;" onclick="testCountry();"></i>
                 </div>
@@ -110,7 +109,7 @@ font-weight: bold;"></div>
 
     <div class="col-sm-3" id='selectANode'>
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-left: solid 3px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
-            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-15" style="font-weight: bold;">
+            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-15 grey-color" style="font-weight: bold;">
                 Properties
             </div>
         </div>
@@ -123,7 +122,7 @@ font-weight: bold;"></div>
     </div>
     <div class="col-sm-3" id='panelProperties' style="display:none;border-left: solid 3px #CFCFCF;">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
-            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-15" style="font-weight: bold;">
+            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-15 grey-color" style="font-weight: bold;">
                 Properties
             </div>
         </div>
