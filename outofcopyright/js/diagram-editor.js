@@ -34,6 +34,7 @@ $(function(){
 		$.post( "/node", { country: country, name: languageChoosen+".json", action: 'read' } )
 		.done(function( dataTrad ) {
 			traductionData = dataTrad;
+			getTraduction(languageChoosen, null);
 			listTypeDatapoint();
 			var missingTrad = missingTranslation(traductionData);
 			if(missingTrad.length > 0){
