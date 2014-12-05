@@ -22,18 +22,32 @@ var repo = github.getRepo(USERNAME, REPONAME);
 
 //Fonction pour mettre à jour un fichier
 function updateFile(pays, fileName, content, commitText){
+    console.log("update");
     repo.write(BRANCH, 
         pays+'/'+fileName, 
         content, 
         commitText, 
         function(err) { 
-            console.log(err); 
+            console.log("err ");
+            console.log(err);
+            console.log("err.error ");
+            console.log(err.error);
+            if(err.error == 409){
+                console.log('Try second');
+                console.log(pays+'/'+fileName);
+                console.log(content);
+                console.log(commitText);
+                repo.write(BRANCH, pays+'/'+fileName, content, commitText, function(err) {
+                    console.log("err 2 ");
+                    console.log(err);
+                });
+            }
         });
 }
 
 //Lecture du fichier contenant les diagrammes et les informations d'un pays. Cette fonction peu être aussi utilisé pour la lecture des fichiers de traduction.
 function readFile(pays, fileName, callback){
-    
+    console.log("read");
     repo.read(BRANCH, pays+'/'+fileName, 
         function(err, data) {
             callback(data);
@@ -43,6 +57,7 @@ function readFile(pays, fileName, callback){
 
 //Fonction permettant d'écrire un nouveau fichier 
 function writeFile(pays, fileName, content, commitText){
+    console.log("write");
     repo.write(BRANCH, pays+'/'+fileName, content, commitText, function(err) {
         console.log("err ");
         console.log(err);
