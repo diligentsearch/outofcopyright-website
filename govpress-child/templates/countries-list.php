@@ -27,8 +27,7 @@ get_header();
 		<div id="content" class="site-content" role="main">
 			<div class="col-sm-2" style="height: 100%;">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
-            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-8" style="font-size: 20px;
-font-weight: bold;" >
+            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-15 grey-color" style="font-weight: bold;" >
                 COUNTRIES
             </div>
         </div>
@@ -41,8 +40,7 @@ font-weight: bold;" >
     </div>
     <div class="col-sm-7">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
-            <div class="col-sm-12 margin-bottom height-40 padding-top-8" id="flowchart-title" style="font-size: 20px;
-font-weight: bold;">
+            <div class="col-sm-12 margin-bottom height-40 padding-top-15 grey-color" id="flowchart-title" style="font-weight: bold;">
                 FLOWCHART
             </div>
         </div>
@@ -138,8 +136,7 @@ font-weight: bold;">
     </div>
     <div class="col-sm-3" style="height: 100%;">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
-            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-8" style="font-size: 20px;
-font-weight: bold;">
+            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-15 grey-color" style="font-weight: bold;">
                 CHANGELOG
             </div>
         </div>

@@ -245,7 +245,7 @@ function loadCountry(country){
 						<div class="row">\
 			                <div class="row">\
 			                    <div class="col-sm-2" >\
-			                        <i class="fa fa-clock-o fa-lg"></i>\
+			                        <i class="fa fa-clock-o fa-lg grey-color"></i>\
 			                    </div>\
 			                    <div class="col-sm-10 text-left">\
 			                        '+date+'\
