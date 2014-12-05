@@ -21,7 +21,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main" style="margin-bottom: 0px;position: relative;">
             <div class="col-sm-2" style="max-height: 100%;">
-        <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
+        <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 3px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
             <div class="col-sm-12 margin-bottom height-40 padding-top-8" style="font-size: 20px;font-weight: bold;">
                 <a href="?page_id=4348" id="countryTitle"></a>
             </div>
@@ -122,8 +122,8 @@ font-weight: bold;">
         </div>
         
     </div>
-    <div class="col-sm-3" id='panelProperties' style="display:none;">
-        <div class="row" style="border-bottom: solid 1px #CFCFCF;border-left: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
+    <div class="col-sm-3" id='panelProperties' style="display:none;border-left: solid 3px #CFCFCF;">
+        <div class="row" style="border-bottom: solid 1px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
             <div class="col-sm-12 text-center margin-bottom height-40 padding-top-8" style="font-size: 20px;
 font-weight: bold;">
                 Properties
