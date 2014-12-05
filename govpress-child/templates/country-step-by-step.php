@@ -181,6 +181,7 @@ if(isset($_GET['country'])){
                 var trad = getTraduction($("#langues").val(), 'question_'+input);
                 var datapoint = getResponseById(input);
                 var inputHTML= "";
+                var helpText = "";
                 actualInput = input;
                 if(datapoint.hint != ""){
                     helpText = '<a href="#" class="popoverInfo" data-toggle="popover" title="Additional information" placement="bottom" data-content="'+datapoint.hint+'"><i class="fa fa-question-circle fa-lg" style=" padding-top: 10px; "></i></a>';
