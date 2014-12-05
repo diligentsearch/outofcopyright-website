@@ -844,8 +844,8 @@ function resizeVerticaly(){
 	var heightDatapoints;
 	var heightTypeOfWork;
 	var heightBlueMargin;
-	heightTypeOfWork = (height - 180) / 2;
-	heightDatapoints = (height - 180) / 2;
+	heightTypeOfWork = (height - 179) / 2;
+	heightDatapoints = (height - 179) / 2;
 
 	heightBlueMargin = (height + heightBlueMarginActual - heightPanelProperties - heightButtonSave);
 
