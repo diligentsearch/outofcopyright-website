@@ -83,13 +83,13 @@ get_header(); ?>
             <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);margin-left: 0px;">
                 <div class="col-sm-9 margin-bottom height-40 padding-top-15 grey-color" id="subchart-title" style="font-weight: bold;"></div>
                 <div class="col-sm-1">
-                    <i class="fa fa-flask fa-2x" title="Test form" style="margin-top: 15px;cursor:pointer;float: right;" onclick="testCountry();"></i>
+                    <i class="fa fa-flask fa-2x grey-color" title="Test form" style="margin-top: 15px;cursor:pointer;float: right;" onclick="testCountry();"></i>
                 </div>
                 <div class="col-sm-1">
-                    <i class="fa fa-print fa-2x" title="Print" style="margin-top: 15px;cursor:pointer;float: right;padding-right: 5px;" onclick="printDiagram();"></i>
+                    <i class="fa fa-print fa-2x grey-color" title="Print" style="margin-top: 15px;cursor:pointer;float: right;padding-right: 5px;" onclick="printDiagram();"></i>
                 </div>
                 <div class="col-sm-1">
-                    <i class="fa fa-floppy-o fa-2x" id="buttonSave" title="Save" style="margin-top: 15px;cursor:pointer;float: right;padding-right: 10px;"></i>
+                    <i class="fa fa-floppy-o fa-2x grey-color" id="buttonSave" title="Save" style="margin-top: 15px;cursor:pointer;float: right;padding-right: 10px;"></i>
                 </div>
             </div>
             <div class="alert alert-dismissable alert-success" id="alertSuccess" style="display: none;">
