@@ -132,6 +132,7 @@ function saveAliasAfterPrevent(){
 				file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].child = getNodeId(idNodeAlias).id_node;
 				file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].alias = true;
 				$("#preventAlias").hide();
+				draw();
 			}
 		}
 	}
