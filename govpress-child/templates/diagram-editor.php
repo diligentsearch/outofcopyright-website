@@ -109,7 +109,7 @@ font-weight: bold;"></div>
 
 
     <div class="col-sm-3" id='selectANode'>
-        <div class="row" style="border-bottom: solid 1px #CFCFCF;border-left: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
+        <div class="row" style="border-bottom: solid 1px #CFCFCF;border-left: solid 3px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
             <div class="col-sm-12 text-center margin-bottom height-40 padding-top-8" style="font-size: 20px;
 font-weight: bold;">
                 Properties
