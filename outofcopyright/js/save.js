@@ -43,8 +43,13 @@ $(function(){
 //Sauvegarde d'une formule dans le structure de donnée dans le javascript
 function saveFormula(){
 	if($("#formulaButton").hasClass( "buttonPropertyActive" )){
-		file.subgraph[typeOfWork].nodes[idNodeSelected].formula = formulaActual;
-		file.subgraph[typeOfWork].nodes[idNodeSelected].inputs = formulaInputs;
+		if(formulaActual != ''){
+			file.subgraph[typeOfWork].nodes[idNodeSelected].formula = formulaActual;
+		}
+		if(formulaInputs.length > 0){
+			file.subgraph[typeOfWork].nodes[idNodeSelected].inputs = formulaInputs;
+		}
+		
 		file.subgraph[typeOfWork].nodes[idNodeSelected].type = 'question';
 
 		if(file.subgraph[typeOfWork].nodes[idNodeSelected].responses.length == 0){
