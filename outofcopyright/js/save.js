@@ -31,6 +31,10 @@ $(function(){
   		$("#saveModal").show();
 	});
 
+	$( "#createAlias" ).click(function() {
+		saveAliasAfterPrevent();
+	});
+
 });
 
 //Sauvegarde d'une formule dans le structure de donnée dans le javascript
@@ -96,18 +100,37 @@ function saveAlias(){
 
 			if(node.type == null){
 				deleteNode(typeOfWork, idNodeToRemove, false, $("#aliasResponse").val());
+				file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].child = getNodeId(idNodeAlias).id_node;
+				file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].alias = true;
 			}else{
 				var parentNodes = getParentNodes(typeOfWork);
 				if(parentNodes[idNodeToRemove].length == 1){
-					deleteNode(typeOfWork, idNodeToRemove, false, $("#aliasResponse").val());
+					$("#preventAlias").show();
 				}
 			}
-
-			file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].child = getNodeId(idNodeAlias).id_node;
-			file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].alias = true;
 		}
 	}
-	
+}
+
+function saveAliasAfterPrevent(){
+	if($("#aliasButton").hasClass("buttonPropertyActive")){
+		var response = file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()];
+
+		if(response !== undefined && $("#aliasNode").val() != ""){
+
+			var idNodeAlias = parseInt($("#aliasNode").val());
+			idNodeAlias = file.subgraph[typeOfWork].nodes[idNodeAlias].id;
+
+			var idNodeToRemove = file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].child;
+			var node = file.subgraph[typeOfWork].nodes[idNodeToRemove];
+			var parentNodes = getParentNodes(typeOfWork);
+			if(parentNodes[idNodeToRemove].length == 1){
+				deleteNode(typeOfWork, idNodeToRemove, false, $("#aliasResponse").val());
+				file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].child = getNodeId(idNodeAlias).id_node;
+				file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].alias = true;
+			}
+		}
+	}
 }
 
 function saveResult(){

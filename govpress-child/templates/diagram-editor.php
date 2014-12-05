@@ -429,6 +429,24 @@ font-weight: bold;">
         </div>
     </div>
 
+     <div class="modal" id="preventAlias">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Warning</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please note that this alias will generate the removal of nodes to which it is currently attached. Are you sure you want to do this?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default closeButton" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="createAlias">OK</button>
+              </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/wp-content/themes/govpress-child/js/bootstrap.min.js"></script>
     <script src="/wp-content/themes/govpress-child/js/diagram-editor.js"></script>
