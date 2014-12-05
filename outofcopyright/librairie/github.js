@@ -23,6 +23,7 @@ var repo = github.getRepo(USERNAME, REPONAME);
 //Fonction pour mettre à jour un fichier
 function updateFile(pays, fileName, content, commitText){
     console.log("update");
+    console.log(content);
     repo.write(BRANCH, 
         pays+'/'+fileName, 
         content, 

@@ -510,6 +510,7 @@
       // -------
 
       this.write = function(branch, path, content, message, cb) {
+        console.log(Base64.encode(content));
         that.getSha(branch, path, function(err, sha) {
           if (err && err.error!=404) return cb(err);
           _request("PUT", repoPath + "/contents/" + path, {
