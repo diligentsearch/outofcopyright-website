@@ -140,14 +140,7 @@ function saveAliasAfterPrevent(){
 
 function saveResult(){
 	if($("#resultButton").hasClass("buttonPropertyActive")){
-		var resultText = $("#resultText").val().replace(/\\n/g, "\\n")
-								               .replace(/\\'/g, "\\'")
-								               .replace(/\\"/g, '\\"')
-								               .replace(/\\&/g, "\\&")
-								               .replace(/\\r/g, "\\r")
-								               .replace(/\\t/g, "\\t")
-								               .replace(/\\b/g, "\\b")
-								               .replace(/\\f/g, "\\f");
+		var resultText = $("#resultText").val().replace(/\n/g, "");
 		resultNode(typeOfWork, idNodeSelected, resultText);
 		$("#resultText").val("");
 	}
