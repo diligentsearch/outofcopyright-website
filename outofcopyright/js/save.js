@@ -5,7 +5,10 @@ $(function(){
   		saveAlias();
   		saveResult();
   		saveQuestion();
-  		draw();
+  		if(!$("#preventAlias").is(":visible")){
+  			draw();
+  		}
+  		
   		
 
 	});
