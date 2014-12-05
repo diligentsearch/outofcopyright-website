@@ -113,6 +113,7 @@ function testFormula(){
 function actualFormula(listElement){
 	$( "#formula" ).html('');
 	for(var i = 0 ; i < listElement.length ; i++){
+		listElement[i] = listElement[i].replace(/NOW/g, 'Current year');
 		$( "#formula" ).append("<div class='spanFormulaDatapoints' style='float:left;'>"+ listElement[i] +"</div>");
 	}
 }
