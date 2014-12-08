@@ -707,7 +707,7 @@ function loadDatapoints(id){
 	}else{
 		writeDatapoint();
 	}
-	$("#hintDatapoint").val(datapoint.hint);
+	$("#hintDatapoint").val(getTraduction(languageChoosen,'hint_'+datapoint.id));
 	var traduction = getTraduction(languageChoosen,'question_'+datapoint.id);
 	if(traduction != ""){
 		$("#questionDatapoint").val(traduction);

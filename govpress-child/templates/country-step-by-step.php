@@ -183,8 +183,9 @@ if(isset($_GET['country'])){
                 var inputHTML= "";
                 var helpText = "";
                 actualInput = input;
-                if(datapoint.hint != ""){
-                    helpText = '<a href="#" class="popoverInfo" data-toggle="popover" title="Additional information" placement="bottom" data-content="'+datapoint.hint+'"><i class="fa fa-question-circle fa-lg" style=" padding-top: 10px; "></i></a>';
+                var tradHint = getTraduction($("#langues").val(),'hint_'+datapoint.id)
+                if(tradHint != ""){
+                    helpText = '<a href="#" class="popoverInfo" data-toggle="popover" title="Additional information" placement="bottom" data-content="'+tradHint+'"><i class="fa fa-question-circle fa-lg" style=" padding-top: 10px; "></i></a>';
                 }
                 switch(datapoint.type) {
                     case 'numeric':

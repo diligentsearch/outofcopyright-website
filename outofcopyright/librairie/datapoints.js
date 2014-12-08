@@ -1,8 +1,7 @@
 
-function datapointContruct(id, hint, type, set){
+function datapointContruct(id, type, set){
 	var datapoint =  new Object();
 	datapoint.id = id;
-	datapoint.hint = hint;
 	datapoint.type = type;
 	datapoint.set = set;
 
@@ -27,9 +26,14 @@ function getResponseById(idResponse){
 function addDatapoint(id, hint, question, type, set){
 	
 	var stringToEvaluate = 'bibliotheque["'+languageChoosen+'"].question_'+id+' = "'+question+'";';
-	console.log(stringToEvaluate);
 	eval(stringToEvaluate);
-	var datapoint = datapointContruct(id, hint, type, set);
+
+	if(hint != ""){
+		var stringToEvaluate = 'bibliotheque["'+languageChoosen+'"].hint_'+id+' = "'+hint+'";';
+		eval(stringToEvaluate);
+	}
+
+	var datapoint = datapointContruct(id, type, set);
 	file.datapoints.push(datapoint);
 }
 
@@ -42,10 +46,17 @@ function modifyDatapoint(idTable, id, hint, question, type, set){
 	var stringToEvaluate = 'bibliotheque["'+languageChoosen+'"].question_'+id+' = "'+question+'";';
 	eval(stringToEvaluate);
 
+	if(hint != ""){
+		var stringToEvaluate = 'bibliotheque["'+languageChoosen+'"].hint_'+id+' = "'+hint+'";';
+		eval(stringToEvaluate);
+	}
+	
+
 	if(type != 'list' || ( type == 'list' &&  !datapointIsUse(id))){
 		setc = set;
 	}
-	var datapoint = datapointContruct(id, hint, null, setc);
+
+	var datapoint = datapointContruct(id, null, setc);
 	datapoint.type = type;
 	file.datapoints[idTable] = datapoint;
 }
