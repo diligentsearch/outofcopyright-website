@@ -58,6 +58,7 @@ if(isset($_GET['country'])){
                             $("#result").html(result);
                             $(".alert-success").show();
                             $(".questionInput").prop("disabled","disabled");
+                            ga('send', 'event', 'Calculators', "<?php echo $key_country; ?>", $("#langues").val());
                         }
                     }
                     
@@ -176,7 +177,7 @@ if(isset($_GET['country'])){
                     $("#calculatorPart").show();
                 });
 
-                ga('send', 'event', 'Calculators', "<?php echo $key_country; ?>", $("#langues").val());
+                
             }
 
             function newQuestion(input){
