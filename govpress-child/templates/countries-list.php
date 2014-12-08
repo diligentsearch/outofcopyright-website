@@ -136,7 +136,8 @@ get_header();
     </div>
     <div class="col-sm-3" style="height: 100%;">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 1px #000000;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
-            <div class="col-sm-12 text-center margin-bottom height-40 padding-top-15 grey-color" style="font-weight: bold;">
+            <div class="col-sm-1 height-40" style="border-left: solid 3px #CFCFCF;height: 56px;"></div>
+            <div class="col-sm-11 text-center margin-bottom height-40 padding-top-15 grey-color" style="font-weight: bold;">
                 CHANGELOG
             </div>
         </div>
