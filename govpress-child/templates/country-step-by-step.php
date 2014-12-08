@@ -176,7 +176,7 @@ if(isset($_GET['country'])){
                     $("#calculatorPart").show();
                 });
 
-                ga('send', 'event', 'Calculators', country, $("#langues").val());
+                ga('send', 'event', 'Calculators', "<?php echo $key_country; ?>", $("#langues").val());
             }
 
             function newQuestion(input){
