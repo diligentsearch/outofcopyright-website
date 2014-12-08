@@ -175,6 +175,8 @@ if(isset($_GET['country'])){
                     $("#waitingPart").hide();
                     $("#calculatorPart").show();
                 });
+
+                _gaq.push(['_trackEvent', 'Calculators', country, $("#langues").val()]);
             }
 
             function newQuestion(input){
