@@ -63,9 +63,14 @@ function missingTranslation(tradData){
 
     for(var i = 0; i < listTraduction.length; i++) {
         if(jQuery.inArray( listTraduction[i], tradData ) == -1){
-            if(listTraduction[i] != ""){
-                missingTraduction.push(listTraduction[i]);
-            }  
+            if(listTraduction[i].substring(0, 4) == 'hint'){
+                eval("bibliotheque['"+languageChoosen+"']."+listTraduction[i]+" = ''");
+            }else{
+                if(listTraduction[i] != ""){
+                    missingTraduction.push(listTraduction[i]);
+                }  
+            }
+            
         }
     }
     return missingTraduction;
