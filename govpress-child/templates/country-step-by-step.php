@@ -176,7 +176,7 @@ if(isset($_GET['country'])){
                     $("#calculatorPart").show();
                 });
 
-                _gaq.push(['_trackEvent', 'Calculators', country, $("#langues").val()]);
+                ga('send', 'event', 'Calculators', country, $("#langues").val());
             }
 
             function newQuestion(input){
