@@ -39,7 +39,7 @@ get_header();
         </div>
     </div>
     <div class="col-sm-7">
-        <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 3px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
+        <div class="row" style="border-bottom: solid 1px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
             <div class="col-sm-12 margin-bottom height-40 padding-top-15 grey-color" id="flowchart-title" style="font-weight: bold;">
                 FLOWCHART
             </div>
