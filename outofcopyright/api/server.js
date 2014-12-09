@@ -127,17 +127,20 @@ router.route('/:pays/:typeofwork')
 						var inputs = getInputs(getListSubgraphByName(req.params.typeofwork));
 
 						var responses = new Object();
+						var responsesParameters = new Object();
 						var errors = [];
 						
 						for(var i = 0; i < inputs.length; i++){
 							eval("var valueQuery = req.body."+inputs[i]);
 							if(valueQuery !== undefined && valueQuery !== ''){
 								var response = valueQuery;
-								console.log("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+								
 								if(isNaN(response)){
 									eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+									eval("responsesParameters."+inputs[i]+" = '"+response+"';");
 								}else{
 									eval("responses."+inputs[i]+" = "+response+";");
+									eval("responsesParameters."+inputs[i]+" = "+response+";");
 								}
 							}
 							//var trad = getTraduction('EN', inputs[i]);
@@ -151,7 +154,7 @@ router.route('/:pays/:typeofwork')
 
 							res.json({ 	URL: 	'http://api.outofcopyright.eu/'+encodeURIComponent(req.params.pays)+'/'+req.params.typeofwork,
 									version : data[0].sha,
-									parameters : 	responses,
+									parameters : 	responsesParameters,
 									result : 		result});
 						});
 
