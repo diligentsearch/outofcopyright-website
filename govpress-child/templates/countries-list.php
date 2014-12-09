@@ -180,20 +180,20 @@ get_header();
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Upload PO File</h4>
+                    <h4 class="modal-title">Upload JSON file</h4>
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal">
                         <fieldset>
                             <div class="form-group">
-                                <label for="languageToUpload" class="col-lg-2 control-label" >Initial language</label>
-                                <div class="col-lg-10">
-                                    <input type="text" id="languageToUpload" maxlength="2" class="form-control inputLine" placeholder="Initial language" />
+                                <label for="languageToUpload" class="col-lg-4 control-label" >Language code</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="languageToUpload" maxlength="2" class="form-control inputLine" placeholder="Language code (2 letters)" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="languageToUpload" class="col-lg-2 control-label" >File</label>
-                                <div class="col-lg-10">
+                                <label for="languageToUpload" class="col-lg-4 control-label" >File</label>
+                                <div class="col-lg-8">
                                     <input type="file" id="fileToUpload" class="form-control inputLine"/>
                                 </div>
                             </div>
