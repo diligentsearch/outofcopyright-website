@@ -342,7 +342,7 @@ router.route('/wip/:pays/:typeofwork')
 
 							res.json({ 	URL: 	'http://api.outofcopyright.eu/'+encodeURIComponent(req.params.pays)+'/'+req.params.typeofwork,
 									version : data[0].sha,
-									parameters : 	responses,
+									parameters : 	responsesParameters,
 									result : 		result});
 						});
 
