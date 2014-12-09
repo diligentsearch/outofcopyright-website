@@ -114,13 +114,13 @@ function translationNecessary(){
 }
 
 function getKeyByTrad(trad){
-    console.log(traductionData);
-    var traduData = Object.keys(traductionData);
+    console.log(bibliotheque[file.default_language]);
+    var traduData = Object.keys(bibliotheque[file.default_language]);
     console.log("traduData");
     console.log(traduData);
     for(var i = 0; i < traduData.length; i++) {
         try{
-            if(eval("traductionData."+traduData[i]+" == '"+trad+"'")){
+            if(eval("bibliotheque[file.default_language]."+traduData[i]+" == '"+trad+"'")){
                 return traduData[i];
             }
         }catch(err){
