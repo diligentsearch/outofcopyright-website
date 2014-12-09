@@ -128,7 +128,7 @@ function replaceFormula(formula, variable, value){
 		if(formulaSplit[i] == variable){
 			formulaSplit[i] = value;
 		}
-		result += formulaSplit[i];
+		result += formulaSplit[i]+" ";
 	}
 
 	return result;
