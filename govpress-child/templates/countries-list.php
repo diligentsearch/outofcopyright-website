@@ -55,7 +55,7 @@ get_header();
         <div class="col-sm-12" style="padding-top:15px;">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">General informations</h3>
+                    <h3 class="panel-title">General information</h3>
                 </div>
                 <div class="panel-body">
                     <div class="col-sm-4">

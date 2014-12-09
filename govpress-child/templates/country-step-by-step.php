@@ -58,7 +58,13 @@ if(isset($_GET['country'])){
                             $("#result").html(result);
                             $(".alert-success").show();
                             $(".questionInput").prop("disabled","disabled");
-                            ga('send', 'event', 'Calculators', "<?php echo $key_country; ?>", $("#langues").val());
+                            <?php
+                            if($branch == 'master'){
+                            ?>
+                                ga('send', 'event', 'Calculators', "<?php echo $key_country; ?>", $("#langues").val());
+                            <?php 
+                            } 
+                            ?>
                         }
                     }
                     
