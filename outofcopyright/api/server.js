@@ -242,8 +242,8 @@ function changeBranch(req){
 }
 
 function wipCountry(req, res){
-	BRANCH = req.params.pays;
 	req.params.pays = capitaliseFirstLetter(req.params.typeofwork);
+	BRANCH = req.params.pays;
 	readFile(req.params.pays, req.params.pays+'.json', function(data){
 		//Read file json
 		parseJSON(data);
