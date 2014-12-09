@@ -134,7 +134,11 @@ router.route('/:pays/:typeofwork')
 							if(valueQuery !== undefined && valueQuery !== ''){
 								var response = valueQuery;
 								console.log("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
-								eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+								if(sNaN(response){
+									eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+								}else{
+									eval("responses."+inputs[i]+" = "+response+";");
+								}
 							}
 							//var trad = getTraduction('EN', inputs[i]);
 							//errors[inputs[i]] = trad+' missing';
@@ -314,7 +318,12 @@ router.route('/wip/:pays/:typeofwork')
 							if(valueQuery !== undefined && valueQuery !== ''){
 								var response = valueQuery;
 								console.log("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
-								eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+								if(sNaN(response){
+									eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+								}else{
+									eval("responses."+inputs[i]+" = "+response+";");
+								}
+								
 							}
 							//var trad = getTraduction('EN', inputs[i]);
 							//errors[inputs[i]] = trad+' missing';
