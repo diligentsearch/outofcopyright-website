@@ -162,6 +162,7 @@ router.route('/:pays/:typeofwork')
 				res.status(400)        // HTTP status 404: NotFound
    				.json({ error : 8, message : 'Country not found'});
 			}
+		
 		});
 	});
 
@@ -169,43 +170,47 @@ router.route('/:pays/:typeofwork')
 router.route('/:pays/:typeofwork')
 
 	.get(function(req, res) {
-		changeBranch(req);
-		req.params.pays = capitaliseFirstLetter(req.params.pays);
-		readFile(req.params.pays, req.params.pays+'.json', function(data){
-			//Read file json
-			parseJSON(data);
-			if(file !== null){
-				req.params.typeofwork = capitaliseFirstLetter(req.params.typeofwork);
-				readFile(req.params.pays, file.default_language+'.json', function(dataTrad){
-					traductionData = dataTrad;
-					if(getListSubgraphByName(req.params.typeofwork) !== undefined){
-						var inputs = getInputs(getListSubgraphByName(req.params.typeofwork));
-						var responses = [];
-						for(var i = 0; i < inputs.length; i++){
-							var input = getResponseById(inputs[i])
-							input.question = getTraduction(file.default_language, 'question_'+input.id, true);
-							input.items = input.set;
-							input.additional_information = input.hint;
-							delete input.set;
-							delete input.hint;
-							responses.push(getResponseById(inputs[i]));
+		if(req.params.pays == 'wip'){
+			wipCountry(req, res);
+		}else{
+			changeBranch(req);
+			req.params.pays = capitaliseFirstLetter(req.params.pays);
+			readFile(req.params.pays, req.params.pays+'.json', function(data){
+				//Read file json
+				parseJSON(data);
+				if(file !== null){
+					req.params.typeofwork = capitaliseFirstLetter(req.params.typeofwork);
+					readFile(req.params.pays, file.default_language+'.json', function(dataTrad){
+						traductionData = dataTrad;
+						if(getListSubgraphByName(req.params.typeofwork) !== undefined){
+							var inputs = getInputs(getListSubgraphByName(req.params.typeofwork));
+							var responses = [];
+							for(var i = 0; i < inputs.length; i++){
+								var input = getResponseById(inputs[i])
+								input.question = getTraduction(file.default_language, 'question_'+input.id, true);
+								input.items = input.set;
+								input.additional_information = input.hint;
+								delete input.set;
+								delete input.hint;
+								responses.push(getResponseById(inputs[i]));
+							}
+							if(responses.length > 0){
+								res.json({ parameters : responses});
+							}else{
+								res.json({ error : 10, message : 'No possible result, the diagram is empty'});
+							}
+							
 						}
-						if(responses.length > 0){
-							res.json({ parameters : responses});
-						}else{
-							res.json({ error : 10, message : 'No possible result, the diagram is empty'});
+						else{
+							res.status(400)        // HTTP status 404: NotFound
+			   				.json({ error : 9, message : 'Type of work not found'});
 						}
-						
-					}
-					else{
-						res.status(400)        // HTTP status 404: NotFound
-		   				.json({ error : 9, message : 'Type of work not found'});
-					}
-				});
-			}
-			else{
-				res.status(400)        // HTTP status 404: NotFound
-   				.json({ error : 8, message : 'Country not found'});
+					});
+				}
+				else{
+					res.status(400)        // HTTP status 404: NotFound
+	   				.json({ error : 8, message : 'Country not found'});
+				}
 			}
 		});
 	});
@@ -233,6 +238,29 @@ function changeBranch(req){
 	}else{
 		BRANCH = "master";
 	}
+}
+
+function wipCountry(req, res){
+	BRANCH = req.params.pays;
+	req.params.pays = capitaliseFirstLetter(req.params.typeofwork);
+	readFile(req.params.pays, req.params.pays+'.json', function(data){
+		//Read file json
+		parseJSON(data);
+		var resultPays = new Object;
+		var resultPaysa = [];
+		
+		if(file !== null){
+			for (var i = 0 ; file.subgraph.length > i ; i ++) {
+				resultPaysa.push({ name: file.subgraph[i].graphName,
+								url: 'http://api.outofcopyright.eu/wip/'+encodeURIComponent(req.params.pays)+'/'+encodeURIComponent(file.subgraph[i].graphName)});
+			};
+
+			res.json({ categories : resultPaysa});
+		}
+		else{
+			res.status(400)        // HTTP status 404: NotFound
+				.json({ error : 8, message : 'Country not found'});
+		}
 }
 
 // START THE SERVER
