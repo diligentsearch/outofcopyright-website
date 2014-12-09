@@ -314,17 +314,20 @@ router.route('/wip/:pays/:typeofwork')
 						var inputs = getInputs(getListSubgraphByName(req.params.typeofwork));
 
 						var responses = new Object();
+						var responsesParameters = new Object();
 						var errors = [];
 						
 						for(var i = 0; i < inputs.length; i++){
 							eval("var valueQuery = req.body."+inputs[i]);
 							if(valueQuery !== undefined && valueQuery !== ''){
 								var response = valueQuery;
-								console.log("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+								
 								if(isNaN(response)){
 									eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+									eval("responsesParameters."+inputs[i]+" = '"+response+"';");
 								}else{
 									eval("responses."+inputs[i]+" = "+response+";");
+									eval("responsesParameters."+inputs[i]+" = "+response+";");
 								}
 								
 							}
