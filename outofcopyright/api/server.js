@@ -262,6 +262,7 @@ function wipCountry(req, res){
 			res.status(400)        // HTTP status 404: NotFound
 				.json({ error : 8, message : 'Country not found'});
 		}
+	});
 }
 
 // START THE SERVER
