@@ -9,6 +9,8 @@ function walk(idSubgraph, responses, server, lang){
 	idNode = idNode.id_node;
 	var result;
 	var testError = verificationResponses(responses);
+	console.log(responses);
+	console.log(testError);
 	if(testError != true){
 		return testError;
 	}
