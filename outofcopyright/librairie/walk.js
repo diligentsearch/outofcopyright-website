@@ -13,11 +13,15 @@ function walk(idSubgraph, responses, server, lang){
 		return testError;
 	}
 
+	if(lang == undefined){
+		lang = file.default_language;
+	}
 
 	while(result === undefined){
 		console.log(idNode);
 		var node = file.subgraph[idSubgraph].nodes[idNode];
 		console.log(node);
+
 		if(node.type == 'question'){
 
 			var listResponses = [];
@@ -43,7 +47,7 @@ function walk(idSubgraph, responses, server, lang){
 					var correct_responses = [];
 
 					for (var i = node.responses.length - 1; i >= 0; i--) {
-					 	correct_responses.push(node.responses[i].value);
+					 	correct_responses.push(getTraduction(lang, node.responses[i].value, server));
 					};
 
 					return {"error": 2, "id": node.inputs[0], "unusual_response": listResponses[node.inputs[0]], 'correct_responses' : correct_responses};
@@ -51,9 +55,6 @@ function walk(idSubgraph, responses, server, lang){
 			}
 		}
 		else{
-			if(lang == undefined){
-				lang = file.default_language;
-			}
 			result = getTraduction(lang, node.text, server);
 		}
 	}
