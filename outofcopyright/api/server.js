@@ -313,7 +313,8 @@ router.route('/wip/:pays/:typeofwork')
 							eval("var valueQuery = req.body."+inputs[i]);
 							if(valueQuery !== undefined && valueQuery !== ''){
 								var response = valueQuery;
-								eval("responses."+inputs[i]+" = response;");
+								console.log("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
+								eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
 							}
 							//var trad = getTraduction('EN', inputs[i]);
 							//errors[inputs[i]] = trad+' missing';
