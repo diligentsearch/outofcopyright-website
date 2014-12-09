@@ -114,6 +114,7 @@ function translationNecessary(){
 }
 
 function getKeyByTrad(trad){
+    console.log(traductionData);
     var traduData = Object.keys(traductionData);
     console.log("traduData");
     console.log(traduData);
