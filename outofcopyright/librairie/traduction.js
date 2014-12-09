@@ -112,3 +112,12 @@ function translationNecessary(){
     }
     return listTraduction;
 }
+
+function getKeyByTrad(trad){
+    var traduData = Object.keys(traductionData);
+    for(var i = 0; i < traduData.length; i++) {
+        if(eval("traductionData."+traduData[i]+" == "+trad)){
+            return traduData[i];
+        }
+    }
+}
