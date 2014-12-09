@@ -299,6 +299,10 @@ function getAllParentNodesByIdNodesRec(id_subgraph, allParentNodes, id_node){
 	Récupération de l'enfant à une réponse spécifique.
 */
 function getResponse(responses, response){
+	console.log("responses");
+	console.log(responses);
+	console.log("response");
+	console.log(response);
 	for (var i = 0; i < responses.length; i++) { 
 		if(responses[i].value == response){
 			return responses[i].child;
