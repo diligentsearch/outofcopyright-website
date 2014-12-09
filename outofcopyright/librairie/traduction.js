@@ -115,9 +115,15 @@ function translationNecessary(){
 
 function getKeyByTrad(trad){
     var traduData = Object.keys(traductionData);
+    console.log("traduData");
+    console.log(traduData);
     for(var i = 0; i < traduData.length; i++) {
-        if(eval("traductionData."+traduData[i]+" == "+trad)){
-            return traduData[i];
+        try{
+            if(eval("traductionData."+traduData[i]+" == '"+trad+"'")){
+                return traduData[i];
+            }
+        }catch(err){
+            console.log('error getKeyByTrad');
         }
     }
 }
