@@ -1,7 +1,7 @@
 /*
 	Retourne en fonction des réponses si l'oeuvre et du domaine publique ou non et dans le cas où il manquerai une réponse il retourne le noeud sur lequel il n'a pas pu calculer.
 */
-function walk(idSubgraph, responses, server){
+function walk(idSubgraph, responses, server, lang){
 	console.log("responses");
 	console.log(responses);
 	var responses = JSON.parse(responses);
@@ -51,6 +51,9 @@ function walk(idSubgraph, responses, server){
 			}
 		}
 		else{
+			if(lang == undefined){
+				lang = file.default_language;
+			}
 			result = getTraduction(file.default_language, node.text, server);
 		}
 	}

@@ -42,7 +42,7 @@ if(isset($_GET['country'])){
                     }
 
                     responses = JSON.stringify(responses);
-                    var result = walk($( "#typeOfWork" ).val(), responses, 'master');
+                    var result = walk($( "#typeOfWork" ).val(), responses, 'master', $("#langues").val());
 
                     if(result.error == 3){
                         $("#error").html("Response is not a number.");
