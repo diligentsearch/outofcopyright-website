@@ -114,6 +114,9 @@ function saveAlias(){
 				var parentNodes = getParentNodes(typeOfWork);
 				if(parentNodes[idNodeToRemove].length == 1){
 					$("#preventAlias").show();
+				}else{
+					file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].child = getNodeId(idNodeAlias).id_node;
+					file.subgraph[typeOfWork].nodes[idNodeSelected].responses[$("#aliasResponse").val()].alias = true;
 				}
 			}
 		}

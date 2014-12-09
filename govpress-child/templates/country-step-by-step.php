@@ -45,7 +45,8 @@ if(isset($_GET['country'])){
                     var result = walk($( "#typeOfWork" ).val(), responses, 'master', $("#langues").val());
 
                     if(result.error == 3){
-                        $("#error").html("Response is not a number.");
+                        $("#labelWarning").html(getTraduction($("#langues").val(), 'labelWarning'));
+                        $("#error").html(getTraduction($("#langues").val(), 'labelResponseIsNotANumber'));
                         $(".alert-warning").show();
                     }
                     else{
@@ -301,7 +302,7 @@ if(isset($_GET['country'])){
             </div>
             <div class="alert alert-dismissable alert-warning margin-top" style="display:none;">
                 <button type="button" class="close" data-dismiss="alert">×</button>
-                <h4>Warning!</h4>
+                <h4 id="labelWarning"></h4>
                 <p id="error"></p>
             </div>
         </div>
