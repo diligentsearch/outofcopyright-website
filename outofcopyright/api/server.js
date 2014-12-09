@@ -42,11 +42,25 @@ router.get('/', function(req, res) {
 		res.json({ countries: resultCountries});
     }
 
-	getCountries(callback);
-
-
-		
+	getCountries(callback);	
 });
+
+// Retourne la liste des pays disponible
+router.get('/wip/', function(req, res) {
+	changeBranch(req);
+	var callback = function(countries){
+		var resultCountries = [];
+		for (var i = 0 ; countries.length > i ; i ++) {
+			resultCountries.push({ name: countries[i],
+									url: "http://api.outofcopyright.eu/wip/"+encodeURIComponent(countries[i])});
+		}
+		res.json({ countries: resultCountries});
+    }
+
+	getCountries(callback);	
+});
+
+
 router.post('/', function(req, res) {
 		res.status(400)        // HTTP status 404: NotFound
    				.json({ error : 4, message : 'Post is not supported'});
@@ -95,6 +109,39 @@ router.route('/:pays')
 		
 		
 	});
+
+//Retourne la liste des pays type of work
+router.route('/wip/:pays')
+
+	.get(function(req, res) {
+		BRANCH = req.params.pays;
+		req.params.pays = capitaliseFirstLetter(req.params.pays);
+		readFile(req.params.pays, req.params.pays+'.json', function(data){
+			//Read file json
+			parseJSON(data);
+			var resultPays = new Object;
+			var resultPaysa = [];
+			
+			if(file !== null){
+				for (var i = 0 ; file.subgraph.length > i ; i ++) {
+					resultPaysa.push({ name: file.subgraph[i].graphName,
+									url: 'http://api.outofcopyright.eu/wip/'+encodeURIComponent(req.params.pays)+'/'+encodeURIComponent(file.subgraph[i].graphName)});
+				};
+
+				res.json({ categories : resultPaysa});
+			}
+			else{
+				res.status(400)        // HTTP status 404: NotFound
+   				.json({ error : 8, message : 'Country not found'});
+			}
+
+			
+		});
+		
+		
+		
+	});
+
 router.post('/:pays', function(req, res) {
 		res.status(400)        // HTTP status 404: NotFound
    				.json({ error : 4, message : 'Post is not supported'});
