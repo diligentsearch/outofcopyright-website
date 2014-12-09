@@ -248,10 +248,14 @@ router.route('/wip/:pays/:typeofwork')
 							for(var i = 0; i < inputs.length; i++){
 								var input = getResponseById(inputs[i])
 								input.question = getTraduction(file.default_language, 'question_'+input.id, true);
-								input.items = [];
-								for(var j = 0; j < input.set.length; j++){
-									input.items.push(getTraduction(file.default_language, input.set[j], true));
+								console.log(typeof input);
+								if(input.set != null){
+									input.items = [];
+									for(var j = 0; j < input.set.length; j++){
+										input.items.push(getTraduction(file.default_language, input.set[j], true));
+									}
 								}
+								
 								
 								input.additional_information = input.hint;
 								delete input.set;
