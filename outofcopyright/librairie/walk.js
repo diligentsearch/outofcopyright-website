@@ -94,7 +94,7 @@ function getResponseFormula(node, listResponses){
 		if(file.datapoints[i].type == 'static'){
 			var variable = file.datapoints[i].id;
 			var value = file.datapoints[i].set;
-			formula = formula.replace(variable, value);
+			formula = replaceFormula(formula, variable, value);
 		}
 		
 	}
@@ -106,7 +106,7 @@ function getResponseFormula(node, listResponses){
 		if(isNaN(value)){
 			return {"error": 3, "response_not_a_number": variable};
 		}
-		formula = formula.replace(variable, value);
+		formula = replaceFormula(formula, variable, value);
 	}
 	var result = eval(formula);
 
@@ -119,6 +119,19 @@ function getResponseList(node, listResponses){
 	var variableList = node.inputs[0];
 	console.log()
 	return getResponse(node.responses, listResponses[variableList]);
+}
+
+function replaceFormula(formula, variable, value){
+	var formulaSplit = formula.split(" ");
+	var result = "";
+	for(var i = 0; i < formulaSplit.length; i++) {
+		if(formulaSplit[i] == variable){
+			formulaSplit[i] = value;
+		}
+		result += formulaSplit[i];
+	}
+
+	return result;
 }
 
 
