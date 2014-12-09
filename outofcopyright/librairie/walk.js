@@ -54,7 +54,7 @@ function walk(idSubgraph, responses, server, lang){
 			if(lang == undefined){
 				lang = file.default_language;
 			}
-			result = getTraduction(file.default_language, node.text, server);
+			result = getTraduction(lang, node.text, server);
 		}
 	}
 
