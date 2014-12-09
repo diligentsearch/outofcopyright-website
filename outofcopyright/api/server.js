@@ -229,6 +229,109 @@ router.patch('/:pays/:typeofwork', function(req, res) {
    				.json({ error : 7, message : 'Patch is not supported'});
 	});
 
+//variable nécessaire pour la résolution du pas à pas
+router.route('/wip/:pays/:typeofwork')
+
+	.get(function(req, res) {
+			req.params.pays = capitaliseFirstLetter(req.params.pays);
+			BRANCH = req.params.pays;
+			readFile(req.params.pays, req.params.pays+'.json', function(data){
+				//Read file json
+				parseJSON(data);
+				if(file !== null){
+					req.params.typeofwork = capitaliseFirstLetter(req.params.typeofwork);
+					readFile(req.params.pays, file.default_language+'.json', function(dataTrad){
+						traductionData = dataTrad;
+						if(getListSubgraphByName(req.params.typeofwork) !== undefined){
+							var inputs = getInputs(getListSubgraphByName(req.params.typeofwork));
+							var responses = [];
+							for(var i = 0; i < inputs.length; i++){
+								var input = getResponseById(inputs[i])
+								input.question = getTraduction(file.default_language, 'question_'+input.id, true);
+								input.items = input.set;
+								input.additional_information = input.hint;
+								delete input.set;
+								delete input.hint;
+								responses.push(getResponseById(inputs[i]));
+							}
+							if(responses.length > 0){
+								res.json({ parameters : responses});
+							}else{
+								res.json({ error : 10, message : 'No possible result, the diagram is empty'});
+							}
+							
+						}
+						else{
+							res.status(400)        // HTTP status 404: NotFound
+			   				.json({ error : 9, message : 'Type of work not found'});
+						}
+					});
+				}
+				else{
+					res.status(400)        // HTTP status 404: NotFound
+	   				.json({ error : 8, message : 'Country not found'});
+				}
+				
+			});
+	});
+
+router.route('/wip/:pays/:typeofwork')
+
+	.post(function(req, res) {
+		req.params.pays = capitaliseFirstLetter(req.params.pays);
+		BRANCH = req.params.pays;
+		readFile(req.params.pays, req.params.pays+'.json', function(data){
+			//Read file json
+			parseJSON(data);
+			
+			req.params.typeofwork = capitaliseFirstLetter(req.params.typeofwork);
+			if(file !== null){
+				readFile(req.params.pays, file.default_language+'.json', function(dataTrad){
+					traductionData = dataTrad;
+					if(getListSubgraphByName(req.params.typeofwork) !== undefined){
+						var inputs = getInputs(getListSubgraphByName(req.params.typeofwork));
+
+						var responses = new Object();
+						var errors = [];
+						
+						for(var i = 0; i < inputs.length; i++){
+							eval("var valueQuery = req.body."+inputs[i]);
+							if(valueQuery !== undefined && valueQuery !== ''){
+								var response = valueQuery;
+								eval("responses."+inputs[i]+" = response;");
+							}
+							//var trad = getTraduction('EN', inputs[i]);
+							//errors[inputs[i]] = trad+' missing';
+						}
+
+						var stringResponses = JSON.stringify(responses);
+			   			var result = walk(getListSubgraphByName(req.params.typeofwork), stringResponses, true);
+
+			   			commits('', '', function(data){
+			   				//console.log(data);
+							res.json({ 	URL: 	'http://api.outofcopyright.eu/'+encodeURIComponent(req.params.pays)+'/'+req.params.typeofwork,
+									version : data[0].sha,
+									parameters : 	responses,
+									result : 		result});
+						});
+
+						
+					}
+					else{
+						res.status(400)        // HTTP status 404: NotFound
+		   				.json({ error : 9, message : 'Type of work not found'});
+					}
+				});
+			}
+			else{
+				res.status(400)        // HTTP status 404: NotFound
+   				.json({ error : 8, message : 'Country not found'});
+			}
+		
+		});
+	});
+
+
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/', router);
