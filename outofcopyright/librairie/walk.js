@@ -2,16 +2,15 @@
 	Retourne en fonction des réponses si l'oeuvre et du domaine publique ou non et dans le cas où il manquerai une réponse il retourne le noeud sur lequel il n'a pas pu calculer.
 */
 function walk(idSubgraph, responses, server, lang){
-	console.log("responses");
-	console.log(responses);
+
 	var responses = JSON.parse(responses);
 	var idNode = getStartNode(idSubgraph);
 	idNode = idNode.id_node;
 	var result;
 	var testError = verificationResponses(responses);
-	console.log(responses);
-	console.log(testError);
+
 	if(testError != true){
+		console.log(testError);
 		return testError;
 	}
 
@@ -20,9 +19,9 @@ function walk(idSubgraph, responses, server, lang){
 	}
 
 	while(result === undefined){
-		console.log(idNode);
+
 		var node = file.subgraph[idSubgraph].nodes[idNode];
-		console.log(node);
+
 
 		if(node.type == 'question'){
 
@@ -34,7 +33,7 @@ function walk(idSubgraph, responses, server, lang){
 				listResponses.all_possible_responses = missingResponses;
 				return listResponses;
 			}
-			console.log(node.formula);
+
 			if(node.formula !== undefined && node.formula !== "" && node.formula !== null){
 				idNode = getResponseFormula(node, listResponses);
 
@@ -120,7 +119,7 @@ function getResponseFormula(node, listResponses){
 */
 function getResponseList(node, listResponses){
 	var variableList = node.inputs[0];
-	console.log()
+
 	return getResponse(node.responses, listResponses[variableList]);
 }
 

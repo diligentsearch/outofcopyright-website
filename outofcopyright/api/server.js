@@ -143,7 +143,7 @@ router.route('/:pays/:typeofwork')
 			   			var result = walk(getListSubgraphByName(req.params.typeofwork), stringResponses, true);
 
 			   			commits('', '', function(data){
-			   				//console.log(data);
+
 							res.json({ 	URL: 	'http://api.outofcopyright.eu/'+encodeURIComponent(req.params.pays)+'/'+req.params.typeofwork,
 									version : data[0].sha,
 									parameters : 	responses,
@@ -322,7 +322,7 @@ router.route('/wip/:pays/:typeofwork')
 			   			var result = walk(getListSubgraphByName(req.params.typeofwork), stringResponses, true);
 
 			   			commits('', '', function(data){
-			   				//console.log(data);
+
 							res.json({ 	URL: 	'http://api.outofcopyright.eu/'+encodeURIComponent(req.params.pays)+'/'+req.params.typeofwork,
 									version : data[0].sha,
 									parameters : 	responses,
