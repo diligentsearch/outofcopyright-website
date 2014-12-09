@@ -114,6 +114,7 @@ function translationNecessary(){
 }
 
 function getKeyByTrad(trad){
+    getTraduction(file.default_language, "", true);
     console.log(bibliotheque[file.default_language]);
     var traduData = Object.keys(bibliotheque[file.default_language]);
     console.log("traduData");
