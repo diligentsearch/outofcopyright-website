@@ -211,8 +211,9 @@ router.route('/:pays/:typeofwork')
 					res.status(400)        // HTTP status 404: NotFound
 	   				.json({ error : 8, message : 'Country not found'});
 				}
-			}
-		});
+				
+			});
+		}
 	});
 
 router.put('/:pays/:typeofwork', function(req, res) {
