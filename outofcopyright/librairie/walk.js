@@ -10,6 +10,7 @@ function walk(idSubgraph, responses, server, lang){
 	var testError = verificationResponses(responses);
 
 	if(testError != true){
+		console.log("testError");
 		console.log(testError);
 		return testError;
 	}
