@@ -313,7 +313,7 @@ get_header(); ?>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="hintDatapoint" class="col-lg-3 control-label" >Additionnal information</label>
+                                <label for="hintDatapoint" class="col-lg-3 control-label" >Additional information</label>
                                 <div class="col-lg-9">
                                     <input type="text" id="hintDatapoint" class="form-control inputLine" placeholder="Additionnal information">
                                 </div>
