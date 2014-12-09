@@ -134,7 +134,7 @@ router.route('/:pays/:typeofwork')
 							if(valueQuery !== undefined && valueQuery !== ''){
 								var response = valueQuery;
 								console.log("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
-								if(sNaN(response)){
+								if(isNaN(response)){
 									eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
 								}else{
 									eval("responses."+inputs[i]+" = "+response+";");
@@ -318,7 +318,7 @@ router.route('/wip/:pays/:typeofwork')
 							if(valueQuery !== undefined && valueQuery !== ''){
 								var response = valueQuery;
 								console.log("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
-								if(sNaN(response)){
+								if(isNaN(response)){
 									eval("responses."+inputs[i]+" = '"+getKeyByTrad(response)+"';");
 								}else{
 									eval("responses."+inputs[i]+" = "+response+";");
