@@ -48,6 +48,7 @@ $(function() {
 			console.log(Object.keys(fileTranslate).length);
 			$.post( "/node", { country: country, name: file.default_language+".json", action: 'read' } )
 			.done(function( dataTrad ) {
+				languageChoosen = $("#languageToUpload").val();
 				var missingTrad = missingTranslation(fileTranslate);
 				if(missingTrad.length > 0){
 					var strMissingTrad = "";
