@@ -56,7 +56,6 @@ function cleaningTranslation(tradData){
 }
 
 function missingTranslation(tradData){
-    getTraduction(languageChoosen, "", true);
     var listTraduction = translationNecessary();
     var missingTraduction=[];
 
