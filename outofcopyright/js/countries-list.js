@@ -41,8 +41,6 @@ $(function() {
 	});
 
 	$( "#uploadLanguage" ).click(function() {
-
-		console.log()
 		if(contentFile != undefined && $("#languageToUpload").val() != ''){
 			var fileTranslate = JSON.parse(contentFile);
 			console.log(Object.keys(fileTranslate).length);
