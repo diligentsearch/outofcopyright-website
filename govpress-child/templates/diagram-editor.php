@@ -93,7 +93,7 @@ get_header(); ?>
                 </div>
                 <div class="col-sm-1" style=" padding-top: 15px; padding-left: 0px; ">
                     <a href="#" class="popoverInfo" data-toggle="popover" title="Creative commons" placement="bottom" data-content="By using this tool you agree that all your contributions will be released under <a href='https://creativecommons.org/licenses/by/4.0/'>Creative Commons Attribution 4.0 license</a>.">
-                        <img style="height: 31px;padding-right: 5px;" src="http://mirrors.creativecommons.org/presskit/icons/cc.png"/>
+                        <img style="height: 31px;padding-right: 5px;" src="/wp-content/themes/govpress-child/lib/pictures/cc.png"/>
                     </a>
                 </div>
                 
