@@ -92,7 +92,7 @@ get_header(); ?>
                     <i class="fa fa-floppy-o fa-2x grey-color" id="buttonSave" title="Save" style="margin-top: 15px;cursor:pointer;float: right;padding-right: 10px;"></i>
                 </div>
                 <div class="col-sm-1" style=" padding-top: 15px; padding-left: 0px; ">
-                    <a href="#" class="popoverInfo" data-toggle="popover" title="Additional information" placement="bottom" data-content="By using this tool you agree that all your contributions will be released under <a href='https://creativecommons.org/publicdomain/zero/1.0/'>CC0 Public Domain Dedication</a>.">
+                    <a href="#" class="popoverInfo" data-toggle="popover" title="Additional information" placement="bottom" data-content="By using this tool you agree that all your contributions will be released under <a href='https://creativecommons.org/licenses/by/4.0/'>Creative Commons Attribution 4.0 license</a>.">
                         <img style="height: 31px;padding-right: 5px;" src="http://mirrors.creativecommons.org/presskit/icons/cc.png"/>
                     </a>
                 </div>
