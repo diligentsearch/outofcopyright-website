@@ -5,6 +5,7 @@ $(function(){
   		saveAlias();
   		saveResult();
   		saveQuestion();
+  		saveContributor();
   		if(!$("#preventAlias").is(":visible")){
   			draw();
   		}
@@ -20,6 +21,7 @@ $(function(){
   			saveAlias();
   			saveResult();
   			saveQuestion();
+  			saveContributor();
 		}
   		
   		saveTraduction(languageChoosen, $("#commitMessage").val());
@@ -163,4 +165,11 @@ function saveTraduction(langue, message){
 	message += "\nContributed by : "+current_user.firstname+" "+current_user.lastname;
 	bibliotheque[langue] = cleaningTranslation(bibliotheque[langue]);
 	$.post( "/node", { country: country, name: langue+".json", action: 'update', file: JSON.stringify(bibliotheque[langue]), message: message } );
+}
+
+function saveContributor(){
+	var contributor = current_user.firstname+" "+current_user.lastname;
+	if(jQuery.inArray( getNodeId(contributor, file.contributors ) == -1){
+		file.contributors.push(contributor);
+	}
 }
