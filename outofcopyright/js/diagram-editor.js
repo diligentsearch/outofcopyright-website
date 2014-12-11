@@ -224,7 +224,7 @@ $(function(){
 	  	
 	};
 
-	
+	$('.popoverInfo').popover({placement:'bottom'});
 	
 });
 
