@@ -169,7 +169,7 @@ function saveTraduction(langue, message){
 
 function saveContributor(){
 	var contributor = current_user.firstname+" "+current_user.lastname;
-	if(jQuery.inArray( getNodeId(contributor, file.contributors ) == -1){
+	if(jQuery.inArray( contributor, file.contributors ) == -1){
 		file.contributors.push(contributor);
 	}
 }
