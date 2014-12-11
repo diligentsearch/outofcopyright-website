@@ -99,7 +99,7 @@ function getCountries(callback){
     repo.getTree('master', function(err, tree) {
         var listCountries = [];
         for(var i = 0; i < tree.length; i++){
-            if(tree[i].path != "README.md" ){
+            if(tree[i].path != "README.md" && tree[i].path != "LICENSE"){
                 listCountries.push(tree[i].path);
             }
         }
