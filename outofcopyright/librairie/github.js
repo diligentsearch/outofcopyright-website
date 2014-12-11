@@ -99,7 +99,9 @@ function getCountries(callback){
     repo.getTree('master', function(err, tree) {
         var listCountries = [];
         for(var i = 0; i < tree.length; i++){
-            listCountries.push(tree[i].path);
+            if(tree[i].path != "README.md" ){
+                listCountries.push(tree[i].path);
+            }
         }
         callback(listCountries);
     });

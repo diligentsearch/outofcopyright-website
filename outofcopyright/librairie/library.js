@@ -70,7 +70,7 @@ function getDefaultLanguage(){
 	return file.default_language;
 }
 
-//Récupération de la liste des nomns des différents diagramme
+//Récupération de la liste des noms des différents diagramme
 function getListSubgraph(){
 	var result = [];
 	for(var i = 0; i < file.subgraph.length; i++){
