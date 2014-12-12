@@ -277,6 +277,16 @@ get_header();
             e.stopPropagation();
         });
     </script>
+    <script>
+    var current_user = new Object();
+    <?php 
+        echo "current_user.login = '".$current_user->user_login."';\n\r";
+        echo "current_user.firstname = '".$current_user->user_firstname."';\n\r";
+        echo "current_user.lastname = '".$current_user->user_lastname."';\n\r";
+        echo "current_user.id = ".$current_user->ID.";\n\r";
+     ?>
+
+    </script>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
