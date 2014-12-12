@@ -61,14 +61,14 @@ $(function() {
 					$("#alertTranslate").show();
 				}else{
 					if( jQuery.inArray( $("#languageToUpload").val(), file.language ) == -1){
-						$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'write', file: contentFile, message: 'New language '+$("#languageToUpload").val()+"\nContributed by : "+current_user.firstname+" "+current_user.lastname } );
+						$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'write', file: contentFile, message: 'New file language '+$("#languageToUpload").val()+"\nContributed by : "+current_user.firstname+" "+current_user.lastname } );
 						file.language.push($("#languageToUpload").val());
 						$("#listLanguagesSpan").append(" - "+$("#languageToUpload").val());
+						$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: 'New language '+$("#languageToUpload").val()+"\nContributed by : "+current_user.firstname+" "+current_user.lastname } );
 					}else{
 						$.post( "/node", { country: country, name: $("#languageToUpload").val()+".json", action: 'update', file: contentFile, message: 'Update language '+$("#languageToUpload").val()+"\nContributed by : "+current_user.firstname+" "+current_user.lastname } );
 					}
-					$.post( "/node", { country: country, name: country+".json", action: 'update', file: JSON.stringify(file), message: 'New language' } );
-				
+
 					$("#fileToUpload").val("");
 					$("#languageToUpload").val("");
 					$("#uploadPOFileModal").hide();
