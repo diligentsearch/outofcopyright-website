@@ -24,7 +24,7 @@ get_header();
 ?>
 
 	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+		<div id="content" class="site-content" role="main" style="padding: 0px;margin-bottom: 0px;">
 			<div class="col-sm-2" style="height: 100%;">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 3px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
             <div class="col-sm-12 text-center margin-bottom height-40 padding-top-15 grey-color" style="font-weight: bold;" >
