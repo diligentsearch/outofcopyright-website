@@ -13,8 +13,6 @@ $(function() {
 
 	$screenHeight = $(document).height();
 
-	$( "#changeLog" ).css( "max-height", "500px" );
-
 	$( "#uploadPOFileButton" ).click(function() {
 			
 	});
