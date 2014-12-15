@@ -174,8 +174,9 @@ if(isset($_GET['country'])){
 
             });
 
-            $('body').on('click', function (e) 
+            $('body').on('click', function (e){
                 $('[data-toggle="popover"]').popover('hide');
+
             });
 
             function changeLangue(){
