@@ -250,7 +250,7 @@ function loadCountry(country){
 			                        '+date+'\
 			                    </div>\
 			                </div>\
-			                <div class="row">\
+			                <div class="row rowChangelog">\
 			                    <div class="col-sm-2" style="height: 50px;">\
 			                    <div class="lineChangelog" style="height: 100%; width: 3px; background: rgb(216, 216, 216); margin-left: 6px;"></div>\
 			                    </div>\
@@ -263,6 +263,10 @@ function loadCountry(country){
 				}
 
 				$("#changeLog").html(listCommits);
+
+				$(".rowChangelog").each(function() {
+				  	$( this ).find( ".col-sm-2" ).css("height",$( this ).css("height")+"px");
+				});
 			});
 		});
 	}

@@ -141,7 +141,7 @@ get_header();
                 CHANGELOG
             </div>
         </div>
-        <div class="row" id="changeLog">
+        <div class="row" id="changeLog" style="max-height: 520px;">
         </div>
     </div>
 
