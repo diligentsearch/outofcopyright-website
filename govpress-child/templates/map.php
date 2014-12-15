@@ -40,6 +40,7 @@ $key_map = get_post_meta( get_the_ID(), 'map', true );
 					  colorProperty: 'scale',
 					  colorScale: 'ordinal',
 					  colorOn: true,
+					  colorReverse: false,
 					  legendOn: false,
 					  projection: 'conicConformal',
 					  stylesBackground: 'background-color: #FFF;',
