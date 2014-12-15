@@ -4,7 +4,6 @@ var contentFile
 
 $(function() {
 	$("#secondary").hide();
-	$("html").css("height","1100px");
 	$('.site-header').css("padding","0");
 	$('.col-width').css("max-width","100%");
 	$('.col-width').css("padding","0");
