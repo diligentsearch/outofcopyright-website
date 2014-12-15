@@ -175,15 +175,13 @@ if(isset($_GET['country'])){
             });
 
             $('body').on('click', function (e) {
-                //did not click a popover toggle, or icon in popover toggle, or popover
-                console.log($(e.target).data('toggle'));
-                console.log($(e.target).parents('[data-toggle="popover"]').length );
-                console.log($(e.target).parents('.popover.in').length);
-                if ($(e.target).data('toggle') !== 'popover'
-                    && ($(e.target).parents('[data-toggle="popover"]').length === 0 || $(e.target).parents('[data-toggle="popover"]').length === 1)
-                    && $(e.target).parents('.popover.in').length === 0) { 
-                    $('[data-toggle="popover"]').popover('hide');
-                }
+                $('[data-toggle="popover"]').each(function () {
+                    //the 'is' for buttons that trigger popups
+                    //the 'has' for icons within a button that triggers a popup
+                    if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                        $(this).popover('hide');
+                    }
+                });
             });
 
             function changeLangue(){
