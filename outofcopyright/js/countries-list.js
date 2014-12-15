@@ -265,7 +265,7 @@ function loadCountry(country){
 				$("#changeLog").html(listCommits);
 
 				$(".rowChangelog").each(function() {
-				  	$( this ).find( ".col-sm-2" ).css("height",$( this ).css("height")+"px");
+				  	$( this ).find( ".col-sm-2" ).css("height",$( this ).css("height"));
 				});
 			});
 		});
