@@ -134,7 +134,7 @@ $(function() {
 			$("#messageAlert").text("Merge in production");
 		}else{
 			$("#alertWarning").show();
-			$("#messageAlertWarning").text("The merge failed because one or more diagrams is not finished");
+			$("#messageAlertWarning").text("The merge failed because one or more diagrams are not finished");
 		}
 	});
 });
