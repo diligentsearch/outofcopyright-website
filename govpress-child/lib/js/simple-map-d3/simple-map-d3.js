@@ -535,6 +535,15 @@ function SimpleMapD3(o) {
         })
         .on('click', function(d) {
           // onClick
+			// Check if a link is present
+			if (typeof d.properties.link != "undefined") {
+			   // Check if link is not empty
+			   link = d.properties.link
+			   if (link.length > 0) {
+			   	window.location = link;
+			   }
+			}
+			
 			console.log(d.properties);
         })
         .on('mouseover', function(d) {
