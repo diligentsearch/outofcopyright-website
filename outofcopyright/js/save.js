@@ -47,16 +47,17 @@ function saveFormula(){
 	if($("#formulaButton").hasClass( "buttonPropertyActive" )){
 		if(formulaActual != ''){
 			file.subgraph[typeOfWork].nodes[idNodeSelected].formula = formulaActual;
-		}
-		if(formulaInputs.length > 0){
-			file.subgraph[typeOfWork].nodes[idNodeSelected].inputs = formulaInputs;
-		}
 		
-		file.subgraph[typeOfWork].nodes[idNodeSelected].type = 'question';
+			if(formulaInputs.length > 0){
+				file.subgraph[typeOfWork].nodes[idNodeSelected].inputs = formulaInputs;
+			}
+			
+			file.subgraph[typeOfWork].nodes[idNodeSelected].type = 'question';
 
-		if(file.subgraph[typeOfWork].nodes[idNodeSelected].responses.length == 0){
-			addResponse(typeOfWork, idNodeSelected, true);
-			addResponse(typeOfWork, idNodeSelected, false);
+			if(file.subgraph[typeOfWork].nodes[idNodeSelected].responses.length == 0){
+				addResponse(typeOfWork, idNodeSelected, true);
+				addResponse(typeOfWork, idNodeSelected, false);
+			}
 		}
 	}
 }

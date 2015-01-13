@@ -363,6 +363,10 @@ function draw(){
 
   	$('.node').click( function(){
   		
+  		formulaActual = '';
+		formulaActualForTest = '';
+		formulaInputs= [];
+
   		$( "#inferiorFormula" ).removeAttr("disabled","");
 	  	$( "#superiorFormula" ).removeAttr("disabled","");
 
