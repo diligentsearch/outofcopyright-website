@@ -96,11 +96,12 @@ function getTree(){
 
 //Récupération de la liste des pays 
 function getCountries(callback){
-    repo.getTree('master', function(err, tree) {
+    repo.listBranches(function(err, tree) {
         var listCountries = [];
+        console.log(tree);
         for(var i = 0; i < tree.length; i++){
-            if(tree[i].path != "README.md" && tree[i].path != "LICENCE.md"){
-                listCountries.push(tree[i].path);
+            if(tree[i] != "master"){
+                listCountries.push(tree[i]);
             }
         }
         callback(listCountries);

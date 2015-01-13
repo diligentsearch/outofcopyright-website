@@ -45,11 +45,16 @@
     function _request(method, path, data, cb, raw, commits) {
       function getURL(data) {
         var url = API_URL + path;
-        if(data.ref !== undefined){
-          return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime() + '&ref='+data.ref;
+        if(data !== null){
+          if(data.ref !== undefined){
+            return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime() + '&ref='+data.ref;
+          }else{
+            return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime();
+          }
         }else{
-          return url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime();
+          return url;
         }
+        
       }
       function getURLCommits(data) {
         var url = API_URL + path;
@@ -262,6 +267,7 @@
 
       this.listBranches = function(cb) {
         _request("GET", repoPath + "/git/refs/heads", null, function(err, heads) {
+
           if (err) return cb(err);
           cb(null, _.map(heads, function(head) { return _.last(head.ref.split('/')); }));
         });
