@@ -84,11 +84,8 @@ function saveQuestion(){
 		if(nodeSelected.text != ""){
 			question = nodeSelected.text;
 		}else{
-			question = $("#question").val().replace(/\!/g,'');
-			question = question.replace(/\?/g,'');
-			question = question.replace(/ /g,'_');
-			question = question.replace(/'/g,'_');
-			question = question.replace(/-/g,'_');
+			question = formatString($("#question").val());
+			
 			file.subgraph[typeOfWork].nodes[idNodeSelected].text = question;
 		}
 		
