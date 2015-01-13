@@ -366,6 +366,7 @@ function draw(){
   		formulaActual = '';
 		formulaActualForTest = '';
 		formulaInputs= [];
+		$(".formulaResult").hide();
 
   		$( "#inferiorFormula" ).removeAttr("disabled","");
 	  	$( "#superiorFormula" ).removeAttr("disabled","");
