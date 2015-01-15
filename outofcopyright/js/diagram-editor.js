@@ -151,8 +151,8 @@ $(function(){
 			if($("#questionDatapoint").val() !== ""){
 				
 				var id = formatString($("#questionDatapoint").val());
-				var hint = $("#hintDatapoint").val();
-				var question = $("#questionDatapoint").val();
+				var hint = formatStringInput($("#hintDatapoint").val());
+				var question = formatStringInput($("#questionDatapoint").val());
 				var type = $("#typeDatapoint").val();
 				var set = null;
 

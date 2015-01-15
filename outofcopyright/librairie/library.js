@@ -129,6 +129,12 @@ function formatString(string){
 	return str;
 }
 
+function formatStringInput(string){
+	var str = string.replace(/"/g,'\\"');
+
+	return str;
+}
+
 //Retourne le sha du premier commit commun entre deux branches
 function linkCommits(commitsMaster, commitsChild){
     for(var i = 0; i < commitsMaster.length; i++){
