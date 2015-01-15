@@ -133,3 +133,19 @@ function getKeyByTrad(trad){
         }
     }
 }
+
+function KeyUnique(trad){
+    var listTraduction = translationNecessary();
+    var ok = false;
+    var i = 0;
+    while(!ok){
+        if(jQuery.inArray( trad, listTraduction ) == -1){
+            ok = true;
+            return trad;
+        }else{
+            i++;
+            trad = trad + i;
+        }
+    }
+    
+}

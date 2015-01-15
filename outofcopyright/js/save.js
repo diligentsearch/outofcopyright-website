@@ -86,7 +86,7 @@ function saveQuestion(){
 		}else{
 			question = formatString($("#question").val());
 			
-			file.subgraph[typeOfWork].nodes[idNodeSelected].text = question;
+			file.subgraph[typeOfWork].nodes[idNodeSelected].text = KeyUnique(question);
 		}
 		
 		var stringToEvaluate = 'bibliotheque["'+languageChoosen+'"].'+question+' = "'+$("#question").val()+'";';
