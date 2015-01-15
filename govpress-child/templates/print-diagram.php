@@ -108,7 +108,7 @@ get_header(); ?>
                 }
 
             </script>
-            <svg id='drawSvg' style=" margin-left: 20px;width: 800px; height: 800px;"></svg>
+            <svg id='drawSvg' style=" margin-left: 20px;width: 1200px; height: 1200px;"></svg>
             <!-- Include all compiled plugins (below), or include individual files as needed -->
             <script src="js/bootstrap.min.js"></script>
         </div><!-- #content -->
