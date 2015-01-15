@@ -214,7 +214,7 @@ function loadCountry(country){
 		$('#contributors').html(listContributors);
 
 		
-		$("#apiURL").val("http://api.outofcopyright.eu/"+country+"?ref="+country);
+		$("#apiURL").val("http://api.outofcopyright.eu/wip/"+country);
 	});
 
 	//Display changelog
