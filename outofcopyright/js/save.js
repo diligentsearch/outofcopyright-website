@@ -82,11 +82,11 @@ function saveQuestion(){
 	var question = "";
 	if($("#question").val() != ""){
 		if(nodeSelected.text != ""){
-			question = nodeSelected.text;
+			question = KeyUnique(nodeSelected.text);
 		}else{
-			question = formatString($("#question").val());
+			question = KeyUnique(formatString($("#question").val()));
 			
-			file.subgraph[typeOfWork].nodes[idNodeSelected].text = KeyUnique(question);
+			file.subgraph[typeOfWork].nodes[idNodeSelected].text = question;
 		}
 		
 		var stringToEvaluate = 'bibliotheque["'+languageChoosen+'"].'+question+' = "'+$("#question").val()+'";';
