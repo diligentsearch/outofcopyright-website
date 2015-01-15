@@ -125,6 +125,7 @@ function formatString(string){
 	str = str.replace(/\\/g,'_');
 	str = str.replace(/\(/g,'_');
 	str = str.replace(/\)/g,'_');
+	str = str.replace(/"/g,'_');
 	return str;
 }
 
