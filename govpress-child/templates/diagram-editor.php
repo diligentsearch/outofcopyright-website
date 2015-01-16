@@ -23,7 +23,7 @@ get_header(); ?>
             <div class="col-sm-2" style="max-height: 100%;">
         <div class="row" style="border-bottom: solid 1px #CFCFCF;border-right: solid 3px #CFCFCF;background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);">
             <div class="col-sm-12 margin-bottom height-40 padding-top-15" style="font-weight: bold;">
-                <a href="?page_id=4348" id="countryTitle"></a>
+                <span id="countryTitle">Netherlands</span>
             </div>
         </div>
         <div class="row" id="leftPart" style="border-right: solid 3px #CFCFCF;">
