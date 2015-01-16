@@ -62,7 +62,7 @@ if(isset($_GET['country'])){
                             <?php
                             if($branch == 'master'){
                             ?>
-                                ga('send', 'event', 'Calculators', "<?php echo $key_country; ?>", $("#langues").val());
+                                _gaq.push(['_trackEvent', 'Calculators', "<?php echo $key_country; ?>", $("#langues").val()]);
                             <?php 
                             } 
                             ?>
