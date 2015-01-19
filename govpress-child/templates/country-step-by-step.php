@@ -303,15 +303,12 @@ if(isset($_GET['country'])){
                 </div>
             </div>
             <div class="alert alert-dismissable alert-success margin-top" style="display:none;">
-                <button type="button" class="close" data-dismiss="alert">×</button>
                 <p id="result"></p>
             </div>
             <div class="alert alert-dismissable alert-danger margin-top" style="display:none;">
-                <button type="button" class="close" data-dismiss="alert">×</button>
                 <p id="resultdanger"></p>
             </div>
             <div class="alert alert-dismissable alert-warning margin-top" style="display:none;">
-                <button type="button" class="close" data-dismiss="alert">×</button>
                 <h4 id="labelWarning"></h4>
                 <p id="error"></p>
             </div>
