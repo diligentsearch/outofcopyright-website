@@ -274,7 +274,7 @@ function download(filename, text) {
   pom.setAttribute('download', filename);
   pom.click();*/
 
-  	var blob = new Blob([encodeURIComponent(text)], {type: "text/plain;charset=utf-8"});
+  	var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
 	saveAs(blob, filename);
 }
 
