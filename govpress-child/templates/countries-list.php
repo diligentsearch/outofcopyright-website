@@ -45,11 +45,11 @@ get_header();
             </div>
         </div>
         <div class="alert alert-dismissable alert-success" id="alertSuccess" style="display: none;">
-            <button type="button" class="close">×</button>
+            <span class="close">×</span>
             <p id="messageAlert"></p>
         </div>
         <div class="alert alert-dismissable alert-warning" id="alertWarning" style="display: none;">
-            <button type="button" class="close">×</button>
+            <span class="close">×</span>
             <p id="messageAlertWarning"></p>
         </div>
         <div class="col-sm-12" style="padding-top:15px;">
@@ -151,7 +151,7 @@ get_header();
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <span class="close">×</span>
                     <h4 class="modal-title">Download JSON File</h4>
                 </div>
                 <div class="modal-body">
@@ -179,7 +179,7 @@ get_header();
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <span class="close">×</span>
                     <h4 class="modal-title">Upload JSON file</h4>
                 </div>
                 <div class="modal-body">
@@ -200,7 +200,7 @@ get_header();
                         </fieldset>
                     </form>
                     <div class="alert alert-dismissable alert-warning" id="alertTranslate" style="display:none;">
-                      <button type="button" class="close" data-dismiss="alert">×</button>
+                      <span class="close">×</span>
                         <h4>Warning!</h4>
                         <p id="missingTranslationMessage"></p>
                     </div>
@@ -217,7 +217,7 @@ get_header();
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <span class="close">×</span>
                     <h4 class="modal-title">Add contributor</h4>
                 </div>
                 <div class="modal-body">
