@@ -269,10 +269,13 @@ function loadCountry(country){
 	}
 
 function download(filename, text) {
-  var pom = document.createElement('a');
+  /*var pom = document.createElement('a');
   pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   pom.setAttribute('download', filename);
-  pom.click();
+  pom.click();*/
+
+  	var blob = new Blob([encodeURIComponent(text)], {type: "text/plain;charset=utf-8"});
+	saveAs(blob, filename);
 }
 
 function readSingleFile(evt) {

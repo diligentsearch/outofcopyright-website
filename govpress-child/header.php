@@ -51,6 +51,7 @@
 <script src="/wp-content/themes/govpress-child/js/timeformater.js"></script>
 <script src="/wp-content/themes/govpress-child/js/formula.js"></script>
 <script src="/wp-content/themes/govpress-child/js/save.js"></script>
+<script src="/wp-content/themes/govpress-child/js/FileSaver.js"></script>
 <!--[if lt IE 9]>
 <script src="<?php echo esc_url( get_template_directory_uri() . '/js/html5.js' ); ?>"></script>
 <![endif]-->
