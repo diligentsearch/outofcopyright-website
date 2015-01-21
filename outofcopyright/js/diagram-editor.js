@@ -462,7 +462,6 @@ function formatD3Edges(g){
 								edge.value.label = 'False';
 							}
 						}else{
-							console.log(getType(typeOfWork, i));
 							if(getType(typeOfWork, i) == 'list'){
 								edge.value.label = getTraduction( languageChoosen , node.responses[j].value);
 							}else{
@@ -555,7 +554,6 @@ function selectPropertiesButton(idNode){
 	}else{
 		$('#datapointsList').prop("disabled","disabled");
 	}
-	console.log(getType(typeOfWork, idNode));
 	switch(getType(typeOfWork, idNode)){
 		case 'formula' :
 						clickPropertiesButton('formulaButton');

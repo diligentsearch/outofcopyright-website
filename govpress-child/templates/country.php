@@ -42,8 +42,6 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                     $("#result").html(result);
                     $(".alert-success").show();
                 }
-
-                console.log(result);
             }
             $(document).on('change','#typeOfWork',function(){
                 $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
@@ -57,7 +55,6 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 $( "#forms" ).html('');
                 if($( "#typeOfWork" ).val() != ''){
                     inputs = getInputs($( "#typeOfWork" ).val());
-                    console.log(inputs);
                     for(var i = 0; i < inputs.length; i++){
                         var trad = getTraduction($("#langues").val(), 'question_'+inputs[i]);
                         var datapoint = getResponseById(inputs[i]);
@@ -147,7 +144,6 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
                 .done(function( dataTrad ) {
                     traductionData = dataTrad;
-                    console.log("change");
                     $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
                     $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
                     $("#waitingPart").hide();

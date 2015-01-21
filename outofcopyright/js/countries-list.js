@@ -40,7 +40,6 @@ $(function() {
 	$( "#uploadLanguage" ).click(function() {
 		if(contentFile != undefined && $("#languageToUpload").val() != ''){
 			var fileTranslate = JSON.parse(contentFile);
-			console.log(Object.keys(fileTranslate).length);
 			$.post( "/node", { country: country, name: file.default_language+".json", action: 'read' } )
 			.done(function( dataTrad ) {
 				languageChoosen = $("#languageToUpload").val();
@@ -167,8 +166,6 @@ function displayCountries(){
 function loadCountry(country){
 
 	this.country = country;
-	
-	console.log("./diagram-editor.html?country="+country);
 
 	$(".active > a").css('color', '#22abd4');
 	$( ".country" ).removeClass('active');
@@ -223,7 +220,6 @@ function loadCountry(country){
 			$.post( "/node", { country: country, name: country+".json", action: 'commits', branch: 'master' } )
 			.done(function( dataMaster ) {
 				var shaLink = linkCommits(dataMaster, data);
-				console.log(shaLink);
 				var tf = new TimeFormatter();
 				var listCommits = "";
 				for( var i = 0; i < data.length; i++){

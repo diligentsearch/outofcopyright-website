@@ -51,7 +51,6 @@ if(isset($_GET['country'])){
                     }
                     else{
                         if(result.error == 1){
-                            console.log(result);
                             $(".questionInput").prop("disabled","disabled");
                             newQuestion(result.waiting_response);
                             
@@ -187,7 +186,6 @@ if(isset($_GET['country'])){
             function changeLangue(){
                 getData("<?php echo $key_country; ?>", $("#langues").val(), function( dataTrad ) {
                     traductionData = dataTrad;
-                    console.log("change");
                     $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
                     $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
                     $("#waitingPart").hide();

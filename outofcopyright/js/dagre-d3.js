@@ -551,7 +551,6 @@ function intersectPolygon(node, polyPoints, point) {
   }
 
   if (!intersections.length) {
-    console.log("NO INTERSECTION FOUND, RETURN NODE CENTER", node);
     return node;
   }
 
@@ -3955,7 +3954,7 @@ function time(name, fn) {
   try {
     return fn();
   } finally {
-    console.log(name + " time: " + (_.now() - start) + "ms");
+    //console.log(name + " time: " + (_.now() - start) + "ms");
   }
 }
 

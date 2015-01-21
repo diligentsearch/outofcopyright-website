@@ -105,7 +105,6 @@ function testFormula(){
 	
 	}
 	catch(err) {
-		console.log(err);
     	$("#formula-warning").show();
 	}
 }

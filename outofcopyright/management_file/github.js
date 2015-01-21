@@ -35,10 +35,12 @@ router.route('/').post(function (req, res) {
 					break;
 		case 'update':
 					updateFile(req.param('country'), req.param('name'), req.param('file'), req.param('message'));
+					saveFile(req.param('country'), req.param('name'), req.param('file'), req.param('message'));
 					res.send('Update successful');
 					break;
 		case 'write':
 					writeFile(req.param('country'), req.param('name'), req.param('file'), req.param('message'));
+					saveFile(req.param('country'), req.param('name'), req.param('file'), req.param('message'));
 					res.send('Write successful');
 					break;
 		case 'getCountries':
@@ -72,3 +74,46 @@ var server = app.listen(8000, function () {
   console.log('Example app listening at http://%s:%s', host, port)
 
 })
+
+function saveFile(country, name, file, message){
+
+	var string = "----------------------------------\r\n"
+	string += "country : " + country + "\r\n";
+	string += "name : " + name + "\r\n";
+	string += "message : " + message + "\r\n";
+	string += file;
+
+
+	fs.writeFile("/logfile/log-" + getDateTime(), string, function(err) {
+	    if(err) {
+	        console.log(err);
+	    } else {
+	        console.log("The file was saved!");
+	    }
+	}); 
+}
+
+function getDateTime() {
+
+    var date = new Date();
+
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+    return year + "-" + month + "-" + day + " " + hour + "-" + min + "-" + sec;
+
+}
