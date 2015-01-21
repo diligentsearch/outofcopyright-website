@@ -84,7 +84,7 @@ function saveFile(country, name, file, message){
 	string += file;
 
 
-	fs.writeFile("logfile/log-" + getDateTime()+ Math.floor((Math.random() * 100000) + 1);, string, function(err) {
+	fs.writeFile("logfile/log-" + getDateTime()+ Math.floor((Math.random() * 100000) + 1), string, function(err) {
 	    if(err) {
 	        console.log(err);
 	    } else {
