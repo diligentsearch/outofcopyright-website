@@ -43,7 +43,7 @@ if ($key_color == "") {
 						var europePopMap = SimpleMapD3({
 							container: '#map',
 							datasource: 'https://rawgit.com/outofcopyright/outofcopyright-maps/master/<?php echo $key_map; ?>.json',
-							colorSet:  ['rgb(255,255,255)','rgb(250,170,0)','rgb(0,109,145)'],
+							colorSet:  <?php echo $key_color; ?>,
 							colorProperty: 'scale',
 							colorScale: 'ordinal',
 							colorOn: true,
