@@ -30,6 +30,12 @@ function walk(idSubgraph, responses, server, lang){
 			listResponses = getResponsesList(node.inputs, responses);
 
 			if(listResponses.error !== undefined){
+				listResponses.question = getTraduction(lang, listResponses.waiting_response, server);
+
+				for (var i = node.responses.length - 1; i >= 0; i--) {
+					correct_responses.push(getTraduction(lang, node.responses[i].value, server));
+				};
+				listResponses.correct_responses = correct_responses;
 				var missingResponses = getMissingResponse(idSubgraph, idNode, Object.keys(responses));
 				listResponses.all_possible_responses = missingResponses;
 				return listResponses;
