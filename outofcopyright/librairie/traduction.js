@@ -7,6 +7,14 @@ function getTraduction(langue, key, server){
     var trad;
     var result;
 
+    if( typeof key === 'boolean' ){
+        if(key){
+            key = 'True';
+        }else{
+            key = 'False';
+        }
+    }
+
     if(bibliotheque[langue] == undefined){
 
             trad = traductionData;
