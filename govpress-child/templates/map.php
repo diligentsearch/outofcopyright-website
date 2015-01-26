@@ -10,6 +10,10 @@ get_header();
 
 $location = get_stylesheet_directory_uri();
 $key_map = get_post_meta( get_the_ID(), 'map', true );
+$key_color = get_post_meta( get_the_ID(), 'color', true );
+if ($key_color == "") { 
+	$key_color = "['rgb(255,255,255)','rgb(250,170,0)','rgb(0,109,145)']";
+}
                 
 ?>
 
@@ -39,7 +43,7 @@ $key_map = get_post_meta( get_the_ID(), 'map', true );
 						var europePopMap = SimpleMapD3({
 							container: '#map',
 							datasource: 'https://rawgit.com/outofcopyright/outofcopyright-maps/master/<?php echo $key_map; ?>.json',
-							colorSet:  ['rgb(255,255,255)','rgb(250,170,0)','rgb(0,109,145)'],
+							colorSet:  <?php echo $key_color; ?>,
 							colorProperty: 'scale',
 							colorScale: 'ordinal',
 							colorOn: true,
