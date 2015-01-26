@@ -31,10 +31,15 @@ function walk(idSubgraph, responses, server, lang){
 
 			if(listResponses.error !== undefined){
 				listResponses.question = getTraduction(lang, listResponses.waiting_response, server);
-				var correct_responses = [];
-				for (var i = node.responses.length - 1; i >= 0; i--) {
-					correct_responses.push(getTraduction(lang, node.responses[i].value, server));
-				};
+				if(getType(idSubgraph, idNode) != 'formula'){
+					var correct_responses = [];
+					for (var i = node.responses.length - 1; i >= 0; i--) {
+						correct_responses.push(getTraduction(lang, node.responses[i].value, server));
+					};
+				}else{
+					var correct_responses = 'Numeric value';
+				}
+				
 				listResponses.correct_responses = correct_responses;
 				var missingResponses = getMissingResponse(idSubgraph, idNode, Object.keys(responses));
 				listResponses.all_possible_responses = missingResponses;
