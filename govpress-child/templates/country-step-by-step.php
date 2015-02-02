@@ -184,15 +184,15 @@ if(isset($_GET['country'])){
             });
 
             function changeLangue(){
-                getData("<?php echo $key_country; ?>", $("#langues").val(), function( dataTrad ) {
-                    traductionData = dataTrad;
-                    $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
-                    $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
-                    $("#waitingPart").hide();
-                    $("#calculatorPart").show();
-                });
-
-                
+                if($("#langues").val() != ""){
+                    getData("<?php echo $key_country; ?>", $("#langues").val(), function( dataTrad ) {
+                        traductionData = dataTrad;
+                        $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
+                        $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
+                        $("#waitingPart").hide();
+                        $("#calculatorPart").show();
+                    });
+                }
             }
 
             function newQuestion(input){
