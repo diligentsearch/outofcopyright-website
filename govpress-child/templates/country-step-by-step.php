@@ -167,10 +167,11 @@ if(isset($_GET['country'])){
             });
 
             $(document).on('change','#langues',function(){
-                $("#waitingPart").show();
-                $("#calculatorPart").hide();
-                changeLangue();
-
+                if($("#langues").val() != ""){
+                    $("#waitingPart").show();
+                    $("#calculatorPart").hide();
+                    changeLangue();
+                }
             });
 
             $('body').on('click', function (e) {
@@ -184,15 +185,15 @@ if(isset($_GET['country'])){
             });
 
             function changeLangue(){
-                if($("#langues").val() != ""){
-                    getData("<?php echo $key_country; ?>", $("#langues").val(), function( dataTrad ) {
-                        traductionData = dataTrad;
-                        $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
-                        $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
-                        $("#waitingPart").hide();
-                        $("#calculatorPart").show();
-                    });
-                }
+                
+                getData("<?php echo $key_country; ?>", $("#langues").val(), function( dataTrad ) {
+                    traductionData = dataTrad;
+                    $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));
+                    $("#labelLangue").text(getTraduction($("#langues").val(), 'labelLangue'));
+                    $("#waitingPart").hide();
+                    $("#calculatorPart").show();
+                });
+                
             }
 
             function newQuestion(input){
