@@ -469,7 +469,7 @@ function formatD3Edges(g){
 							}
 							
 						}
-						g.setEdge(edge.u, edge.v, {label: edge.value.label});
+						g.setEdge(edge.u, edge.v, {label: edge.value.label + ""});
 					}
 					
 				}
