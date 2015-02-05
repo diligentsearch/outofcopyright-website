@@ -13,7 +13,17 @@
   if (typeof exports !== 'undefined') {
       XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
       _ = require('underscore');
-      Base64 = require('./lib/base64.js');
+      //Base64 = require('./lib/base64.js');
+      Base64 = {
+        encode:
+        function(string){ 
+          return (new Buffer(string).toString('base64'));
+        },
+        decode:
+        function(string){
+          return (new Buffer(string).toString('utf8'));
+        }
+      }
   }else{
       _ = window._;
       Base64 = {
