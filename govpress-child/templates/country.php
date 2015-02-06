@@ -44,7 +44,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
                 }
             }
             $(document).on('change','#typeOfWork',function(){
-                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
+                $.post( "/node", { country: <?php echo $key_country; ?>, name: $("#langues").val()+".json", action: 'read', branch: 'master' } )
                 .done(function( dataTrad ) {
                     traductionData = dataTrad;
                     chargeForms();
@@ -91,7 +91,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
 
             $(function() {
                 $("#secondary").hide();
-                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/<?php echo $key_country; ?>.json")
+                $.post( "/node", { country: <?php echo $key_country; ?>, name: <?php echo $key_country; ?>+".json", action: 'read', branch: 'master' } )
                 .done(function( data ) {
                     file = data;
 
@@ -141,7 +141,7 @@ $key_country = get_post_meta( get_the_ID(), 'country', true );
             });
 
             function changeLangue(){
-                $.get( "https://rawgit.com/outofcopyright/outofcopyright-files/master/<?php echo $key_country; ?>/"+$("#langues").val()+".json")
+                $.post( "/node", { country: <?php echo $key_country; ?>, name: $("#langues").val()+".json", action: 'read', branch: 'master' } )
                 .done(function( dataTrad ) {
                     traductionData = dataTrad;
                     $("#labelTypeOfWork").text(getTraduction($("#langues").val(), 'labelTypeOfWork'));

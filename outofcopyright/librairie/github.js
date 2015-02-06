@@ -55,8 +55,19 @@ function readFile(pays, fileName, callback){
     repo.read(BRANCH, pays+'/'+fileName, 
         function(err, data) {
             callback(data);
-        });
+        }
+    );
     
+}
+
+function readFileOnly(repName, fileName, callback){
+    console.log("readOnly");
+    var repoOnly = github.getRepo(USERNAME, repName);
+    repoOnly.read(BRANCH, fileName, 
+        function(err, data) {
+            callback(data);
+        }
+    );  
 }
 
 //Fonction permettant d'écrire un nouveau fichier 

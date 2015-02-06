@@ -24,11 +24,25 @@ router.route('/').post(function (req, res) {
 	}else{
 		BRANCH = req.param('country');
 	}
+
+	if(req.param('repo') == 'map'){
+		REPONAME = 'outofcopyright-maps';
+		BRANCH = 'master';
+	}else{
+		REPONAME = 'outofcopyright-files';
+		BRANCH = req.param('country');
+	}
 	
 
 	switch(req.param('action')){
 		case 'read': 
 					readFile(req.param('country'), req.param('name'), function(data){
+						parseJSON(data);
+						res.json(file);
+					});
+					break;
+		case 'readOnly': 
+					readFileOnly(REPONAME, req.param('name'), function(data){
 						parseJSON(data);
 						res.json(file);
 					});
