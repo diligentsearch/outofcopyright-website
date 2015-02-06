@@ -40,27 +40,30 @@ if ($key_color == "") {
 			<script type="text/javascript">
 				(function($) {
 					$(document).ready(function() {
-						var europePopMap = SimpleMapD3({
-							container: '#map',
-							datasource: 'https://cdn.rawgit.com/outofcopyright/outofcopyright-maps/master/<?php echo $key_map; ?>.json',
-							colorSet:  <?php echo $key_color; ?>,
-							colorProperty: 'scale',
-							colorScale: 'ordinal',
-							colorOn: true,
-							colorReverse: false,
-							legendOn: false,
-							projection: 'conicConformal',
-							stylesBackground: 'background-color: #FFF;',
-							canvasDragOn: true,
-						
-							tooltipContent: function(d) {
-								var p = d.properties;
-								if (p.result != "") {
-									document.getElementById("map-tooltip").innerHTML = '<h2>' + p.country + '</h2>' + "<p>" + p.result + "</p>" + "<p>" + p.value + "</p>";
-								} else {
-									document.getElementById("map-tooltip").innerHTML = '<h2>' + p.country + '</h2>' + "<p>" + p.value + "</p>";
+						$.post( "/node", { name: "<?php echo $key_map; ?>.json", action: 'readOnly', branch: 'master', repo: 'map' } )
+                		.done(function( dataMap ) {
+							var europePopMap = SimpleMapD3({
+								container: '#map',
+								data: dataMap,
+								colorSet:  <?php echo $key_color; ?>,
+								colorProperty: 'scale',
+								colorScale: 'ordinal',
+								colorOn: true,
+								colorReverse: false,
+								legendOn: false,
+								projection: 'conicConformal',
+								stylesBackground: 'background-color: #FFF;',
+								canvasDragOn: true,
+							
+								tooltipContent: function(d) {
+									var p = d.properties;
+									if (p.result != "") {
+										document.getElementById("map-tooltip").innerHTML = '<h2>' + p.country + '</h2>' + "<p>" + p.result + "</p>" + "<p>" + p.value + "</p>";
+									} else {
+										document.getElementById("map-tooltip").innerHTML = '<h2>' + p.country + '</h2>' + "<p>" + p.value + "</p>";
+									}
 								}
-							}
+							});
 						});
 					});
 				})(jQuery);
