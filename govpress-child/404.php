@@ -17,7 +17,7 @@ get_header(); ?>
 				</header><!-- .entry-header -->
 
 				<div class="page-content">
-					<p><?php _e( 'OutOfCopyright.eu was completely renewed in January 2015, our old site is archived but completely functional at <a href="http://archive.outofcopyright.org/">archive.outofcopyright.org</a>.', 'govpress' ); ?></p>
+					<p><?php _e( 'OutOfCopyright.eu was completely renewed in January 2015, our old site is archived but completely functional at <a href="http://archive.outofcopyright.eu/">archive.outofcopyright.eu</a>.', 'govpress' ); ?></p>
 					<p><?php _e( 'You can also try one of the links below or search for the topic you are looking for', 'govpress' ); ?></p>
 
 					<?php get_search_form(); ?>
