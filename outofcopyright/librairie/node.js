@@ -469,10 +469,13 @@ function getSubNode(subgraph, idNode, listNode){
 	if(file.subgraph[subgraph].nodes[idNode].responses !== undefined){
 		for(var i = 0; i < file.subgraph[subgraph].nodes[idNode].responses.length; i++){
 			var response = file.subgraph[subgraph].nodes[idNode].responses[i];
-			if(listNode.indexOf(response.child) == -1){
-				listNode.push(response.child);
+			
+			if (response.child){
+				if(listNode.indexOf(response.child) == -1){
+					listNode.push(response.child);
+				}
+				listNode = getSubNode(subgraph, response.child, listNode);
 			}
-			listNode = getSubNode(subgraph, response.child, listNode);
 		}
 	}
 	
