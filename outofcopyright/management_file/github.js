@@ -19,19 +19,20 @@ app.get('/', function (req, res) {
 })
 
 router.route('/').post(function (req, res) {
-	if(req.param('branch') == 'master'){
-		BRANCH = 'master';
-	}else{
-		BRANCH = req.param('country');
-	}
+	/*if(req.param('branch') == 'master'){
+                BRANCH = 'master';
+        }else{
+                BRANCH = req.param('country');
+        }*/
 
-	if(req.param('repo') == 'map'){
-		REPONAME = 'outofcopyright-maps';
-		BRANCH = 'master';
-	}else{
-		REPONAME = 'outofcopyright-files';
-		BRANCH = req.param('country');
-	}
+        if(req.param('repo') == 'map'){
+                REPONAME = 'outofcopyright-maps';
+                BRANCH = 'master';
+                USERNAME = 'outofcopyright';
+        }else{
+                REPONAME = 'outofcopyright-files';
+                BRANCH = req.param('branch') == 'master' ? 'master' : req.param('country');
+        }
 	
 
 	switch(req.param('action')){
