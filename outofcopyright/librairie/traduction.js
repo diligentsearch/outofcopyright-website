@@ -15,18 +15,13 @@ function getTraduction(langue, key, server){
         }
     }
 
-    if(bibliotheque[langue] == undefined){
-
-            trad = traductionData;
-            if(server == true){
-                    trad = JSON.parse(trad);
-            }
-            
-            bibliotheque[langue] = trad;
-    }else
-    {
-            trad = bibliotheque[langue];
+    trad = traductionData;
+    if(server == true){
+            trad = JSON.parse(trad);
     }
+    
+    bibliotheque[langue] = trad;
+   
     if(key != ""){
         try{
             console.log("trad."+formatString(key));
