@@ -160,27 +160,30 @@ function controlStrongConnected(id_subgraph){
 }
 
 /*
-  Récupération des réponse manquante dans les noeuds en dessous de celui donné
+  Retrieve missing answer in the nodes below the given
 */
 function getMissingResponse(subgraph, idNode, responses){
   var listNodes = getSubNode(subgraph, idNode);
+  // TODO: remove or encode debugging
   console.log(listNodes);
   console.log(responses);
-  var responsesObligatoire = [];
+  
+  var neccesaryResponses = [];
   var missingResponses = [];
+  
   for(var i = 0; i < listNodes.length; i++){
     var inputs = file.subgraph[subgraph].nodes[listNodes[i]].inputs
     if(inputs !== undefined){
       for(var j = 0; j < inputs.length; j++){
-        if(responsesObligatoire.indexOf(inputs[j]) == -1){
-          responsesObligatoire.push(inputs[j]);
+        if(neccesaryResponses.indexOf(inputs[j]) == -1){
+          neccesaryResponses.push(inputs[j]);
         }
       }
     }
   }
-  for(var i = 0; i < responsesObligatoire.length; i++){
-    if(responses.indexOf(responsesObligatoire[i]) == -1){
-      missingResponses.push(responsesObligatoire[i]);
+  for(var i = 0; i < neccesaryResponses.length; i++){
+    if(responses.indexOf(neccesaryResponses[i]) == -1){
+      missingResponses.push(neccesaryResponses[i]);
     }
   }
   
@@ -189,17 +192,21 @@ function getMissingResponse(subgraph, idNode, responses){
 }
 
 /*
-  Vérification si les réponses sont bien formé
+  Check if the answers are properly formed, practically only test if response is a number
 */
 function verificationResponses(listResponse){
+  // TODO: remove or encode debugging
   console.log(listResponse);
   var errors =[]
   var listInputs = Object.keys(listResponse);
+  
+  // For each response 
   for(var i = 0; i < listInputs.length; i++){
     var response = getResponseById(listInputs[i]);
     var responseSubmit = eval("listResponse."+listInputs[i]);
     console.log(response.type);
     console.log(responseSubmit);
+    // Check wether the response is suppose to be a numeric response
     if(response.type == 'numeric'){
       if(isNaN(responseSubmit)){
         errors.push(listInputs[i]);

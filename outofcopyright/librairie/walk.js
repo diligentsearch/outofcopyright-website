@@ -1,12 +1,16 @@
 /*
-	Retourne en fonction des réponses si l'oeuvre et du domaine publique ou non et dans le cas où il manquerai une réponse il retourne le noeud sur lequel il n'a pas pu calculer.
+	Returns, based on answers, if the work and in the public domain or not, provides a 'failed' response if it was unable to calculate a result.
 */
 function walk(idSubgraph, responses, server, lang){
 
+	// Retrieve responses from the call
 	var responses = JSON.parse(responses);
+	// Get the tree to calculate against
 	var idNode = getStartNode(idSubgraph);
 	idNode = idNode.id_node;
 	var result;
+	
+	// Test if wether response is properly formatted (wether numbers are indeed numbers)
 	var testError = verificationResponses(responses);
 
 	if(testError != true){
@@ -15,22 +19,26 @@ function walk(idSubgraph, responses, server, lang){
 		return testError;
 	}
 
+	// Use the graphs default language if this is not defined.
 	if(lang == undefined){
 		lang = file.default_language;
 	}
 
+	// TODO: determine if the while loop is necessary
 	while(result === undefined){
 
 		var node = file.subgraph[idSubgraph].nodes[idNode];
 
-
+		// Process question
 		if(node.type == 'question'){
 
+			// get all responses from the POST request
 			var listResponses = [];
 			listResponses = getResponsesList(node.inputs, responses);
 
 			if(listResponses.error !== undefined){
 				listResponses.question = getTraduction(lang, listResponses.waiting_response, server);
+				// process a type of node that is NOT a formula
 				if(getType(idSubgraph, idNode) != 'formula'){
 					var correct_responses = [];
 					for (var i = node.responses.length - 1; i >= 0; i--) {
@@ -45,17 +53,20 @@ function walk(idSubgraph, responses, server, lang){
 				listResponses.all_possible_responses = missingResponses;
 				return listResponses;
 			}
-
+			
+			// If there is a formula defined
 			if(node.formula !== undefined && node.formula !== "" && node.formula !== null){
 				idNode = getResponseFormula(node, listResponses);
 
 				if(idNode.error !== undefined){
 					return idNode;
 				}
-			}
+			} 
 			else{
+				// TODO: Is this function necessary? It is not used anywhere else
 				idNode = getResponseList(node, listResponses);
-
+				
+				// No node can be found based on the responses
 				if(idNode == undefined){
 					var correct_responses = [];
 
@@ -67,6 +78,8 @@ function walk(idSubgraph, responses, server, lang){
 				}
 			}
 		}
+		
+		// We have reached a result node, return the result.
 		else{
 			result = getTraduction(lang, node.text, server);
 		}
@@ -94,11 +107,12 @@ function getResponsesList(inputs, responses){
 }
 
 /*
-	Permet la récupération du prochain noeud en fonction de la réponse donnée
+	Allows retrieval of the next node as a function of the response
 */
 function getResponseFormula(node, listResponses){
 	var formula = node.formula;
 
+	// GET the current value for the static NOW
 	var d = new Date();
 	var NOW = d.getFullYear();
 	formula.replace('NOW', NOW);
@@ -113,21 +127,30 @@ function getResponseFormula(node, listResponses){
 		
 	}
 
-	//remplacement des variables numeric
+	// Replace the values from the corresponding list of value
 	for(var i = 0; i < node.inputs.length; i++) {
 		var variable = node.inputs[i];
 		var value = listResponses[variable];
+		// Return an error if the value is not a number
 		if(isNaN(value)){
 			return {"error": 3, "response_not_a_number": variable};
 		}
 		formula = replaceFormula(formula, variable, value);
 	}
+	
+	// evaluate the formula to a true or false
 	var result = eval(formula);
-
+	
+	// If result is not a boolean
+	if(!typeof(result) === "boolean"){
+	  return {"error": 3, "result_not_a_boolean": formula};
+	}
 	return getResponse(node.responses, result);
 }
+
 /*
-	Permet de récupérer le prochain noeud en fonction de la réponse donnée pour la liste.
+	retrieve the next node based on the response to the list.
+	TODO determine if this function is necessary 
 */
 function getResponseList(node, listResponses){
 	var variableList = node.inputs[0];
