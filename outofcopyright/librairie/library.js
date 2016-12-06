@@ -72,6 +72,8 @@ function getDefaultLanguage(){
 
 //Récupération de la liste des noms des différents diagramme
 function getListSubgraph(){
+	console.log("File inside : ", file);
+
 	var result = [];
 	for(var i = 0; i < file.subgraph.length; i++){
 		result.push(file.subgraph[i].graphName);

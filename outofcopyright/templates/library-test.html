@@ -3,16 +3,17 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="css/bootstrap.css" rel="stylesheet">
+	
 
-    <link href="css/design.css" rel="stylesheet">
+	<link href="../css/bootstrap.css" 	rel="stylesheet">
+    <link href="../css/design.css" 		rel="stylesheet">
 
-	<script src="librairie/node.js"></script>
-	<script src="librairie/control.js"></script>
-	<script src="librairie/library.js"></script>
-	<script src="librairie/walk.js"></script>
-	<script src="librairie/datapoints.js"></script>
-	<script src="librairie/traduction.js"></script>
+	<script src="../librairie/node.js"></script>
+	<script src="../librairie/control.js"></script>
+	<script src="../librairie/library.js"></script>
+	<script src="../librairie/walk.js"></script>
+	<script src="../librairie/datapoints.js"></script>
+	<script src="../librairie/traduction.js"></script>
 
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
@@ -56,7 +57,7 @@
 		});
 
 		function changeLangue(){
-			$.post( "/node", { country: 'Belgium', name: $("#langues").val()+'.json', action: 'read', branch: 'master' } )
+			$.post( "/node", { country: 'Netherlands', name: $("#langues").val()+'.json', action: 'read', branch: 'master' } )
 			.done(function( dataTrad ) {
 				traductionData = dataTrad;
 				console.log("change");
@@ -68,7 +69,7 @@
 		}
 		
 		$(document).on('change','#typeOfWork',function(){
-			$.post( "/node", { country: 'Belgium', name: $("#langues").val()+'.json', action: 'read', branch: 'master' } )
+			$.post( "/node", { country: 'Netherlands', name: $("#langues").val()+'.json', action: 'read', branch: 'master' } )
 			.done(function( dataTrad ) {
 				traductionData = dataTrad;
 				$( "#forms" ).html('');
@@ -113,9 +114,11 @@
 
 		$(function() {
 
-			$.post( "/node", { country: 'Belgium', name: 'Belgium.json', action: 'read', branch: 'master' } )
+			$.post( "/node", { country: 'Netherlands', name: 'Netherlands.json', action: 'read', branch: 'master' } )
 			.done(function( data ) {
 				file = data;
+
+				console.log("File outside : ", file);
 
 
 

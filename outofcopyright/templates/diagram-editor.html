@@ -7,32 +7,33 @@
     <title>Countries</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.css"           rel="stylesheet">
+    <link href="../css/design.css"              rel="stylesheet">
+    <link href="../css/font-awesome.min.css"    rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
 
-    <link href="css/design.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <!-- Javascript library -->
-    <script src="librairie/node.js"></script>
-    <script src="librairie/control.js"></script>
-    <script src="librairie/library.js"></script>
-    <script src="librairie/walk.js"></script>
-    <script src="librairie/datapoints.js"></script>
-    <script src="librairie/traduction.js"></script>
+    <script src="../librairie/node.js"></script>
+    <script src="../librairie/control.js"></script>
+    <script src="../librairie/library.js"></script>
+    <script src="../librairie/walk.js"></script>
+    <script src="../librairie/datapoints.js"></script>
+    <script src="../librairie/traduction.js"></script>
 
 
     <!-- Draw graph  -->
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="js/dagre-d3.js"></script>
+    <script src="../js/dagre-d3.js"></script>
 
     
 
     <!-- Javascript -->
      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="js/diagram-editor.js"></script>
-    <script src="js/formula.js"></script>
-    <script src="js/save.js"></script>
-    <script src="js/timeformater.js"></script>
+    <script src="../js/diagram-editor.js"></script>
+    <script src="../js/formula.js"></script>
+    <script src="../js/save.js"></script>
+    <script src="../js/timeformater.js"></script>
 
     <!-- Toast message -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js" charset="utf-8"></script>
@@ -452,16 +453,10 @@ font-weight: bold;">
         </div>
     </div>
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-
     <script>
-
         var isChrome = !!window.chrome && !!window.chrome.webstore;
-
         if(isChrome)
             document.getElementById("subchart-title").innerHTML = "Chrome browser not supported";
-
     </script>
 
 </body>
