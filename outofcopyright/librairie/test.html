@@ -180,6 +180,9 @@
       });
   		
 	});
+
+
+
 describe("Vérification Github", function() {
   it("Add", function() {
       var pays = 'Netherlands';
@@ -216,7 +219,7 @@ describe("Vérification Github", function() {
     });
   it("Read", function() {
       var pays = 'Netherlands';
-      var fileName = 'nd-phonogramme.json';
+      var fileName = 'Netherlands.json';
       readFile(pays, fileName);
       result = '';
       expect(result).toEqual('');
@@ -263,8 +266,8 @@ describe("Vérification Github", function() {
       expect(result).toEqual('');
     });
   it("Get commits", function() {
-    commits('Netherlands/nd-phonogramme.json');
-    result = '';
+      commits('Netherlands/Netherlands.json');
+      result = '';
       expect(result).toEqual('');
   });
   });

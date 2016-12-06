@@ -277,9 +277,9 @@
 
       this.listBranches = function(cb) {
         _request("GET", repoPath + "/git/refs/heads", null, function(err, heads) {
-
           if (err) return cb(err);
-          cb(null, _.map(heads, function(head) { return _.last(head.ref.split('/')); }));
+          
+          cb(null, heads.map(function(head) { return head.ref.split('/').pop(); }));
         });
       };
 

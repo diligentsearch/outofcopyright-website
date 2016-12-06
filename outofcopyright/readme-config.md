@@ -66,6 +66,7 @@ This file will have the following content :
 	AUTH		= "oauth";
 	USERNAME	= "your_username";
 	REPONAME	= "outofcopyright-files";
+	BRANCH 		= "Netherlands"
 
 ### Test your GitHub API access
 
@@ -77,6 +78,6 @@ Go to diligentsearch.local/node :
 
 	'Github Management' will be displayed
 
-Go to diligentsearch.local and select <Countries list> : 
+Go to diligentsearch.local and select the first link Countries list :
 
 	a list of countries will be displayed in the left panel and a changelog on the right side of the screen.	

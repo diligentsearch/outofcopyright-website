@@ -15,9 +15,8 @@ var github = new Github({
   auth: AUTH
 });
 
-var content = '';
+var content = '';    
 
-    
 var repo = github.getRepo(USERNAME, REPONAME);
 
 //Fonction pour mettre à jour un fichier

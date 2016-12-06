@@ -454,5 +454,15 @@ font-weight: bold;">
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+
+        var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+        if(isChrome)
+            document.getElementById("subchart-title").innerHTML = "Chrome browser not supported";
+
+    </script>
+
 </body>
 </html>
