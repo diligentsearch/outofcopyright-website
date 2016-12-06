@@ -16,7 +16,7 @@ eval(fs.readFileSync('../librairie/datapoints.js')+'');
 eval(fs.readFileSync('../librairie/walk.js')+'');
 eval(fs.readFileSync('../librairie/credential_github.js')+'');
 eval(fs.readFileSync('../librairie/github/github.js')+'');
-eval(fs.readFileSync('../librairie/github.js')+'');
+eval(fs.readFileSync('../librairie/interface_to_github.js')+'');
 eval(fs.readFileSync('../librairie/traduction.js')+'');
 
 // configure app to use bodyParser()

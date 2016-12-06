@@ -2,14 +2,6 @@ if (typeof require !== 'undefined') {
     var Github = module.exports;
 }
 
-/*
-var github = new Github({
-    username: USERNAME,
-    password: PASSWORD,
-    auth: "basic"
-});
-*/
-
 var github = new Github({
   token: TOKEN,
   auth: AUTH
@@ -19,7 +11,7 @@ var content = '';
 
 var repo = github.getRepo(USERNAME, REPONAME);
 
-//Fonction pour mettre à jour un fichier
+// Update a specific remote file on a specific remote branch
 function updateFile(pays, fileName, content, commitText){
     console.log("update");
     console.log(content);
@@ -48,7 +40,7 @@ function updateFile(pays, fileName, content, commitText){
         });
 }
 
-//Lecture du fichier contenant les diagrammes et les informations d'un pays. Cette fonction peu être aussi utilisé pour la lecture des fichiers de traduction.
+// Used to get back files preseting diagrams / country / traduction data
 function readFile(pays, fileName, callback){
     console.log("read");
     repo.read(BRANCH, pays+'/'+fileName, 
@@ -69,7 +61,7 @@ function readFileOnly(repName, fileName, callback){
     );  
 }
 
-//Fonction permettant d'écrire un nouveau fichier 
+// Write new file and commit push
 function writeFile(pays, fileName, content, commitText){
     console.log("write");
     repo.write(BRANCH, pays+'/'+fileName, content, commitText, function(err) {
@@ -90,21 +82,21 @@ function writeFile(pays, fileName, content, commitText){
     });
 }
 
-//Fonction permetant la suppression d'un fichier sur github
+// Delete file on remote side
 function deleteFile(pays, fileName){
     repo.remove(BRANCH, pays+'/'+fileName, function(err) {});
 }
-//Permet d'obtenir des informations sur le repository
+// Get back repository information
 function repoShow(){
     repo.show(BRANCH, function(err, repo) {console.log(repo);});
 }
 
-//Récupération de l'abre des dossiers présent sur le GIT
+// Get back the Git Tree (all he files ofa specific branch)
 function getTree(){
     repo.getTree(BRANCH, function(err, tree) {console.log(tree);});
 }
 
-//Récupération de la liste des pays 
+// Get back countries based on the name of the branch
 function getCountries(callback){
     repo.listBranches(function(err, tree) {
         var listCountries = [];
@@ -124,20 +116,20 @@ function getGist(){
     user.userGists(USERNAME, function(err, gists) { console.log(gists);});
 }
 
-//Récupération des issues sur le git
+// Read issues published on the Git repository
 function readIssues(){
     var issues = github.getIssues(USERNAME, REPONAME);
     issues.list(options, function(err, issues) { console.log(issues); });
 }
 
-//Récupération des commits pour un fichier défini
+// Get back commits related to a specific file
 function commits(pays, fileName, callback){
     repo.commits(pays+'/'+fileName, function(err, commits){ 
         callback(commits);
     });
 }
 
-//Merge une branche dans l'autre
+// Merge a child branch into its parent
 function merge(branch, child_branch, message){
     repo.merge(branch, child_branch, message);
 }

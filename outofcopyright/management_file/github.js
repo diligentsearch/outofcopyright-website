@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 eval(fs.readFileSync('../librairie/library.js')+'');
 eval(fs.readFileSync('../librairie/credential_github.js')+'');
 eval(fs.readFileSync('../librairie/github/github.js')+'');
-eval(fs.readFileSync('../librairie/github.js')+'');
+eval(fs.readFileSync('../librairie/interface_to_github.js')+'');
 
 var router = express.Router();
 
