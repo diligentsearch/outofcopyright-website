@@ -180,12 +180,3 @@ function newQuestion(input){
 	$("#next").hide();
 }
 
-//Récupération des éléments get de l'URL
-function getUrlVars() {
-	var vars = {};
-	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-		vars[key] = value.replace("#", "");;
-	});
-	return vars;
-}
-

@@ -263,14 +263,7 @@ function listTypeDatapoint(activeTypeOfWork){
 	resizeVerticaly();
 }
 
-//Récupération des éléments get de l'URL
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value.replace("#", "");;
-    });
-    return vars;
-}
+
 
 function loadTypeOfWork(id){
 
@@ -859,7 +852,7 @@ function resizeVerticaly(){
 }
 
 function printDiagram(){
-	window.open("print-diagram.html?country="+country+"&language="+languageChoosen+"&typeOfWork="+typeOfWork);
+	window.open("diagram-print.html?country="+country+"&language="+languageChoosen+"&typeOfWork="+typeOfWork);
 }
 
 function testCountry(){

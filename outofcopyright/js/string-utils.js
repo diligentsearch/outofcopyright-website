@@ -1,5 +1,5 @@
 // 
-// Simple string utility file
+// String utility function
 // 
 
 function capitaliseFirstLetter(string){
@@ -25,4 +25,16 @@ function formatString(string){
 function formatStringInput(string){
 	var str = string.replace(/"/g,'\\"');
 	return str;
+}
+
+
+// 
+// URL utility function
+// 
+function getUrlVars() {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		vars[key] = value.replace("#", "");;
+	});
+	return vars;
 }

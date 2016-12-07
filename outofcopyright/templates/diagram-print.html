@@ -6,39 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Countries</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css"          rel="stylesheet">
-    <link href="css/design.css"             rel="stylesheet">
-    <link href="css/font-awesome.min.css"   rel="stylesheet">
 
     <!-- Javascript library -->
-    <script src="js/node.js"></script>
-    <script src="js/control.js"></script>
-    <script src="js/library.js"></script>
-    <script src="js/walk.js"></script>
-    <script src="js/datapoints.js"></script>
-    <script src="js/traduction.js"></script>
+    <script src="../js/node.js"></script>
+    <script src="../js/control.js"></script>
+    <script src="../js/library.js"></script>
+    <script src="../js/string-utils.js"></script>
+    <script src="../js/walk.js"></script>
+    <script src="../js/datapoints.js"></script>
+    <script src="../js/traduction.js"></script>
 
 
     <!-- Draw graph  -->
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="js/dagre-d3.js"></script>
+    <script src="../js/dagre-d3.js"></script> 
 
     
 
     <!-- Javascript -->
      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="js/diagram-editor.js"></script>
-    <script src="js/formula.js"></script>
-    <script src="js/save.js"></script>
-    <script src="js/lib/timeformater.js"></script>
-    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="../js/diagram-editor.js"></script>
+    <script src="../js/formula.js"></script>
+    <script src="../js/save.js"></script>
+    <script src="../js/lib/timeformater.js"></script>
 
     <!-- Toast message -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js" charset="utf-8"></script>
-    <link src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js" charset="utf-8"></script>
+    <link src="https://cdnjs.cloudflare.com/ajax/libs/toast-css/1.1.0/grid.min.css" rel="stylesheet"></script>
 
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css"           rel="stylesheet">
+    <link href="../css/design.css"              rel="stylesheet">
+    <link href="../css/font-awesome.min.css"    rel="stylesheet">
+    <script src="../js/lib/bootstrap.min.js"></script>
     
+
+    <!-- JS controller -->
+    <script src="../js/diagram-print.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,104 +68,6 @@
 
 </head>
 <body>
-    <script>
-        var g;
-        var svg ,centerG, zoomG;
-        var country;
-        var languageChoosen;
-        var typeOfWork;
-
-        $(function(){
-            country = getUrlVars()["country"];
-
-            languageChoosen = getUrlVars()["language"];
-
-            typeOfWork = getUrlVars()["typeOfWork"];
-
-            $.post( "/node", { country: country, name: country+".json", action: 'read' } )
-            .done(function( data ) {
-                file = data;
-                $.post( "/node", { country: country, name: languageChoosen+".json", action: 'read' } )
-                .done(function( dataTrad ) {
-                    traductionData = dataTrad;
-                    loadTypeOfWork();
-                });
-            });
-        });
-
-        
-
-        function loadTypeOfWork(){
-
-            var typeOfWorkSelected = file.subgraph[typeOfWork].graphName;
-   
-            //Dessine le graphe
-            draw();
-        }
-
-        //Dessine le diagramme
-        function draw(){
-            $("#drawSvg").html('');
-            g = new dagreD3.graphlib.Graph()
-                .setGraph({})
-                .setDefaultEdgeLabel(function() { return {}; });
-
-            // Push a couple of states with custom styles
-            g = formatD3Nodes(g);
-
-            g = formatD3Edges(g);
-            
-            g.nodes().forEach(function(v) {
-                var node = g.node(v);
-                node.rx = node.ry = 5;
-            });
-
-            var render = new dagreD3.render();
-
-            // Set up an SVG group so that we can translate the final graph.
-            svg = d3.select('svg')
-            centerG = svg.append('g')
-            zoomG = centerG.append('g');
-
-            // Set up zoom support
-            zoom = d3.behavior.zoom().on("zoom", function() {
-                centerG.attr("transform", "translate(" + d3.event.translate + ")" +
-                                            "scale(" + d3.event.scale + ")");
-              });
-            //svg.call(zoom);
-
-            render(d3.select("svg g"), g);
-
-            // Zoom and scale to fit
-            var zoomScale = zoom.scale();
-            var graphWidth = g.graph().width + 80;
-            var graphHeight = g.graph().height + 40;
-            var width = parseInt(svg.style("width").replace(/px/, ""));
-            var height = parseInt(svg.style("height").replace(/px/, ""));
-            zoomScale = Math.min(width / graphWidth, height / graphHeight);
-            var translate = [(width/2) - ((graphWidth*zoomScale)/2), (height/2) - ((graphHeight*zoomScale)/2)];
-            zoom.translate(translate);
-            zoom.scale(zoomScale).event(svg);
-         
-
-
-            var i = 0;
-            $(".node").each(function () {
-                if(file.subgraph[typeOfWork].nodes[i].start == true){
-                    $(this).attr('startNode', true);
-                }
-                if(file.subgraph[typeOfWork].nodes[i].type == 'final'){
-                    $(this).addClass("endNode");
-                    $(this).attr('endNode', true);
-                }
-                $(this).attr('id', i);
-                $(this).attr('style', "fill: #2196f3");
-                i++;
-            });
-            
-        }
-
-    </script>
     <svg id='drawSvg' style=" margin-left: 20px;width: 1200px; height: 1200px;"></svg>
 </body>
 </html>

@@ -88,16 +88,6 @@ $(document).on('change','#typeOfWork',function(){
 });	
 
 
-//Récupération des éléments get de l'URL
-function getUrlVars() {
-	var vars = {};
-	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-		vars[key] = value.replace("#", "");;
-	});
-	return vars;
-}
-
-
 $(function() {
 
 	$.post( "/node", { country: 'Netherlands', name: 'Netherlands.json', action: 'read', branch: 'master' } )
