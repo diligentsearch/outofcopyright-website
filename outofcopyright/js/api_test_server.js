@@ -34,7 +34,7 @@ var port = process.env.PORT || 8080;		// set our port
 // =============================================================================
 var router = express.Router(); 				// get an instance of the express Router
 
-// Retourne la liste des pays disponible
+// Get back all the available countries
 router.get('/', function(req, res) {
 	changeBranch(req);
 	var callback = function(countries){
@@ -65,7 +65,7 @@ router.patch('/', function(req, res) {
    				.json({ error : 7, message : 'Patch is not supported'});
 	});
 
-//Retourne la liste des pays type of work
+// Get back all type of work for a specific country
 router.route('/:pays')
 
 	.get(function(req, res) {
@@ -113,7 +113,7 @@ router.patch('/:pays', function(req, res) {
    				.json({ error : 7, message : 'Patch is not supported'});
 	});
 
-//Résolution pas à pas du type of work
+// Post data for a specific type of work given a specific country
 router.route('/:pays/:typeofwork')
 
 	.post(function(req, res) {
@@ -147,8 +147,6 @@ router.route('/:pays/:typeofwork')
 									eval("responsesParameters."+inputs[i]+" = "+response+";");
 								}
 							}
-							//var trad = getTraduction('EN', inputs[i]);
-							//errors[inputs[i]] = trad+' missing';
 						}
 
 						var stringResponses = JSON.stringify(responses);
@@ -178,7 +176,7 @@ router.route('/:pays/:typeofwork')
 		});
 	});
 
-//variable nécessaire pour la résolution du pas à pas
+// Get data for a specific type of work given a specific country
 router.route('/:pays/:typeofwork')
 
 	.get(function(req, res) {
@@ -248,7 +246,7 @@ router.patch('/:pays/:typeofwork', function(req, res) {
    				.json({ error : 7, message : 'Patch is not supported'});
 	});
 
-//variable nécessaire pour la résolution du pas à pas
+// Get WORK IN PROGRESS data for a specific type of work given a specific country
 router.route('/wip/:pays/:typeofwork')
 
 	.get(function(req, res) {
@@ -301,6 +299,8 @@ router.route('/wip/:pays/:typeofwork')
 			});
 	});
 
+
+// Post WORK IN PROGRESS data for a specific type of work given a specific country
 router.route('/wip/:pays/:typeofwork')
 
 	.post(function(req, res) {
