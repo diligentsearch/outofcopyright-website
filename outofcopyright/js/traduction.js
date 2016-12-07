@@ -1,3 +1,6 @@
+// depends of string-utils.js
+
+
 var bibliotheque = [];
 var traductionData;
 /*

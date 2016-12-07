@@ -139,9 +139,9 @@ $(function(){
 			draw();
 		});
 
-		$( "#addNewTypeOfWork" ).click(function() {
+		$( "#addNewSubGraph" ).click(function() {
 			if($("#nameTypeOfWork").val() !== ""){
-				addNewTypeOfWork($("#nameTypeOfWork").val());
+				addNewSubGraph($("#nameTypeOfWork").val());
 				listTypeDatapoint();
 				$(".modal").hide();
 			}

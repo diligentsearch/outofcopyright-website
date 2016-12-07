@@ -1,3 +1,6 @@
+// Depends of string-utils.js
+
+
 $(function(){
 	$( "#saveok" ).click(function() {
   		saveFormula();

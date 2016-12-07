@@ -93,7 +93,7 @@ function getListSubgraphByName(subgraphName){
 }
 
 //Ajout d'un nouveau diagramme.
-function addNewTypeOfWork(name){
+function addNewSubGraph(name){
 	file.subgraph.push({
 		"graphName":name,
             "nodes":
@@ -110,32 +110,6 @@ function addNewTypeOfWork(name){
 	})
 }
 
-function capitaliseFirstLetter(string)
-{
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function formatString(string){
-	var str = string.replace(/\!/g,'');
-	str = str.replace(/\?/g,'');
-	str = str.replace(/ /g,'_');
-	str = str.replace(/'/g,'_');
-	str = str.replace(/-/g,'_');
-	str = str.replace(/,/g,'_');
-	str = str.replace(/\//g,'_');
-	str = str.replace(/\\/g,'_');
-	str = str.replace(/\\/g,'_');
-	str = str.replace(/\(/g,'_');
-	str = str.replace(/\)/g,'_');
-	str = str.replace(/"/g,'_');
-	return str;
-}
-
-function formatStringInput(string){
-	var str = string.replace(/"/g,'\\"');
-
-	return str;
-}
 
 //Retourne le sha du premier commit commun entre deux branches
 function linkCommits(commitsMaster, commitsChild){

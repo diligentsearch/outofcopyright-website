@@ -6,7 +6,7 @@
     "subgraph": 
     [
         {
-            "typeOfWork":"phonogram",
+            "graphName":"phonogram",
             "nodes":
             [
                 {
@@ -111,7 +111,7 @@
             ]
         }
     ],
-    "variable_list":
+    "datapoints":
     [
         {
             "id": "PUBLI_DATE",
