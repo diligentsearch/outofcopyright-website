@@ -1,5 +1,5 @@
 {
-    "country":"netherlands",
+    "state":"netherlands",
     "contributors":["Jesse Jérôme", "Nathan Heu"],
     "language":["fr","nl"],
     "default-language": "nl",
@@ -13,8 +13,8 @@
                     "id": 1, 
                     "type":"question", 
                     "text":"LBL_PHONOGRAM_DATE", 
-                    "formula":"PUBLICATION_DATE - CREATED_DATE > 50", 
-                    "idResponse":["PUBLICATION_DATE", "CREATED_DATE"],
+                    "formula":"VAR_PUBLI_DATE - VAR_CREATED_DATE > 50", 
+                    "idResponse":["VAR_PUBLI_DATE", "VAR_CREATED_DATE"], 
                     "start":true, 
                     "response":[
                         {
@@ -31,8 +31,8 @@
                     "id": 2, 
                     "type":"question", 
                     "text":"LBL_PHONOGRAM_DATE_PUBLI", 
-                    "formula":"NOW - PUBLICATION_DATE > 50", 
-                    "idResponse":["PUBLICATION_DATE"], 
+                    "formula":"NOW - PUBLI_DATE > 50", 
+                    "idResponse":["PUBLI_DATE"], 
                     "response":[
                         {
                             "response":true, 
