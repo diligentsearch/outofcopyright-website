@@ -59,7 +59,7 @@ You also need to have forked at least the outofcopyright-files repo as you will 
 
 ### API Access 
 
-Create a file under named 'credential_github.js' inside the folder outofcopyright/librairie/
+Create a file under named 'credential_github.js' inside the folder outofcopyright/js/lib/github/
 This file will have the following content :
 
 	TOKEN 		= "776378.......43b4";

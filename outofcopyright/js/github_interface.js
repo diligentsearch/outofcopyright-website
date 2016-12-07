@@ -1,6 +1,6 @@
 var fs = require('fs');
-eval(fs.readFileSync('../librairie/github/github.js')+'');
-eval(fs.readFileSync('../librairie/credential_github.js')+'');
+eval(fs.readFileSync('./lib/github/github.js')+'');
+eval(fs.readFileSync('./lib/github/credential_github.js')+'');
 
 
 if (typeof require !== 'undefined') {
