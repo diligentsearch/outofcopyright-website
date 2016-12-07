@@ -16,7 +16,7 @@ var bodyParser = require('body-parser');
 var fs 		   = require('fs');
 
 eval(fs.readFileSync('./library.js')+'');
-eval(fs.readFileSync('./string-utils.js')+'');
+eval(fs.readFileSync('./utils.js')+'');
 eval(fs.readFileSync('./node.js')+'');
 eval(fs.readFileSync('./datapoints.js')+'');
 eval(fs.readFileSync('./walk.js')+'');
