@@ -15,12 +15,12 @@ var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser');
 var fs 		   = require('fs');
 
-eval(fs.readFileSync('../librairie/library.js')+'');
-eval(fs.readFileSync('../librairie/node.js')+'');
-eval(fs.readFileSync('../librairie/datapoints.js')+'');
-eval(fs.readFileSync('../librairie/walk.js')+'');
+eval(fs.readFileSync('./library.js')+'');
+eval(fs.readFileSync('./node.js')+'');
+eval(fs.readFileSync('./datapoints.js')+'');
+eval(fs.readFileSync('./walk.js')+'');
 eval(fs.readFileSync('./github_interface.js')+'');
-eval(fs.readFileSync('../librairie/traduction.js')+'');
+eval(fs.readFileSync('./traduction.js')+'');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
