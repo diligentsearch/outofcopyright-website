@@ -72,11 +72,11 @@ This file will have the following content :
 
 Run the nodeJS server handling the route '/node'
 
-	cd outofcopyright/management_file/ && node github.js
+	cd outofcopyright/js/ && node github_app.js
 
 Go to diligentsearch.local/node : 
 
-	'Github Management' will be displayed
+	'Github Management' and further information will be displayed
 
 Go to diligentsearch.local and select the first link Countries list :
 
