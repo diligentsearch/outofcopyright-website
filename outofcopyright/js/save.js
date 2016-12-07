@@ -1,4 +1,4 @@
-// Depends of string-utils.js
+// Depends of library.js  string-utils.js
 
 
 $(function(){

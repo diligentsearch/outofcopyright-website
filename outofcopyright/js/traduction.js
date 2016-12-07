@@ -1,4 +1,4 @@
-// depends of string-utils.js
+// depends of library.js / string-utils.js
 
 
 var bibliotheque = [];
