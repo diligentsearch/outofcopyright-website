@@ -1,7 +1,7 @@
 // 
 // 
 // 
-// This file is used to ensure the github api is working
+// This file is used to enable connection with the Github API
 // a custom route based on localhost is provided and allow connection to API via HTTP POST Request
 // it also demonstrates the capacity of the api
 // 
@@ -17,8 +17,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 eval(fs.readFileSync('../librairie/library.js')+'');
-eval(fs.readFileSync('../librairie/credential_github.js')+'');
-eval(fs.readFileSync('../librairie/github/github.js')+'');
 eval(fs.readFileSync('../librairie/github_interface.js')+'');
 
 var router = express.Router();
@@ -150,4 +148,5 @@ var server = app.listen(8000, function () {
 
   host = host == '::' ? 'localhost': host;
   console.log('Github test api listening on http://%s:%s', host, port);
+  console.log('NB : your apache configuration should reference a "/node" url matching http://%s:%s', host, port);
 });
