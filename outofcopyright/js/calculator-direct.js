@@ -17,8 +17,6 @@ function submit(){
 	responses = JSON.stringify(responses);
 	var result = walk($( "#typeOfWork" ).val(), responses);
 
-	console.log("RESULT : ", result);
-
 	if(result.error == 1){
 		$("#error").html(errors[result.waiting_response]);
 		$(".alert-warning").show();
