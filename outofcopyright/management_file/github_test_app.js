@@ -1,3 +1,12 @@
+// 
+// 
+// 
+// This file is used to ensure the github api is working
+// a custom route based on localhost is provided and allow connection to API via HTTP POST Request
+// it also demonstrates the capacity of the api
+// 
+// 
+
 var express = require('express')
 var app = express()
 var fs = require('fs')
@@ -10,21 +19,30 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 eval(fs.readFileSync('../librairie/library.js')+'');
 eval(fs.readFileSync('../librairie/credential_github.js')+'');
 eval(fs.readFileSync('../librairie/github/github.js')+'');
-eval(fs.readFileSync('../librairie/interface_to_github.js')+'');
+eval(fs.readFileSync('../librairie/github_interface.js')+'');
 
 var router = express.Router();
 
 app.get('/', function (req, res) {
-  res.send('Github management');
-})
+	var hint = "<h2>Github management</h2>";
+	hint += "<br>To test it, try a tool like POSTMAN, and forge some POST requests to this current URL page";
+	hint += "<br>";
+	hint += "<br>First try with the following key - value :";
+	hint += "<br>&nbsp;&nbsp;&nbsp; 	action	some_text_not_known";
+	hint += "<br>Result : action : read, write, update";
+
+	hint += "<br><br>";
+
+	hint += "<br>Then, try to get with the following : 	";
+	hint += "<br>&nbsp;&nbsp;&nbsp; 	action	read";
+	hint += "<br>&nbsp;&nbsp;&nbsp; 	country	Netherlands";
+	hint += "<br>&nbsp;&nbsp;&nbsp; 	name	Netherlands.json";
+	hint += "<br>	You will get the content of the copyright decision process for the Netherlands";
+	
+	res.send(hint);
+});
 
 router.route('/').post(function (req, res) {
-	/*if(req.param('branch') == 'master'){
-                BRANCH = 'master';
-        }else{
-                BRANCH = req.param('country');
-        }*/
-
         if(req.param('repo') == 'map'){
                 REPONAME = 'outofcopyright-maps';
                 BRANCH = 'master';
@@ -82,13 +100,14 @@ module.exports = router;
 app.use('/', router);
 
 var server = app.listen(8000, function () {
-
   var host = server.address().address
-  var port = server.address().port
+  var port = server.address().port  
 
-  console.log('Example app listening at http://%s:%s', host, port)
+  host = host == '::' ? 'localhost': host;
+  console.log('Example app listening at http://%s:%s', host, port);
+});
 
-})
+
 
 function saveFile(country, name, file, message){
 
