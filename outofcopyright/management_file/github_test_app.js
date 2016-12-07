@@ -93,21 +93,11 @@ router.route('/').post(function (req, res) {
 		default : 	res.send('action : read, write, update');
 					break;
 	}
-})
-
-module.exports = router;
-
-app.use('/', router);
-
-var server = app.listen(8000, function () {
-  var host = server.address().address
-  var port = server.address().port  
-
-  host = host == '::' ? 'localhost': host;
-  console.log('Example app listening at http://%s:%s', host, port);
 });
 
-
+// REGISTER OUR ROUTES
+// ===================
+app.use('/', router);
 
 function saveFile(country, name, file, message){
 
@@ -149,5 +139,15 @@ function getDateTime() {
     day = (day < 10 ? "0" : "") + day;
 
     return year + "-" + month + "-" + day + " " + hour + "-" + min + "-" + sec;
-
 }
+
+
+// START THE SERVER
+// ===================
+var server = app.listen(8000, function () {
+  var host = server.address().address
+  var port = server.address().port  
+
+  host = host == '::' ? 'localhost': host;
+  console.log('Github test api listening on http://%s:%s', host, port);
+});
