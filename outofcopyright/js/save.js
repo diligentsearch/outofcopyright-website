@@ -12,9 +12,6 @@ $(function(){
   		if(!$("#preventAlias").is(":visible")){
   			draw();
   		}
-  		
-  		
-
 	});
 
 	$( "#sendCommit" ).click(function() {
