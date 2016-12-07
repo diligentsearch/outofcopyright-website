@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html  lang="en">
+
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Unit tests</title>
+
+
+
+      <script src="../librairie/node.js"></script>
+      <script src="../librairie/control.js"></script>
+      <script src="../librairie/library.js"></script>
+      <script src="../librairie/walk.js"></script>
+      <script src="../librairie/datapoints.js"></script>
+
+      <!-- Server side : import github lib and credentials -->
+<!-- 
+      <script src="../js/github/github.js"></script>
+      <script src="../js/github/credential_github.js"></script>
+      <script src="../js/github_interface.js"></script>
+ -->
+
+
+      <script src="../librairie/traduction.js"></script>
+
+      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script type="text/javascript" src="../js/lib/jasmine/lib/jasmine-2.0.3/jasmine.js"></script>
+      <script type="text/javascript" src="../js/lib/jasmine/lib/jasmine-2.0.3/jasmine-html.js"></script>
+      <script type="text/javascript" src="../js/lib/jasmine/lib/jasmine-2.0.3/boot.js"></script>
+  </head>
+
+  <body>
+    <script>
+      var languagesFolder = "../librairie/languages";
+      var languageChoosen = "EN";
+      var flowchart = "../librairie/flowchart.json";
+
+    	var request = new XMLHttpRequest();
+       	request.open("GET", flowchart, false);
+       	request.send(null)
+
+       	parseJSON(request.responseText);
+
+        var request = new XMLHttpRequest();
+        request.open("GET", languagesFolder+'/'+languageChoosen+'.json', false);
+        request.send(null)
+        traductionData = request.responseText;
+
+       	describe("Vérification librairie", function() {
+      		var result;
+
+      		it("Controle si diagramme est correcte", function() {
+        		result = control(0);
+        		expect(result).toBe('ok');
+      		});
+
+      		it("Controle si diagramme n'a pas de circuit", function() {
+        		result = controlStrongConnected(0);
+        		expect(result).toBe(true);
+      		});
+
+      		it("Controle la récupération des parents du noeuds 3 dans le diagramme 0", function() {
+        		result = getAllParentNodesByIdNodes(0, 3);
+        		var resultAttempt;
+        		resultAttempt = [1, 0, 5, 4, 6];
+        		expect(result).toEqual(resultAttempt);
+      		});
+
+      		it("Controle la récupération des réponse avec les valeurs attendus", function() {
+        		var responses = '{"COMMUNICATION_DATE":1950, "PUBLICATION_DATE":1930, "CREATION_DATE":1925 }';
+        		var resultAttempt = [];
+       			responses = JSON.parse(responses);
+       			result = getResponsesList(["PUBLICATION_DATE", "CREATION_DATE"], responses);
+
+       			resultAttempt['VAR_PUBLI_DATE'] = 1930;
+       			resultAttempt['VAR_CREATED_DATE'] = 1925;
+
+        		expect(result).toEqual(resultAttempt);
+      		});
+
+      		it("Vérification du passage pas à pas dans le graphe de décision avec des réponses données permettant de traverser tout le graphe", function() {
+        		var responses = '{"CREATION_DATE":1825, "COMMUNICATION_DATE":1930, "PUBLICATION_DATE": 1930}';
+       			result = walk(0, responses, true);
+            console.log(result);
+        		expect(result).toBe('Out of copyright');
+      		});
+
+      		it("Vérification du traitement des formule par l'interpréteur", function() {
+        		var table = [];
+       			table['PUBLICATION_DATE'] = 1930;
+       			table['CREATION_DATE'] = 1825;
+       			result = getResponseFormula(file.subgraph[0].nodes[0], table);
+        		expect(result).toBe(1);
+      		});
+
+      		it("Vérification de l'ajout d'une node", function() {
+        		addNode(0, 'question', 'teste', 'L > A', ['L', 'A'], false, [], null);
+        		result = file.subgraph[0].nodes.length;
+        		expect(result).toBe(8);
+      		});
+
+      		it("Vérification de la suppression d'une node", function() {
+
+      			var request = new XMLHttpRequest();
+    		   	request.open("GET", flowchart, false);
+    		   	request.send(null)
+
+    		   	parseJSON(request.responseText);
+
+        		result = deleteNode(0, 0, []);
+
+        		result = file.subgraph[0].nodes.length;
+
+        		expect(result).toBe(1);
+      		});
+
+      		it("Vérification de la suppression des réponse lié à un noeud", function() {
+
+      			var request = new XMLHttpRequest();
+    		   	request.open("GET", flowchart, false);
+    		   	request.send(null)
+
+    		   	parseJSON(request.responseText);
+
+
+      			var id_node = 5;
+      			var id_subgraph = 0;
+      			parentNodes = getParentNodes(0);
+        		result = deleteResponses(0, id_node, parentNodes[id_node]);
+        		expect(result).toBe(true);
+      		});
+
+      		it("Vérification de l'ajout d'un datapoint", function() {
+              var request = new XMLHttpRequest();
+              request.open("GET", languagesFolder+'/'+languageChoosen+'.json', false);
+              request.send(null)
+              traductionData = request.responseText;
+              getTraduction('EN', "", true);
+              
+              addDatapoint('TEST', 'test hint','Question test ?', 'numeric', null);
+              console.log(file.datapoints[12]);
+              result = file.datapoints[12].id == 'TEST';
+              expect(result).toBe(true);
+            
+      		});
+
+      		it("Vérification de la modification d'un datapoint", function() {
+        		modifyDatapoint(4, 'TEST2', 'test hint 2', 'numeric', 40);
+        		result = file.datapoints[4].id == 'TEST2';
+        		expect(result).toEqual(true);
+      		});
+
+      		it("Vérification de la suppression d'un datapoint", function() {
+        		deleteDatapoint(12);
+        		result = file.datapoints[12] === undefined;
+        		expect(result).toBe(true);
+      		});
+
+      		it("Vérification de l'utilisation d'un datapoint", function() {
+      			result = datapointIsUse('COMMUNICATION_DATE');
+      			expect(result).toBe(true);
+      		});
+
+      		it("Vérification de lien unique à false", function() {
+      			result = unilink([1, 2], [1, 3])
+      			expect(result).toBe(false);
+      		});
+
+      		it("Vérification de lien unique à true", function() {
+      			result = unilink([1, 2], [1])
+      			expect(result).toBe(true);
+      		});
+
+      		it("Vérification de ma récupération des informations général", function() {
+      			result = generalInformation();
+      			expect(result.country).toEqual('netherlands');
+      		});
+
+          it("Vérification de la récupération des inputs utilisé pour la résolution du diagramme", function() {
+            result = getInputs(0);
+            expect(result).toEqual([ 'PUBLICATION_DATE', 'CREATION_DATE', 'COMMUNICATION_DATE' ] );
+          });
+
+          it("Vérification de la récupération des traductions", function() {
+            result = getTraduction('EN', 'CREATION_DATE', true);
+            expect(result).toEqual('Creation date');
+          });
+
+          it("Verif subnode", function() {
+            var request = new XMLHttpRequest();
+            request.open("GET", flowchart, false);
+            request.send(null)
+
+            parseJSON(request.responseText);
+            result = getSubNode(0, 4);
+            expect(result).toEqual([ 6, 2, 3, 5 ]);
+          });
+      		
+    	});
+
+
+    // Code only callable from server side
+    // 
+    // describe("Vérification Github", function() {
+    //   it("Add", function() {
+    //       var pays = 'Netherlands';
+    //       var fileName = 'test.txt';
+    //       var content = '{"test": "test de jerome"}';
+    //       var commitText = 'test';
+    //       setTimeout(function(){
+    //         writeFile(pays, fileName, content, commitText);
+    //       }, 1000);
+          
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+      
+    //   it("Update", function() {
+    //       var pays = 'Netherlands';
+    //       var fileName = 'test.txt';
+    //       var content = '{"test": "test de jerome 2"}';
+    //       var commitText = 'test';
+    //       setTimeout(function(){
+    //         updateFile(pays, fileName, content, commitText);
+    //       }, 5000);
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+    //   it("Delete", function() {
+    //       var pays = 'Netherlands';
+    //       var fileName = 'test.txt';
+    //       setTimeout(function(){
+    //         deleteFile(pays, fileName);
+    //       }, 10000);
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+    //   it("Read", function() {
+    //       var pays = 'Netherlands';
+    //       var fileName = 'Netherlands.json';
+    //       readFile(pays, fileName);
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+    //   it("Add new country", function() {
+    //       var pays = 'Luxembourg';
+    //       var fileName = 'lu-phonogramme.json';
+    //       var content = '{"test": "test de jerome Luxembourg"}';
+    //       var commitText = 'test Luxembourg';
+    //       setTimeout(function(){
+    //         writeFile(pays, fileName, content, commitText);
+    //       }, 15000);
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+    //   it("Delete new country", function() {
+    //       var pays = 'Luxembourg';
+    //       var fileName = 'lu-phonogramme.json';
+    //       setTimeout(function(){
+    //         deleteFile(pays, fileName);
+    //       }, 20000);
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+    //   it("Repository show", function() {
+          
+    //       repoShow();
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+    //   it("Get tree", function() {
+          
+    //       getTree();
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+    //   it("Get countries", function() {
+    //       var callback = function(tree){
+    //         console.log(tree);
+    //       }
+    //       getCountries(callback);
+
+    //       result = '';
+    //       expect(result).toEqual('');
+    //     });
+    //   it("Get commits", function() {
+    //       commits('Netherlands/Netherlands.json');
+    //       result = '';
+    //       expect(result).toEqual('');
+    //   });
+    //   });
+    </script>
+
+  </body>
+
+</html>
