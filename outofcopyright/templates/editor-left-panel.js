@@ -4,6 +4,7 @@ leftPanelHtml = `
 
 
 
+
 <div id="node-editor" style="height:100%">
 
 	<h3 class="title">Node Edition</h3>
@@ -106,7 +107,7 @@ leftPanelHtml = `
 				<div id="question-answers-block" class="form-group" style="position:relative">
 					<label class="col-sm-12">Default answers : </label>
 
-					<div id="question-answers" class="col-md-8">
+					<div id="question-answers" class="col-sm-8">
 					</div>
 					<div id="question-answers-management" class="col-sm-4" style="position:absolute; bottom:0; right:0" >				
 						<button id="addAnswer" type="button">+</button>
@@ -119,13 +120,24 @@ leftPanelHtml = `
 
 
 
-			<div class="form-group">
-				<label for="isTargetDefined" class="col-sm-8" >Connect to an existing node ?</label>
+			<div class="form-group" style="position:relative">
+				<label for="caseTarget" class="col-sm-8" >Connect to an existing node ?</label>
 				<div class="col-sm-4 text-right">
-					<select id="isTargetDefined">
+					<select id="caseTarget">
 						<option value="no" SELECTED>No </option>
 						<option value="yes">		Yes</option>
 					</select>				
+				</div>
+
+
+				<div id="targetDefined">
+					<br>
+					<div id="target-connections" class="col-sm-8">
+					</div>
+					<div id="target-connections-management" class="col-sm-4" style="position:absolute; bottom:0; right:0" >				
+						<button id="addTarget" type="button">+</button>
+						<button id="delTarget" type="button">-</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -133,9 +145,6 @@ leftPanelHtml = `
 		<button id="node-editor-submit" type="button" class="btn btn-default">Generate</button>
 	</form>
 </div>
-
-
-
 
 
 
@@ -163,7 +172,8 @@ function lpHideDisplay(){
 	$('#caseNumeric').hide();
 	$('#isComputation').hide();
 	$('#computationEnabled').hide();
-	$('#isTargetDefined').hide();
+	$('#targetDefined').hide();
+
 }
 
 // Reset all fields
@@ -178,6 +188,7 @@ function lpReset(){
 function lpDisplay(){
 	toggleCaseVisibility($('#caseResult'), '#isResult', '#isNotResult');
 	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
+	toggleTargetConnection($('#caseTarget'));
 	toggleQuestionTypeVisibility($('#question-type'));
 	toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 }
@@ -210,9 +221,6 @@ function lpConfigDisplay(){
 		toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
 	});
 
-	// Potential existing target of node
-	$('#isNotResult').is(":visible") == true ? $('#isTargetDefined').show() : $('#isTargetDefined').hide();
-
 	// Question type
 	$('#question-type').change(function(){
 		toggleQuestionTypeVisibility($(this));
@@ -226,6 +234,12 @@ function lpConfigDisplay(){
 	// Default answers button management
 	$('#addAnswer').click(function(){	addAnswer();	});
 	$('#delAnswer').click(function(){	delAnswer();	});
+
+	// Target defined
+	$('#caseTarget').change(function(){
+		toggleTargetConnection($(this));
+	});
+
 }
 
 
@@ -335,6 +349,93 @@ function delAnswer(){
 }
 
 
+
+
+
+
+function toggleTargetConnection(targetElt){
+	if(targetElt.val() == "yes"){
+		$('#targetDefined').show();
+
+		// Retrieve the answers section
+		var answers = retrieveSection('input', 'question-def-answers-');
+
+		// Generate the select tag on a specific line
+		var lineIdx = 0;
+		$('#target-connections').html(`
+			<label for="target-connections-answersList-`+lineIdx+`" class="col-sm-3">Answer</label>
+			<select id="target-connections-answersList-`+lineIdx+`" class="col-sm-2">
+			</select>
+		`);
+		// Insert option tags into the just created select tag
+		for(var i=0; i<answers.length; i++){
+			$('#target-connections-answersList-'+lineIdx).append(`
+				<option value=`+i+`>#`+i+`</option>
+			`);
+		}
+		$('#target-connections-answersList-'+lineIdx).on('change', function(e){
+			$(this).find('option[value="'+$(this).val()+'"]').prop('selected', true);
+			$(this).find('option[value="'+$(this).val()+'"]').attr('selected', true);
+		});
+
+		$('#target-connections-answersList-'+lineIdx).val(0);
+
+
+
+
+
+		// // Retrieve all question nodes ID different from current
+		// var currentId = $('#node-editor-id').val(),
+		// 	targets = [];
+		// for(var idx in questionNodes){
+		// 	if(idx != currentId)
+		// 		targets.push(idx);
+		// }
+
+		// // Generate the select tag on a specific line
+		// $('#target-connections').append(`
+		// 	<label for="target-connections-nodesList-`+lineIdx+`" class="col-sm-3">Target</label>
+		// 	<select id="target-connections-nodesList-`+lineIdx+`" class="col-sm-1">
+		// 	</select>
+		// `);
+
+		// // Insert option tags into the just created select tag
+		// for(var i=0; i<targets.length; i++){
+		// 	var targetId= targets[i];
+		// 	$('#target-connections-nodesList-'+lineIdx).append(`
+		// 		<option value="`+targetId+`">#`+i+`</option>
+		// 	`);
+		// }
+	}
+	else{
+		$('#targetDefined').hide();
+	}
+}
+
+
+
+
+// target-connections
+// target-connections-management
+
+
+
+
+
+
+// Retrive specific section of code based on common id pattern : id-section-#index
+function retrieveSection(tag, sectionId){
+	var s = [],
+		selector = tag+'[id^="'+sectionId+'"]';
+
+	$(selector).each(function(idx){
+		s.push($('#'+sectionId+idx)[0]);
+	});
+	return s;
+}
+
+
+
 // Get form data for the graphical editor
 function editorDumper(){
 
@@ -361,18 +462,15 @@ function editorDumper(){
 				answers: []
 			}
 
-			// Retrieve the answers section
-			var s = [];
-			$('input[id^="question-def-answers-"]').each(function(idx){
-				s.push($('#question-def-answers-'+idx)[0]);
-			});
+			var s = retrieveSection('input', 'question-def-answers-');
+
 			s.forEach(function(elt){
 				var answer = elt.value != "" ? elt.value : elt.placeholder;
 				nodeData.question.answers.push(answer);
 			});
 		}
 	}	
-
+	console.log(nodeData);
 	return nodeData;
 }
 
@@ -440,5 +538,5 @@ function dumpQuestionNode(questionKey){
 // question-answers-management
 // add
 // del
-// isTargetDefined
+// caseTarget
 
