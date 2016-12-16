@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Menu</title>
+
+	<!-- jQuery -->
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/design.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+
+	<!-- Templates simulation -->
+	<script type="text/javascript" src="editor-left-panel.js"></script>
+
+	<!-- Dependecies -->
+	<script type="text/javascript" src="https://d3js.org/d3.v3.js"></script>
+	<script type="text/javascript" src="../js/lib/dagre-d3.min.js"></script>
+	<script type="text/javascript" src="../js/editor-development.js"></script>
+
+
+</head>
+
+<style>
+/*
+HTML css
+*/
+html, 
+body {
+    height: 100%;
+}
+h1{
+	text-align:center;
+}
+label{
+	color:green;
+}
+div.left-panel{
+	padding-left: 50px;
+}
+div.right-panel{
+	padding-left: 50px;	
+}
+
+
+/* SVG css */
+g.type-TK > rect {
+	fill: #00ffd0;
+}
+
+text {
+	font-weight: 300;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
+	font-size: 14px;
+}
+
+.node rect {
+	stroke: #999;
+	fill: #fff;
+	stroke-width: 1.5px;
+}
+
+.edgePath path {
+	stroke: #333;
+	stroke-width: 1.5px;
+</style>
+
+<body>
+
+	<div class="container-fluid">
+
+		<h1>Editor Development Template</h1>
+		<p>The objective is to improve wat has been done during the OutOfCOpyright project </p>
+
+		<!-- Juridisction selection / creation -->
+
+		<h3>Choose or create a juridisction you want to investigate in</h3>
+		<p>Created and selected by default : 'Netherlands'</p>
+
+
+		<!-- Choose the type of work you want to determine the status -->
+
+		<h3>Choose or create a type of work you want to determine the orphan status</h3>
+		<p>Created and selected by default : 'Audio-Visual'</p>
+
+
+
+		<p>The prototype starts with given meta data for a given decision process tree</p>
+		<p>You have to customize your process as you want it to be</p>
+
+
+		<div class="row" style="min-height:80%">
+			<div id="editor-left-panel" class="col-md-4 left-panel"></div>
+
+			<div id="editor-content" class="col-md-8 right-panel">
+				<h3>Graphical editor</h3>
+				<svg id="graphical-editor"></svg> 
+			</div>
+
+
+		</div>
+
+	</div>
+	
+</body>
+
+<script type="text/javascript">
+
+
+	$(document).ready(function(){
+		injectLeftPanel();
+		initSVG();
+		render();
+		$('#node-editor-submit').click(function(){
+			var nodeData = editorDumper();
+			updateNode(nodeData);
+		});
+
+	});
+
+</script>
+
+</html>
+
+
+
+
+
+
