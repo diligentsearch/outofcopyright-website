@@ -76,10 +76,13 @@ function centerZoomClick(){
 
 	// Node id binding with editor
 	d3.select("svg g").selectAll("g.node").each(function(v){
-		$(this).on('click', function(event) {
-			$(leftPanelNodeSelector)
-				.val($(this).context.id)
-				.trigger('change');
+		/* Click event handle only once */
+		$(this)
+			.off('click')
+			.on('click', function(event) {
+				$(leftPanelNodeSelector)
+					.val($(this).context.id)
+					.trigger('change');
 		});
 	});
 }
@@ -92,9 +95,16 @@ function createNew(){
 
 
 
+questionNodes = [];
+
 
 
 function updateNode(nodeData){
+	
+	questionNodes[nodeData.id] = nodeData;
+
+
+
 	var nodeToUpdate = graphic.node(nodeData.id);
 	nodeToUpdate.label = nodeData.question.title;
 	generateOutputLinks(nodeToUpdate, nodeData.question.answers);
@@ -106,12 +116,12 @@ function generateOutputLinks(nodeToUpdate, linkAnswers){
 	var x = nodeToUpdate.id.split('_')[1],
 	y = 0;
 
-	console.log("parentLvl", x);
+	// console.log("parentLvl", x);
 	x++;
 
 	
 	linkAnswers.forEach(function(value){
-		console.log('value : ', value);
+		// console.log('value : ', value);
 		var childLvl = 'lvl_'+x+':'+y; //lvl_x:y
 		graphic.setNode(childLvl, {id:childLvl, label: 'Click to edit'});
 		graphic.setEdge(nodeToUpdate.id, childLvl, {label:value});

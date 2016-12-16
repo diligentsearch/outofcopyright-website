@@ -142,11 +142,7 @@ function injectLeftPanel(){
 	lpConfigDisplay();
 }
 
-
-
-function lpConfigDisplay(){
-
-	// hide all not necessary div
+function lpHideDisplay(){
 	$('#node-editor-form').hide();
 	$('#isResult').hide();
 	$('#isNotResult').hide();
@@ -156,16 +152,27 @@ function lpConfigDisplay(){
 	$('#isComputation').hide();
 	$('#computationEnabled').hide();
 	$('#isTargetDefined').hide();
+}
+
+
+
+function lpConfigDisplay(){
+
+	lpHideDisplay();
 
 
 	/* Default visibility and Handle change event */
+
 	// Form invisible while node-editor-id not set
+	/* HIDDEN FIELDS NEED TO BE 'TRIGGERED' MANUALLY BEFORE CALLING THIS KIND OF EVENTS */
 	$('#node-editor-id').change(function(){
 		if($(this).val() == ""){
-			console.log("node editor id changed : ", $(this).val());
 			$('#node-editor-form').hide();	
 		}else{
-			console.log("node editor id changed : ", $(this).val());
+			// Retrieve data based on the id
+			console.log("changed");
+			var key = $(this).val();
+			questionNodesDumper(key);
 			$('#node-editor-form').show();			
 		}
 	});
@@ -325,6 +332,8 @@ function editorDumper(){
 	// Question data
 	nodeData = {
 		id : $('#node-editor-id').val(),
+		isResult: false,
+		isBlock: false,
 		question: {
 			title: $('#question-title').val(),
 			type: $('#question-type').val(),
@@ -342,8 +351,65 @@ function editorDumper(){
 		nodeData.question.answers.push(elt.value);
 	});
 
+
+	// Reset all fields
 	$('#node-editor-id').val("");
+	$('#node-editor-form').find("input").val("");
+	injectDefaultAnswers(0);
+	lpHideDisplay();
+
 	return nodeData;
+}
+
+
+
+function questionNodesDumper(questionKey){
+
+	var nodeData = questionNodes[questionKey];
+	if(nodeData == undefined)
+		return;
+
+	console.log("nodeDataDumper" , nodeData);
+
+
+	// Preset form to match what is written inside this current question node
+
+	// Result case
+	if(nodeData.isResult){
+		$('#caseResult').val("yes");
+		$('#isResult').show();
+		$('#isNotResult').hide();
+	}
+	else{
+		$('#caseResult').val("no");
+		$('#isResult').hide();
+		$('#isNotResult').show();
+	}
+
+	// Block case
+	if(nodeData.isBlock){
+		$('#caseBlock').val("yes");
+		$('#isBlock').show();
+		$('#isNotBlock').hide();
+	}
+	else{
+		$('#caseBlock').val("no");
+		$('#isBlock').hide();
+		$('#isNotBlock').show();
+	}
+
+	// question part : the only one don so far
+	$('#question-title').val(nodeData.question.title);
+	$('#question-type').val(nodeData.question.type);
+	$('#question-answers-block').show();	
+
+
+	injectDefaultAnswers(0);
+	for(var i=0; i<nodeData.question.answers.length; i++){
+		addAnswer();
+		var answer = nodeData.question.answers[i];
+		$('#question-def-answers-'+i).val(answer);
+	}
 }
 
 
