@@ -30,8 +30,9 @@
 /*
 HTML css
 */
-html, 
-body {
+html,
+body,
+div.container-fluid  {
     height: 100%;
 }
 h1{
@@ -40,12 +41,33 @@ h1{
 label{
 	color:green;
 }
+
+
+div.main-panel{
+	display: table;
+	height:100%;
+}
 div.left-panel{
 	padding-left: 50px;
+    float: none;
+    display: table-cell;
+    vertical-align: top;
 }
 div.right-panel{
-	padding-left: 50px;	
+	padding-left: 50px;
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+    overflow: hidden;
+    position: relative;
 }
+svg.svg-css {
+	height: 100%;
+	width:100%;
+    position: absolute;
+}
+
+
 
 
 /* SVG css */
@@ -94,12 +116,12 @@ text {
 		<p>You have to customize your process as you want it to be</p>
 
 
-		<div class="row" style="min-height:80%">
+		<div class="row main-panel">
 			<div id="editor-left-panel" class="col-md-4 left-panel"></div>
 
 			<div id="editor-content" class="col-md-8 right-panel">
 				<h3>Graphical editor</h3>
-				<svg id="graphical-editor"></svg> 
+				<svg id="graphical-editor" class="svg-css"></svg> 
 			</div>
 
 
@@ -120,6 +142,9 @@ text {
 			var nodeData = editorDumper();
 			updateNode(nodeData);
 		});
+
+
+		console.log("init finshed");
 
 	});
 

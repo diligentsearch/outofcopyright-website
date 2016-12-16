@@ -9,16 +9,23 @@
 // 
 
 leftPanelNodeSelector = '#node-editor-id';
+svg = undefined;
+svgGroup = undefined;
 graphic = undefined;
+zoom = undefined;
+initialScale = 0.75;
+
 
 function initSVG(){
-	// Create graphic element
+	// Create graphic element and asvg
 	graphic = new dagreD3.graphlib.Graph()
 		.setGraph({})
-		.setDefaultEdgeLabel(function() { return {}; });
+		.setDefaultEdgeLabel(function() { return {}; });	
 	
-	// append g element into the svg html group
-	d3.select("svg").append("g"); 
+	svg = d3.select("svg");
+	svgGroup = svg.append("g");
+	zoom = d3.behavior.zoom();
+
 	createNew();
 }
 
@@ -29,7 +36,7 @@ function render(){
 	graphicBeautifier();
 
 	var render = new dagreD3.render();
-	render(d3.select("svg g"), graphic);
+	render(svgGroup, graphic);
 
 	centerZoomClick();
 }
@@ -44,21 +51,24 @@ function graphicBeautifier(){
 
 function centerZoomClick(){
 
-	var svg = d3.select("svg"),
-		initialScale = 0.75,
-		inner = d3.select("svg").select("g"),
-		zoom = d3.behavior.zoom();
+	// Update svg width element based on display
+	svg.attr('width', $('#graphical-editor').width());
 
 	// Center the graph
-	zoom.translate([(svg.attr("width") - graphic.graph().width * initialScale) / 2, 20])
+	var xCenterOffset = (svg.attr("width") - graphic.graph().width * 2) / 2;
+	svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
+	svg.attr("height", graphic.graph().height + 40);
+
+
+	// Enable translation
+	zoom.translate([xCenterOffset, 100])
 	  .scale(initialScale)
 	  .event(svg);
 	svg.attr('height', graphic.graph().height * initialScale + 40);
 
-
 	// Enable zoom
 	zoom.on("zoom", function() {
-		inner.attr("transform", 
+		svgGroup.attr("transform", 
 			"translate(" + d3.event.translate + ")" + "scale(" + d3.event.scale + ")");
 	});
 	svg.call(zoom);
@@ -69,7 +79,7 @@ function centerZoomClick(){
 		$(this).on('click', function(event) {
 			$(leftPanelNodeSelector)
 				.val($(this).context.id)
-					.trigger('change');
+				.trigger('change');
 		});
 	});
 }
