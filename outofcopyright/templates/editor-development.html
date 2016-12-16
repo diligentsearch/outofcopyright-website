@@ -23,7 +23,6 @@
 	<script type="text/javascript" src="../js/lib/dagre-d3.min.js"></script>
 	<script type="text/javascript" src="../js/editor-development.js"></script>
 
-
 </head>
 
 <style>
@@ -34,6 +33,7 @@ html,
 body,
 div.container-fluid  {
     height: 100%;
+    overflow: scroll;
 }
 h1{
 	text-align:center;
@@ -117,9 +117,9 @@ text {
 
 
 		<div class="row main-panel">
-			<div id="editor-left-panel" class="col-md-4 left-panel"></div>
+			<div id="editor-left-panel" class="col-md-6 left-panel"></div>
 
-			<div id="editor-content" class="col-md-8 right-panel">
+			<div id="editor-content" class="col-md-6 right-panel">
 				<h3>Graphical editor</h3>
 				<svg id="graphical-editor" class="svg-css"></svg> 
 			</div>
@@ -141,6 +141,8 @@ text {
 		$('#node-editor-submit').click(function(){
 			var nodeData = editorDumper();
 			updateNode(nodeData);
+			lpReset();
+			lpHideDisplay();
 		});
 
 	});

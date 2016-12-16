@@ -68,7 +68,7 @@ leftPanelHtml = `
 					</div>			
 				</div>
 
-				<div id="ifNumeric" class="form-group">
+				<div id="caseNumeric" class="form-group">
 					<label for="isComputation" class="col-sm-8" >Is a computation required ?</label>
 					<div class="col-sm-4 text-right">
 						<select id="isComputation">
@@ -128,135 +128,131 @@ leftPanelHtml = `
 		<button id="node-editor-submit" type="button" class="btn btn-default">Generate</button>
 	</form>
 </div>
-
-
-
-
 `;
 
 
 
-
+// Inject it to your html file
 function injectLeftPanel(){
 	$('#editor-left-panel').html(leftPanelHtml);
 	lpConfigDisplay();
+	lpHideDisplay();
+	lpReset();	
+	lpDisplay();
 }
 
+
+// Hide all the left panel
 function lpHideDisplay(){
 	$('#node-editor-form').hide();
 	$('#isResult').hide();
 	$('#isNotResult').hide();
 	$('#isBlock').hide();
 	$('#isNotBlock').hide();
-	$('#ifNumeric').hide();
+	$('#caseNumeric').hide();
 	$('#isComputation').hide();
 	$('#computationEnabled').hide();
 	$('#isTargetDefined').hide();
 }
 
+// Reset all fields
+function lpReset(){
+	$('#node-editor-form').find("input").val("");
+	$('#node-editor-form').find("select[id^=case]").val("no");
+	$('#question-type').val("text");
+	injectDefaultAnswers(0);
+}
 
+// Set current display
+function lpDisplay(){
+	toggleCaseVisibility($('#caseResult'), '#isResult', '#isNotResult');
+	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
+	toggleQuestionTypeVisibility($('#question-type'));
+	toggleComputationVisibility($('#isComputation'), '#computationEnabled');
+}
 
+// Configure default events for displaying div
 function lpConfigDisplay(){
 
-	lpHideDisplay();
-
-
-	/* Default visibility and Handle change event */
-
-	// Form invisible while node-editor-id not set
-	/* HIDDEN FIELDS NEED TO BE 'TRIGGERED' MANUALLY BEFORE CALLING THIS KIND OF EVENTS */
+	// Form visiibility
 	$('#node-editor-id').change(function(){
+		/* HIDDEN FIELDS NEED TO BE 'TRIGGERED' MANUALLY BEFORE CALLING THIS KIND OF EVENTS */		
+		lpReset();	// Reset form on ID change
 		if($(this).val() == ""){
-			$('#node-editor-form').hide();	
-		}else{
-			// Retrieve data based on the id
-			console.log("changed");
+			lpHideDisplay();
+		}
+		else{
 			var key = $(this).val();
-			questionNodesDumper(key);
-			$('#node-editor-form').show();			
+			dumpQuestionNode(key);
+			$('#node-editor-form').show();
+			lpDisplay();
 		}
 	});
 	
-	// Result 
-	toggleBlockVisibility($('#caseResult'), '#isResult', '#isNotResult');
+	// Result node
 	$('#caseResult').change(function(){
-		toggleBlockVisibility($(this), '#isResult', '#isNotResult');
+		toggleCaseVisibility($(this), '#isResult', '#isNotResult');
 	});
 
-	// Block
-	toggleBlockVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
+	// Block node
 	$('#caseBlock').change(function(){
-		toggleBlockVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
+		toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
 	});
 
-	// Potential existing target of this node
+	// Potential existing target of node
 	$('#isNotResult').is(":visible") == true ? $('#isTargetDefined').show() : $('#isTargetDefined').hide();
 
 	// Question type
-	toggleQuestionTypeVisibility($('#question-type'));
 	$('#question-type').change(function(){
 		toggleQuestionTypeVisibility($(this));
 	});
 
 	// Numeric type : handle computation
-	toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 	$('#isComputation').change(function(){
 		toggleComputationVisibility($(this), '#computationEnabled');
 	});	
 
 	// Default answers button management
-	$('#addAnswer').click(function(){
-		addAnswer();
-	});
-	$('#delAnswer').click(function(){
-		delAnswer();
-	});
-
-	// Submit button
-	// $('#node-editor-submit').click(function(){
-	// 	alert('undefined hanlder for node-editor-submit button');
-	// });
+	$('#addAnswer').click(function(){	addAnswer();	});
+	$('#delAnswer').click(function(){	delAnswer();	});
 }
 
+
+
+
+
+
+// Display or not the specific question for a numeric type
 function toggleComputationVisibility(currentElt, idSelector){
-	switch(currentElt.val()){
-		case "no":
-			$(idSelector).hide();
-			break;
-		case "yes":
-			$(idSelector).show();
-			break;
-		default:
-			break;
+	if(currentElt.val() == "yes"){
+		$(idSelector).show();
+	}else{
+		$(idSelector).hide();
 	}
 }
 
-function toggleBlockVisibility(currentElt, ifIdSelector, elseIdSelector){
-	switch(currentElt.val()){
-		case "no":
-			$(ifIdSelector).hide();
-			$(elseIdSelector).show();
-			break;
-		case "yes":
-			$(ifIdSelector).show();
-			$(elseIdSelector).hide();
-			break;
-		default:
-			break;
+// Display / Hide div for cases (yes / no option to display element)
+function toggleCaseVisibility(currentElt, ifIdSelector, elseIdSelector){
+	if(currentElt.val() == "yes"){
+		$(ifIdSelector).show();
+		$(elseIdSelector).hide();
+	}else{
+		$(ifIdSelector).hide();
+		$(elseIdSelector).show();
 	}
 }
 
-
+// Display specific predefined answers according to selected type
 function toggleQuestionTypeVisibility(questionElt){
 
-
+	// Specific case for numeric type
 	if(questionElt.val() == "numeric"){
-		$('#ifNumeric').show();
+		$('#caseNumeric').show();
 		$('#isComputation').show();	
 		injectDefaultAnswers(2, ['true', 'false']);
 	}
 	else{
-		$('#ifNumeric').hide();
+		$('#caseNumeric').hide();
 		$('#isComputation').hide();
 
 		// Check other types
@@ -278,14 +274,16 @@ function toggleQuestionTypeVisibility(questionElt){
 	}
 }
 
-
+// Insert the given number of label/input for the default answers section
 function injectDefaultAnswers(nb, placeholder){
 
+	// Flush default answers section
 	if(nb == 0){
 		$('#question-answers').html('');
 		return;
 	}
 
+	// Inject as many answers as needed
 	var lastId,
 		answers = "";
 
@@ -298,11 +296,10 @@ function injectDefaultAnswers(nb, placeholder){
 		lastId = "#question-def-answers-"+i;
 		answers += answer;		
 	}
-
 	$('#question-answers').html(answers);
 }
 
-
+// Insert one more answer in the default answers section
 function addAnswer(){
 	var i = $('#question-answers > input').length;
 
@@ -314,8 +311,9 @@ function addAnswer(){
 }
 
 
-
+// Remove the last inserted answer
 function delAnswer(){
+	// Stop condition : always one answer available
 	if($('#question-answers').children().length == 2){
 		return;
 	}
@@ -326,10 +324,9 @@ function delAnswer(){
 }
 
 
-
-
+// Get form data for the graphical editor
 function editorDumper(){
-	// Question data
+
 	nodeData = {
 		id : $('#node-editor-id').val(),
 		isResult: false,
@@ -341,74 +338,54 @@ function editorDumper(){
 		}
 	};
 
+	// Retrieve the answers section
 	var s = [];
 	$('input[id^="question-def-answers-"]').each(function(idx){
 		s.push($('#question-def-answers-'+idx)[0]);
 	});
-
 	s.forEach(function(elt){
-		var value = elt.value != "" ? elt.value : elt.placeholder;
-		nodeData.question.answers.push(elt.value);
+		var answer = elt.value != "" ? elt.value : elt.placeholder;
+		nodeData.question.answers.push(answer);
 	});
-
-
-	// Reset all fields
-	$('#node-editor-id').val("");
-	$('#node-editor-form').find("input").val("");
-	injectDefaultAnswers(0);
-	lpHideDisplay();
 
 	return nodeData;
 }
 
 
 
-function questionNodesDumper(questionKey){
+// Preset form to match what is written inside this current question node
+function dumpQuestionNode(questionKey){
 
-	var nodeData = questionNodes[questionKey];
-	if(nodeData == undefined)
-		return;
-
-	console.log("nodeDataDumper" , nodeData);
-
-
-	// Preset form to match what is written inside this current question node
+	var nodeData = questionNodes[questionKey];	
 
 	// Result case
 	if(nodeData.isResult){
 		$('#caseResult').val("yes");
-		$('#isResult').show();
-		$('#isNotResult').hide();
 	}
 	else{
 		$('#caseResult').val("no");
-		$('#isResult').hide();
-		$('#isNotResult').show();
 	}
 
 	// Block case
 	if(nodeData.isBlock){
 		$('#caseBlock').val("yes");
-		$('#isBlock').show();
-		$('#isNotBlock').hide();
 	}
 	else{
 		$('#caseBlock').val("no");
-		$('#isBlock').hide();
-		$('#isNotBlock').show();
 	}
 
-	// question part : the only one don so far
-	$('#question-title').val(nodeData.question.title);
-	$('#question-type').val(nodeData.question.type);
-	$('#question-answers-block').show();	
+	// Question block :
+	if(nodeData.question){
+		$('#question-title').val(nodeData.question.title);
+		$('#question-type').val(nodeData.question.type);
 
+		for(var i=0; i<nodeData.question.answers.length; i++){
+			addAnswer();
+			var answer = nodeData.question.answers[i];
+			$('#question-def-answers-'+i).val(answer);
 
-	injectDefaultAnswers(0);
-	for(var i=0; i<nodeData.question.answers.length; i++){
-		addAnswer();
-		var answer = nodeData.question.answers[i];
-		$('#question-def-answers-'+i).val(answer);
+			console.log("answer inserted is : ", answer, "in : ", $('#question-def-answers-'+i));
+		}		
 	}
 }
 
@@ -426,7 +403,7 @@ function questionNodesDumper(questionKey){
 // isNotBlock
 // question-title
 // question-type
-// ifNumeric
+// caseNumeric
 // isComputation
 // computationEnabled
 // refValue

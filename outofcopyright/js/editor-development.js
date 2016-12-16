@@ -9,6 +9,9 @@
 // 
 
 leftPanelNodeSelector = '#node-editor-id';
+
+questionNodes = [];
+
 svg = undefined;
 svgGroup = undefined;
 graphic = undefined;
@@ -26,7 +29,8 @@ function initSVG(){
 	svgGroup = svg.append("g");
 	zoom = d3.behavior.zoom();
 
-	createNew();
+	graphic.setNode('lvl_0', {id:'lvl_0', label: 'Click to edit'});
+	questionNodes['lvl_0'] = {};
 }
 
 
@@ -88,22 +92,12 @@ function centerZoomClick(){
 }
 
 
-// Based on selected data, create a new graph
-function createNew(){
-	graphic.setNode('lvl_0', {id:'lvl_0', label: 'Click to edit'});
-}
-
-
-
-questionNodes = [];
 
 
 
 function updateNode(nodeData){
 	
 	questionNodes[nodeData.id] = nodeData;
-
-
 
 	var nodeToUpdate = graphic.node(nodeData.id);
 	nodeToUpdate.label = nodeData.question.title;
@@ -113,18 +107,33 @@ function updateNode(nodeData){
 
 function generateOutputLinks(nodeToUpdate, linkAnswers){
 
-	var x = nodeToUpdate.id.split('_')[1],
-	y = 0;
+	// Pattern creation of children id
+	var idSplit = nodeToUpdate.id.split('_'),
+		parentLvl = parseInt(idSplit[1]),
+		currentLvl = idSplit[0]+'_'+( parentLvl + 1 );
 
-	// console.log("parentLvl", x);
-	x++;
+	// Look at all question nodes to know the position to insert in
+	var childNodeIndex = 0;
+	for(var nodeId in questionNodes){
+		// console.log("k : ", nodeId, "; v ", questionNodes[nodeId]);
+
+		// Check if this node is sibling : avoid to erase it
+		if(nodeId.indexOf(currentLvl) == 0){
+			childNodeIndex++;
+		}
+	}
 
 	
 	linkAnswers.forEach(function(value){
-		// console.log('value : ', value);
-		var childLvl = 'lvl_'+x+':'+y; //lvl_x:y
-		graphic.setNode(childLvl, {id:childLvl, label: 'Click to edit'});
-		graphic.setEdge(nodeToUpdate.id, childLvl, {label:value});
-		y++;
+		// Create the children id	
+		var childId = currentLvl+'_'+childNodeIndex;
+		childNodeIndex++;
+
+		// Create the child node and the edge between parent/child
+		graphic.setNode(childId, {id:childId, label: 'Click to edit'});
+		graphic.setEdge(nodeToUpdate.id, childId, {label:value});
+
+		// register the created child
+		questionNodes[childId] = {};
 	});
 }
