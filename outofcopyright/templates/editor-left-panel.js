@@ -4,7 +4,6 @@ leftPanelHtml = `
 
 
 
-
 <div id="node-editor" style="height:100%">
 
 	<h3 class="title">Node Edition</h3>
@@ -26,7 +25,13 @@ leftPanelHtml = `
 			</div>
 		</div>
 
-		<div id="isResult">Result case not implemented yet</div>
+		<div id="isResult">
+			<div class="form-group col-sm-12">
+				<label for="result-text">Result to display: </label>
+				<br>
+				<input id="result-text" type="text" style="width:100%"/>				
+			</div>
+		</div>
 
 
 		<div id="isNotResult">		
@@ -128,6 +133,12 @@ leftPanelHtml = `
 		<button id="node-editor-submit" type="button" class="btn btn-default">Generate</button>
 	</form>
 </div>
+
+
+
+
+
+
 `;
 
 
@@ -327,26 +338,40 @@ function delAnswer(){
 // Get form data for the graphical editor
 function editorDumper(){
 
-	nodeData = {
-		id : $('#node-editor-id').val(),
-		isResult: false,
-		isBlock: false,
-		question: {
-			title: $('#question-title').val(),
-			type: $('#question-type').val(),
-			answers: []
-		}
-	};
+	// Create the data and get back main characteritics
+	var nodeData = {
+		id: $('#node-editor-id').val(),
+		isResult: $('#isResult').is(":visible"),
+		isBlock: $('#isBlock').is(":visible")
+	}
 
-	// Retrieve the answers section
-	var s = [];
-	$('input[id^="question-def-answers-"]').each(function(idx){
-		s.push($('#question-def-answers-'+idx)[0]);
-	});
-	s.forEach(function(elt){
-		var answer = elt.value != "" ? elt.value : elt.placeholder;
-		nodeData.question.answers.push(answer);
-	});
+	// According to characteritics, inject required data
+	if(nodeData.isResult) {
+		nodeData['text'] = $('#result-text').val();
+	}
+	else {
+		if(nodeData.isBlock){
+
+		}
+		else{
+			// Classical case
+			nodeData['question'] = {
+				title: $('#question-title').val(),
+				type: $('#question-type').val(),
+				answers: []
+			}
+
+			// Retrieve the answers section
+			var s = [];
+			$('input[id^="question-def-answers-"]').each(function(idx){
+				s.push($('#question-def-answers-'+idx)[0]);
+			});
+			s.forEach(function(elt){
+				var answer = elt.value != "" ? elt.value : elt.placeholder;
+				nodeData.question.answers.push(answer);
+			});
+		}
+	}	
 
 	return nodeData;
 }
@@ -361,6 +386,7 @@ function dumpQuestionNode(questionKey){
 	// Result case
 	if(nodeData.isResult){
 		$('#caseResult').val("yes");
+		$('#result-text').val(nodeData.text);
 	}
 	else{
 		$('#caseResult').val("no");
@@ -397,6 +423,7 @@ function dumpQuestionNode(questionKey){
 // node-editor
 // caseResult
 // isResult
+// result-text
 // isNotResult
 // caseBlock
 // isBlock

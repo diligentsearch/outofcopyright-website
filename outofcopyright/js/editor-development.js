@@ -4,14 +4,14 @@
  *
  */
 
-// 
-// Graphical editor
-// 
 
+// Html target
 leftPanelNodeSelector = '#node-editor-id';
 
+// Data store for current graph
 questionNodes = [];
 
+// Graphical objects
 svg = undefined;
 svgGroup = undefined;
 graphic = undefined;
@@ -19,8 +19,8 @@ zoom = undefined;
 initialScale = 0.75;
 
 
+// Initiate the graphical object and the first node
 function initSVG(){
-	// Create graphic element and asvg
 	graphic = new dagreD3.graphlib.Graph()
 		.setGraph({})
 		.setDefaultEdgeLabel(function() { return {}; });	
@@ -29,22 +29,25 @@ function initSVG(){
 	svgGroup = svg.append("g");
 	zoom = d3.behavior.zoom();
 
+	// Create and register the first node
 	graphic.setNode('lvl_0', {id:'lvl_0', label: 'Click to edit'});
 	questionNodes['lvl_0'] = {};
 }
 
 
 
-// Create the renderer and run it on the predefined svg group
+// Render the graphic to display
 function render(){	
 	graphicBeautifier();
 
 	var render = new dagreD3.render();
 	render(svgGroup, graphic);
 
-	centerZoomClick();
+	configSVG();
 }
 
+
+// Enhance graphical drawing
 function graphicBeautifier(){
 	graphic.nodes().forEach(function(v) {
 		var node = graphic.node(v);
@@ -53,24 +56,25 @@ function graphicBeautifier(){
 }
 
 
-function centerZoomClick(){
+// Configure svg features
+function configSVG(){
 
 	// Update svg width element based on display
 	svg.attr('width', $('#graphical-editor').width());
 
-	// Center the graph
+	// Center
 	var xCenterOffset = (svg.attr("width") - graphic.graph().width * 2) / 2;
 	svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
 	svg.attr("height", graphic.graph().height + 40);
 
 
-	// Enable translation
+	// Translation enabled
 	zoom.translate([xCenterOffset, 100])
 	  .scale(initialScale)
 	  .event(svg);
 	svg.attr('height', graphic.graph().height * initialScale + 40);
 
-	// Enable zoom
+	// Zoom eanbled
 	zoom.on("zoom", function() {
 		svgGroup.attr("transform", 
 			"translate(" + d3.event.translate + ")" + "scale(" + d3.event.scale + ")");
@@ -78,7 +82,7 @@ function centerZoomClick(){
 	svg.call(zoom);
 
 
-	// Node id binding with editor
+	// Click events on nodes : link to the leftPanel editor
 	d3.select("svg g").selectAll("g.node").each(function(v){
 		/* Click event handle only once */
 		$(this)
@@ -92,19 +96,35 @@ function centerZoomClick(){
 }
 
 
-
-
-
+// Refresh node data
 function updateNode(nodeData){
 	
+	// Save model modifications
 	questionNodes[nodeData.id] = nodeData;
 
+	// Get the node, and update graphic sructure
 	var nodeToUpdate = graphic.node(nodeData.id);
-	nodeToUpdate.label = nodeData.question.title;
-	generateOutputLinks(nodeToUpdate, nodeData.question.answers);
+
+	if(nodeData.isResult){
+		nodeToUpdate.label = nodeData.text;
+	}
+	else {
+		if(nodeData.isBlock){
+
+		}
+		else{
+			// Question case
+			nodeToUpdate.label = nodeData.question.title;
+			generateOutputLinks(nodeToUpdate, nodeData.question.answers);
+		}
+	}
+
+	// Render graphic modifications
 	render();
 }
 
+
+// Create the required nodes and edges with custom labels
 function generateOutputLinks(nodeToUpdate, linkAnswers){
 
 	// Pattern creation of children id
@@ -115,8 +135,6 @@ function generateOutputLinks(nodeToUpdate, linkAnswers){
 	// Look at all question nodes to know the position to insert in
 	var childNodeIndex = 0;
 	for(var nodeId in questionNodes){
-		// console.log("k : ", nodeId, "; v ", questionNodes[nodeId]);
-
 		// Check if this node is sibling : avoid to erase it
 		if(nodeId.indexOf(currentLvl) == 0){
 			childNodeIndex++;
