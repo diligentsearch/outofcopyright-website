@@ -49,7 +49,22 @@ leftPanelHtml = `
 
 
 
-			<div id="isBlock">Block case not implemented yet</div>
+			<div id="isBlock">
+				<div class="form-group col-sm-12">
+					<label for="block-title">Block introduction text: </label>
+					<br>
+					<input id="block-title" type="text" style="width:100%"/>					
+				</div>
+
+				<div class="form-group col-sm-12">
+					<label>Number of questions :</label>
+					<div id="block-questions-number">1</div>
+					<div id="block-questions-management" class="col-sm-3" style="position:absolute; bottom:0; right:0" >
+						<button id="addQuestion" type="button">+</button>
+						<button id="delQuestion" type="button">-</button>
+					</div>
+				</div>
+			</div>
 
 
 			<div id="isNotBlock">
@@ -57,8 +72,7 @@ leftPanelHtml = `
 				<div class="form-group col-sm-12">
 					<label for="question-title">Question title: </label>
 					<br>
-					<input id="question-title" type="text" style="width:100%"/>
-					
+					<input id="question-title" type="text" style="width:100%"/>					
 				</div>
 
 				<div class="form-group">
@@ -115,32 +129,33 @@ leftPanelHtml = `
 					</div>
 				</div>
 
-			</div>
-
-
-
-
-			<div class="form-group" style="position:relative">
-				<label for="caseTarget" class="col-sm-8" >Connect answers to existing nodes ?</label>
-				<div class="col-sm-4 text-right">
-					<select id="caseTarget">
-						<option value="no" SELECTED>No </option>
-						<option value="yes">		Yes</option>
-					</select>				
-				</div>
-				<br>
-
-
-				<div id="targetDefined">
+				<div class="form-group" style="position:relative">
+					<label for="caseTarget" class="col-sm-8" >Connect answers to existing nodes ?</label>
+					<div class="col-sm-4 text-right">
+						<select id="caseTarget">
+							<option value="no" SELECTED>No </option>
+							<option value="yes">		Yes</option>
+						</select>				
+					</div>
 					<br>
-					<div id="target-connections" class="col-sm-9">
-					</div>
-					<div id="target-connections-management" class="col-sm-3" style="position:absolute; bottom:0; right:0" >
-						<button id="addTarget" type="button">+</button>
-						<button id="delTarget" type="button">-</button>
+
+
+					<div id="targetDefined">
+						<br>
+						<div id="target-connections" class="col-sm-9">
+						</div>
+						<div id="target-connections-management" class="col-sm-3" style="position:absolute; bottom:0; right:0" >
+							<button id="addTarget" type="button">+</button>
+							<button id="delTarget" type="button">-</button>
+						</div>
 					</div>
 				</div>
+
 			</div>
+
+
+
+
 		</div>
 
 		<button id="node-editor-submit" type="button" class="btn btn-default">Generate</button>
@@ -159,7 +174,7 @@ function injectLeftPanel(){
 	lpConfigDisplay();
 	lpHideDisplay();
 	lpReset();	
-	lpDisplay();
+	lpDisplay(true);
 }
 
 
@@ -186,11 +201,14 @@ function lpReset(){
 }
 
 // Set current display
-function lpDisplay(){
+function lpDisplay(isInit){
 	toggleCaseVisibility($('#caseResult'), '#isResult', '#isNotResult');
 	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
 	toggleTargetConnection($('#caseTarget'));
-	toggleQuestionTypeVisibility($('#question-type'));
+	if(isInit)
+	{
+		toggleQuestionTypeVisibility($('#question-type'));
+	}
 	toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 }
 
@@ -208,7 +226,7 @@ function lpConfigDisplay(){
 			var key = $(this).val();
 			dumpQuestionNode(key);
 			$('#node-editor-form').show();
-			lpDisplay();
+			lpDisplay(false);
 		}
 	});
 	
@@ -221,6 +239,10 @@ function lpConfigDisplay(){
 	$('#caseBlock').change(function(){
 		toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
 	});
+
+	// Default question numbers management
+	$('#addQuestion').click(function(){	addQuestion();	});
+	$('#delQuestion').click(function(){	delQuestion();	});
 
 	// Question type
 	$('#question-type').change(function(){
@@ -438,6 +460,25 @@ function delTarget(){
 }
 
 
+function addQuestion(){
+	var nb = parseInt($('#block-questions-number').html());
+	nb++;
+	$('#block-questions-number').html(nb);
+}
+
+
+function delQuestion(){
+	var nb = parseInt($('#block-questions-number').html());
+	if(nb>1)
+		nb--;
+	$('#block-questions-number').html(nb);
+}
+
+
+
+
+
+
 // Retrive specific section of html code based on common id pattern : id-section-#index
 function retrieveSection(tag, sectionId){
 	var s = [],
@@ -465,9 +506,10 @@ function editorDumper(){
 	}
 	else {
 		if(nodeData.isBlock){
-
-
-
+			nodeData['block'] = {
+				title: $('#block-title').val(),
+				nbQuestions: parseInt($('#block-questions-number').html())
+			}
 		}
 		else{
 			// Classical case
@@ -518,6 +560,10 @@ function dumpQuestionNode(questionKey){
 
 	var nodeData = questionNodes[questionKey];	
 
+
+	console.log(nodeData);
+
+
 	// Result case
 	if(nodeData.isResult){
 		$('#caseResult').val("yes");
@@ -530,38 +576,53 @@ function dumpQuestionNode(questionKey){
 	// Block case
 	if(nodeData.isBlock){
 		$('#caseBlock').val("yes");
+		$('#block-title').val(nodeData.block.title);
+		$('#block-questions-number').val(nodeData.block.nbQuestions);
 	}
 	else{
 		$('#caseBlock').val("no");
+
+		// Disable redirection if clustered node
+		if(nodeData.isClustered){
+			$('label[for="caseTarget"]').hide();
+			$('#caseTarget').hide();
+		}else{
+			$('label[for="caseTarget"]').show();
+			$('#caseTarget').show();
+		}
+
+		// Question block :
+		if(nodeData.question){
+			$('#question-title').val(nodeData.question.title);
+			$('#question-type').val(nodeData.question.type);
+
+			// get answers
+			for(var i=0; i<nodeData.question.answers.length; i++){
+				addAnswer();
+				var answer = nodeData.question.answers[i];
+				$('#question-def-answers-'+i).val(answer.label);
+				console.log(i, ' : adding answer -> ', answer.label, "#question-def-answers-"+i);
+
+				// Get links if existing
+				if(answer.target != undefined){
+					if($('#target-connections').is(":visible") == false){
+						$('#caseTarget').val("yes");
+						toggleTargetConnection($('#caseTarget'));
+					}
+					else{
+						addTarget();					
+					}
+
+					var associatedLabel = $('label[for="question-def-answers-'+i+'"]').text();
+					$('#target-connections-answersList-'+i).val(associatedLabel);
+					$('#target-connections-nodesList-'+i).val(answer.target);
+				}
+			}			
+		}
 	}
 
-	// Question block :
-	if(nodeData.question){
-		$('#question-title').val(nodeData.question.title);
-		$('#question-type').val(nodeData.question.type);
+	
 
-		// get answers
-		for(var i=0; i<nodeData.question.answers.length; i++){
-			addAnswer();
-			var answer = nodeData.question.answers[i];
-			$('#question-def-answers-'+i).val(answer.label);
-
-			// Get links if existing
-			if(answer.target != undefined){
-				if($('#target-connections').is(":visible") == false){
-					$('#caseTarget').val("yes");
-					toggleTargetConnection($('#caseTarget'));
-				}
-				else{
-					addTarget();					
-				}
-
-				var associatedLabel = $('label[for="question-def-answers-'+i+'"]').text();
-				$('#target-connections-answersList-'+i).val(associatedLabel);
-				$('#target-connections-nodesList-'+i).val(answer.target);
-			}
-		}		
-	}
 }
 
 

@@ -21,7 +21,7 @@ initialScale = 0.75;
 
 // Initiate the graphical object and the first node
 function initSVG(){
-	graphic = new dagreD3.graphlib.Graph()
+	graphic = new dagreD3.graphlib.Graph({compound:true})
 		.setGraph({})
 		.setDefaultEdgeLabel(function() { return {}; });	
 	
@@ -63,7 +63,8 @@ function configSVG(){
 	svg.attr('width', $('#graphical-editor').width());
 
 	// Center
-	var xCenterOffset = (svg.attr("width") - graphic.graph().width * 2) / 2;
+	// var xCenterOffset = (svg.attr("width") - graphic.graph().width * 2) / 2;
+	var xCenterOffset = (svg.attr("width") - graphic.graph().width) / 2;
 	svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
 	svg.attr("height", graphic.graph().height + 40);
 
@@ -84,7 +85,6 @@ function configSVG(){
 
 	// Click events on nodes : link to the leftPanel editor
 	d3.select("svg g").selectAll("g.node").each(function(v){
-		/* Click event handle only once */
 		$(this)
 			.off('click')
 			.on('click', function(event) {
@@ -110,6 +110,11 @@ function updateNode(nodeData){
 	}
 	else {
 		if(nodeData.isBlock){
+			nodeToUpdate.label = nodeData.block.title;			
+			nodeToUpdate.style = 'fill: #d3d7e8';
+			nodeToUpdate.shape = 'diamond';
+			generateCluster(nodeToUpdate, nodeData.block.nbQuestions);
+
 
 		}
 		else{
@@ -122,6 +127,27 @@ function updateNode(nodeData){
 	// Render graphic modifications
 	render();
 }
+
+
+
+function generateCluster(nodeToUpdate, nbQuestions){
+	// Base id
+	var baseId = nodeToUpdate.id+":";
+
+	for(var i=0; i<nbQuestions; i++){
+		// Create the children id, the node, and the edge
+		var childId = baseId + i;
+		graphic.setNode(childId, {id:childId, label:"Click to edit"});
+		graphic.setEdge(nodeToUpdate.id, childId);
+
+		// register the created child
+		questionNodes[childId] = {
+			isClustered: true
+		};
+	}
+}
+
+
 
 
 // Create the required nodes and edges with custom labels
@@ -159,7 +185,5 @@ function generateOutputLinks(nodeToUpdate, answers){
 			// Create a connection to existing node
 			graphic.setEdge(nodeToUpdate.id, a.target, {label:a.label});
 		}
-		
-		
 	});
 }
