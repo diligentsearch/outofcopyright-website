@@ -107,9 +107,9 @@ leftPanelHtml = `
 				<div id="question-answers-block" class="form-group" style="position:relative">
 					<label class="col-sm-12">Default answers : </label>
 
-					<div id="question-answers" class="col-sm-8">
+					<div id="question-answers" class="col-sm-9">
 					</div>
-					<div id="question-answers-management" class="col-sm-4" style="position:absolute; bottom:0; right:0" >				
+					<div id="question-answers-management" class="col-sm-3" style="position:absolute; bottom:0; right:0" >				
 						<button id="addAnswer" type="button">+</button>
 						<button id="delAnswer" type="button">-</button>
 					</div>
@@ -121,20 +121,21 @@ leftPanelHtml = `
 
 
 			<div class="form-group" style="position:relative">
-				<label for="caseTarget" class="col-sm-8" >Connect to an existing node ?</label>
+				<label for="caseTarget" class="col-sm-8" >Connect answers to existing nodes ?</label>
 				<div class="col-sm-4 text-right">
 					<select id="caseTarget">
 						<option value="no" SELECTED>No </option>
 						<option value="yes">		Yes</option>
 					</select>				
 				</div>
+				<br>
 
 
 				<div id="targetDefined">
 					<br>
-					<div id="target-connections" class="col-sm-8">
+					<div id="target-connections" class="col-sm-9">
 					</div>
-					<div id="target-connections-management" class="col-sm-4" style="position:absolute; bottom:0; right:0" >				
+					<div id="target-connections-management" class="col-sm-3" style="position:absolute; bottom:0; right:0" >
 						<button id="addTarget" type="button">+</button>
 						<button id="delTarget" type="button">-</button>
 					</div>
@@ -240,6 +241,9 @@ function lpConfigDisplay(){
 		toggleTargetConnection($(this));
 	});
 
+	// Default target button management
+	$('#addTarget').click(function(){	addTarget();	});
+	$('#delTarget').click(function(){	delTarget();	});
 }
 
 
@@ -283,16 +287,16 @@ function toggleQuestionTypeVisibility(questionElt){
 		// Check other types
 		switch(questionElt.val()){
 			case "text" :				
-				injectDefaultAnswers(1, ['set']);
+				injectDefaultAnswers(1, ['Set']);
 				break;
 			case "check" :
-				injectDefaultAnswers(1, ['checked']);
+				injectDefaultAnswers(1, ['Checked']);
 				break;
 			case "bool" :
-				injectDefaultAnswers(2, ['true', 'false']);
+				injectDefaultAnswers(2, ['True', 'False']);
 				break;
 			case "list" :
-				injectDefaultAnswers(2, ['first choice', 'second choice']);
+				injectDefaultAnswers(2, ['First choice', 'Second choice']);
 			default:
 				break;
 		}
@@ -316,7 +320,7 @@ function injectDefaultAnswers(nb, placeholder){
 		var answer = `
 			<br>
 			<label for="question-def-answers-`+i+`">#`+i+`</label>
-			<input id="question-def-answers-`+i+`" type="text" placeholder="`+placeholder[i]+`">
+			<input id="question-def-answers-`+i+`" type="text" placeholder="`+placeholder[i]+`" style="width:80%;">
 		`;
 		lastId = "#question-def-answers-"+i;
 		answers += answer;		
@@ -331,7 +335,7 @@ function addAnswer(){
 	$('#question-answers').append(`
 		<br>
 		<label for="question-def-answers-`+i+`">#`+i+`</label>
-		<input id="question-def-answers-`+i+`" type="text">
+		<input id="question-def-answers-`+i+`" type="text" placeholder="Output value" style="width:80%;">
 	`);
 }
 
@@ -356,56 +360,7 @@ function delAnswer(){
 function toggleTargetConnection(targetElt){
 	if(targetElt.val() == "yes"){
 		$('#targetDefined').show();
-
-		// Retrieve the answers section
-		var answers = retrieveSection('input', 'question-def-answers-');
-
-		// Generate the select tag on a specific line
-		var lineIdx = 0;
-		$('#target-connections').html(`
-			<label for="target-connections-answersList-`+lineIdx+`" class="col-sm-3">Answer</label>
-			<select id="target-connections-answersList-`+lineIdx+`" class="col-sm-2">
-			</select>
-		`);
-		// Insert option tags into the just created select tag
-		for(var i=0; i<answers.length; i++){
-			$('#target-connections-answersList-'+lineIdx).append(`
-				<option value=`+i+`>#`+i+`</option>
-			`);
-		}
-		$('#target-connections-answersList-'+lineIdx).on('change', function(e){
-			$(this).find('option[value="'+$(this).val()+'"]').prop('selected', true);
-			$(this).find('option[value="'+$(this).val()+'"]').attr('selected', true);
-		});
-
-		$('#target-connections-answersList-'+lineIdx).val(0);
-
-
-
-
-
-		// // Retrieve all question nodes ID different from current
-		// var currentId = $('#node-editor-id').val(),
-		// 	targets = [];
-		// for(var idx in questionNodes){
-		// 	if(idx != currentId)
-		// 		targets.push(idx);
-		// }
-
-		// // Generate the select tag on a specific line
-		// $('#target-connections').append(`
-		// 	<label for="target-connections-nodesList-`+lineIdx+`" class="col-sm-3">Target</label>
-		// 	<select id="target-connections-nodesList-`+lineIdx+`" class="col-sm-1">
-		// 	</select>
-		// `);
-
-		// // Insert option tags into the just created select tag
-		// for(var i=0; i<targets.length; i++){
-		// 	var targetId= targets[i];
-		// 	$('#target-connections-nodesList-'+lineIdx).append(`
-		// 		<option value="`+targetId+`">#`+i+`</option>
-		// 	`);
-		// }
+		addTarget();
 	}
 	else{
 		$('#targetDefined').hide();
@@ -413,17 +368,80 @@ function toggleTargetConnection(targetElt){
 }
 
 
+function addTarget(){
+	var nbSelect = $('#target-connections > select').length,
+		lineIdx = nbSelect / 2; // 2 select tags for one target
+
+	// Retrieve the answers section
+	var answers = retrieveSection('input', 'question-def-answers-');
+
+	// Check if request is pertinent
+	if(lineIdx < answers.length){
+		// Generate 2 select tags on a specific line	
+		$('#target-connections').append(`
+			<label for="target-connections-answersList-`+lineIdx+`" class="col-sm-3">Answer</label>
+			<select id="target-connections-answersList-`+lineIdx+`" class="col-sm-3">
+			</select>
+
+			<label for="target-connections-nodesList-`+lineIdx+`" class="col-sm-3">Target</label>
+			<select id="target-connections-nodesList-`+lineIdx+`" class="col-sm-3">
+			</select>
+			<br>
+		`);
 
 
-// target-connections
-// target-connections-management
+		// Insert option tags into the just created select tag
+		for(var i=0; i<answers.length; i++){
+			$('#target-connections-answersList-'+lineIdx).append(`
+				<option value=`+i+`>#`+i+`</option>
+			`);
+		}
+
+		// Insert option tags into the just created select tag
+		for(var i=0; i<questionNodes.length; i++){
+			var targetId = questionNodes[i];
+
+			if(targetId != $('#node-editor-id').val()){
+				$('#target-connections-nodesList-'+lineIdx).append(`
+					<option value="`+targetId+`">`+targetId+`</option>
+				`);				
+			}
+		}
+
+		// Handle dynamic display on selected value for both select tags
+		$('#target-connections-nodesList-'+lineIdx, '#target-connections-answersList-'+lineIdx).on('change', function(e){
+			$(this).find('option[value="'+$(this).val()+'"]').prop('selected', true);
+			$(this).find('option[value="'+$(this).val()+'"]').attr('selected', true);
+		});
+
+		// Force default value
+		$('#target-connections-answersList-'+lineIdx).val(0);
+		$('#target-connections-nodesList-'+lineIdx).val(0);
+	} 
+}
+
+function delTarget(){
+	var nbSelect = $('#target-connections > select').length,
+		lineIdx = nbSelect / 2; // 2 select tags for one target
+
+	if(lineIdx == 1){
+		return;
+	}
+
+	$('#target-connections > select:last').remove();
+	$('#target-connections > label:last').remove();
+	$('#target-connections > select:last').remove();
+	$('#target-connections > label:last').remove();	
+	$('#target-connections > br:last').remove();
+}
 
 
 
 
 
 
-// Retrive specific section of code based on common id pattern : id-section-#index
+
+// Retrive specific section of html code based on common id pattern : id-section-#index
 function retrieveSection(tag, sectionId){
 	var s = [],
 		selector = tag+'[id^="'+sectionId+'"]';
