@@ -353,10 +353,7 @@ function delAnswer(){
 }
 
 
-
-
-
-
+// Display the target connection section
 function toggleTargetConnection(targetElt){
 	if(targetElt.val() == "yes"){
 		$('#targetDefined').show();
@@ -368,9 +365,11 @@ function toggleTargetConnection(targetElt){
 }
 
 
+// Add a line to enable an answer to point to an existing node
 function addTarget(){
+	// 2 select tags for one target
 	var nbSelect = $('#target-connections > select').length,
-		lineIdx = nbSelect / 2; // 2 select tags for one target
+		lineIdx = nbSelect / 2; 
 
 	// Retrieve the answers section
 	var answers = retrieveSection('input', 'question-def-answers-');
@@ -390,17 +389,15 @@ function addTarget(){
 		`);
 
 
-		// Insert option tags into the just created select tag
+		// Insert answers labels into first select tag
 		for(var i=0; i<answers.length; i++){
 			$('#target-connections-answersList-'+lineIdx).append(`
 				<option value=#`+i+`>#`+i+`</option>
 			`);
 		}
 
-		// Insert option tags into the just created select tag
+		// Insert nodes into second select tag if it's not the current one
 		for(var targetId in questionNodes){
-			console.log("targetId : ", targetId);
-
 			if(targetId != $('#node-editor-id').val()){
 				$('#target-connections-nodesList-'+lineIdx).append(`
 					<option value="`+targetId+`">`+targetId+`</option>
@@ -420,25 +417,25 @@ function addTarget(){
 	} 
 }
 
-function delTarget(){
-	var nbSelect = $('#target-connections > select').length,
-		lineIdx = nbSelect / 2; // 2 select tags for one target
 
+// Remove a line enabling a connection between an answer and an existing node
+function delTarget(){
+	// 2 select tags for one target
+	var nbSelect = $('#target-connections > select').length,
+		lineIdx = nbSelect / 2; 
+
+	// Stop condition
 	if(lineIdx == 1){
 		return;
 	}
 
+	// Else : remove what is necessary
 	$('#target-connections > select:last').remove();
 	$('#target-connections > label:last').remove();
 	$('#target-connections > select:last').remove();
 	$('#target-connections > label:last').remove();	
 	$('#target-connections > br:last').remove();
 }
-
-
-
-
-
 
 
 // Retrive specific section of html code based on common id pattern : id-section-#index
@@ -451,8 +448,6 @@ function retrieveSection(tag, sectionId){
 	});
 	return s;
 }
-
-
 
 // Get form data for the graphical editor
 function editorDumper(){
@@ -471,6 +466,8 @@ function editorDumper(){
 	else {
 		if(nodeData.isBlock){
 
+
+
 		}
 		else{
 			// Classical case
@@ -485,7 +482,7 @@ function editorDumper(){
 				targets = retrieveSection('select', 'target-connections-nodesList-');
 
 			answers.forEach(function(elt){
-				// Generate defult answer
+				// Generate default answer
 				var answer = {
 					target: undefined,
 					label: elt.value != "" ? elt.value : elt.placeholder
@@ -493,11 +490,8 @@ function editorDumper(){
 
 				/* Look for existing link with existing target */
 
-				// Get back the name of the correspodnign label
+				// Get back the name of the corresponding label and look for it into the select tags
 				var associatedLabel = $('label[for="'+elt.id+'"]').text();
-				console.log("associatedLabel : ", associatedLabel);
-
-				// Look for this label within the select tags
 				$.each(labels, function(i){
 					l = labels[i];
 
@@ -508,8 +502,7 @@ function editorDumper(){
 					}
 				});
 
-				console.log("pushing into questions : ", answer);
-
+				// Add this answer to the data of the node
 				nodeData.question.answers.push(answer);
 			});
 		}
@@ -547,11 +540,13 @@ function dumpQuestionNode(questionKey){
 		$('#question-title').val(nodeData.question.title);
 		$('#question-type').val(nodeData.question.type);
 
+		// get answers
 		for(var i=0; i<nodeData.question.answers.length; i++){
 			addAnswer();
 			var answer = nodeData.question.answers[i];
 			$('#question-def-answers-'+i).val(answer.label);
 
+			// Get links if existing
 			if(answer.target != undefined){
 				if($('#target-connections').is(":visible") == false){
 					$('#caseTarget').val("yes");
@@ -565,8 +560,6 @@ function dumpQuestionNode(questionKey){
 				$('#target-connections-answersList-'+i).val(associatedLabel);
 				$('#target-connections-nodesList-'+i).val(answer.target);
 			}
-
-			console.log("answer inserted is : ", answer, "in : ", $('#question-def-answers-'+i));
 		}		
 	}
 }
