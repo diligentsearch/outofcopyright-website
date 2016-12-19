@@ -96,6 +96,57 @@ function configSVG(){
 }
 
 
+
+
+// Delete node
+function deleteNode(){
+	// Get node
+	var nodeId = $(leftPanelNodeSelector).val(),
+		node = questionNodes[nodeId];
+
+
+	console.log("deleteing");
+
+	// Check if this node has children
+	if(graphic.hasNode(nodeId)){
+		console.log("has node ");
+
+		// For all of them, check if they have other 'In' connections
+		graphic.outEdges(nodeId).map(function(out){
+			console.log("map : ", out);
+
+			var destSrc = []
+			graphic.inEdges(out.w).map(function(inEdges){
+				console.log("in edges : ", inEdges.v, nodeId);
+				if(inEdges.v != nodeId){
+					destSrc.push(inEdges.v);	
+				} 
+			});
+
+			// If no connection, remove this node from model and graphic
+			if(destSrc.length == 0){
+				delete questionNodes[out.w];
+				graphic.removeNode(out.w);
+			}
+		});
+	}
+
+	// Remove finally this current node
+	delete questionNodes[nodeId];
+	graphic.removeNode(nodeId);
+
+	render();
+
+
+	// Hide all display
+
+}
+
+
+
+
+
+
 // Refresh node data
 function updateNode(nodeData){
 	
@@ -111,8 +162,6 @@ function updateNode(nodeData){
 			nodeToUpdate.style = 'fill: #d3d7e8';
 			nodeToUpdate.shape = 'diamond';
 			generateCluster(nodeToUpdate, nodeData.block.nbQuestions);
-
-
 		}
 		else{
 			// Question case
@@ -168,12 +217,12 @@ function generateOutputLinks(nodeToUpdate, answers){
 	}
 
 
-
-	
 	answers.forEach(function(a){
-		// Create the children id	
+		// Create the children id
 		var childId = currentLvl+'_'+childNodeIndex;
 		childNodeIndex++;
+
+
 
 		if(a.target == undefined){
 			// Create the child node and the edge between parent/child

@@ -158,7 +158,8 @@ leftPanelHtml = `
 
 		</div>
 
-		<button id="node-editor-submit" type="button" class="btn btn-default">Generate</button>
+		<button id="node-editor-generate" type="button" class="btn btn-default">Generate</button>
+		<button id="node-editor-delete" type="button" class="btn btn-default">Delete this node</button>
 	</form>
 </div>
 
@@ -490,7 +491,6 @@ function retrieveSection(tag, sectionId){
 // Get form data for the graphical editor
 function editorDumper(){
 
-
 	// Create the data and get back main characteritics
 	var nodeData = {
 		id: $('#node-editor-id').val(),
@@ -539,6 +539,7 @@ function editorDumper(){
 					if(l.value == associatedLabel){
 						var lineIdx = l.id.split('target-connections-answersList-')[1];
 						answer.target = targets[i].value != "" ? targets[i].value : undefined;
+						console.log("editorDumper - Target is : ", answer.target);
 					}
 				});
 
@@ -547,7 +548,6 @@ function editorDumper(){
 			});
 		}
 	}	
-	console.log(nodeData);
 	return nodeData;
 }
 
@@ -616,35 +616,5 @@ function dumpQuestionNode(questionKey){
 			});		
 		}
 	}
-
-	
-
 }
-
-
-
-
-
-
-// node-editor
-// caseResult
-// isResult
-// result-text
-// isNotResult
-// caseBlock
-// isBlock
-// isNotBlock
-// question-title
-// question-type
-// caseNumeric
-// isComputation
-// computationEnabled
-// refValue
-// inValue
-// question-answers-block
-// question-answers
-// question-answers-management
-// add
-// del
-// caseTarget
 

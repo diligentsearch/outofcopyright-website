@@ -138,11 +138,14 @@ text {
 		injectLeftPanel();
 		initSVG();
 		render();
-		$('#node-editor-submit').click(function(){
+		$('#node-editor-generate').click(function(){
 			var nodeData = editorDumper();
 			updateNode(nodeData);
 			lpReset();
 			lpHideDisplay();
+		});
+		$('#node-editor-delete').click(function(){
+			deleteNode();
 		});
 
 	});
