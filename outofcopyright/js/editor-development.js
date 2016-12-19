@@ -230,8 +230,6 @@ function generateOutputLinks(nodeToUpdate, answers){
 		var childId = currentLvl+'_'+childNodeIndex;
 		childNodeIndex++;
 
-
-
 		if(a.target == undefined){
 			// Create the child node and the edge between parent/child
 			graphic.setNode(childId, {id:childId, label: 'Click to edit'});

@@ -200,7 +200,7 @@ function lpReset(){
 }
 
 // Set current display
-function lpDisplay(isInit){
+function lpDisplay(){
 	toggleCaseVisibility($('#caseResult'), '#isResult', '#isNotResult');
 	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
 	toggleTargetConnection($('#caseTarget'));
@@ -222,7 +222,6 @@ function lpConfigDisplay(){
 			var key = $(this).val();
 			dumpQuestionNode(key);
 			$('#node-editor-form').show();
-			lpDisplay();
 		}
 	});
 	
@@ -564,6 +563,7 @@ function dumpQuestionNode(questionKey){
 	else{
 		$('#caseResult').val("no");
 	}
+	toggleCaseVisibility($('#caseResult'), '#isResult', '#isNotResult');
 
 	// Block case
 	if(nodeData.isBlock){
@@ -573,46 +573,52 @@ function dumpQuestionNode(questionKey){
 	}
 	else{
 		$('#caseBlock').val("no");
-
-		// Disable redirection if clustered node
-		if(nodeData.isClustered){
-			$('label[for="caseTarget"]').hide();
-			$('#caseTarget').hide();
-		}else{
-			$('label[for="caseTarget"]').show();
-			$('#caseTarget').show();
-		}
-
-		// Question block :
-		if(nodeData.question){
-			$('#question-title').val(nodeData.question.title);
-			$('#question-type').val(nodeData.question.type);
-
-
-			// Default answers section
-			var placeholders = $.map(nodeData.question.answers, function(a){
-				return a.label;
-			});
-			injectDefaultAnswers(placeholders.length, placeholders);
-
-
-			// Look for targets on answers
-			$.map(nodeData.question.answers, function(a, index){
-				if(a.target != undefined){
-					if($('#target-connections').is(":visible") == false){
-						$('#caseTarget').val("yes");
-						toggleTargetConnection($('#caseTarget'));
-					}
-					else{
-						addTarget();					
-					}
-
-					var associatedLabel = $('label[for="question-def-answers-'+index+'"]').text();
-					$('#target-connections-answersList-'+index).val(associatedLabel);
-					$('#target-connections-nodesList-'+index).val(a.target);
-				}
-			});		
-		}
 	}
+	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
+	toggleQuestionTypeVisibility($('#question-type'));
+
+
+	// Disable redirection if clustered node
+	if(nodeData.isClustered){
+		$('label[for="caseTarget"]').hide();
+		$('#caseTarget').hide();
+	}
+	else{
+		$('label[for="caseTarget"]').show();
+		$('#caseTarget').show();
+	}
+
+
+	// Question block :
+	if(nodeData.question){
+		$('#question-title').val(nodeData.question.title);
+		$('#question-type').val(nodeData.question.type);
+		// toggleComputationVisibility($('#isComputation'), '#computationEnabled');
+
+		// Default answers section
+		var placeholders = $.map(nodeData.question.answers, function(a){
+			return a.label;
+		});
+		injectDefaultAnswers(placeholders.length, placeholders);
+
+
+		// Look for targets on answers
+		$.map(nodeData.question.answers, function(a, index){
+			if(a.target != undefined){
+				if($('#target-connections').is(":visible") == false){
+					$('#caseTarget').val("yes");
+					toggleTargetConnection($('#caseTarget'));
+				}
+				else{
+					addTarget();					
+				}
+
+				var associatedLabel = $('label[for="question-def-answers-'+index+'"]').text();
+				$('#target-connections-answersList-'+index).val(associatedLabel);
+				$('#target-connections-nodesList-'+index).val(a.target);
+			}
+		});		
+	}
+	
 }
 
