@@ -2,9 +2,6 @@
 
 leftPanelHtml = `
 
-
-
-
 <div id="node-editor" style="height:100%">
 
 	<h3 class="title">Node Edition</h3>
@@ -199,6 +196,7 @@ function lpReset(){
 	$('#node-editor-form').find("select[id^=case]").val("no");
 	$('#question-type').val("text");
 	injectDefaultAnswers(0);
+	$('#target-connections').html('');
 }
 
 // Set current display
