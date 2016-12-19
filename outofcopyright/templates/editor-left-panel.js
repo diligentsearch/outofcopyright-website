@@ -174,7 +174,7 @@ function injectLeftPanel(){
 	lpConfigDisplay();
 	lpHideDisplay();
 	lpReset();	
-	lpDisplay(true);
+	lpDisplay();
 }
 
 
@@ -205,10 +205,7 @@ function lpDisplay(isInit){
 	toggleCaseVisibility($('#caseResult'), '#isResult', '#isNotResult');
 	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
 	toggleTargetConnection($('#caseTarget'));
-	if(isInit)
-	{
-		toggleQuestionTypeVisibility($('#question-type'));
-	}
+	toggleQuestionTypeVisibility($('#question-type'));
 	toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 }
 
@@ -224,9 +221,9 @@ function lpConfigDisplay(){
 		}
 		else{
 			var key = $(this).val();
+			lpDisplay();
 			dumpQuestionNode(key);
 			$('#node-editor-form').show();
-			lpDisplay(false);
 		}
 	});
 	
@@ -493,7 +490,7 @@ function retrieveSection(tag, sectionId){
 // Get form data for the graphical editor
 function editorDumper(){
 
-	
+
 	// Create the data and get back main characteritics
 	var nodeData = {
 		id: $('#node-editor-id').val(),
@@ -593,15 +590,17 @@ function dumpQuestionNode(questionKey){
 			$('#question-title').val(nodeData.question.title);
 			$('#question-type').val(nodeData.question.type);
 
-			// get answers
-			for(var i=0; i<nodeData.question.answers.length; i++){
-				addAnswer();
-				var answer = nodeData.question.answers[i];
-				$('#question-def-answers-'+i).val(answer.label);
-				console.log(i, ' : adding answer -> ', answer.label, "#question-def-answers-"+i);
 
-				// Get links if existing
-				if(answer.target != undefined){
+			// Default answers section
+			var placeholders = $.map(nodeData.question.answers, function(a){
+				return a.label;
+			});
+			injectDefaultAnswers(placeholders.length, placeholders);
+
+
+			// Look for targets on answers
+			$.map(nodeData.question.answers, function(a, index){
+				if(a.target != undefined){
 					if($('#target-connections').is(":visible") == false){
 						$('#caseTarget').val("yes");
 						toggleTargetConnection($('#caseTarget'));
@@ -610,11 +609,11 @@ function dumpQuestionNode(questionKey){
 						addTarget();					
 					}
 
-					var associatedLabel = $('label[for="question-def-answers-'+i+'"]').text();
-					$('#target-connections-answersList-'+i).val(associatedLabel);
-					$('#target-connections-nodesList-'+i).val(answer.target);
+					var associatedLabel = $('label[for="question-def-answers-'+index+'"]').text();
+					$('#target-connections-answersList-'+index).val(associatedLabel);
+					$('#target-connections-nodesList-'+index).val(a.target);
 				}
-			}			
+			});		
 		}
 	}
 
