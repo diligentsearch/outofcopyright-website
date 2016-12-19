@@ -220,9 +220,9 @@ function lpConfigDisplay(){
 		}
 		else{
 			var key = $(this).val();
-			lpDisplay();
 			dumpQuestionNode(key);
 			$('#node-editor-form').show();
+			lpDisplay();
 		}
 	});
 	

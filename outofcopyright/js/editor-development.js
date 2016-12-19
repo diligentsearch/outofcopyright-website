@@ -158,10 +158,18 @@ function updateNode(nodeData){
 	}
 	else {
 		if(nodeData.isBlock){
+			// Block case : Cluster
 			nodeToUpdate.label = nodeData.block.title;			
 			nodeToUpdate.style = 'fill: #d3d7e8';
 			nodeToUpdate.shape = 'diamond';
 			generateCluster(nodeToUpdate, nodeData.block.nbQuestions);
+		}
+		else if(questionNodes[nodeData.id].isClustered) {
+			// Question clustered case
+			// Nothing to do except retrieve this information
+			// The copy will be done just after
+			nodeData.isClustered = true;
+			nodeToUpdate.label = nodeData.question.title;
 		}
 		else{
 			// Question case
