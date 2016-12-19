@@ -125,7 +125,7 @@ function updateNode(nodeData){
 
 
 // Create the required nodes and edges with custom labels
-function generateOutputLinks(nodeToUpdate, linkAnswers){
+function generateOutputLinks(nodeToUpdate, answers){
 
 	// Pattern creation of children id
 	var idSplit = nodeToUpdate.id.split('_'),
@@ -142,16 +142,24 @@ function generateOutputLinks(nodeToUpdate, linkAnswers){
 	}
 
 	
-	linkAnswers.forEach(function(value){
+	answers.forEach(function(a){
 		// Create the children id	
 		var childId = currentLvl+'_'+childNodeIndex;
 		childNodeIndex++;
 
 		// Create the child node and the edge between parent/child
-		graphic.setNode(childId, {id:childId, label: 'Click to edit'});
-		graphic.setEdge(nodeToUpdate.id, childId, {label:value});
+		if(a.target == undefined){
+			graphic.setNode(childId, {id:childId, label: 'Click to edit'});
+			graphic.setEdge(nodeToUpdate.id, childId, {label:a.label});
 
-		// register the created child
-		questionNodes[childId] = {};
+			// register the created child
+			questionNodes[childId] = {};		
+		}
+		else{
+			// Create a connection to existing node
+			graphic.setEdge(nodeToUpdate.id, a.target, {label:a.label});
+		}
+		
+		
 	});
 }

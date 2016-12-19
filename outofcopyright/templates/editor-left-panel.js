@@ -393,13 +393,13 @@ function addTarget(){
 		// Insert option tags into the just created select tag
 		for(var i=0; i<answers.length; i++){
 			$('#target-connections-answersList-'+lineIdx).append(`
-				<option value=`+i+`>#`+i+`</option>
+				<option value=#`+i+`>#`+i+`</option>
 			`);
 		}
 
 		// Insert option tags into the just created select tag
-		for(var i=0; i<questionNodes.length; i++){
-			var targetId = questionNodes[i];
+		for(var targetId in questionNodes){
+			console.log("targetId : ", targetId);
 
 			if(targetId != $('#node-editor-id').val()){
 				$('#target-connections-nodesList-'+lineIdx).append(`
@@ -415,8 +415,8 @@ function addTarget(){
 		});
 
 		// Force default value
-		$('#target-connections-answersList-'+lineIdx).val(0);
-		$('#target-connections-nodesList-'+lineIdx).val(0);
+		$('#target-connections-answersList-'+lineIdx).val('#0');
+		$('#target-connections-nodesList-'+lineIdx).val('#0');
 	} 
 }
 
@@ -480,10 +480,36 @@ function editorDumper(){
 				answers: []
 			}
 
-			var s = retrieveSection('input', 'question-def-answers-');
+			var answers = retrieveSection('input', 'question-def-answers-'),
+				labels = retrieveSection('select', 'target-connections-answersList-'),
+				targets = retrieveSection('select', 'target-connections-nodesList-');
 
-			s.forEach(function(elt){
-				var answer = elt.value != "" ? elt.value : elt.placeholder;
+			answers.forEach(function(elt){
+				// Generate defult answer
+				var answer = {
+					target: undefined,
+					label: elt.value != "" ? elt.value : elt.placeholder
+				};
+
+				/* Look for existing link with existing target */
+
+				// Get back the name of the correspodnign label
+				var associatedLabel = $('label[for="'+elt.id+'"]').text();
+				console.log("associatedLabel : ", associatedLabel);
+
+				// Look for this label within the select tags
+				$.each(labels, function(i){
+					l = labels[i];
+
+					// A link exists
+					if(l.value == associatedLabel){
+						var lineIdx = l.id.split('target-connections-answersList-')[1];
+						answer.target = targets[i].value != "" ? targets[i].value : undefined;
+					}
+				});
+
+				console.log("pushing into questions : ", answer);
+
 				nodeData.question.answers.push(answer);
 			});
 		}
@@ -524,7 +550,21 @@ function dumpQuestionNode(questionKey){
 		for(var i=0; i<nodeData.question.answers.length; i++){
 			addAnswer();
 			var answer = nodeData.question.answers[i];
-			$('#question-def-answers-'+i).val(answer);
+			$('#question-def-answers-'+i).val(answer.label);
+
+			if(answer.target != undefined){
+				if($('#target-connections').is(":visible") == false){
+					$('#caseTarget').val("yes");
+					toggleTargetConnection($('#caseTarget'));
+				}
+				else{
+					addTarget();					
+				}
+
+				var associatedLabel = $('label[for="question-def-answers-'+i+'"]').text();
+				$('#target-connections-answersList-'+i).val(associatedLabel);
+				$('#target-connections-nodesList-'+i).val(answer.target);
+			}
 
 			console.log("answer inserted is : ", answer, "in : ", $('#question-def-answers-'+i));
 		}		
