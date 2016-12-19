@@ -99,9 +99,6 @@ function configSVG(){
 // Refresh node data
 function updateNode(nodeData){
 	
-	// Save model modifications
-	questionNodes[nodeData.id] = nodeData;
-
 	// Get the node, and update graphic sructure
 	var nodeToUpdate = graphic.node(nodeData.id);
 
@@ -123,6 +120,9 @@ function updateNode(nodeData){
 			generateOutputLinks(nodeToUpdate, nodeData.question.answers);
 		}
 	}
+
+	// Save model modifications
+	questionNodes[nodeData.id] = nodeData;
 
 	// Render graphic modifications
 	render();
@@ -167,19 +167,22 @@ function generateOutputLinks(nodeToUpdate, answers){
 		}
 	}
 
+
+
 	
 	answers.forEach(function(a){
 		// Create the children id	
 		var childId = currentLvl+'_'+childNodeIndex;
 		childNodeIndex++;
 
-		// Create the child node and the edge between parent/child
 		if(a.target == undefined){
+			// Create the child node and the edge between parent/child
 			graphic.setNode(childId, {id:childId, label: 'Click to edit'});
 			graphic.setEdge(nodeToUpdate.id, childId, {label:a.label});
 
-			// register the created child
-			questionNodes[childId] = {};		
+			// register the created child and register it as a target for this answer
+			questionNodes[childId] = {};
+			a.target = childId;
 		}
 		else{
 			// Create a connection to existing node

@@ -493,6 +493,7 @@ function retrieveSection(tag, sectionId){
 // Get form data for the graphical editor
 function editorDumper(){
 
+	
 	// Create the data and get back main characteritics
 	var nodeData = {
 		id: $('#node-editor-id').val(),
@@ -559,10 +560,6 @@ function editorDumper(){
 function dumpQuestionNode(questionKey){
 
 	var nodeData = questionNodes[questionKey];	
-
-
-	console.log(nodeData);
-
 
 	// Result case
 	if(nodeData.isResult){
