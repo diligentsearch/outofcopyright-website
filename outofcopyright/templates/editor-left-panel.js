@@ -437,21 +437,21 @@ function addTarget(){
 
 // Remove a line enabling a connection between an answer and an existing node
 function delTarget(){
-	// 2 select tags for one target
-	var nbSelect = $('#target-connections > select').length,
-		lineIdx = nbSelect / 2; 
+	// // 2 select tags for one target
+	// var nbSelect = $('#target-connections > select').length,
+	// 	lineIdx = nbSelect / 2; 
 
-	// Stop condition
-	if(lineIdx == 1){
-		return;
-	}
+	// // Stop condition
+	// if(lineIdx == 1){
+	// 	return;
+	// }
 
-	// Else : remove what is necessary
-	$('#target-connections > select:last').remove();
-	$('#target-connections > label:last').remove();
-	$('#target-connections > select:last').remove();
-	$('#target-connections > label:last').remove();	
-	$('#target-connections > br:last').remove();
+	// // Else : remove what is necessary
+	// $('#target-connections > select:last').remove();
+	// $('#target-connections > label:last').remove();
+	// $('#target-connections > select:last').remove();
+	// $('#target-connections > label:last').remove();	
+	// $('#target-connections > br:last').remove();
 }
 
 
@@ -471,7 +471,11 @@ function delQuestion(){
 
 
 
-
+// 
+// 
+// Bind to JS model
+// 
+// 
 
 
 // Retrive specific section of html code based on common id pattern : id-section-#index
@@ -488,12 +492,20 @@ function retrieveSection(tag, sectionId){
 // Get form data for the graphical editor
 function editorDumper(){
 
+	var key = $('#node-editor-id').val();
+	var nodeData = {id : key};
+
+	// console.log("received : ", questionNodes[key]);
+
+
+
+
+
+
 	// Create the data and get back main characteritics
-	var nodeData = {
-		id: $('#node-editor-id').val(),
-		isResult: $('#isResult').is(":visible"),
-		isBlock: $('#isBlock').is(":visible")
-	}
+	nodeData.isResult = $('#isResult').is(":visible");
+	nodeData.isBlock = $('#isBlock').is(":visible");
+
 
 	// According to characteritics, inject required data
 	if(nodeData.isResult) {
@@ -536,15 +548,19 @@ function editorDumper(){
 					if(l.value == associatedLabel){
 						var lineIdx = l.id.split('target-connections-answersList-')[1];
 						answer.target = targets[i].value != "" ? targets[i].value : undefined;
-						console.log("editorDumper - Target is : ", answer.target);
+						// console.log("editorDumper - Target is : ", answer.target);
 					}
 				});
 
 				// Add this answer to the data of the node
+				// console.log("pushing answer : ", answer);
 				nodeData.question.answers.push(answer);
 			});
 		}
 	}	
+
+	// console.log("sending : ", nodeData);
+
 	return nodeData;
 }
 
@@ -554,6 +570,7 @@ function editorDumper(){
 function dumpQuestionNode(questionKey){
 
 	var nodeData = questionNodes[questionKey];	
+	// console.log("receiving : ", nodeData);
 
 	// Result case
 	if(nodeData.isResult){

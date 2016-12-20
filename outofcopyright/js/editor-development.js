@@ -21,7 +21,7 @@ initialScale = 0.75;
 
 // Initiate the graphical object and the first node
 function initSVG(){
-	graphic = new dagreD3.graphlib.Graph({compound:true})
+	graphic = new dagreD3.graphlib.Graph()
 		.setGraph({})
 		.setDefaultEdgeLabel(function() { return {}; });	
 	
@@ -98,7 +98,6 @@ function configSVG(){
 
 
 
-// Delete node
 function deleteNode(){
 	// Get node
 	var nodeId = $(leftPanelNodeSelector).val(),
@@ -109,39 +108,91 @@ function deleteNode(){
 		return;
 	}
 
+	recursiveDelete(nodeId, 0);
+	render();
+}
 
-	console.log("deleteing");
+// 
+function recursiveDelete(nodeId, depth){
 
-	// Check if this node has children
-	if(graphic.hasNode(nodeId)){
-		console.log("has node ");
 
-		// For all of them, check if they have other 'In' connections
-		graphic.outEdges(nodeId).map(function(out){
-			console.log("map : ", out);
+	// Child node, with at least 2 parents : don't delete it
+	if(depth != 0 && graphic.predecessors(nodeId).length > 1){
+		console.log("node ", nodeId, "has predecessors");
+		return;
+	}
 
-			var destSrc = []
-			graphic.inEdges(out.w).map(function(inEdges){
-				console.log("in edges : ", inEdges.v, nodeId);
-				if(inEdges.v != nodeId){
-					destSrc.push(inEdges.v);	
-				} 
-			});
-
-			// If no connection, remove this node from model and graphic
-			if(destSrc.length == 0){
-				delete questionNodes[out.w];
-				graphic.removeNode(out.w);
-			}
+	// Look at all children
+	var children = graphic.successors(nodeId);
+	if(children.length > 0){
+		children.map(function(childId){
+			recursiveDelete(childId, depth+1);
 		});
 	}
 
-	// Remove finally this current node
+	// Start node : notify predecessors
+	if(depth == 0){
+		notifyPredecessors(nodeId);
+	}
+
+	console.log("node ", nodeId, "will be deleted");
+
+	// Delete this node as we have not return before
 	delete questionNodes[nodeId];
 	graphic.removeNode(nodeId);
 
-	render();
+
+
+
+	// // Stop condition :
+	// // Check if there are children, if not, delete it
+	// if(graphic.outEdges(nodeId).length == 0){
+	// 	console.log("The ", nodeId, "has no out edges");
+	// 	notifyPredecessors(nodeId);
+	// 	delete questionNodes[nodeId];
+	// 	graphic.removeNode(nodeId);
+	// 	return true;
+	// }
+	// else{
+	// 	graphic.successors(nodeId).map(function(successorId){
+	// 		console.log("the node ", nodeId, "has successors : ", successorId);
+	// 		return recursiveDelete(successorId);
+	// 	});
+	// }
+	
 }
+
+
+// Update model of predecessors nodes by unbinding the node identified by nodeId
+function notifyPredecessors(nodeId){
+	graphic.predecessors(nodeId).map(function(p){			
+		var predAnswers = questionNodes[p].question.answers;
+		predAnswers.forEach(function(answer, idx){
+			if(answer.target == nodeId){
+				delete predAnswers[idx];
+			}
+		});
+	});
+}
+
+// For nodes referenced as output, check if they will become orphan
+// graphic.outEdges(nodeId).map(function(outEdges){
+// 	console.log("outEdges: ", outEdges);
+
+// 	var destSrc = []
+// 	graphic.inEdges(outEdges.w).map(function(inEdges){
+// 		console.log("in edges : ", inEdges.v, nodeId);
+// 		if(inEdges.v != nodeId){
+// 			destSrc.push(inEdges.v);	
+// 		} 
+// 	});
+
+// 	// Delete if orphan
+// 	if(destSrc.length == 0){
+// 		delete questionNodes[outEdges.w];
+// 		graphic.removeNode(outEdges.w);
+// 	}
+// });
 
 
 
@@ -180,6 +231,7 @@ function updateNode(nodeData){
 	}
 
 	// Save model modifications
+	
 	questionNodes[nodeData.id] = nodeData;
 
 	// Render graphic modifications
