@@ -30,8 +30,7 @@ function initSVG(){
 	zoom = d3.behavior.zoom();
 
 	// Create and register the first node
-	graphic.setNode('lvl_0', {id:'lvl_0', label: 'Click to edit'});
-	questionNodes['lvl_0'] = {};
+	createNode('lvl_0');
 }
 
 
@@ -39,10 +38,8 @@ function initSVG(){
 // Render the graphic to display
 function render(){	
 	graphicBeautifier();
-
 	var render = new dagreD3.render();
 	render(svgGroup, graphic);
-
 	configSVG();
 }
 
@@ -98,102 +95,34 @@ function configSVG(){
 
 
 
-function deleteNode(){
-	// Get node
-	var nodeId = $(leftPanelNodeSelector).val(),
-		node = questionNodes[nodeId];
 
-	if(nodeId == "lvl_0"){
-		alert("You cannot delete the root node");
-		return;
-	}
-
-	recursiveDelete(nodeId, 0);
-	render();
-}
-
-// 
-function recursiveDelete(nodeId, depth){
-
-
-	// Child node, with at least 2 parents : don't delete it
-	if(depth != 0 && graphic.predecessors(nodeId).length > 1){
-		console.log("node ", nodeId, "has predecessors");
-		return;
-	}
-
-	// Look at all children
-	var children = graphic.successors(nodeId);
-	if(children.length > 0){
-		children.map(function(childId){
-			recursiveDelete(childId, depth+1);
-		});
-	}
-
-	// Start node : notify predecessors
-	if(depth == 0){
-		notifyPredecessors(nodeId);
-	}
-
-	console.log("node ", nodeId, "will be deleted");
-
-	// Delete this node as we have not return before
-	delete questionNodes[nodeId];
-	graphic.removeNode(nodeId);
-
-
-
-
-	// // Stop condition :
-	// // Check if there are children, if not, delete it
-	// if(graphic.outEdges(nodeId).length == 0){
-	// 	console.log("The ", nodeId, "has no out edges");
-	// 	notifyPredecessors(nodeId);
-	// 	delete questionNodes[nodeId];
-	// 	graphic.removeNode(nodeId);
-	// 	return true;
-	// }
-	// else{
-	// 	graphic.successors(nodeId).map(function(successorId){
-	// 		console.log("the node ", nodeId, "has successors : ", successorId);
-	// 		return recursiveDelete(successorId);
-	// 	});
-	// }
-	
-}
-
-
-// Update model of predecessors nodes by unbinding the node identified by nodeId
-function notifyPredecessors(nodeId){
-	graphic.predecessors(nodeId).map(function(p){			
-		var predAnswers = questionNodes[p].question.answers;
-		predAnswers.forEach(function(answer, idx){
-			if(answer.target == nodeId){
-				delete predAnswers[idx];
-			}
-		});
+// Create model
+function createNode(nodeId, label){
+	graphic.setNode(nodeId, {
+		id: nodeId,
+		label: label || 'Click to edit'
 	});
+
+	questionNodes[nodeId] = {
+		id: nodeId,
+		isResult: false,
+		isBlock: false,
+		isClustered: false,
+		result: {
+			text: ""
+		},
+		block: {
+			title: "",
+			nbQuestions: 0
+		},
+		question: {
+			title: "",
+			type: "text",
+			answers: []
+		}
+	};
+	return questionNodes[nodeId];
 }
-
-// For nodes referenced as output, check if they will become orphan
-// graphic.outEdges(nodeId).map(function(outEdges){
-// 	console.log("outEdges: ", outEdges);
-
-// 	var destSrc = []
-// 	graphic.inEdges(outEdges.w).map(function(inEdges){
-// 		console.log("in edges : ", inEdges.v, nodeId);
-// 		if(inEdges.v != nodeId){
-// 			destSrc.push(inEdges.v);	
-// 		} 
-// 	});
-
-// 	// Delete if orphan
-// 	if(destSrc.length == 0){
-// 		delete questionNodes[outEdges.w];
-// 		graphic.removeNode(outEdges.w);
-// 	}
-// });
-
 
 
 
@@ -201,59 +130,45 @@ function notifyPredecessors(nodeId){
 
 // Refresh node data
 function updateNode(nodeData){
-	
-	// Get the node, and update graphic sructure
-	var nodeToUpdate = graphic.node(nodeData.id);
+
+	var nodeGraphic = graphic.node(nodeData.id);
 
 	if(nodeData.isResult){
-		nodeToUpdate.label = nodeData.text;
+		nodeGraphic.label = nodeData.result.text;
 	}
 	else {
 		if(nodeData.isBlock){
 			// Block case : Cluster
-			nodeToUpdate.label = nodeData.block.title;			
-			nodeToUpdate.style = 'fill: #d3d7e8';
-			nodeToUpdate.shape = 'diamond';
-			generateCluster(nodeToUpdate, nodeData.block.nbQuestions);
-		}
-		else if(questionNodes[nodeData.id].isClustered) {
-			// Question clustered case
-			// Nothing to do except retrieve this information
-			// The copy will be done just after
-			nodeData.isClustered = true;
-			nodeToUpdate.label = nodeData.question.title;
+			// nodeGraphic.style = 'fill: #d3d7e8';
+			// nodeGraphic.shape = 'diamond';
+			nodeGraphic.label = nodeData.block.title;			
+			generateCluster(nodeGraphic, nodeData.block.nbQuestions);
 		}
 		else{
 			// Question case
-			nodeToUpdate.label = nodeData.question.title;
-			generateOutputLinks(nodeToUpdate, nodeData.question.answers);
+			nodeGraphic.label = nodeData.question.title;
+			if(! nodeData.isClustered){
+				generateOutputLinks(nodeGraphic, nodeData.question.answers);				
+			}
 		}
 	}
-
-	// Save model modifications
 	
-	questionNodes[nodeData.id] = nodeData;
-
-	// Render graphic modifications
 	render();
 }
 
 
 
-function generateCluster(nodeToUpdate, nbQuestions){
-	// Base id
-	var baseId = nodeToUpdate.id+":";
+function generateCluster(nodeGraphic, nbQuestions){
+	var baseId = nodeGraphic.id+":";
 
+	// For all children, create id, node, and edge
 	for(var i=0; i<nbQuestions; i++){
-		// Create the children id, the node, and the edge
 		var childId = baseId + i;
-		graphic.setNode(childId, {id:childId, label:"Click to edit"});
-		graphic.setEdge(nodeToUpdate.id, childId);
+		
+		createNode(childId);
+		questionNodes[childId].isClustered = true;
 
-		// register the created child
-		questionNodes[childId] = {
-			isClustered: true
-		};
+		graphic.setEdge(nodeGraphic.id, childId);
 	}
 }
 
@@ -261,10 +176,10 @@ function generateCluster(nodeToUpdate, nbQuestions){
 
 
 // Create the required nodes and edges with custom labels
-function generateOutputLinks(nodeToUpdate, answers){
+function generateOutputLinks(nodeGraphic, answers){
 
 	// Pattern creation of children id
-	var idSplit = nodeToUpdate.id.split('_'),
+	var idSplit = nodeGraphic.id.split('_'),
 		parentLvl = parseInt(idSplit[1]),
 		currentLvl = idSplit[0]+'_'+( parentLvl + 1 );
 
@@ -283,18 +198,77 @@ function generateOutputLinks(nodeToUpdate, answers){
 		var childId = currentLvl+'_'+childNodeIndex;
 		childNodeIndex++;
 
+		// Create the child node and the edge between parent/child
 		if(a.target == undefined){
-			// Create the child node and the edge between parent/child
-			graphic.setNode(childId, {id:childId, label: 'Click to edit'});
-			graphic.setEdge(nodeToUpdate.id, childId, {label:a.label});
+			createNode(childId);
+			graphic.setEdge(nodeGraphic.id, childId, {label:a.label});
 
-			// register the created child and register it as a target for this answer
-			questionNodes[childId] = {};
+			// Register the edge
 			a.target = childId;
 		}
 		else{
 			// Create a connection to existing node
-			graphic.setEdge(nodeToUpdate.id, a.target, {label:a.label});
+			graphic.setEdge(nodeGraphic.id, a.target, {label:a.label});
 		}
 	});
+}
+
+
+
+
+
+
+
+// Delete this node, with all children if needed
+function deleteNode(){
+	var nodeId = $(leftPanelNodeSelector).val(),
+		node = questionNodes[nodeId];
+
+	if(nodeId == "lvl_0"){
+		alert("You cannot delete the root node");
+		return;
+	}
+
+	recursiveDelete(nodeId, 0);
+	render();
+}
+
+
+// Delete recursively this node
+function recursiveDelete(nodeId, depth){
+	// Child node, with at least 2 parents : don't delete it
+	if(depth != 0 && graphic.predecessors(nodeId).length > 1){
+		return;
+	}
+
+	// Look at all children
+	var children = graphic.successors(nodeId);
+	if(children.length > 0){
+		children.map(function(childId){
+			recursiveDelete(childId, depth+1);
+		});
+	}
+
+	// Start node : update predecessors
+	if(depth == 0){
+		// For all predecessors, remove the question wich points to this current node
+		graphic.predecessors(nodeId).map(function(p){
+			var array = questionNodes[p].question.answers;
+
+			console.log("before : ", array);
+
+			array.forEach(function(answer, idx){
+				// Remove element from array if found
+				if(answer.target == nodeId){
+					array.splice(idx, 1);
+				}
+			});
+
+			console.log("after : ", array);
+		});
+	}
+
+	// Delete this node as we have not return before
+	delete questionNodes[nodeId];
+	graphic.removeNode(nodeId);	
 }

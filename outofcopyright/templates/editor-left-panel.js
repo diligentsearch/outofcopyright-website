@@ -218,9 +218,9 @@ function lpConfigDisplay(){
 		// Reset form on ID change
 		lpReset();	
 		lpHideDisplay();
-		var key = $(this).val();
-		if(key != ""){
-			dumpQuestionNode(key);
+		var nodeId = $(this).val();
+		if(nodeId != ""){
+			dumpQuestionNode(nodeId);
 			$('#node-editor-form').show();
 		}
 	});
@@ -290,6 +290,8 @@ function toggleCaseVisibility(currentElt, ifIdSelector, elseIdSelector){
 
 // Display specific predefined answers according to selected type
 function toggleQuestionTypeVisibility(questionElt){
+
+	console.log("Toggling : ", questionElt.val());
 
 	// Specific case for numeric type
 	if(questionElt.val() == "numeric"){
@@ -478,6 +480,9 @@ function delQuestion(){
 // 
 
 
+
+
+
 // Retrive specific section of html code based on common id pattern : id-section-#index
 function retrieveSection(tag, sectionId){
 	var s = [],
@@ -489,48 +494,85 @@ function retrieveSection(tag, sectionId){
 	return s;
 }
 
-// Get form data for the graphical editor
+
+
+
+
+
+
+
+nodeData = {};
+// nodeData = {
+// 	id: undefined,
+// 	isResult: false,
+// 	isBlock: false,
+// 	isClustered: false,
+// 	result: {
+// 		text: ""
+// 	},
+// 	block: {
+// 		title: "",
+// 		nbQuestions: 0
+// 	},
+// 	question: {
+// 		title: "",
+// 		type: "",
+// 		answers: []
+// 	}
+// };
+
+function resultFormat(){
+	nodeData.block.title = "";
+	nodeData.block.nbQuestions = 0;
+	nodeData.isClustered = false;
+	nodeData.question.title = "";
+	nodeData.question.type = "";
+	nodeData.question.answers = [];
+}
+
+function blockFormat(){
+	nodeData.result.text = "";
+	nodeData.isClustered = false;
+	nodeData.question.title = "";
+	nodeData.question.type = "";
+	nodeData.question.answers = [];
+}
+
+function questionFormat(){
+	nodeData.result.text = "";
+	nodeData.block.title = "";
+	nodeData.block.nbQuestions = 0;
+}
+
+// Get form data and send it to the graphical editor
 function editorDumper(){
 
-	var key = $('#node-editor-id').val();
-	var nodeData = {id : key};
-
-	// console.log("received : ", questionNodes[key]);
-
-
-
-
-
-
-	// Create the data and get back main characteritics
+	// update local nodeData object
 	nodeData.isResult = $('#isResult').is(":visible");
 	nodeData.isBlock = $('#isBlock').is(":visible");
 
 
-	// According to characteritics, inject required data
+	// According to characteristics, inject required data
 	if(nodeData.isResult) {
-		nodeData['text'] = $('#result-text').val();
+		resultFormat();
+		nodeData.result.text = $('#result-text').val();
 	}
 	else {
 		if(nodeData.isBlock){
-			nodeData['block'] = {
-				title: $('#block-title').val(),
-				nbQuestions: parseInt($('#block-questions-number').html())
-			}
+			blockFormat();
+			nodeData.block.title = $('#block-title').val();
+			nodeData.block.nbQuestions = parseInt($('#block-questions-number').html());
 		}
 		else{
-			// Classical case
-			nodeData['question'] = {
-				title: $('#question-title').val(),
-				type: $('#question-type').val(),
-				answers: []
-			}
+			questionFormat();
+			nodeData.question.title =  $('#question-title').val();
+			nodeData.question.type = $('#question-type').val();
 
 			var answers = retrieveSection('input', 'question-def-answers-'),
 				labels = retrieveSection('select', 'target-connections-answersList-'),
 				targets = retrieveSection('select', 'target-connections-nodesList-');
 
-			answers.forEach(function(elt){
+			answers.forEach(function(elt, idx){
 				// Generate default answer
 				var answer = {
 					target: undefined,
@@ -548,34 +590,31 @@ function editorDumper(){
 					if(l.value == associatedLabel){
 						var lineIdx = l.id.split('target-connections-answersList-')[1];
 						answer.target = targets[i].value != "" ? targets[i].value : undefined;
-						// console.log("editorDumper - Target is : ", answer.target);
 					}
 				});
 
-				// Add this answer to the data of the node
-				// console.log("pushing answer : ", answer);
-				nodeData.question.answers.push(answer);
+				nodeData.question.answers[idx] = answer;
 			});
 		}
-	}	
+	}
 
-	// console.log("sending : ", nodeData);
 
+	console.log("sending data : ", nodeData);
 	return nodeData;
 }
 
 
 
 // Preset form to match what is written inside this current question node
-function dumpQuestionNode(questionKey){
+function dumpQuestionNode(nodeId){
 
-	var nodeData = questionNodes[questionKey];	
-	// console.log("receiving : ", nodeData);
+	nodeData = questionNodes[nodeId];
+	console.log("dumping data : ", nodeData);
 
 	// Result case
 	if(nodeData.isResult){
 		$('#caseResult').val("yes");
-		$('#result-text').val(nodeData.text);
+		$('#result-text').val(nodeData.result.text);
 	}
 	else{
 		$('#caseResult').val("no");
@@ -592,49 +631,53 @@ function dumpQuestionNode(questionKey){
 		$('#caseBlock').val("no");
 	}
 	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
-	toggleQuestionTypeVisibility($('#question-type'));
 
 
-	// Disable redirection if clustered node
-	if(nodeData.isClustered){
-		$('label[for="caseTarget"]').hide();
-		$('#caseTarget').hide();
-	}
-	else{
-		$('label[for="caseTarget"]').show();
-		$('#caseTarget').show();
-	}
 
 
 	// Question block :
 	if(nodeData.question){
 		$('#question-title').val(nodeData.question.title);
 		$('#question-type').val(nodeData.question.type);
+		toggleQuestionTypeVisibility($('#question-type'));
 		// toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 
 		// Default answers section
-		var placeholders = $.map(nodeData.question.answers, function(a){
+		var placeholders = nodeData.question.answers.map(function(a){
 			return a.label;
 		});
-		injectDefaultAnswers(placeholders.length, placeholders);
+		if(placeholders.length > 0){
+			console.log("injecting : ", placeholders.length, placeholders);
+			injectDefaultAnswers(placeholders.length, placeholders);			
+		}
 
+		// Disable redirection if clustered node
+		if(nodeData.isClustered){
+			$('label[for="caseTarget"]').hide();
+			$('#caseTarget').hide();
+		}
+		else{
+			// Look for targets on answers
+			$.map(nodeData.question.answers, function(a, index){
+				if(a.target != undefined){
+					if($('#target-connections').is(":visible") == false){
+						$('#caseTarget').val("yes");
+						toggleTargetConnection($('#caseTarget'));
+					}
+					else{
+						addTarget();					
+					}
 
-		// Look for targets on answers
-		$.map(nodeData.question.answers, function(a, index){
-			if(a.target != undefined){
-				if($('#target-connections').is(":visible") == false){
-					$('#caseTarget').val("yes");
-					toggleTargetConnection($('#caseTarget'));
+					var associatedLabel = $('label[for="question-def-answers-'+index+'"]').text();
+					$('#target-connections-answersList-'+index).val(associatedLabel);
+					$('#target-connections-nodesList-'+index).val(a.target);
 				}
-				else{
-					addTarget();					
-				}
+			});		
+			$('label[for="caseTarget"]').show();
+			$('#caseTarget').show();
+			
+		}
 
-				var associatedLabel = $('label[for="question-def-answers-'+index+'"]').text();
-				$('#target-connections-answersList-'+index).val(associatedLabel);
-				$('#target-connections-nodesList-'+index).val(a.target);
-			}
-		});		
 	}
 	
 }
