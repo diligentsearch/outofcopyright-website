@@ -104,6 +104,11 @@ function deleteNode(){
 	var nodeId = $(leftPanelNodeSelector).val(),
 		node = questionNodes[nodeId];
 
+	if(nodeId == "lvl_0"){
+		alert("You cannot delete the root node");
+		return;
+	}
+
 
 	console.log("deleteing");
 
@@ -136,10 +141,6 @@ function deleteNode(){
 	graphic.removeNode(nodeId);
 
 	render();
-
-
-	// Hide all display
-
 }
 
 
