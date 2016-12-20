@@ -333,9 +333,10 @@ function injectDefaultAnswers(nb, placeholder, increasable){
 		answers = "";
 
 	for(var i=0; i < nb; i++){
+		var j = i+1;		
 		var answer = `
 			<br>
-			<label for="question-def-answers-`+i+`">#`+i+`</label>
+			<label for="question-def-answers-`+i+`">#`+j+`</label>
 			<input id="question-def-answers-`+i+`" type="text" placeholder="`+placeholder[i]+`" style="width:80%;">
 		`;
 		lastId = "#question-def-answers-"+i;
@@ -354,25 +355,23 @@ function injectDefaultAnswers(nb, placeholder, increasable){
 // Insert one more answer in the default answers section
 function addAnswer(){
 	var i = $('#question-answers > input').length;
-
+	var j = i+1;
 	$('#question-answers').append(`
 		<br>
-		<label for="question-def-answers-`+i+`">#`+i+`</label>
+		<label for="question-def-answers-`+i+`">#`+j+`</label>
 		<input id="question-def-answers-`+i+`" type="text" placeholder="Output value" style="width:80%;">
 	`);
 }
 
 
 // Remove the last inserted answer
-function delAnswer(){
-	// Stop condition : always one answer available
-	if($('#question-answers').children().length == 2){
-		return;
-	}
-
-	$('#question-answers > input:last').remove();
-	$('#question-answers > label:last').remove();
-	$('#question-answers > br:last').remove();
+function delAnswer(){	
+	if($('#question-answers').children().length >= 2){
+		// Remove only if more than 2 elements
+		$('#question-answers > input:last').remove();
+		$('#question-answers > label:last').remove();
+		$('#question-answers > br:last').remove();
+	}	
 }
 
 
@@ -413,7 +412,8 @@ function addTarget(){
 
 
 		// Insert answers labels into first select tag
-		for(var i=0; i<answers.length; i++){
+		// Tag names starting at 1
+		for(var i=1; i<=answers.length; i++){
 			$('#target-connections-answersList-'+lineIdx).append(`
 				<option value=#`+i+`>#`+i+`</option>
 			`);
@@ -435,8 +435,8 @@ function addTarget(){
 		});
 
 		// Force default value
-		$('#target-connections-answersList-'+lineIdx).val('#0');
-		$('#target-connections-nodesList-'+lineIdx).val('#0');
+		$('#target-connections-answersList-'+lineIdx).val('#1');
+		$('#target-connections-nodesList-'+lineIdx).val('lvl_0');
 	} 
 }
 
