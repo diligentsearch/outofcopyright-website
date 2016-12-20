@@ -143,7 +143,6 @@ leftPanelHtml = `
 						</div>
 						<div id="target-connections-management" class="col-sm-3" style="position:absolute; bottom:0; right:0" >
 							<button id="addTarget" type="button">+</button>
-							<button id="delTarget" type="button">-</button>
 						</div>
 					</div>
 				</div>
@@ -260,7 +259,6 @@ function lpConfigDisplay(){
 
 	// Default target button management
 	$('#addTarget').click(function(){	addTarget();	});
-	$('#delTarget').click(function(){	delTarget();	});
 }
 
 
@@ -434,26 +432,6 @@ function addTarget(){
 		$('#target-connections-answersList-'+lineIdx).val('#0');
 		$('#target-connections-nodesList-'+lineIdx).val('#0');
 	} 
-}
-
-
-// Remove a line enabling a connection between an answer and an existing node
-function delTarget(){
-	// // 2 select tags for one target
-	// var nbSelect = $('#target-connections > select').length,
-	// 	lineIdx = nbSelect / 2; 
-
-	// // Stop condition
-	// if(lineIdx == 1){
-	// 	return;
-	// }
-
-	// // Else : remove what is necessary
-	// $('#target-connections > select:last').remove();
-	// $('#target-connections > label:last').remove();
-	// $('#target-connections > select:last').remove();
-	// $('#target-connections > label:last').remove();	
-	// $('#target-connections > br:last').remove();
 }
 
 
