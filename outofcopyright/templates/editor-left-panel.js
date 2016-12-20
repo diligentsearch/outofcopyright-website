@@ -186,6 +186,7 @@ function lpHideDisplay(){
 	$('#isComputation').hide();
 	$('#computationEnabled').hide();
 	$('#targetDefined').hide();
+	$('#question-answers-management').hide();
 
 }
 
@@ -289,13 +290,11 @@ function toggleCaseVisibility(currentElt, ifIdSelector, elseIdSelector){
 // Display specific predefined answers according to selected type
 function toggleQuestionTypeVisibility(questionElt){
 
-	console.log("Toggling : ", questionElt.val());
-
 	// Specific case for numeric type
 	if(questionElt.val() == "numeric"){
 		$('#caseNumeric').show();
 		$('#isComputation').show();	
-		injectDefaultAnswers(2, ['true', 'false']);
+		injectDefaultAnswers(2, ['true', 'false'], true);
 	}
 	else{
 		$('#caseNumeric').hide();
@@ -307,13 +306,13 @@ function toggleQuestionTypeVisibility(questionElt){
 				injectDefaultAnswers(1, ['Set']);
 				break;
 			case "check" :
-				injectDefaultAnswers(1, ['Checked']);
+				injectDefaultAnswers(2, ['Checked', 'Not checked']);
 				break;
 			case "bool" :
 				injectDefaultAnswers(2, ['True', 'False']);
 				break;
 			case "list" :
-				injectDefaultAnswers(2, ['First choice', 'Second choice']);
+				injectDefaultAnswers(3, ['First choice', 'Second choice', 'Third choice'], true);
 			default:
 				break;
 		}
@@ -321,7 +320,7 @@ function toggleQuestionTypeVisibility(questionElt){
 }
 
 // Insert the given number of label/input for the default answers section
-function injectDefaultAnswers(nb, placeholder){
+function injectDefaultAnswers(nb, placeholder, increasable){
 
 	// Flush default answers section
 	if(nb == 0){
@@ -343,6 +342,13 @@ function injectDefaultAnswers(nb, placeholder){
 		answers += answer;		
 	}
 	$('#question-answers').html(answers);
+
+	if(increasable){
+		$('#question-answers-management').show();
+	}else{
+		$('#question-answers-management').hide();
+	}
+
 }
 
 // Insert one more answer in the default answers section
@@ -575,9 +581,6 @@ function editorDumper(){
 			});
 		}
 	}
-
-
-	console.log("sending data : ", nodeData);
 	return nodeData;
 }
 
@@ -587,7 +590,6 @@ function editorDumper(){
 function dumpQuestionNode(nodeId){
 
 	nodeData = questionNodes[nodeId];
-	console.log("dumping data : ", nodeData);
 
 	// Result case
 	if(nodeData.isResult){
@@ -625,7 +627,6 @@ function dumpQuestionNode(nodeId){
 			return a.label;
 		});
 		if(placeholders.length > 0){
-			console.log("injecting : ", placeholders.length, placeholders);
 			injectDefaultAnswers(placeholders.length, placeholders);			
 		}
 
@@ -652,8 +653,7 @@ function dumpQuestionNode(nodeId){
 				}
 			});		
 			$('label[for="caseTarget"]').show();
-			$('#caseTarget').show();
-			
+			$('#caseTarget').show();		
 		}
 
 	}

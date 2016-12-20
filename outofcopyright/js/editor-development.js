@@ -255,16 +255,12 @@ function recursiveDelete(nodeId, depth){
 		graphic.predecessors(nodeId).map(function(p){
 			var array = questionNodes[p].question.answers;
 
-			console.log("before : ", array);
-
 			array.forEach(function(answer, idx){
 				// Remove element from array if found
 				if(answer.target == nodeId){
 					array.splice(idx, 1);
 				}
 			});
-
-			console.log("after : ", array);
 		});
 	}
 
