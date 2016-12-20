@@ -214,12 +214,12 @@ function lpConfigDisplay(){
 	// Form visiibility
 	$('#node-editor-id').change(function(){
 		/* HIDDEN FIELDS NEED TO BE 'TRIGGERED' MANUALLY BEFORE CALLING THIS KIND OF EVENTS */		
-		lpReset();	// Reset form on ID change
-		if($(this).val() == ""){
-			lpHideDisplay();
-		}
-		else{
-			var key = $(this).val();
+		
+		// Reset form on ID change
+		lpReset();	
+		lpHideDisplay();
+		var key = $(this).val();
+		if(key != ""){
 			dumpQuestionNode(key);
 			$('#node-editor-form').show();
 		}
