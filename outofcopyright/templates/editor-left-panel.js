@@ -611,16 +611,33 @@ function dumpQuestionNode(nodeId){
 		$('#question-title').val(nodeData.question.title);
 		$('#question-type').val(nodeData.question.type);
 		toggleQuestionTypeVisibility($('#question-type'));
+
+
 		// toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 
 		// Default answers section
-		var placeholders = nodeData.question.answers.map(function(a){
+		var answers = nodeData.question.answers.map(function(a){
 			return a.label;
 		});
-		if(placeholders.length > 0){
-			var increasable = nodeData.question.type == "numeric" || nodeData.question.type == "list";
-			injectDefaultAnswers(placeholders.length, placeholders, increasable);
+
+		// Default placeholders
+		var placeholders = [];
+		$('#question-answers > input').each(function(){
+			placeholders.push( $(this).attr('placeholder') );
+		});
+
+		// Ensure you have enough default answers to respect the type
+		var diff = placeholders.length - answers.length;
+		if(diff > 0){			
+			for(var i=0; i<diff; i++){
+				answers.push(placeholders[i]);
+			}
 		}
+		
+		// Inject html
+		var increasable = nodeData.question.type == "numeric" || nodeData.question.type == "list";
+		injectDefaultAnswers(answers.length, answers, increasable);
+		
 
 		// Disable redirection if clustered node
 		if(nodeData.isClustered){
