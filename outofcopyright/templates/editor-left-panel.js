@@ -158,9 +158,6 @@ leftPanelHtml = `
 		<button id="node-editor-delete" type="button" class="btn btn-default">Delete this node</button>
 	</form>
 </div>
-
-
-
 `;
 
 
@@ -174,6 +171,35 @@ function injectLeftPanel(){
 	lpDisplay();
 }
 
+// Configure default events for displaying div
+function lpConfigDisplay(){
+
+	/* HIDDEN FIELDS NEED TO BE 'TRIGGERED' MANUALLY BEFORE CALLING THIS KIND OF EVENTS */		
+	// On graphical node click
+	$('#node-editor-id').change(function(){
+		lpReset();	
+		lpHideDisplay();
+		var nodeId = $(this).val();
+		if(nodeId != ""){
+			dumpQuestionNode(nodeId);
+			$('#node-editor-form').show();
+		}
+	});
+	
+	// Div hide / show management
+	$('#caseResult').change(function(){		toggleCaseVisibility($(this), '#isResult', '#isNotResult');			});	// Result node	
+	$('#caseBlock').change(function(){		toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');	});	// Block node	
+	$('#question-type').change(function(){	toggleQuestionTypeVisibility($(this));								});	// Question type	
+	$('#isComputation').change(function(){	toggleComputationVisibility($(this), '#computationEnabled');		});		// Numeric type : handle computation
+	$('#caseTarget').change(function(){		toggleTargetConnection($(this));									});	// Target defined
+
+	// Buttons management
+	$('#addQuestion').click(function(){	addQuestion();	});
+	$('#delQuestion').click(function(){	delQuestion();	});
+	$('#addAnswer').click(function(){	addAnswer();	});
+	$('#delAnswer').click(function(){	delAnswer();	});
+	$('#addTarget').click(function(){	addTarget();	});
+}
 
 // Hide all the left panel
 function lpHideDisplay(){
@@ -187,7 +213,6 @@ function lpHideDisplay(){
 	$('#computationEnabled').hide();
 	$('#targetDefined').hide();
 	$('#question-answers-management').hide();
-
 }
 
 // Reset all fields
@@ -208,74 +233,6 @@ function lpDisplay(){
 	toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 }
 
-// Configure default events for displaying div
-function lpConfigDisplay(){
-
-	// Form visiibility
-	$('#node-editor-id').change(function(){
-		/* HIDDEN FIELDS NEED TO BE 'TRIGGERED' MANUALLY BEFORE CALLING THIS KIND OF EVENTS */		
-		
-		// Reset form on ID change
-		lpReset();	
-		lpHideDisplay();
-		var nodeId = $(this).val();
-		if(nodeId != ""){
-			dumpQuestionNode(nodeId);
-			$('#node-editor-form').show();
-		}
-	});
-	
-	// Result node
-	$('#caseResult').change(function(){
-		toggleCaseVisibility($(this), '#isResult', '#isNotResult');
-	});
-
-	// Block node
-	$('#caseBlock').change(function(){
-		toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
-	});
-
-	// Default question numbers management
-	$('#addQuestion').click(function(){	addQuestion();	});
-	$('#delQuestion').click(function(){	delQuestion();	});
-
-	// Question type
-	$('#question-type').change(function(){
-		toggleQuestionTypeVisibility($(this));
-	});
-
-	// Numeric type : handle computation
-	$('#isComputation').change(function(){
-		toggleComputationVisibility($(this), '#computationEnabled');
-	});	
-
-	// Default answers button management
-	$('#addAnswer').click(function(){	addAnswer();	});
-	$('#delAnswer').click(function(){	delAnswer();	});
-
-	// Target defined
-	$('#caseTarget').change(function(){
-		toggleTargetConnection($(this));
-	});
-
-	// Default target button management
-	$('#addTarget').click(function(){	addTarget();	});
-}
-
-
-
-
-
-
-// Display or not the specific question for a numeric type
-function toggleComputationVisibility(currentElt, idSelector){
-	if(currentElt.val() == "yes"){
-		$(idSelector).show();
-	}else{
-		$(idSelector).hide();
-	}
-}
-
 // Display / Hide div for cases (yes / no option to display element)
 function toggleCaseVisibility(currentElt, ifIdSelector, elseIdSelector){
 	if(currentElt.val() == "yes"){
@@ -284,6 +241,17 @@ function toggleCaseVisibility(currentElt, ifIdSelector, elseIdSelector){
 	}else{
 		$(ifIdSelector).hide();
 		$(elseIdSelector).show();
+	}
+}
+
+// Display the target connection section
+function toggleTargetConnection(targetElt){
+	if(targetElt.val() == "yes"){
+		$('#targetDefined').show();
+		addTarget();
+	}
+	else{
+		$('#targetDefined').hide();
 	}
 }
 
@@ -319,11 +287,21 @@ function toggleQuestionTypeVisibility(questionElt){
 	}
 }
 
+// Display or not the specific question for a numeric type
+function toggleComputationVisibility(currentElt, idSelector){
+	if(currentElt.val() == "yes"){
+		$(idSelector).show();
+	}else{
+		$(idSelector).hide();
+	}
+}
+
+
 // Insert the given number of label/input for the default answers section
 function injectDefaultAnswers(nb, placeholder, increasable){
 
-	// Flush default answers section
 	if(nb == 0){
+		// Flush default answers section
 		$('#question-answers').html('');
 		return;
 	}
@@ -349,7 +327,21 @@ function injectDefaultAnswers(nb, placeholder, increasable){
 	}else{
 		$('#question-answers-management').hide();
 	}
+}
 
+// Add a question to a block
+function addQuestion(){
+	var nb = parseInt($('#block-questions-number').html());
+	nb++;
+	$('#block-questions-number').html(nb);
+}
+
+// Delete a question from a block
+function delQuestion(){
+	var nb = parseInt($('#block-questions-number').html());
+	if(nb>1)
+		nb--;
+	$('#block-questions-number').html(nb);
 }
 
 // Insert one more answer in the default answers section
@@ -363,29 +355,15 @@ function addAnswer(){
 	`);
 }
 
-
 // Remove the last inserted answer
 function delAnswer(){	
+	// Remove only if more than 2 elements
 	if($('#question-answers').children().length >= 2){
-		// Remove only if more than 2 elements
 		$('#question-answers > input:last').remove();
 		$('#question-answers > label:last').remove();
 		$('#question-answers > br:last').remove();
 	}	
 }
-
-
-// Display the target connection section
-function toggleTargetConnection(targetElt){
-	if(targetElt.val() == "yes"){
-		$('#targetDefined').show();
-		addTarget();
-	}
-	else{
-		$('#targetDefined').hide();
-	}
-}
-
 
 // Add a line to enable an answer to point to an existing node
 function addTarget(){
@@ -412,7 +390,7 @@ function addTarget(){
 
 
 		// Insert answers labels into first select tag
-		// Tag names starting at 1
+		// Tag names displayed start at 1
 		for(var i=1; i<=answers.length; i++){
 			$('#target-connections-answersList-'+lineIdx).append(`
 				<option value=#`+i+`>#`+i+`</option>
@@ -440,22 +418,7 @@ function addTarget(){
 	} 
 }
 
-
-function addQuestion(){
-	var nb = parseInt($('#block-questions-number').html());
-	nb++;
-	$('#block-questions-number').html(nb);
-}
-
-
-function delQuestion(){
-	var nb = parseInt($('#block-questions-number').html());
-	if(nb>1)
-		nb--;
-	$('#block-questions-number').html(nb);
-}
-
-// Retrive specific section of html code based on common id pattern : id-section-#index
+// Macro to Retrieve specific section of html code based on common id pattern : id-section-#index
 function retrieveSection(tag, sectionId){
 	var s = [],
 		selector = tag+'[id^="'+sectionId+'"]';
@@ -468,11 +431,16 @@ function retrieveSection(tag, sectionId){
 
 
 
+/*
+
+	JS binding with model
+	--> to deport somewhere else ?
+
+*/
 
 
 
-
-
+/* Local nodeData and associated model */
 nodeData = {};
 // nodeData = {
 // 	id: undefined,
@@ -494,6 +462,8 @@ nodeData = {};
 // 	}
 // };
 
+
+/* Format function to ensure local nodeData fits what has been received */
 function resultFormat(){
 	nodeData.block.title = "";
 	nodeData.block.nbQuestions = 0;
@@ -519,15 +489,12 @@ function questionFormat(){
 	nodeData.block.nbQuestions = 0;
 }
 
-// Get form data and send it to the graphical editor
+/* Dump the leftPanelHtml template to update the local nodeData variable and to return it*/
 function editorDumper(){
 
-	// update local nodeData object
 	nodeData.isResult = $('#isResult').is(":visible");
 	nodeData.isBlock = $('#isBlock').is(":visible");
 
-
-	// According to characteristics, inject required data
 	if(nodeData.isResult) {
 		resultFormat();
 		nodeData.result.text = $('#result-text').val();
@@ -547,16 +514,14 @@ function editorDumper(){
 				labels = retrieveSection('select', 'target-connections-answersList-'),
 				targets = retrieveSection('select', 'target-connections-nodesList-');
 
+			// Generate answers for graphical editor
 			answers.forEach(function(elt, idx){
-				// Generate default answer
 				var answer = {
 					target: undefined,
 					label: elt.value != "" ? elt.value : elt.placeholder
 				};
 
-				/* Look for existing link with existing target */
-
-				// Get back the name of the corresponding label and look for it into the select tags
+				/* Look for existing link with existing target based on associated label */
 				var associatedLabel = $('label[for="'+elt.id+'"]').text();
 				$.each(labels, function(i){
 					l = labels[i];
@@ -568,6 +533,7 @@ function editorDumper(){
 					}
 				});
 
+				// Push the generated answer 
 				nodeData.question.answers[idx] = answer;
 			});
 		}
@@ -575,14 +541,12 @@ function editorDumper(){
 	return nodeData;
 }
 
-
-
-// Preset form to match what is written inside this current question node
+/* Update local nodeData based on id received and fill in leftPanelHtml template */
 function dumpQuestionNode(nodeId){
 
 	nodeData = questionNodes[nodeId];
 
-	// Result case
+	/* Result case */
 	if(nodeData.isResult){
 		$('#caseResult').val("yes");
 		$('#result-text').val(nodeData.result.text);
@@ -592,7 +556,8 @@ function dumpQuestionNode(nodeId){
 	}
 	toggleCaseVisibility($('#caseResult'), '#isResult', '#isNotResult');
 
-	// Block case
+	
+	/* Block case */
 	if(nodeData.isBlock){
 		$('#caseBlock').val("yes");
 		$('#block-title').val(nodeData.block.title);
@@ -603,10 +568,8 @@ function dumpQuestionNode(nodeId){
 	}
 	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
 
-
-
-
-	// Question block :
+	
+	/* Question case */
 	if(nodeData.question){
 		$('#question-title').val(nodeData.question.title);
 		$('#question-type').val(nodeData.question.type);
@@ -614,60 +577,62 @@ function dumpQuestionNode(nodeId){
 
 
 		// toggleComputationVisibility($('#isComputation'), '#computationEnabled');
+		dumpDefaultAnswers();
 
-		// Default answers section
-		var answers = nodeData.question.answers.map(function(a){
-			return a.label;
-		});
-
-		// Default placeholders
-		var placeholders = [];
-		$('#question-answers > input').each(function(){
-			placeholders.push( $(this).attr('placeholder') );
-		});
-
-		// Ensure you have enough default answers to respect the type
-		var diff = placeholders.length - answers.length;
-		if(diff > 0){
-			// get the apropriate placehodler
-			var start = answers.length;
-			for(var i=start; i<(start+diff); i++){
-				answers.push(placeholders[i]);
-			}
-		}
-		
-		// Inject html
-		var increasable = nodeData.question.type == "numeric" || nodeData.question.type == "list";
-		injectDefaultAnswers(answers.length, answers, increasable);
-		
-
-		// Disable redirection if clustered node
 		if(nodeData.isClustered){
+			// Disable redirection if clustered node
 			$('label[for="caseTarget"]').hide();
 			$('#caseTarget').hide();
 		}
 		else{
-			// Look for targets on answers
-			$.map(nodeData.question.answers, function(a, index){
-				if(a.target != undefined){
-					if($('#target-connections').is(":visible") == false){
-						$('#caseTarget').val("yes");
-						toggleTargetConnection($('#caseTarget'));
-					}
-					else{
-						addTarget();					
-					}
-
-					var associatedLabel = $('label[for="question-def-answers-'+index+'"]').text();
-					$('#target-connections-answersList-'+index).val(associatedLabel).attr('disabled', 'disabled');
-					$('#target-connections-nodesList-'+index).val(a.target).attr('disabled', 'disabled');
-				}
-			});		
+			// Or dump links and enable redirection
+			dumpExistingLinks();
 			$('label[for="caseTarget"]').show();
 			$('#caseTarget').show();		
 		}
+	}
+}
 
+
+/* Dumping function insuring you have eough default types */
+function dumpDefaultAnswers(){
+
+	// Default answers section and palceholders
+	var answers = nodeData.question.answers.map(function(a){	return a.label;	 });
+	var placeholders = [];
+	$('#question-answers > input').each(function(){		placeholders.push( $(this).attr('placeholder') );	});
+
+	// Add placeholders if necessary
+	var diff = placeholders.length - answers.length;
+	if(diff > 0){
+		var start = answers.length;
+		for(var i = start; i < (start+diff); i++){
+			answers.push(placeholders[i]);
+		}
 	}
 	
+	// Inject html
+	var increasable = nodeData.question.type == "numeric" || nodeData.question.type == "list";
+	injectDefaultAnswers(answers.length, answers, increasable);
+}
+
+
+/* Dump links existing for default answers already set up */
+function dumpExistingLinks(){
+	$.map(nodeData.question.answers, function(a, index){
+		if(a.target != undefined){
+			if($('#target-connections').is(":visible") == false){
+				$('#caseTarget').val("yes");
+				toggleTargetConnection($('#caseTarget'));	// implicitely calling addTarget() function
+			}
+			else{
+				addTarget();					
+			}
+
+			var associatedLabel = $('label[for="question-def-answers-'+index+'"]').text();
+			$('#target-connections-answersList-'+index).val(associatedLabel).attr('disabled', 'disabled');
+			$('#target-connections-nodesList-'+index).val(a.target).attr('disabled', 'disabled');
+		}
+	});		
 }
 

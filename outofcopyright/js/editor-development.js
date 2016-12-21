@@ -1,6 +1,7 @@
 /*
  * Dependencies
  * /js/lib/dagre-d3.min.js
+ * editor-left-panel.js
  *
  */
 
