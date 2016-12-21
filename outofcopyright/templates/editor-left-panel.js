@@ -627,7 +627,8 @@ function dumpQuestionNode(nodeId){
 			return a.label;
 		});
 		if(placeholders.length > 0){
-			injectDefaultAnswers(placeholders.length, placeholders);			
+			var increasable = nodeData.question.type == "numeric" || nodeData.question.type == "list";
+			injectDefaultAnswers(placeholders.length, placeholders, increasable);
 		}
 
 		// Disable redirection if clustered node
@@ -648,8 +649,8 @@ function dumpQuestionNode(nodeId){
 					}
 
 					var associatedLabel = $('label[for="question-def-answers-'+index+'"]').text();
-					$('#target-connections-answersList-'+index).val(associatedLabel);
-					$('#target-connections-nodesList-'+index).val(a.target);
+					$('#target-connections-answersList-'+index).val(associatedLabel).attr('disabled', 'disabled');
+					$('#target-connections-nodesList-'+index).val(a.target).attr('disabled', 'disabled');
 				}
 			});		
 			$('label[for="caseTarget"]').show();
