@@ -163,12 +163,16 @@ function updateNode(nodeData){
 
 
 function generateCluster(nodeGraphic, nbQuestions){
-	// Create a luster node
+	// Create a cluster node
 	var baseId = nodeGraphic.id+":";
 
 	graphic.setNode(baseId, {style: 'fill: #d3d7e8'});
 	graphic.setParent(nodeGraphic.id, baseId);
 
+	// Reference the parent in the model
+	questionNodes[nodeGraphic.id].question.clusterNode = baseId;
+
+	
 	// For all children, create id, node, and edge
 	for(var i=0; i<nbQuestions; i++){
 		var childId = baseId + i;
@@ -182,13 +186,12 @@ function generateCluster(nodeGraphic, nbQuestions){
 	}
 
 	// Create the target node, beginning of a subgraph
-	var clusterNode = graphic.node(baseId),
-		defaultTarget = [{
-			target: undefined,
-			label: "Block Target"
-		}];
-	defaultTarget.forEach(function(a){ console.log("def : ", a); });
-	generateOutputLinks(nodeGraphic, defaultTarget);	
+	var	defaultTarget = [{ 
+		target: undefined,
+		label: "Block Target"
+	}];
+	generateOutputLinks(nodeGraphic, defaultTarget);
+
 }
 
 
@@ -230,10 +233,6 @@ function generateOutputLinks(nodeGraphic, answers){
 		}
 	});
 }
-
-
-
-
 
 
 
@@ -279,6 +278,14 @@ function recursiveDelete(nodeId, depth){
 				}
 			});
 		});
+	}
+
+	// If this node is a cluster, delete parent
+	var nodeData = questionNodes[nodeId],
+		clusterId = questionNodes[nodeId].question.clusterNode;
+	if(nodeData.isBlock && clusterId != ""){
+		delete questionNodes[clusterId];
+		graphic.removeNode(clusterId);
 	}
 
 	// Delete this node as we have not return before
