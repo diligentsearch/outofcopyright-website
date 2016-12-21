@@ -21,7 +21,7 @@ initialScale = 0.75;
 
 // Initiate the graphical object and the first node
 function initSVG(){
-	graphic = new dagreD3.graphlib.Graph()
+	graphic = new dagreD3.graphlib.Graph({compound:true})
 		.setGraph({})
 		.setDefaultEdgeLabel(function() { return {}; });	
 	
@@ -46,9 +46,8 @@ function render(){
 
 // Enhance graphical drawing
 function graphicBeautifier(){
-	graphic.nodes().forEach(function(v) {
-		var node = graphic.node(v);
-		node.rx = node.ry = 5;	// Rounded edges
+	graphic.nodes().forEach(function(id) {
+		graphic.node(id).rx = graphic.node(id).ry = 5;
 	});
 }
 
@@ -116,6 +115,7 @@ function createNode(nodeId, label){
 			nbQuestions: 0
 		},
 		question: {
+			clusterNode: "",
 			title: "",
 			type: "text",
 			answers: []
@@ -125,23 +125,22 @@ function createNode(nodeId, label){
 }
 
 
-
-
-
 // Refresh node data
 function updateNode(nodeData){
 
 	var nodeGraphic = graphic.node(nodeData.id);
 
+
+
 	if(nodeData.isResult){
 		nodeGraphic.label = nodeData.result.text;
+		nodeGraphic.style = 'stroke: #57723E; stroke-width: 5; ';
 	}
 	else {
 		if(nodeData.isBlock){
-			// Block case : Cluster
-			// nodeGraphic.style = 'fill: #d3d7e8';
-			// nodeGraphic.shape = 'diamond';
-			nodeGraphic.label = nodeData.block.title;			
+			nodeGraphic.label = nodeData.block.title;
+			nodeGraphic.style = 'stroke: #000000; fill: #d3d7e8' ; 
+			nodeGraphic.shape = 'ellipse';
 			generateCluster(nodeGraphic, nodeData.block.nbQuestions);
 		}
 		else{
@@ -150,26 +149,46 @@ function updateNode(nodeData){
 			if(! nodeData.isClustered){
 				generateOutputLinks(nodeGraphic, nodeData.question.answers);				
 			}
+			else{
+				nodeGraphic.style = 'stroke: #000000; fill: #d3d7e8' ; 
+				nodeGraphic.shape = 'diamond';
+			}
 		}
-	}
-	
+	}	
+	console.log("nodeData : ", nodeData);
+	console.log("nodeGraphic outputs : ", graphic.outEdges(nodeGraphic));
 	render();
 }
 
 
 
 function generateCluster(nodeGraphic, nbQuestions){
+	// Create a luster node
 	var baseId = nodeGraphic.id+":";
+
+	graphic.setNode(baseId, {style: 'fill: #d3d7e8'});
+	graphic.setParent(nodeGraphic.id, baseId);
 
 	// For all children, create id, node, and edge
 	for(var i=0; i<nbQuestions; i++){
 		var childId = baseId + i;
 		
 		createNode(childId);
-		questionNodes[childId].isClustered = true;
-
 		graphic.setEdge(nodeGraphic.id, childId);
+		graphic.setParent(childId, baseId);
+
+		questionNodes[childId].isClustered = true;
+		questionNodes[childId].clusterNode = baseId;
 	}
+
+	// Create the target node, beginning of a subgraph
+	var clusterNode = graphic.node(baseId),
+		defaultTarget = [{
+			target: undefined,
+			label: "Block Target"
+		}];
+	defaultTarget.forEach(function(a){ console.log("def : ", a); });
+	generateOutputLinks(nodeGraphic, defaultTarget);	
 }
 
 
@@ -191,7 +210,6 @@ function generateOutputLinks(nodeGraphic, answers){
 			childNodeIndex++;
 		}
 	}
-
 
 	answers.forEach(function(a){
 		// Create the children id
@@ -221,15 +239,14 @@ function generateOutputLinks(nodeGraphic, answers){
 
 // Delete this node, with all children if needed
 function deleteNode(){
-	var nodeId = $(leftPanelNodeSelector).val(),
-		node = questionNodes[nodeId];
-
+	var nodeId = $(leftPanelNodeSelector).val();
+	recursiveDelete(nodeId, 0);
+	
+	// Regen root if needed
 	if(nodeId == "lvl_0"){
-		alert("You cannot delete the root node");
-		return;
+		createNode('lvl_0');
 	}
 
-	recursiveDelete(nodeId, 0);
 	render();
 }
 

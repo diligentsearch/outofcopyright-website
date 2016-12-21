@@ -54,7 +54,7 @@ leftPanelHtml = `
 				</div>
 
 				<div class="form-group col-sm-12">
-					<label>Number of questions :</label>
+					<label>Number of questions in the block:</label>
 					<div id="block-questions-number">1</div>
 					<div id="block-questions-management" class="col-sm-3" style="position:absolute; bottom:0; right:0" >
 						<button id="addQuestion" type="button">+</button>
@@ -455,18 +455,6 @@ function delQuestion(){
 	$('#block-questions-number').html(nb);
 }
 
-
-
-// 
-// 
-// Bind to JS model
-// 
-// 
-
-
-
-
-
 // Retrive specific section of html code based on common id pattern : id-section-#index
 function retrieveSection(tag, sectionId){
 	var s = [],
@@ -499,6 +487,7 @@ nodeData = {};
 // 		nbQuestions: 0
 // 	},
 // 	question: {
+// 		clusterNode: "",
 // 		title: "",
 // 		type: "",
 // 		answers: []
@@ -509,6 +498,7 @@ function resultFormat(){
 	nodeData.block.title = "";
 	nodeData.block.nbQuestions = 0;
 	nodeData.isClustered = false;
+	nodeData.question.clusterNode = "";
 	nodeData.question.title = "";
 	nodeData.question.type = "";
 	nodeData.question.answers = [];
@@ -517,6 +507,7 @@ function resultFormat(){
 function blockFormat(){
 	nodeData.result.text = "";
 	nodeData.isClustered = false;
+	nodeData.question.clusterNode = "";
 	nodeData.question.title = "";
 	nodeData.question.type = "";
 	nodeData.question.answers = [];
