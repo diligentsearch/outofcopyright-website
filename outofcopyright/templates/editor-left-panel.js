@@ -628,8 +628,10 @@ function dumpQuestionNode(nodeId){
 
 		// Ensure you have enough default answers to respect the type
 		var diff = placeholders.length - answers.length;
-		if(diff > 0){			
-			for(var i=0; i<diff; i++){
+		if(diff > 0){
+			// get the apropriate placehodler
+			var start = answers.length;
+			for(var i=start; i<(start+diff); i++){
 				answers.push(placeholders[i]);
 			}
 		}
