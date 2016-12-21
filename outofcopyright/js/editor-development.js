@@ -176,21 +176,28 @@ function generateCluster(nodeGraphic, nbQuestions){
 	// For all children, create id, node, and edge
 	for(var i=0; i<nbQuestions; i++){
 		var childId = baseId + i;
-		
-		createNode(childId);
-		graphic.setEdge(nodeGraphic.id, childId);
-		graphic.setParent(childId, baseId);
 
-		questionNodes[childId].isClustered = true;
-		questionNodes[childId].clusterNode = baseId;
+		// Create child if needed
+		if(! questionNodes[childId]){
+			createNode(childId);
+			graphic.setEdge(nodeGraphic.id, childId);
+			graphic.setParent(childId, baseId);
+
+			questionNodes[childId].isClustered = true;
+			questionNodes[childId].clusterNode = baseId;			
+		}
+
+		
 	}
 
-	// Create the target node, beginning of a subgraph
-	var	defaultTarget = [{ 
-		target: undefined,
-		label: "Block Target"
-	}];
-	generateOutputLinks(nodeGraphic, defaultTarget);
+	// Create the target node, beginning of a subgraph if needed
+	if(graphic.outEdges(nodeGraphic.id).length == nbQuestions){
+		var	defaultTarget = [{ 
+			target: undefined,
+			label: "Block Target"
+		}];
+		generateOutputLinks(nodeGraphic, defaultTarget);
+	}
 
 }
 
