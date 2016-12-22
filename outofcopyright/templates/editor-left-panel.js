@@ -476,7 +476,8 @@ nodeData = {};
 // 		computation: {
 // 			reference: 0,
 // 			condition: "==",
-// 			formula: ""
+// 			formula: "",
+// 			inputs = []
 // 		}
 // 	}
 // };
@@ -520,16 +521,7 @@ function numericFormat(){
 function dumpEditedNode(){
 
 
-	if($('#question-type').val() == "numeric"){
-		if($('#numeric-reference').val() == ""){
-			alert("You must fill in reference value first");
-			return;
-		}
-		if(! dumpNumericInputs() ){
-			alert("Errors detected in numeric inputs");
-			return;
-		}
-	}
+
 
 	nodeData.isResult = $('#isResult').is(":visible");
 	nodeData.isBlock = $('#isBlock').is(":visible");
@@ -555,11 +547,71 @@ function dumpEditedNode(){
 			}
 			else{
 				console.log("dump numeric case");
-				nodeData.question.computation.reference = parseInt($('#numeric-reference').val());
-				nodeData.question.computation.condition = parseInt($('#numeric-condition').val());
-				// nodeData.question.computation.inputs = dumpNumericInputs();
-				dumpNumericInputs();
-				console.log("nodeData.question : ", nodeData.question);
+				
+				// Check reference value
+				if($('#numeric-reference').val() == ""){
+					alert("You must fill in reference value first");
+					return null;
+				}
+
+
+				// Reegex to match inputs
+				// /(\w|({\w}))(\s(-|\+)\s(\w|({\w})))*/g
+				var regExp = new RegExp(/(\w|({\w}))(\s(-|\+)\s(\w|({\w})))*/g);
+				var numericInputs = $('#numeric-inputs').val();
+				if( regExp.test(numericInputs) ){
+
+					numericInputs = numericInputs.split(' ');
+
+					// find all user fields to generate a specific text node for the given question
+					var elt = '',
+						inputIndex = 0;
+					for(var i=0; i<numericInputs.length; i++){
+
+						console.log("loop");
+
+						elt = numericInputs[i];
+
+						// Check if current input is a valid operator
+						var isOperator = false;
+						if(elt.length == 1){
+							if(elt.indexOf('-') != 0 || elt.indexOf('+') != 0){
+								isOperator = true;
+							}
+						}
+
+						// If not operator nor reserved variable, create destination
+						if(! isOperator && !isReservedVariable(elt)){
+							console.log("not operator + reservVariable");
+							var l = elt.length-1;
+
+							// Get field name if it exists
+							if(elt.indexOf('{') == 0 && elt.indexOf('}') == l){
+								var fieldName = elt.substring(1, l-1);
+								console.log("Variable correct : ", fieldName);
+								nodeData.question.computation.inputs[inputIndex] = {									
+									target: undefined,
+									label: elt
+								};
+								inputIndex++;
+
+							}
+							else{
+								alert("The inputs " + elt + " at position " + (i+1) + "is not recognized");
+								return null;
+							}
+						}
+					}
+
+					nodeData.question.computation.reference = parseInt($('#numeric-reference').val());
+					nodeData.question.computation.condition = parseInt($('#numeric-condition').val());
+					nodeData.question.computation.formula = $('#numeric-visualization').val();
+
+				}
+				else{
+					alert("Errors detected in numeric inputs");
+					return null;
+				}
 			}
 
 			var answers = retrieveSection('input', 'question-def-answers-'),

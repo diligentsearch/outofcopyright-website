@@ -116,7 +116,8 @@ function createNode(nodeId, label){
 			computation: {
 				reference: 0,
 				condition: "==",
-				formula: ""
+				formula: "",
+				inputs: []
 			}
 		}
 	};
@@ -144,11 +145,12 @@ function updateNode(nodeData){
 			// Question case
 			nodeGraphic.label = nodeData.question.title;
 			if(! nodeData.isClustered){
-				generateQuestions(nodeGraphic, nodeData.question.answers);				
-			}
-			else{
-				nodeGraphic.style = 'stroke: #000000; fill: #d3d7e8' ; 
-				nodeGraphic.shape = 'diamond';
+				generateQuestions(nodeGraphic, nodeData.question.answers);
+
+				if(nodeData.question.type == "numeric"){	
+					generateNumericInputs(nodeGraphic, nodeData.question.computation.inputs);
+
+				}
 			}
 		}
 	}	
@@ -179,10 +181,12 @@ function generateQuestionsBlock(nodeGraphic, nbQuestions){
 			createNode(childId);
 			graphic.setEdge(nodeGraphic.id, childId);
 			graphic.setParent(childId, baseId);
+			graphic.node(childId).style = 'stroke: #000000; fill: #d3d7e8' ;
+			graphic.node(childId).shape = 'diamond';
 
 			questionNodes[childId].isClustered = true;
 			questionNodes[childId].clusterNode = baseId;			
-		}		
+		}
 	}
 
 	// Create the target node, output of block and beginning of a subgraph if needed
@@ -192,8 +196,40 @@ function generateQuestionsBlock(nodeGraphic, nbQuestions){
 			label: "Target"
 		}];
 		generateQuestions(nodeGraphic, defaultTarget);
-	}
+	}				
 }
+
+
+// Create node that will receive question for specific numerical treatement
+function generateNumericInputs(nodeGraphic, inputs){
+	// Specific id definition
+	var baseId = nodeGraphic.id+":",
+		childNodeIndex = 0;
+
+	console.log("generating inputs nodes");
+
+
+	/* For all answers provided, use a child node or create one with specific id */
+	inputs.forEach(function(input){
+		// use a defined target if possible
+		if(input.target != undefined){
+			graphic.setEdge(nodeGraphic.id, input.target, {label:input.label});			
+		}
+		else{
+			// Or create a new node
+			var childId = baseId + childNodeIndex;
+			childNodeIndex++;
+
+			createNode(childId);
+			graphic.setEdge(nodeGraphic.id, childId, {label:input.label});
+			graphic.node(childId).style = 'stroke: #000000; fill: #d3d7e8' ;
+			graphic.node(childId).shape = 'circle';
+
+			input.target = childId;	// Register the edge in the model of the parent
+		}
+	});
+}
+
 
 
 // Create question nodes for each answers provided by the current node received
