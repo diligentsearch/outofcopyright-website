@@ -112,7 +112,12 @@ function createNode(nodeId, label){
 			clusterNode: "",
 			title: "",
 			type: "text",
-			answers: []
+			answers: [],
+			computation: {
+				reference: 0,
+				condition: "==",
+				formula: ""
+			}
 		}
 	};
 	return questionNodes[nodeId];

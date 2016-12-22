@@ -465,7 +465,12 @@ nodeData = {};
 // 		clusterNode: "",
 // 		title: "",
 // 		type: "",
-// 		answers: []
+// 		answers: [],
+// 		computation: {
+// 			reference: 0,
+// 			condition: "==",
+// 			formula: ""
+// 		}
 // 	}
 // };
 
@@ -479,6 +484,7 @@ function resultFormat(){
 	nodeData.question.title = "";
 	nodeData.question.type = "";
 	nodeData.question.answers = [];
+	numericFormat();
 }
 
 function blockFormat(){
@@ -488,12 +494,19 @@ function blockFormat(){
 	nodeData.question.title = "";
 	nodeData.question.type = "";
 	nodeData.question.answers = [];
+	numericFormat();
 }
 
 function questionFormat(){
 	nodeData.result.text = "";
 	nodeData.block.title = "";
 	nodeData.block.nbQuestions = 0;
+}
+
+function numericFormat(){
+	nodeData.computation.reference = 0;
+	nodeData.computation.condition = "==";
+	nodeData.computation.formula = "";
 }
 
 /* Dump the leftPanelHtml template to update the local nodeData variable and to return it*/
@@ -516,6 +529,14 @@ function dumpEditedNode(){
 			questionFormat();
 			nodeData.question.title =  $('#question-title').val();
 			nodeData.question.type = $('#question-type').val();
+
+			// If it's not a numeric type, ensure formatting is done
+			if(nodeData.question.type != "numeric"){
+				numericFormat();
+			}
+			else{
+				console.log("dump numeric case");
+			}
 
 			var answers = retrieveSection('input', 'question-def-answers-'),
 				labels = retrieveSection('select', 'target-connections-answersList-'),
@@ -580,6 +601,9 @@ function dumpGraphicalNode(nodeId){
 	if(nodeData.question){
 		$('#question-title').val(nodeData.question.title);
 		$('#question-type').val(nodeData.question.type);
+
+
+
 		toggleQuestionTypeVisibility($('#question-type'));
 		dumpAnswers();
 
