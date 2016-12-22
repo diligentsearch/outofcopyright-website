@@ -218,6 +218,13 @@ function lpConfigDisplay(){
 	$('#addAnswer').click(function(){	addAnswer();	});
 	$('#delAnswer').click(function(){	delAnswer();	});
 	$('#addTarget').click(function(){	addTarget();	});
+
+
+	// NUmeric configuration previsualization
+	$('#numeric-reference, #numeric-condition, #numeric-inputs').on('change, input', function(){
+		var preview = $('#numeric-reference').val() + ' ' + $('#numeric-condition').val() + ' ' + $('#numeric-inputs').val();
+		$('#numeric-visualization').val(preview);
+	});
 }
 
 // Hide all the left panel
@@ -228,7 +235,6 @@ function lpHideDisplay(){
 	$('#isBlock').hide();
 	$('#isNotBlock').hide();
 	$('#caseNumeric').hide();
-	// $('#computationEnabled').hide();
 	$('#targetDefined').hide();
 	$('#question-answers-management').hide();
 }
@@ -271,6 +277,7 @@ function toggleTargetConnection(targetElt){
 		$('#targetDefined').hide();
 	}
 }
+
 
 // Display specific predefined answers according to selected type
 function toggleQuestionTypeVisibility(questionElt){
@@ -513,12 +520,16 @@ function numericFormat(){
 function dumpEditedNode(){
 
 
-	if($('#question-type').val() == "numeric" && ($('#numeric-reference').val() == "" || $('#numeric-visualization').val() == "")){
-		alert("you must fill in computation confgiration first");
-		return null;
+	if($('#question-type').val() == "numeric"){
+		if($('#numeric-reference').val() == ""){
+			alert("You must fill in reference value first");
+			return;
+		}
+		if(! dumpNumericInputs() ){
+			alert("Errors detected in numeric inputs");
+			return;
+		}
 	}
-
-
 
 	nodeData.isResult = $('#isResult').is(":visible");
 	nodeData.isBlock = $('#isBlock').is(":visible");
@@ -587,22 +598,22 @@ function dumpNumericInputs(){
 	console.log("inputs : ", inputs, inputs.length);
 	if(inputs.length == 0){
 		console.log("Error : you must provide at least 1 field for the end user");
-		return null;
+		return false;
 	}
 	else if(inputs.length == 1){
 		if(inputs[0] == ""){
 			console.log("Error : you must provide at least 1 field for the end user");
-			return null;	
+			return false;	
 		}
 	}
 	else if(inputs.length % 2 == 0){
 		console.log("Error : probably missing argument if operator correct");
-		return null;
+		return false;
 	}
 
 	// find all user fields to generate a specific text node for the given question
 	var elt = '';
-	for(var i in inputs){
+	for(var i=0; i<inputs.length; i+2){
 
 		elt = inputs[i];
 
@@ -614,7 +625,7 @@ function dumpNumericInputs(){
 			}
 			else{
 				console.log("Error : operator ", elt, " not recognized");
-				return null;
+				return false
 			}
 		}
 
@@ -632,11 +643,12 @@ function dumpNumericInputs(){
 			}
 			else{
 				console.log("Variable invalid : ", elt);
-				return null;
+				return false;;
 			}			
 		}
+	}
 
-	};
+	return true;
 }
 
 function isReservedVariable(string){
