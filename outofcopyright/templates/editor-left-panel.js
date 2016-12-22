@@ -86,33 +86,53 @@ leftPanelHtml = `
 				</div>
 
 				<div id="caseNumeric" class="form-group">
-					<label for="isComputation" class="col-sm-8" >Is a computation required ?</label>
-					<div class="col-sm-4 text-right">
-						<select id="isComputation">
-							<option value="no" SELECTED>No </option>
-							<option value="yes">		Yes</option>
-						</select>
-					</div>
+					<label class="col-sm-8">Computation configuration</label>
 					<br>
 
-					<div id="computationEnabled" class="col-sm-12" style="padding-top:10px">
-							
-						<label for="refValue" class="col-sm-6" style="padding-top:10px">
-							Reference Value
-						</label>
-						<input id="refValue" type="text"/>
-						<br>
 
-						<label for="inValue" class="col-sm-8" style="padding-top:10px">
-							Operation applied on input
-						</label>
-						<div class="col-sm-4 text-right">
-							<select id="inValue">
-								<option value="==" SELECTED>	= 	</option>
-							</select>
-						</div>		
+					<table style="width:90%; margin-left:5%">
+						<tr>
+							<td style="padding-top:2%"> 
+								<label>Reference Value</label>
+							</td>
+							<td>
+								<input id="numeric-reference" type="text"style="width:100%" />
+							</td>
+						</tr>
+
+						<tr>
+							<td style="padding-top:2%"> 
+								<label>Condition</label>
+							</td>
+							<td>
+								<select id="numeric-condition">
+									<option value="==" SELECTED>	= 	</option>
+									<option value="<" SELECTED>		< 	</option>
+									<option value="<=" SELECTED>	<= 	</option>
+									<option value=">" SELECTED>		> 	</option>
+									<option value=">=" SELECTED>	>= 	</option>
+								</select>
+							</td>
+						</tr>
 						
-					</div>
+						<tr>
+							<td style="padding-top:2%"> 
+								<label>Inputs</label>
+							</td>
+							<td>
+								<input id="numeric-inputs" type="text" style="width:100%" placeholder="NOW - {user_input_1} + {user_input_2}"/>
+							</td>
+						</tr>
+						
+						<tr>
+							<td style="padding-top:2%"> 
+								<label>Visualization</label>
+							</td>
+							<td>
+								<input id="numeric-visualization" type="text" style="width:100%" disabled/>
+							</td>
+						</tr>
+					</table>
 				</div>
 
 				<div id="question-answers-block" class="form-group" style="position:relative">
@@ -190,7 +210,6 @@ function lpConfigDisplay(){
 	$('#caseResult').change(function(){		toggleCaseVisibility($(this), '#isResult', '#isNotResult');			});	// Result node	
 	$('#caseBlock').change(function(){		toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');	});	// Block node	
 	$('#question-type').change(function(){	toggleQuestionTypeVisibility($(this));								});	// Question type	
-	$('#isComputation').change(function(){	toggleComputationVisibility($(this), '#computationEnabled');		});		// Numeric type : handle computation
 	$('#caseTarget').change(function(){		toggleTargetConnection($(this));									});	// Target defined
 
 	// Buttons management
@@ -209,8 +228,7 @@ function lpHideDisplay(){
 	$('#isBlock').hide();
 	$('#isNotBlock').hide();
 	$('#caseNumeric').hide();
-	$('#isComputation').hide();
-	$('#computationEnabled').hide();
+	// $('#computationEnabled').hide();
 	$('#targetDefined').hide();
 	$('#question-answers-management').hide();
 }
@@ -230,7 +248,6 @@ function lpDisplay(){
 	toggleCaseVisibility($('#caseBlock'), '#isBlock', '#isNotBlock');
 	toggleTargetConnection($('#caseTarget'));
 	toggleQuestionTypeVisibility($('#question-type'));
-	toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 }
 
 // Display / Hide div for cases (yes / no option to display element)
@@ -261,12 +278,10 @@ function toggleQuestionTypeVisibility(questionElt){
 	// Specific case for numeric type
 	if(questionElt.val() == "numeric"){
 		$('#caseNumeric').show();
-		$('#isComputation').show();	
-		injectDefaultAnswers(2, ['true', 'false'], true);
+		injectDefaultAnswers(2, ['True', 'False'], true);
 	}
 	else{
 		$('#caseNumeric').hide();
-		$('#isComputation').hide();
 
 		// Check other types
 		switch(questionElt.val()){
@@ -287,14 +302,6 @@ function toggleQuestionTypeVisibility(questionElt){
 	}
 }
 
-// Display or not the specific question for a numeric type
-function toggleComputationVisibility(currentElt, idSelector){
-	if(currentElt.val() == "yes"){
-		$(idSelector).show();
-	}else{
-		$(idSelector).hide();
-	}
-}
 
 
 // Insert the given number of label/input for the default answers section
@@ -574,9 +581,6 @@ function dumpGraphicalNode(nodeId){
 		$('#question-title').val(nodeData.question.title);
 		$('#question-type').val(nodeData.question.type);
 		toggleQuestionTypeVisibility($('#question-type'));
-
-
-		// toggleComputationVisibility($('#isComputation'), '#computationEnabled');
 		dumpAnswers();
 
 		if(nodeData.isClustered){
