@@ -181,7 +181,7 @@ function lpConfigDisplay(){
 		lpHideDisplay();
 		var nodeId = $(this).val();
 		if(nodeId != ""){
-			dumpQuestionNode(nodeId);
+			dumpGraphicalNode(nodeId);
 			$('#node-editor-form').show();
 		}
 	});
@@ -490,7 +490,7 @@ function questionFormat(){
 }
 
 /* Dump the leftPanelHtml template to update the local nodeData variable and to return it*/
-function editorDumper(){
+function dumpEditedNode(){
 
 	nodeData.isResult = $('#isResult').is(":visible");
 	nodeData.isBlock = $('#isBlock').is(":visible");
@@ -542,7 +542,7 @@ function editorDumper(){
 }
 
 /* Update local nodeData based on id received and fill in leftPanelHtml template */
-function dumpQuestionNode(nodeId){
+function dumpGraphicalNode(nodeId){
 
 	nodeData = questionNodes[nodeId];
 
@@ -577,7 +577,7 @@ function dumpQuestionNode(nodeId){
 
 
 		// toggleComputationVisibility($('#isComputation'), '#computationEnabled');
-		dumpDefaultAnswers();
+		dumpAnswers();
 
 		if(nodeData.isClustered){
 			// Disable redirection if clustered node
@@ -586,7 +586,7 @@ function dumpQuestionNode(nodeId){
 		}
 		else{
 			// Or dump links and enable redirection
-			dumpExistingLinks();
+			dumpLinks();
 			$('label[for="caseTarget"]').show();
 			$('#caseTarget').show();		
 		}
@@ -595,7 +595,7 @@ function dumpQuestionNode(nodeId){
 
 
 /* Dumping function insuring you have eough default types */
-function dumpDefaultAnswers(){
+function dumpAnswers(){
 
 	// Default answers section and palceholders
 	var answers = nodeData.question.answers.map(function(a){	return a.label;	 });
@@ -618,7 +618,7 @@ function dumpDefaultAnswers(){
 
 
 /* Dump links existing for default answers already set up */
-function dumpExistingLinks(){
+function dumpLinks(){
 	$.map(nodeData.question.answers, function(a, index){
 		if(a.target != undefined){
 			if($('#target-connections').is(":visible") == false){

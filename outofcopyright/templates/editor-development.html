@@ -139,7 +139,7 @@ text {
 		initSVG();
 		render();
 		$('#node-editor-generate').click(function(){
-			var nodeData = editorDumper();
+			var nodeData = dumpEditedNode();
 			updateNode(nodeData);
 			lpReset();
 			lpHideDisplay();
