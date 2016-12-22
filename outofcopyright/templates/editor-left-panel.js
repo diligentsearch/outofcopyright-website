@@ -275,7 +275,7 @@ function toggleTargetConnection(targetElt){
 // Display specific predefined answers according to selected type
 function toggleQuestionTypeVisibility(questionElt){
 
-	// Specific case for numeric type
+	// Specific case for numeric type : you need to display something more
 	if(questionElt.val() == "numeric"){
 		$('#caseNumeric').show();
 		injectDefaultAnswers(2, ['True', 'False'], true);
@@ -504,13 +504,21 @@ function questionFormat(){
 }
 
 function numericFormat(){
-	nodeData.computation.reference = 0;
-	nodeData.computation.condition = "==";
-	nodeData.computation.formula = "";
+	nodeData.question.computation.reference = 0;
+	nodeData.question.computation.condition = "==";
+	nodeData.question.computation.formula = "";
 }
 
 /* Dump the leftPanelHtml template to update the local nodeData variable and to return it*/
 function dumpEditedNode(){
+
+
+	if($('#question-type').val() == "numeric" && ($('#numeric-reference').val() == "" || $('#numeric-visualization').val() == "")){
+		alert("you must fill in computation confgiration first");
+		return null;
+	}
+
+
 
 	nodeData.isResult = $('#isResult').is(":visible");
 	nodeData.isBlock = $('#isBlock').is(":visible");
@@ -536,6 +544,11 @@ function dumpEditedNode(){
 			}
 			else{
 				console.log("dump numeric case");
+				nodeData.question.computation.reference = parseInt($('#numeric-reference').val());
+				nodeData.question.computation.condition = parseInt($('#numeric-condition').val());
+				// nodeData.question.computation.inputs = dumpNumericInputs();
+				dumpNumericInputs();
+				console.log("nodeData.question : ", nodeData.question);
 			}
 
 			var answers = retrieveSection('input', 'question-def-answers-'),
@@ -568,6 +581,71 @@ function dumpEditedNode(){
 	}
 	return nodeData;
 }
+
+function dumpNumericInputs(){
+	var inputs = $('#numeric-inputs').val().split(' ');
+	console.log("inputs : ", inputs, inputs.length);
+	if(inputs.length == 0){
+		console.log("Error : you must provide at least 1 field for the end user");
+		return null;
+	}
+	else if(inputs.length == 1){
+		if(inputs[0] == ""){
+			console.log("Error : you must provide at least 1 field for the end user");
+			return null;	
+		}
+	}
+	else if(inputs.length % 2 == 0){
+		console.log("Error : probably missing argument if operator correct");
+		return null;
+	}
+
+	// find all user fields to generate a specific text node for the given question
+	var elt = '';
+	for(var i in inputs){
+
+		elt = inputs[i];
+
+		// Check if current input is a valid operator
+		var isOperator = false;
+		if(elt.length == 1){
+			if(elt.indexOf('-') != 0 || elt.indexOf('+') != 0){
+				isOperator = true;
+			}
+			else{
+				console.log("Error : operator ", elt, " not recognized");
+				return null;
+			}
+		}
+
+		// If not operator, check if it is a reserved variable
+		if(! isOperator){
+			var l = elt.length-1;
+
+			// Get field name if it exists
+			if(elt.indexOf('{') == 0 && elt.indexOf('}') == l){
+				var fieldName = elt.substring(1, l-1);
+				console.log("Variable correct : ", fieldName);
+			}
+			else if(isReservedVariable(elt)){
+				console.log("Variable known : ", elt);
+			}
+			else{
+				console.log("Variable invalid : ", elt);
+				return null;
+			}			
+		}
+
+	};
+}
+
+function isReservedVariable(string){
+	return string == 'NOW';
+}
+
+
+
+
 
 /* Update local nodeData based on id received and fill in leftPanelHtml template */
 function dumpGraphicalNode(nodeId){

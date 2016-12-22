@@ -140,9 +140,11 @@ text {
 		render();
 		$('#node-editor-generate').click(function(){
 			var nodeData = dumpEditedNode();
-			updateNode(nodeData);
-			lpReset();
-			lpHideDisplay();
+			if(nodeData != null){
+				updateNode(nodeData);
+				lpReset();
+				lpHideDisplay();				
+			}
 		});
 		$('#node-editor-delete').click(function(){
 			deleteNode();			
