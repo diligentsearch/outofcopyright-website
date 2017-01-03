@@ -7,7 +7,7 @@
 	<title>Menu</title>
 
 	<!-- jQuery -->
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="../js/lib/jquery-1.11.0.min.js"></script>
 
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="editor-left-panel.js"></script>
 
 	<!-- Dependecies -->
-	<script type="text/javascript" src="https://d3js.org/d3.v3.js"></script>
+	<script type="text/javascript" src="../js/lib/d3.v3.min.js"></script>
 	<script type="text/javascript" src="../js/lib/dagre-d3.min.js"></script>
 	<script type="text/javascript" src="../js/editor-development.js"></script>
 
@@ -32,8 +32,8 @@ HTML css
 html,
 body,
 div.container-fluid  {
-    height: 100%;
-    overflow: scroll;
+	height: 100%;
+	overflow: scroll;
 }
 h1{
 	text-align:center;
@@ -49,22 +49,22 @@ div.main-panel{
 }
 div.left-panel{
 	padding-left: 50px;
-    float: none;
-    display: table-cell;
-    vertical-align: top;
+	float: none;
+	display: table-cell;
+	vertical-align: top;
 }
 div.right-panel{
 	padding-left: 50px;
-    float: none;
-    display: table-cell;
-    vertical-align: top;
-    overflow: hidden;
-    position: relative;
+	float: none;
+	display: table-cell;
+	vertical-align: top;
+	overflow: hidden;
+	position: relative;
 }
 svg.svg-css {
 	height: 100%;
 	width:100%;
-    position: absolute;
+	position: absolute;
 }
 
 
@@ -139,12 +139,18 @@ text {
 		initSVG();
 		render();
 		$('#node-editor-generate').click(function(){
-			var nodeData = dumpEditedNode();
-			if(nodeData != null){
-				updateNode(nodeData);
-				lpReset();
-				lpHideDisplay();				
-			}
+			var nodeId = $('#node-editor-id').val(),
+				dtElt = getElement();
+			updateNode(nodeId, dtElt);
+
+
+
+			// var nodeData = dumpEditedNode();
+			// if(nodeData != null){
+			// 	updateNode(nodeData);
+			// 	lpReset();
+			// 	lpHideDisplay();				
+			// }
 		});
 		$('#node-editor-delete').click(function(){
 			deleteNode();			
