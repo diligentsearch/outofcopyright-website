@@ -8,6 +8,8 @@
 
 	<!-- jQuery -->
 	<script src="../js/lib/jquery-1.11.0.min.js"></script>
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+  	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -16,7 +18,14 @@
 	<script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
 
 	<!-- Templates simulation -->
-	<script type="text/javascript" src="editor-left-panel.js"></script>
+	<link rel="stylesheet" href="../css/editor.css">
+	<script type="text/javascript" src="data-model-editor.js"></script>
+	<script type="text/javascript" src="user-input-modal.js"></script>
+	<script type="text/javascript" src="ref-value-modal.js"></script>
+	<script type="text/javascript" src="question-modal.js"></script>
+	<script type="text/javascript" src="result-modal.js"></script>
+	<script type="text/javascript" src="block-modal.js"></script>
+
 
 	<!-- Dependecies -->
 	<script type="text/javascript" src="../js/lib/d3.v3.min.js"></script>
@@ -25,112 +34,175 @@
 
 </head>
 
-<style>
-/*
-HTML css
-*/
-html,
-body,
-div.container-fluid  {
-	height: 100%;
-	overflow: scroll;
-}
-h1{
-	text-align:center;
-}
-label{
-	color:green;
-}
-
-
-div.main-panel{
-	display: table;
-	height:100%;
-}
-div.left-panel{
-	padding-left: 50px;
-	float: none;
-	display: table-cell;
-	vertical-align: top;
-}
-div.right-panel{
-	padding-left: 50px;
-	float: none;
-	display: table-cell;
-	vertical-align: top;
-	overflow: hidden;
-	position: relative;
-}
-svg.svg-css {
-	height: 100%;
-	width:100%;
-	position: absolute;
-}
-
-
-
-
-/* SVG css */
-g.type-TK > rect {
-	fill: #00ffd0;
-}
-
-text {
-	font-weight: 300;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
-	font-size: 14px;
-}
-
-.node rect {
-	stroke: #999;
-	fill: #fff;
-	stroke-width: 1.5px;
-}
-
-.edgePath path {
-	stroke: #333;
-	stroke-width: 1.5px;
-</style>
-
-<body>
-
-	<div class="container-fluid">
-
+<body class="container-fluid">
+	<div style="text-align:center">
 		<h1>Editor Development Template</h1>
-		<p>The objective is to improve what has been done during the OutOfCOpyright project </p>
+		<p>
+			The objective is to provide functionalities of the OutOfCOpyright project and additionnal features such as block of questions, free text, links, etc...
+		</p>
+	</div>
 
-		<!-- Juridisction selection / creation -->
+	<div class="row main-panel">
+		<div id="data-model-editor" class="left-panel"></div>
 
-		<h3>Choose or create a juridisction you want to investigate in</h3>
-		<p>Created and selected by default : 'Netherlands'</p>
-
-
-		<!-- Choose the type of work you want to determine the status -->
-
-		<h3>Choose or create a type of work you want to determine the orphan status</h3>
-		<p>Created and selected by default : 'Audio-Visual'</p>
-
-
-
-		<p>The prototype starts with given meta data for a given decision process tree</p>
-		<p>You have to customize your process as you want it to be</p>
-
-
-		<div class="row main-panel">
-			<div id="editor-left-panel" class="col-md-6 left-panel"></div>
-
-			<div id="editor-content" class="col-md-6 right-panel">
-				<h3>Graphical editor</h3>
-				<svg id="graphical-editor" class="svg-css"></svg> 
-			</div>
-
-
+		<div id="decision-tree-editor" class="right-panel">
+			COUCOU CHARLY
 		</div>
 
+<!-- 
+		<div id="editor-left-panel" class="col-md-6 left-panel"></div>
+
+		<div id="editor-content" class="col-md-6 right-panel">
+			<h3>Graphical editor</h3>
+			<svg id="graphical-editor" class="svg-css"></svg> 
+		</div> -->
+
+
 	</div>
-	
+
+	<div id="modal-section"></div>
+
 </body>
 
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		injectDataModelEditor();
+		injectUserInputModal();
+		injectRefValueModal();
+		injectResultModal();
+		injectQuestionModal();
+		injectBlockModal();
+
+
+		injectUserInputData(-1, {
+			name: "input1",
+			question: "question 1 ? ",
+			information: "",
+			value : undefined
+		});
+
+		injectUserInputData(-1, {
+			name: "input2",
+			question: "question 2 ? ",
+			information: "",
+			value : undefined
+		});
+
+
+
+		injectRefValueData(-1, {
+			name: "ref1",
+			value: 1000,
+			information: ""
+		});
+		injectRefValueData(-1, {
+			name: "ref2",
+			value: 2000,
+			information: ""
+		});
+
+
+		injectResultData(-1, {
+			name: "result1",
+			content: "content of result 1"
+		});
+		injectResultData(-1, {
+			name: "result2",
+			content: "content of result 2"
+		});
+
+		injectQuestionData(-1, {
+			name: "text",
+			type: "text",
+			numerical: undefined,
+			outputs : ['set']
+		});
+		injectQuestionData(-1, {
+			name: "check",
+			type: "check",
+			numerical: undefined,
+			outputs : ['checked True', 'Checked false']
+		});
+		injectQuestionData(-1, {
+			name: "numerical",
+			type: "numeric",
+			numerical: {
+				refId: 0,
+				condition: "==",
+				formula: "",
+				inputsId: [0, 1]
+			},
+			outputs : ['true', 'false']
+		});
+		injectQuestionData(-1, {
+			name: "List",
+			type: "list",
+			numerical: undefined,
+			outputs : ['true', 'false', 'USA', 'red', 'whatever']
+		});
+		
+
+
+
+
+
+// function InputElt(){
+// 	this.name 			= $('#input-reference').val();
+// 	this.question 		= $('#input-question').val();
+// 	this.information 	= $('#input-details').val();
+// 	this.value 			= undefined;		// Manually set by end user
+// };
+
+
+
+// function ReferenceElt(){
+// 	this.name 			= $('#reference-name').val();
+// 	this.value 			= $('#reference-value').val();
+// 	this.information 	= $('#reference-details').val();
+// }
+
+
+
+// function ResultElt(){
+// 	this.name	 	= $('#result-reference').val();
+// 	this.content 	= $('#result-content').val();
+// };
+
+
+
+// function QuestionElt(){
+// 	this.name 		= $('#question-title').val();
+// 	this.type 		= $('#question-type').val();
+// 	this.numerical 	= undefined;
+// 	this.outputs 	= [];				// List of non free choices for the end user
+// };
+
+
+// // Reference specific attributes for computation
+// function NumericalElt(){
+// 	this.refId = -1;
+// 	this.condition 	= $('#numeric-condition').val();
+// 	this.formula 	= $('#numeric-visualization').val();
+// 	this.inputsId 	= [];				// Potentially already set
+// };
+
+
+
+
+
+
+
+
+
+
+
+	});
+</script>
+
+
+
+<!-- 
 <script type="text/javascript">
 
 
@@ -161,5 +233,5 @@ text {
 	});
 
 </script>
-
+ -->
 </html>
