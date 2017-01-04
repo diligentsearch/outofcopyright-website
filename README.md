@@ -7,6 +7,15 @@ This repository holds the Diligent search project, based on a forked version of 
 
 *Note*: under development.
 
+Changes from the commit n°b50db09f14b44cfe9b77ad8ebd49b0b9545157c0
+ * Rebase of the data model to match the fact that questions can be reused
+ * The model will be now splitted into 3 parts : data model creation / graph model / form model
+ * Each of these models comes from the precedent and will have impact on the follower based on an ID system
+
+Modals are used to regain flexibility within code writting
+
+
+
 
 
 ## About OutOfCopyright project
