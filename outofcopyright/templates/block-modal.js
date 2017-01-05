@@ -38,7 +38,7 @@ html_block = `
 						</div>
 						<div id="block-questions-management" style="float:right" >				
 							<button id="addQuestion" type="button">+</button>
-							<button id="delQuestion" type="button">-</button>
+							<button id="delLastQuestion" type="button">-</button>
 						</div>
 					</div>
 				</div>
@@ -59,7 +59,7 @@ html_block = `
 function injectBlockModal(){
 	$('#modal-section').append(html_block);
 	$('#addQuestion').click(function(){	addQuestion();	});
-	$('#delQuestion').click(function(){	delQuestion();	});
+	$('#delLastQuestion').click(function(){	delLastQuestion();	});
 	addQuestion();
 };
 
@@ -68,16 +68,19 @@ currentBlockIndex = -1;
 currentBlockId = -1
 function loadBlock(index, blockElt){
 	currentBlockIndex 	= index;
-	currentBlockId 		= blockElt.id;
-	
+	currentBlockId 		= blockElt.id;	
 
 	$('#block-name').val(blockElt.name);
 	$('#block-introduction').val(blockElt.introduction);
+
 	for (var i = 0; i < blockElt.questions.length; i++) {
 
 		console.log("Block : adding question");
 
-		addQuestion();
+		// There is always a 'default' question, so avoid to add one on the first iteration
+		if(i != 0){
+			addQuestion();			
+		}
 		var idx = blockElt.questions[i];
 		for (var j = 0; j < questions.length; j++) {
 			if(idx == questions[j].id){
@@ -121,7 +124,7 @@ function dumpBlock(){
 
 function dismissBlockModal(){
 	$('.modal-body').find("input").val("");
-	$('#block-questions-selection > tr').remove();
+	delQuestions();
 	if(currentBlockIndex != -1){
 		currentBlockIndex = -1;
 	}
@@ -170,10 +173,16 @@ function addQuestion(){
 }
 
 // Remove the last inserted answer if possible
-function delQuestion(){
+function delLastQuestion(){
 	if($('#block-questions-selection').children().length >= 2){
 		$('#block-questions-selection > tr:last').remove();
 	}	
+}
+
+function delQuestions(){
+	while($('#block-questions-selection').children().length >= 2){
+		$('#block-questions-selection > tr:last').remove();
+	}
 }
 
 
