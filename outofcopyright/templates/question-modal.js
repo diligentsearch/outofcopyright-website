@@ -55,7 +55,10 @@ html_question = `
 								<label>Reference Value</label>
 							</td>
 							<td>
-								<input id="numeric-reference" class="ui-autocomplete" type="text"style="min-width:100%;" />								
+								<input id="numeric-reference" class="ui-autocomplete" type="text"style=" min-width:100%;" />								
+							</td>
+							<td>
+								<input id="numeric-reference-id" type="hidden">
 							</td>
 						</tr>
 
@@ -79,7 +82,7 @@ html_question = `
 								<label>Inputs</label>
 							</td>
 							<td>
-								<input id="numeric-inputs" type="text" style="width:100%" placeholder="NOW - user_input_1 + user_input_2"/>
+								<input id="numeric-inputs" type="text" style="width:100%" placeholder="ref_value_1 + ref_value_2 - user_input_1 + user_input_2"/>
 							</td>
 						</tr>
 						
@@ -88,7 +91,7 @@ html_question = `
 								<label>Visualization</label>
 							</td>
 							<td>
-								<input id="numeric-visualization" class="ui-autocomplete" type="text" style="width:100%" disabled/>
+								<input id="numeric-visualization" type="text" style="width:100%" disabled/>
 							</td>
 						</tr>
 					</table>
@@ -146,19 +149,41 @@ function loadQuestion(index, questionElt){
 	if(questionElt.numerical !== undefined){
 		$('#isNumeric').show();
 
-		var refId 	= questionElt.numerical.refId,
-			cond 	= questionElt.numerical.condition,
-			formula = questionElt.numerical.formula;
+		// Get reference
+		for (var i = 0; i < referenceValues.length; i++) {
+			if(referenceValues[i].id == questionElt.numerical.refId){
+				$('#numeric-reference').val(referenceValues[i].name);
+				$('#numeric-reference-id').val(referenceValues[i].id);
+				break;
+			}
+		}
 
-		$('#numeric-reference').val(referenceValues[refId].name);
-		$('#numeric-condition').val(cond);
-		$('#numeric-inputs').val(formula.split(" "+cond+" ")[1]);
-		$('#numeric-visualization').val(formula);
+		// Get condition
+		$('#numeric-condition').val(questionElt.numerical.condition);
 
+		// Get inputs field and inject operation between each element
+		var inputsField = "";
+		for (var i = 0; i < questionElt.numerical.expression.length; i++) {
+
+			// Insert operation if it's not the first term
+			if(i != 0){
+				inputsField += questionElt.numerical.operations[i-1]+' ';
+			}
+
+			// Retrieve inpu name and inject it
+			var expElt = questionElt.numerical.expression[i],
+				dataSet = expElt.sources,
+				element = dataSet[expElt.idx];
+
+			inputsField += element.name+' ';		
+		}
+
+		$('#numeric-inputs').val(inputsField);
+		var preview = $('#numeric-reference').val() + ' ' + $('#numeric-condition').val() + ' ' + $('#numeric-inputs').val();
+		$('#numeric-visualization').val(preview);
 	}
 	$('#add-questionModal').modal('show');
 }
-
 
 
 function dumpQuestion(){
@@ -170,7 +195,15 @@ function dumpQuestion(){
 
 	// Create the question object
 	var question = new QuestionElt();
-	var num_conf = undefined;
+	question.id = getQuestionId();
+	
+
+	var outputs = retrieveSection('input', 'question-output-');
+	outputs.forEach(function(elt, idx){
+		var o = elt.value != "" ? elt.value : elt.placeholder;
+		question.outputs[idx] = o;
+	});
+
 	if(question.type == "numeric"){
 		// Check reference value
 		if($('#numeric-reference').val() == ""){
@@ -183,49 +216,53 @@ function dumpQuestion(){
 		}
 		else{
 			// Append numeric config to the question object
-			num_conf = new NumericalElt();
-
+			question.numerical = new NumericalElt();
+			
 			// Get the id of the refValue
-			var found = false;
-			for (var i = 0; i < referenceValues.length; i++) {
-				if(referenceValues[i].name == $('#numeric-reference').val()){
-					num_conf.refId = i;
-					found = true;
-					break;
-				}
-			}
+			question.numerical.refId = getReferenceId();
+			var found = question.numerical.refId != undefined;
 			if(!found){
 				error_log += "Reference value  <"+ $('#numeric-reference').val() +"> not found in references values\n";
 			}
 
 			// Get foreach input its id
-			var displayedInputs = $('#numeric-inputs').val().split(/\s+[-+]\s*/);
-			console.log("displayedInputs : ", displayedInputs);
+			var displayedInputs = $('#numeric-inputs').val().split(/\s+/);
 			for(var i=0; i<displayedInputs.length; i++){
 
-				found = false;
-				for(var j=0; j<userInputs.length; j++){
-					if(userInputs[j].name == displayedInputs[i]){						
-						num_conf.inputsId.push(j);
-						found = true;
-						break;
-					}					
+				// garbage
+				if(displayedInputs[i] == ""){
+					console.log("garbage");
 				}
-				if(!found){
-					for(var j=0; j<referenceValues.length; j++){
-						if(referenceValues[j].name == displayedInputs[i]){						
-							num_conf.inputsId.push(j);
+				else if(displayedInputs[i] == '+' || displayedInputs[i] == '-'){
+					// Check if it's an operation
+					question.numerical.operations.push(displayedInputs[i]);
+				}
+				else{
+					found = false;
+					// Check first in user input list
+					for(var j=0; j<userInputs.length; j++){
+						if(displayedInputs[i] == userInputs[j].name){
+							var p = question.numerical.expression.push(new ExpressionElt(userInputs, userInputs[j].id));
 							found = true;
 							break;
 						}					
 					}
-
 					if(!found){
-						error_log += "Input value <"+ displayedInputs[i] + "> not found in user inputs\n";
+						// Check in references values list if not found
+						for(var j=0; j<referenceValues.length; j++){
+							if(displayedInputs[i] == referenceValues[j].name){
+								var p = question.numerical.expression.push(new ExpressionElt(referenceValues, referenceValues[j].id));
+								found = true;
+								break;
+							}					
+						}
+
+						if(!found){
+							error_log += "Input value <"+ displayedInputs[i] + "> not found in user inputs\n";
+						}
 					}
 				}
 			}
-			console.log(num_conf);
 		}
 	}
 
@@ -234,19 +271,8 @@ function dumpQuestion(){
 		return;
 	}
 
-	if(num_conf !== undefined){
-		question.numerical = num_conf;
-	}
-
-
-	var outputs = retrieveSection('input', 'question-output-');
-	outputs.forEach(function(elt, idx){
-		var o = elt.value != "" ? elt.value : elt.placeholder;
-		question.outputs[idx] = o;
-	});
-
-
-	question.id = getQuestionId();
+	console.log("dumping : ", question);
+	
 
 	injectQuestionData(currentQuestionIndex, question);
 	dismissQuestionModal();
@@ -279,9 +305,15 @@ function QuestionElt(){
 function NumericalElt(){
 	this.refId 		= undefined;
 	this.condition 	= $('#numeric-condition').val();
-	this.formula 	= $('#numeric-visualization').val();
-	this.inputsId 	= [];				// Potentially already set
+	this.expression = []	// List of ExpressionElt
+	this.operations = []; 	// List of '+' and '-' to fit between 2 elements
 };
+
+// Reference object to store in numerical configuration element
+function ExpressionElt(dataSrc, id){
+	this.sources	= dataSrc;
+	this.idx 		= id;
+}
 
 
 function getQuestionId(){
@@ -296,6 +328,14 @@ function getQuestionId(){
 	else{
 		return currentQuestionId;
 	}
+}
+
+
+function getReferenceId() {
+	if($('#numeric-reference-id').val() == ""){
+		return undefined;
+	}
+	return parseInt($('#numeric-reference-id').val());
 }
 
 
@@ -320,6 +360,16 @@ function getQuestionId(){
 		open: function() { 
 			var parent_width = $('#numeric-reference').width();
 			$('.ui-autocomplete').width(parent_width);
+		},
+		select: function(event, ui){
+			$(this).val(ui.item.value);
+
+			// Look for the id of this reference
+			for (var i = 0; i < referenceValues.length; i++) {
+				if($(this).val() == referenceValues[i].name){
+					$('#numeric-reference-id').val(referenceValues[i].id);
+				}
+			}
 		}
 	});
 

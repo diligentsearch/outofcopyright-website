@@ -139,8 +139,14 @@
 			numerical: {
 				refId: 0,
 				condition: "==",
-				formula: "",
-				inputsId: [0, 1]
+				expression: [{
+					sources: userInputs,
+					idx: 0
+				},{
+					sources: userInputs,
+					idx: 1
+				}],
+				operations: ['+']
 			},
 			outputs : ['true', 'false']
 		});
