@@ -76,6 +76,7 @@
 
 
 		injectUserInputData(-1, {
+			id: 0,
 			name: "input1",
 			question: "question 1 ? ",
 			information: "",
@@ -83,6 +84,7 @@
 		});
 
 		injectUserInputData(-1, {
+			id: 1,
 			name: "input2",
 			question: "question 2 ? ",
 			information: "",
@@ -92,11 +94,13 @@
 
 
 		injectRefValueData(-1, {
+			id: 0,
 			name: "ref1",
 			value: 1000,
 			information: ""
 		});
 		injectRefValueData(-1, {
+			id: 1,
 			name: "ref2",
 			value: 2000,
 			information: ""
@@ -104,27 +108,32 @@
 
 
 		injectResultData(-1, {
+			id: 0,
 			name: "result1",
 			content: "content of result 1"
 		});
 		injectResultData(-1, {
+			id: 1,
 			name: "result2",
 			content: "content of result 2"
 		});
 
 		injectQuestionData(-1, {
+			id: 0,
 			name: "text",
 			type: "text",
 			numerical: undefined,
 			outputs : ['set']
 		});
 		injectQuestionData(-1, {
+			id: 1,
 			name: "check",
 			type: "check",
 			numerical: undefined,
 			outputs : ['checked True', 'Checked false']
 		});
 		injectQuestionData(-1, {
+			id: 2, 
 			name: "numerical",
 			type: "numeric",
 			numerical: {
@@ -136,6 +145,7 @@
 			outputs : ['true', 'false']
 		});
 		injectQuestionData(-1, {
+			id: 3,
 			name: "List",
 			type: "list",
 			numerical: undefined,

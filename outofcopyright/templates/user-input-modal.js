@@ -45,9 +45,11 @@ function injectUserInputModal(){
 };
 
 
-currentInputIdx = -1;
-function loadUserInput(inputIdx, inputElt){
-	currentInputIdx = inputIdx;
+currentInputIndex = -1;
+currentInputId = -1;
+function loadUserInput(index, inputElt){
+	currentInputIndex = index;
+	currentInputId = inputElt.id;
 	$('#input-reference').val(inputElt.name);
 	$('#input-question').val(inputElt.question);
 	$('#input-details').val(inputElt.information);
@@ -70,7 +72,8 @@ function dumpUserInput(){
 	}
 
 	var input = new InputElt();
-	injectUserInputData(currentInputIdx, input);
+	input.id = getUserInputId();
+	injectUserInputData(currentInputIndex, input);
 	
 	dismissUserInputModal();	
 }
@@ -81,16 +84,38 @@ function dismissUserInputModal(){
 	$('#input-question').val('');
 	$('#input-details').val('');
 
-	if(currentInputIdx != -1){
-		currentInputIdx = -1;
+	if(currentInputIndex != -1){
+		currentInputIndex = -1;
+	}
+	if(currentInputId != -1){
+		currentInputId = -1;
 	}
 	$('#add-userInputModal').modal('hide');
 }
 
 function InputElt(){
+	this.id 			= undefined;
 	this.name 			= $('#input-reference').val();
 	this.question 		= $('#input-question').val();
 	this.information 	= $('#input-details').val();
 	this.value 			= undefined;		// Manually set by end user
 };
+
+
+// If first id : returns 0
+// Else if new input : returns previous id + 1
+// Else if not new id : returns already used id
+function getUserInputId(){
+	if(currentInputId == -1){
+		var l = userInputs.length;
+		if(l == 0){
+			return 0;
+		}else{
+			return userInputs[l-1].id + 1;
+		}
+	}
+	else{
+		return currentInputId;		
+	}
+}
 

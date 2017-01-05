@@ -42,9 +42,11 @@ function injectRefValueModal(){
 	$('#modal-section').append(html_refValue);
 };
 
-currentRefIdx = -1;
-function loadRefValue(refIdx, refElt){
-	currentRefIdx = refIdx;
+currentReferenceIndex = -1;
+currentReferenceId = -1;
+function loadRefValue(index, refElt){
+	currentReferenceIndex = index;
+	currentReferenceId = refElt.id;
 	$('#reference-name').val(refElt.name);
 	$('#reference-value').val(refElt.value);
 	$('#reference-details').val(refElt.information);
@@ -66,7 +68,8 @@ function dumpRefValue(){
 	}
 
 	var ref = new ReferenceElt();
-	injectRefValueData(currentRefIdx, ref);
+	ref.id = getRefId();
+	injectRefValueData(currentReferenceIndex, ref);
 	
 	dismissRefValueModal();	
 };
@@ -78,8 +81,11 @@ function dismissRefValueModal(){
 	$('#reference-value').val('');
 	$('#reference-details').val('');
 
-	if(currentRefIdx != -1){
-		currentRefIdx = -1;
+	if(currentReferenceIndex != -1){
+		currentReferenceIndex = -1;
+	}
+	if(currentReferenceId != -1){
+		currentReferenceId = -1;
 	}
 	$('#add-refValueModal').modal('hide');
 }
@@ -87,7 +93,23 @@ function dismissRefValueModal(){
 
 // Reference values for manager
 function ReferenceElt(){
+	this.id 			= undefined;
 	this.name 			= $('#reference-name').val();
 	this.value 			= $('#reference-value').val();
 	this.information 	= $('#reference-details').val();
+}
+
+
+function getRefId(){
+	if(currentReferenceId == -1){
+		var l = referenceValues.length;
+		if(l == 0){
+			return 0;
+		}else{
+			return referenceValues[l-1].id + 1;
+		}
+	}
+	else{
+		return currentReferenceId;		
+	}
 }

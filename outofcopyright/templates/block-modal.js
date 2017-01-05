@@ -29,7 +29,8 @@ html_block = `
 								<thead>
 									<th style="width:10%; text-align:center">#</th>
 									<th style="width:50%; text-align:center">Question</th>
-									<th style="width:40%; text-align:center">Type</th>
+									<th style="width:35%; text-align:center">Type</th>
+									<th style="width:5%;  text-align:center"></th>
 								</thead>
 								<tbody id="block-questions-selection">
 								</tbody>
@@ -62,14 +63,29 @@ function injectBlockModal(){
 	addQuestion();
 };
 
-currentBlockIdx = -1;
-function loadBlock(blockIdx, blockElt){
-	currentBlockIdx = blockIdx;
+
+currentBlockIndex = -1;
+currentBlockId = -1
+function loadBlock(index, blockElt){
+	currentBlockIndex 	= index;
+	currentBlockId 		= blockElt.id;
+	
+
 	$('#block-name').val(blockElt.name);
 	$('#block-introduction').val(blockElt.introduction);
 	for (var i = 0; i < blockElt.questions.length; i++) {
-		console.log("adding questions", blockElt.questions[i]);
-		addQuestion(blockElt.questions[i]);
+
+		addQuestion();
+		var idx = blockElt.questions[i];
+		for (var j = 0; j < questions.length; j++) {
+			if(idx == questions[j].id){
+				var q = questions[j];
+				console.log("getting back : ", q);
+				$('#block-questions-selection-'+i).val(q.name);
+				$('#block-questions-selection-id-'+i).val(q.id);
+				$('#block-questions-selection-type-'+i).val(q.type);
+			}
+		}
 	}
 
 	$('#add-blockModal').modal('show');
@@ -94,28 +110,44 @@ function dumpBlock(){
 		nbQuestions = $('#block-questions-selection > tr').length;
 
 	for (var i = 0; i < nbQuestions; i++) {
-		block.questions.push($('#block-questions-selection-'+i).val());
+		block.questions.push($('#block-questions-selection-id-'+i).val());
 	}
 
-	injectBlockData(currentBlockIdx, block);	
+	injectBlockData(currentBlockIndex, block);	
 	dismissBlockModal();	
 };
 
 function dismissBlockModal(){
 	$('.modal-body').find("input").val("");
 	$('#block-questions-selection > tr').remove();
-	if(currentBlockIdx != -1){
-		currentBlockIdx = -1;
+	if(currentBlockIndex != -1){
+		currentBlockIndex = -1;
 	}
 	$('#add-blockModal').modal('hide');
 }
 
 
 function BlockElt(){
+	this.id 			= undefined;
 	this.name 			= $('#block-name').val();
 	this.introduction	= $('#block-introduction').val();
 	this.questions 		= [];
 };
+
+
+function getBlockId(){
+	if(currentBlockId == -1){
+		var l = blocks.length;
+		if(l == 0){
+			return 0;
+		}else{
+			return blocks[l-1].id + 1;
+		}
+	}
+	else{
+		return currentBlockId;
+	}
+}
 
 
 
@@ -129,14 +161,10 @@ function BlockElt(){
 */
 
 // Insert one more answer in the default answers section
-function addQuestion(value){
+function addQuestion(){
 	$('#block-questions-selection').append(getNewQuestion());
 	var i = $('#block-questions-selection > tr').length - 1;
 	configQuestionComplete(i);
-
-	if(value){
-		$('#block-questions-selection-'+i).val(value);
-	}
 }
 
 // Remove the last inserted answer if possible
@@ -147,7 +175,7 @@ function delQuestion(){
 }
 
 
-function getNewQuestion(placeholder){
+function getNewQuestion(){
 	var i = $('#block-questions-selection > tr').length,
 		j = i+1,
 		question = `
@@ -157,7 +185,10 @@ function getNewQuestion(placeholder){
 				<input id="block-questions-selection-`+i+`" class="ui-autocomplete" style="margin-left:5%; margin-right:5%; width:90%" type="text" placeholder="Question ref"/>
 			</th>
 			<th style="padding:1%">
-				<input id="block-questions-selection-type-`+i+`" style="margin-left:5%; margin-right:5%; width:90%" disabled/>
+				<input id="block-questions-selection-type-`+i+`" style="margin-left:5%; margin-right:5%; width:90%" disabled="disabled"/>
+			</th>
+			<th style="padding:1%">
+				<input id="block-questions-selection-id-`+i+`" type="hidden">
 			</th>
 		</tr>
 	`;
@@ -178,6 +209,19 @@ function configQuestionComplete(i){
 		open: function() { 
 			var parent_width = $('#block-questions-selection-'+i).width();
 			$('.ui-autocomplete').width(parent_width);
+		},
+		select: function(event, ui){
+			$(this).val(ui.item.value);
+
+			// Look for the id of this question
+			for (var i = 0; i < questions.length; i++) {
+				if($(this).val() == questions[i].name){
+					$('#block-questions-selection-type-'+i).val(questions[i].type);
+					$('#block-questions-selection-id-'+i).val(questions[i].id);
+
+					console.log("adding : ", questions[i].type, questions[i].id);
+				}
+			}
 		}
-	});	
+	});
 }

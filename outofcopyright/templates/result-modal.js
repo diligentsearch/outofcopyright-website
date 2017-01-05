@@ -36,9 +36,11 @@ function injectResultModal(){
 	$('#modal-section').append(html_result);
 };
 
-currentResIdx = -1;
-function loadResult(resIdx, resElt){
-	currentResIdx = resIdx;
+currentResultIndex = -1;
+currentResultId = -1;
+function loadResult(index, resElt){
+	currentResultIndex = index;
+	currentResultId = resElt.id;
 	$('#result-reference').val(resElt.name);
 	$('#result-content').val(resElt.content);
 	$('#add-resultModal').modal('show');
@@ -59,7 +61,8 @@ function dumpResult(){
 	}
 
 	var res = new ResultElt();
-	injectResultData(currentResIdx, res);
+	res.id = getResultId();
+	injectResultData(currentResultIndex, res);
 	
 	dismissResultModal();	
 };
@@ -67,13 +70,32 @@ function dumpResult(){
 function dismissResultModal(){
 	$('#result-reference').val('');
 	$('#result-content').val('');
-	if(currentResIdx != -1){
-		currentResIdx = -1;
+	if(currentResultIndex != -1){
+		currentResultIndex = -1;
+	}
+	if(currentResultId != -1){
+		currentResultId = -1;
 	}
 	$('#add-resultModal').modal('hide');
 };
 
 function ResultElt(){
+	this.id 		= undefined;
 	this.name	 	= $('#result-reference').val();
 	this.content 	= $('#result-content').val();
 };
+
+
+function getResultId(){
+	if(currentResultId == -1){
+		var l = results.length;
+		if(l == 0){
+			return 0;
+		}else{
+			return results[l-1].id + 1;
+		}
+	}
+	else{
+		return currentResultId;		
+	}
+}

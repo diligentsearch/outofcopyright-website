@@ -127,10 +127,12 @@ function injectQuestionModal(){
 	configAutocomplete();
 };
 
-currentQuestionIdx = -1;
-function loadQuestion(questionIdx, questionElt){
-	currentQuestionIdx = questionIdx;
-	
+currentQuestionIndex = -1;
+currentQuestionId = -1;
+function loadQuestion(index, questionElt){
+	currentQuestionIndex = index;
+	currentQuestionId = questionElt.id;
+
 	// Basic fields
 	$('#question-title').val(questionElt.name);
 	$('#question-type').val(questionElt.type);
@@ -139,8 +141,6 @@ function loadQuestion(questionIdx, questionElt){
 	var increasable = questionElt.type == 'list'; 
 	var placeholder = questionElt.outputs;
 	injectDefaultAnswers(placeholder.length, placeholder, increasable);
-
-	console.log("question : ", questionElt);
 
 	// Numerical configuration
 	if(questionElt.numerical !== undefined){
@@ -245,7 +245,10 @@ function dumpQuestion(){
 		question.outputs[idx] = o;
 	});
 
-	injectQuestionData(currentQuestionIdx, question);
+
+	question.id = getQuestionId();
+
+	injectQuestionData(currentQuestionIndex, question);
 	dismissQuestionModal();
 };
 
@@ -253,14 +256,18 @@ function dismissQuestionModal(){
 	$('.modal-body').find("input").val("");
 	$('#question-type').val("text");
 	toggleQuestionTypeVisibility($('#question-type').val());
-	if(currentQuestionIdx != -1){
-		currentQuestionIdx = -1;
+	if(currentQuestionIndex != -1){
+		currentQuestionIndex = -1;
+	}
+	if(currentQuestionId != -1){
+		currentQuestionId = -1;
 	}
 	$('#add-questionModal').modal('hide');
 };
 
 
 function QuestionElt(){
+	this.id 		= undefined;
 	this.name 		= $('#question-title').val();
 	this.type 		= $('#question-type').val();
 	this.numerical 	= undefined;
@@ -270,11 +277,26 @@ function QuestionElt(){
 
 // Reference specific attributes for computation
 function NumericalElt(){
-	this.refId = -1;
+	this.refId 		= undefined;
 	this.condition 	= $('#numeric-condition').val();
 	this.formula 	= $('#numeric-visualization').val();
 	this.inputsId 	= [];				// Potentially already set
 };
+
+
+function getQuestionId(){
+	if(currentQuestionId == -1){
+		var l = questions.length;
+		if(l == 0){
+			return 0;
+		}else{
+			return questions[l-1].id + 1;
+		}
+	}
+	else{
+		return currentQuestionId;
+	}
+}
 
 
 
