@@ -77,17 +77,16 @@
 
 		injectUserInputData(-1, {
 			id: 0,
-			name: "input1",
-			question: "question 1 ? ",
+			name: "Date_publication",
+			question: "When was the work published ?",
 			information: "",
 			value : undefined
 		});
-
 		injectUserInputData(-1, {
 			id: 1,
-			name: "input2",
-			question: "question 2 ? ",
-			information: "",
+			name: "Date_birth_author",
+			question: "When is the author born",
+			information: "This is good to know for further computations",
 			value : undefined
 		});
 
@@ -95,46 +94,90 @@
 
 		injectRefValueData(-1, {
 			id: 0,
-			name: "ref1",
-			value: 1000,
-			information: ""
+			name: "NOW",
+			value: "Now",
+			information: "Current year"
 		});
 		injectRefValueData(-1, {
 			id: 1,
-			name: "ref2",
-			value: 2000,
-			information: ""
+			name: "Book_protection",
+			value: 75,
+			information: "Number of years during the time a book is protected"
 		});
 
 
 		injectResultData(-1, {
 			id: 0,
-			name: "result1",
-			content: "content of result 1"
+			name: "Result_work_free",
+			content: "It appears this work is totally free"
 		});
 		injectResultData(-1, {
 			id: 1,
-			name: "result2",
-			content: "content of result 2"
+			name: "Result_not_orphan",
+			content: "This work doesn't appear to be an orphan work"
 		});
+
+
+
+
+
+
+
+
 
 		injectQuestionData(-1, {
 			id: 0,
-			name: "text",
+			name: "Broadcaster's_name_&_successors'_names",
+			title: "Broadcaster name and all of its legal successors: ",
 			type: "text",
 			numerical: undefined,
 			outputs : ['set']
 		});
 		injectQuestionData(-1, {
 			id: 1,
-			name: "check",
-			type: "check",
+			name: "Broadcaster_/_successors_in_business",
+			title: "Broadcaster, or any of its legal succesors, still in business?",
+			type: "list",
 			numerical: undefined,
-			outputs : ['checked True', 'Checked false']
+			outputs : ['Yes', 'No']
 		});
 		injectQuestionData(-1, {
-			id: 2, 
-			name: "numerical",
+			id: 2,
+			name: "Broadcaster_public",
+			title: "Is this broadcaster, or any of its legal succesors, a public broadcaster?",
+			type: "list",
+			numerical: undefined,
+			outputs : ['Yes', 'No']
+		});
+		injectQuestionData(-1, {
+			id: 3,
+			name: "Instructions_followed",
+			title: "I followed the instructions.",
+			type: "check",
+			numerical: undefined,
+			outputs : ['Checked', 'Not checked']
+		});
+		injectQuestionData(-1, {
+			id: 4,
+			name: "Contact_details",
+			title: "Please fill any contact details you found: ",
+			type: "text",
+			numerical: undefined,
+			outputs : ['set']
+		});
+		injectBlockData(-1, {
+			id: 0,
+			name: "Broadcaster_informations",
+			introduction: "Please input the details below: ",
+			questions: [0, 1, 2, 3, 4]
+		});
+		
+
+
+		injectQuestionData(-1, {
+			id: 5, 
+			name: "Numerical_computation_example",
+			title: "This is an example of computation between referenced data",
 			type: "numeric",
 			numerical: {
 				refId: 0,
@@ -150,69 +193,6 @@
 			},
 			outputs : ['true', 'false']
 		});
-		injectQuestionData(-1, {
-			id: 3,
-			name: "List",
-			type: "list",
-			numerical: undefined,
-			outputs : ['true', 'false', 'USA', 'red', 'whatever']
-		});
-		
-
-
-
-
-
-// function InputElt(){
-// 	this.name 			= $('#input-reference').val();
-// 	this.question 		= $('#input-question').val();
-// 	this.information 	= $('#input-details').val();
-// 	this.value 			= undefined;		// Manually set by end user
-// };
-
-
-
-// function ReferenceElt(){
-// 	this.name 			= $('#reference-name').val();
-// 	this.value 			= $('#reference-value').val();
-// 	this.information 	= $('#reference-details').val();
-// }
-
-
-
-// function ResultElt(){
-// 	this.name	 	= $('#result-reference').val();
-// 	this.content 	= $('#result-content').val();
-// };
-
-
-
-// function QuestionElt(){
-// 	this.name 		= $('#question-title').val();
-// 	this.type 		= $('#question-type').val();
-// 	this.numerical 	= undefined;
-// 	this.outputs 	= [];				// List of non free choices for the end user
-// };
-
-
-// // Reference specific attributes for computation
-// function NumericalElt(){
-// 	this.refId = -1;
-// 	this.condition 	= $('#numeric-condition').val();
-// 	this.formula 	= $('#numeric-visualization').val();
-// 	this.inputsId 	= [];				// Potentially already set
-// };
-
-
-
-
-
-
-
-
-
-
-
 	});
 </script>
 

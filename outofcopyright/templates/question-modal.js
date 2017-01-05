@@ -9,9 +9,15 @@ html_question = `
 
 			<div class="modal-body">
 				<div class="form-group">
-					<label for="question-title">Question title: </label>
+					<label for="question-identifier">Question identifier: </label>
 					<br>
-					<input id="question-title" type="text" style="width:100%"/>					
+					<input id="question-identifier" type="text" style="width:100%"/>					
+				</div>
+
+				<div class="form-group">
+					<label for="question-asked">Question to ask: </label>
+					<br>
+					<input id="question-asked" type="text" style="width:100%"/>					
 				</div>
 
 				<div class="form-group">
@@ -137,7 +143,8 @@ function loadQuestion(index, questionElt){
 	currentQuestionId = questionElt.id;
 
 	// Basic fields
-	$('#question-title').val(questionElt.name);
+	$('#question-identifier').val(questionElt.name);
+	$('#question-asked').val(questionElt.title);
 	$('#question-type').val(questionElt.type);
 
 	// Answers fields
@@ -189,9 +196,12 @@ function loadQuestion(index, questionElt){
 function dumpQuestion(){
 
 	var error_log = "";
-	if($('#question-title').val() == ""){
-		error_log += "Question title is empty\n"; 
+	if($('#question-identifier').val() == ""){
+		error_log += "Question identifier is empty\n"; 
 	}	
+	if($('#question-asked').val() == ""){
+		error_log += "Question title is empty\n"; 
+	}
 
 	// Create the question object
 	var question = new QuestionElt();
@@ -294,7 +304,8 @@ function dismissQuestionModal(){
 
 function QuestionElt(){
 	this.id 		= undefined;
-	this.name 		= $('#question-title').val();
+	this.name 		= $('#question-identifier').val();
+	this.title 		= $('#question-asked').val();
 	this.type 		= $('#question-type').val();
 	this.numerical 	= undefined;
 	this.outputs 	= [];				// List of non free choices for the end user

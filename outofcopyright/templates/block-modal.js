@@ -75,6 +75,8 @@ function loadBlock(index, blockElt){
 	$('#block-introduction').val(blockElt.introduction);
 	for (var i = 0; i < blockElt.questions.length; i++) {
 
+		console.log("Block : adding question");
+
 		addQuestion();
 		var idx = blockElt.questions[i];
 		for (var j = 0; j < questions.length; j++) {
